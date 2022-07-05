@@ -1,0 +1,32 @@
+.regular {
+  background: #ffffff;
+  border-radius: 0.4vw;
+  border: 0;
+  color: #ff868e;
+  padding: 0.4vw;
+  font-size: 2vw;
+}
+
+@media (min-width: 768px) {
+  .regular {
+    background: #ffffff;
+    border-radius: 0.694vw;
+    border: 0;
+    color: #ff868e;
+    padding: 0.694vw;
+    font-size: 1.5vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .regular {
+    font-size: 1.2vw;
+  }
+}
+
+@media (min-width: 1440px) {
+}
+
+.regular:hover {
+  background: #fbe0dc;
+}

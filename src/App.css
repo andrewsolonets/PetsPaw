@@ -1,38 +1,250 @@
 .App {
-  text-align: center;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: "Jost", sans-serif;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: #f8f8f7;
+}
+h1 {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 3vw;
+  line-height: 4vw;
+  color: #1d1d1d;
+  margin-bottom: 0.694vw;
+}
+.greetings p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.38vw;
+  line-height: 2vw;
+  color: #8c8c8c;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.girl-pets img {
+  position: relative;
+  width: 53.819vw;
+  height: 62.5vw;
+
+  /* background-color: ; */
+}
+
+.girl-pets {
+  display: none;
+  position: absolute;
+  left: 45vw;
+}
+.girl-pets div {
+  position: absolute;
+  left: 50px;
+  top: 40px;
+  width: 47.222vw;
+  height: 58.333vw;
+  background: #fbe0dc;
+  border-radius: 20px;
+}
+
+.main {
+  display: flex;
+  gap: 6.5vw;
+}
+
+.greetings {
+  margin-bottom: 4.1vw;
+}
+.options-container p {
+  font-weight: 500;
+  font-size: 1.38vw;
+  line-height: 2vw;
+  margin-bottom: 1.389vw;
+}
+
+.parent {
+  position: fixed;
+}
+
+.logo {
+  position: fixed;
+  width: 15vw;
+  left: 9vw;
+  top: 3vw;
+}
+section {
   display: flex;
   flex-direction: column;
+  padding-top: 11vw;
+  padding-left: 14vw;
+}
+.options {
+  display: flex;
+  gap: 0.694vw;
+}
+.option-button div {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 16vw;
+  height: 20vw;
+  border: 4px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.option-button:hover div {
+  border: 4px solid #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.option-button:active div {
+  border: 4px solid #fbe0dc;
+}
+
+.option-button:hover Button {
+  background: #fbe0dc;
+}
+.option-button:active Button {
+  color: #ffffff;
+  background: #ff868e;
+}
+
+.option-button {
+  display: flex;
+  flex-direction: column;
+  gap: 0.694vw;
+}
+
+.options div button {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 0;
+  color: #ff868e;
+  padding: 10px;
+}
+
+.voting-container {
+  background-color: #b4b7ff;
+}
+
+.voting-container img {
+  position: relative;
+  width: 10vw;
+  height: 12vw;
+}
+
+.breed-container {
+  background: #97eab9;
+}
+.breed-container img {
+  position: relative;
+  width: 10.778vw;
+  height: 16.194vw;
+}
+
+.gallery-container {
+  background: #ffd280;
+}
+
+.gallery-container img {
+  position: relative;
+  width: 10.778vw;
+  height: 16.194vw;
+}
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .girl-pets {
+    position: absolute;
+    left: 45vw;
   }
-  to {
-    transform: rotate(360deg);
+  .logo {
+    width: 7.222vw;
+    position: fixed;
+    left: 7vw;
+    top: 2vw;
+  }
+  .voting-container img {
+    width: 10vw;
+    height: 12vw;
+  }
+  .breed-container img {
+    width: 11.125vw;
+    height: 14.319vw;
+  }
+  .gallery-container img {
+    width: 10.778vw;
+    height: 16.194vw;
+  }
+
+  .option-button div {
+    width: 16vw;
+    height: 20vw;
+  }
+  section {
+    padding-top: 7vw;
+    padding-left: 9vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .girl-pets {
+    display: block;
+    position: absolute;
+    left: 45vw;
+  }
+  .option-button div {
+    width: 9.583vw;
+    height: 13.75vw;
+  }
+  .gallery-container img {
+    position: relative;
+    width: 7.778vw;
+    height: 13.194vw;
+  }
+  .breed-container img {
+    position: relative;
+    width: 8.125vw;
+    height: 11.319vw;
+  }
+  .voting-container img {
+    position: relative;
+    width: 6.944vw;
+    height: 8.644vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .logo {
+    position: fixed;
+    left: 7vw;
+    top: 2vw;
+  }
+  .option-button div {
+    width: 9.583vw;
+    height: 13.75vw;
+  }
+  .gallery-container img {
+    position: relative;
+    width: 7.778vw;
+    height: 13.194vw;
+  }
+  .breed-container img {
+    position: relative;
+    width: 8.125vw;
+    height: 11.319vw;
+  }
+  .voting-container img {
+    position: relative;
+    width: 6.944vw;
+    height: 8.644vw;
+  }
+
+  section {
+    padding-top: 8vw;
+    padding-left: 8vw;
   }
 }
