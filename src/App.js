@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./App.css";
-import girl from "./assets/girl-and-pet.svg";
+
 import Button from "./Components/UI/Button";
 import VoteTable from "./assets/vote-table.png";
 import PetBreed from "./assets/pet-breeds.png";
 import Gallery from "./assets/Gallery.png";
 import logo from "./assets/Logo.png";
+import HomePic from "./Components/UI/HomePic";
+import Header from "./Components/UI/Header";
 
 function App() {
+  const [isVoteClicked, setIsVoteClicked] = useState(false);
+
+  const onVoteHandler = () => {
+    setIsVoteClicked(true);
+    console.log("Vote");
+  };
+
+  const onBreedsHandler = () => {
+    console.log("Breed");
+  };
+
+  const contentApp = (
+    <div className="app">
+      <Header></Header>
+    </div>
+  );
+
   return (
     <React.Fragment>
       <div className="main">
@@ -23,13 +42,18 @@ function App() {
             <div className="options-container">
               <p>Lets start using The Cat API</p>
               <div className="options">
-                <div className="option-button">
+                <div
+                  className={`${"option-button"} ${
+                    isVoteClicked ? "active" : ""
+                  }`}
+                  onClick={onVoteHandler}
+                >
                   <div className="voting-container">
                     <img src={VoteTable} alt="VoteTable"></img>
                   </div>
                   <Button>VOTING</Button>
                 </div>
-                <div className="option-button">
+                <div className="option-button" onClick={onBreedsHandler}>
                   <div className="breed-container">
                     <img src={PetBreed} alt="PetBreed"></img>
                   </div>
@@ -45,10 +69,8 @@ function App() {
             </div>
           </section>
         </div>
-        <div className="girl-pets">
-          <div></div>
-          <img className="hidden" src={girl} alt="Girl"></img>
-        </div>
+
+        {isVoteClicked ? contentApp : <HomePic />}
       </div>
     </React.Fragment>
   );
