@@ -13,9 +13,11 @@ import MainPic from "./Components/MainPic";
 import backArrow from "./assets/backArrow.png";
 import CardButton from "./Components/UI/CardButton";
 import VotingApp from "./Components/VotingApp";
+import FavouritesPage from "./Components/FavouritesPage";
 
 function App() {
   const [isVoteClicked, setIsVoteClicked] = useState(false);
+  const [isFavClicked, setIsFavClicked] = useState(false);
 
   const onVoteHandler = () => {
     setIsVoteClicked(true);
@@ -25,10 +27,16 @@ function App() {
   const onBreedsHandler = () => {
     console.log("Breed");
   };
+  const favouritesPageHandler = () => {
+    setIsFavClicked(true);
+  };
 
   const contentApp = (
     <div className="app">
-      <Header></Header>
+      <Header onFav={favouritesPageHandler}></Header>
+      <div className="appContent">
+        {isFavClicked ? <FavouritesPage /> : <VotingApp />}
+      </div>
     </div>
   );
 
@@ -73,14 +81,8 @@ function App() {
             </div>
           </section>
         </div>
-        <div className="app">
-          <Header></Header>
-          <div className="appContent">
-            <VotingApp />
-          </div>
-        </div>
 
-        {/* {isVoteClicked ? contentApp : <HomePic />} */}
+        {isVoteClicked ? contentApp : <HomePic />}
       </div>
     </React.Fragment>
   );

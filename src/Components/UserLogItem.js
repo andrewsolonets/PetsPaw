@@ -1,20 +1,44 @@
 import favouriteIconS from "../assets/favouritesiconS.png";
+import dislikes from "../assets/dislikes.png";
+import likes from "../assets/likes.png";
 import classes from "./UserLogItem.module.css";
 
 const UserLogItem = (props) => {
+  const newDate = new Date(props.time);
+  let time;
+  time = newDate.toLocaleTimeString(navigator.language, {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  let category;
+  let icon;
+  if (props.value === 1) {
+    icon = likes;
+    category = "Likes";
+  }
+  if (props.value === 0) {
+    icon = dislikes;
+    category = "Dislikes";
+  }
+
+  if (props.value === undefined) {
+    icon = favouriteIconS;
+    category = "Favourites";
+  }
+
   return (
     <div className={classes.userLogElement}>
       <div className={classes.time}>
-        <p>22:45</p>
+        <p>{time}</p>
       </div>
       <div className={classes.userLogInfo}>
         <p>
-          Image ID: <b>fQSunHvl8</b> was added to Favourites
+          Image ID: <b>{props.catId}</b> was added to {category}
         </p>
       </div>
 
       <div className={classes.userLogIcon}>
-        <img src={favouriteIconS} alt="icon fav S"></img>
+        <img src={icon} alt="icon fav S"></img>
       </div>
     </div>
   );

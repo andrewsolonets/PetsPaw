@@ -18,10 +18,14 @@
   color: #8c8c8c;
 }
 
+.searchBar {
+  position: relative;
+}
+
 .searchBtn {
   position: absolute;
-  top: 1%;
-  right: 15vw;
+  bottom: 10%;
+  right: 1vw;
 }
 
 .searchBtn img {

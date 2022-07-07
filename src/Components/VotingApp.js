@@ -8,25 +8,128 @@ import Like from "../assets/Like.png";
 import Dislike from "../assets/Dislike.png";
 // import Favourites from "../assets/Favourites.png";
 import Favourites from "../assets/fav.svg";
-import testimg from "../assets/testImg.png";
 
 import UserLogItem from "./UserLogItem";
 
+let subId = Math.random().toString(36).substring(7);
+
 const VotingApp = (props) => {
+  const [userLog, setUserLog] = useState([]);
   const [newCat, setNewCat] = useState({});
 
+  const randomCat = async () => {
+    const response = await fetch("https://api.thecatapi.com/v1/images/search");
+    const data = await response.json();
+    const [{ url, id }] = await data;
+    console.log(url, id);
+    setNewCat({ url, id });
+  };
+
   useEffect(() => {
-    const randomCat = async () => {
-      const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search"
-      );
-      const data = await response.json();
-      const [{ url, id }] = data;
-      console.log(url, id);
-      setNewCat({ url, id });
-    };
     randomCat();
+    getVotes();
   }, []);
+
+  async function postCat(num) {
+    let catJson = {
+      image_id: newCat.id,
+      sub_id: subId,
+      value: num,
+    };
+    const response = await fetch("https://api.thecatapi.com/v1/votes", {
+      method: "POST",
+      body: JSON.stringify(catJson),
+      headers: {
+        "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    getVotes();
+  }
+
+  async function getVotes() {
+    const response = await fetch(
+      "https://api.thecatapi.com/v1/votes/?" +
+        new URLSearchParams({
+          order: "DESC",
+          limit: 10,
+        }),
+      {
+        headers: {
+          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+        },
+      }
+    );
+    const data = await response.json();
+
+    const response2 = await fetch(
+      "https://api.thecatapi.com/v1/favourites/?" +
+        new URLSearchParams({
+          order: "DESC",
+          limit: 3,
+        }),
+      {
+        headers: {
+          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+        },
+      }
+    );
+    const data2 = await response2.json();
+
+    let finalArr = [...data, ...data2].sort((el1, el2) => {
+      return new Date(el2.created_at) - new Date(el1.created_at);
+    });
+
+    setUserLog(finalArr);
+
+    console.log(userLog);
+  }
+
+  async function addFav() {
+    let fav = {
+      image_id: newCat.id,
+      sub_id: subId,
+    };
+    const response = await fetch("https://api.thecatapi.com/v1/favourites", {
+      method: "POST",
+      body: JSON.stringify(fav),
+      headers: {
+        "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+        "Content-Type": "application/json",
+      },
+    });
+    // console.log(response);
+  }
+
+  const addFavouriteHandler = () => {
+    addFav();
+    getVotes();
+  };
+
+  const addLikeHandler = () => {
+    postCat(1);
+    randomCat();
+    getVotes();
+  };
+
+  const addDislikeHandler = () => {
+    postCat(0);
+    randomCat();
+    getVotes();
+  };
+
+  const deleteItemsFav = async (id) => {
+    const response = await fetch(
+      `https://api.thecatapi.com/v1/favourites/${id}`,
+      {
+        headers: {
+          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+        },
+      }
+    );
+    getVotes();
+  };
 
   return (
     <div className={classes.containerMain}>
@@ -42,20 +145,32 @@ const VotingApp = (props) => {
         </div>
 
         <div className={classes.actions}>
-          <div className={classes.likeAction}>
+          <div className={classes.likeAction} onClick={addLikeHandler}>
             <img src={Like} alt="like"></img>
           </div>
-          <div className={classes.favoutitesAction}>
+          <div
+            className={classes.favoutitesAction}
+            onClick={addFavouriteHandler}
+          >
             <img src={Favourites} alt="like"></img>
           </div>
-          <div className={classes.dislikeAction}>
+          <div className={classes.dislikeAction} onClick={addDislikeHandler}>
             <img src={Dislike} alt="like"></img>
           </div>
         </div>
       </div>
 
       <div className={classes.userLog}>
-        <UserLogItem />
+        {userLog.map((el) => {
+          return (
+            <UserLogItem
+              key={el.id}
+              catId={el.image_id}
+              value={el.value}
+              time={el.created_at}
+            />
+          );
+        })}
       </div>
     </div>
   );

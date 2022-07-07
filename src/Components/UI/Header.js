@@ -5,7 +5,7 @@ import Favourites from "../../assets/Favourites.png";
 import classes from "./Header.module.css";
 import CardButton from "./CardButton";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className={classes.header}>
       <div>
@@ -26,7 +26,7 @@ const Header = () => {
       <div className={classes["like-icon"]}>
         <img src={Like} alt="tets0" />
       </div>
-      <div className={classes["like-icon"]}>
+      <div className={classes["like-icon"]} onClick={props.onFav}>
         <img src={Favourites} alt="tets0" />
       </div>
       <div className={classes["like-icon"]}>
