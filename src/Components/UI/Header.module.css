@@ -1,7 +1,7 @@
 .searchInput {
   font-size: 1.3vw;
   font-weight: 400;
-  width: 30vw;
+  width: 35vw;
   padding-top: 1vw;
   padding-right: 2vw;
   padding-bottom: 1vw;
@@ -18,22 +18,17 @@
   color: #8c8c8c;
 }
 
-.searchBar div {
+.searchBtn {
   position: absolute;
-  bottom: 10%;
-  right: 15.5vw;
-  background: #fbe0dc;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.8vw;
+  top: 1%;
+  right: 15vw;
 }
-.searchBar img {
+
+.searchBtn img {
   width: 1.389vw;
   height: 1.389vw;
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -44,12 +39,27 @@
   display: flex;
   background: #ffffff;
   border-radius: 20px;
+  cursor: pointer;
 
   padding: 0.8vw;
 }
 .like-icon img {
+  width: 2.083vw;
+  height: 2.083vw;
   align-items: center;
   justify-content: center;
+}
+
+.like-icon:hover {
+  background: #fbe0dc;
+}
+
+.like-icon:active {
+  background: #ff868e;
+}
+
+.like-icon:active img {
+  filter: brightness(100);
 }
 
 @media (min-width: 1440px) {

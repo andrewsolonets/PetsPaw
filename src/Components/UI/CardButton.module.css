@@ -1,0 +1,18 @@
+.cardbutton {
+  background: #fbe0dc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  padding: 0.8vw;
+}
+
+.cardbutton:hover {
+  background: #ff868e;
+}
+
+.cardbutton:hover img {
+  filter: brightness(100);
+}

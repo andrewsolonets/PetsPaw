@@ -3,6 +3,7 @@ import Like from "../../assets/Like.png";
 import Dislike from "../../assets/Dislike.png";
 import Favourites from "../../assets/Favourites.png";
 import classes from "./Header.module.css";
+import CardButton from "./CardButton";
 
 const Header = () => {
   return (
@@ -15,8 +16,10 @@ const Header = () => {
             id="search"
             placeholder="Search for breeds by name"
           ></input>
-          <div className={classes.searchButton}>
-            <img src={Search} alt="Search-Button"></img>
+          <div className={classes.searchBtn}>
+            <CardButton>
+              <img src={Search} alt="Search-Button"></img>
+            </CardButton>
           </div>
         </form>
       </div>

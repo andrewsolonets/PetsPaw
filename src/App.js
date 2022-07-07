@@ -9,6 +9,10 @@ import Gallery from "./assets/Gallery.png";
 import logo from "./assets/Logo.png";
 import HomePic from "./Components/UI/HomePic";
 import Header from "./Components/UI/Header";
+import MainPic from "./Components/MainPic";
+import backArrow from "./assets/backArrow.png";
+import CardButton from "./Components/UI/CardButton";
+import VotingApp from "./Components/VotingApp";
 
 function App() {
   const [isVoteClicked, setIsVoteClicked] = useState(false);
@@ -69,8 +73,14 @@ function App() {
             </div>
           </section>
         </div>
+        <div className="app">
+          <Header></Header>
+          <div className="appContent">
+            <VotingApp />
+          </div>
+        </div>
 
-        {isVoteClicked ? contentApp : <HomePic />}
+        {/* {isVoteClicked ? contentApp : <HomePic />} */}
       </div>
     </React.Fragment>
   );

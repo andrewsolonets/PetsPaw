@@ -1,0 +1,141 @@
+.nav-content {
+  align-self: flex-start;
+  display: flex;
+  gap: 0.8vw;
+}
+
+.containerMain {
+  padding: 1.2vw;
+
+  flex: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.containerImg {
+  align-self: center;
+  width: 100%;
+  height: 25vw;
+
+  border-radius: 20px;
+}
+
+.parentImg {
+  height: 25vw;
+  width: 100%;
+  align-self: center;
+  position: relative;
+  border-radius: 20px;
+  margin-bottom: 3vw;
+}
+
+.containerImg img {
+  object-fit: contain;
+  width: 100%;
+  height: 25vw;
+}
+
+.nav-content img {
+  width: 0.833vw;
+  height: 1.389vw;
+  padding-left: 0.2vw;
+  padding-right: 0.3vw;
+}
+.nav-content Button {
+  color: #ffffff;
+  background: #ff868e;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  font-size: 1.389vw;
+}
+
+.nav-content Button:hover {
+  color: #ffffff;
+  background: #ff868e;
+}
+
+.userLog {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  gap: 0.7vw;
+}
+
+.actions {
+  position: absolute;
+  bottom: -10%;
+  left: 33%;
+  display: flex;
+  background: #ffffff;
+  border: 4px solid #ffffff;
+  border-radius: 20px;
+  gap: 0.3vw;
+}
+
+.actions img {
+  filter: brightness(100);
+}
+
+.actions div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.736vw;
+}
+
+.favoutitesAction {
+  background: #ff868e;
+}
+
+.likeAction {
+  background: #97eab9;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.dislikeAction {
+  background: #ffd280;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.favoutitesAction:hover {
+  background: rgba(255, 134, 142, 0.3);
+}
+.favoutitesAction:hover img {
+  filter: brightness(0) saturate(100%) invert(53%) sepia(45%) saturate(556%)
+    hue-rotate(308deg) brightness(112%) contrast(102%);
+}
+
+.favoutitesAction:active img clipPath {
+  fill: #ffffff;
+}
+
+.favoutitesAction:active {
+  background: #ff868e;
+}
+
+.likeAction:hover {
+  background: rgba(151, 234, 185, 0.3);
+}
+
+.likeAction:hover img {
+  filter: brightness(0) saturate(100%) invert(91%) sepia(14%) saturate(910%)
+    hue-rotate(81deg) brightness(96%) contrast(91%);
+}
+
+.dislikeAction:hover {
+  background: rgba(255, 210, 128, 0.3);
+}
+
+.dislikeAction:hover img {
+  filter: brightness(0) saturate(100%) invert(81%) sepia(43%) saturate(494%)
+    hue-rotate(338deg) brightness(102%) contrast(101%);
+}

@@ -101,6 +101,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.694vw;
+  cursor: pointer;
 }
 
 .options div button {
@@ -145,10 +146,15 @@ section {
 }
 
 .app {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
   top: 2vw;
-  display: block;
+  gap: 0.8vw;
   position: relative;
   left: 45vw;
+  height: auto;
 }
 
 @media (min-width: 768px) {

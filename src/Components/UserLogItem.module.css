@@ -1,0 +1,33 @@
+.userLogElement {
+  flex: 1;
+  display: flex;
+  background: #f8f8f7;
+  border-radius: 10px;
+  padding: 1vw;
+  color: #8c8c8c;
+  align-items: center;
+  font-weight: 400;
+  gap: 1vw;
+}
+.userLogElement b {
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0.2vw;
+  border-radius: 5px;
+}
+.time p {
+  color: #1d1d1d;
+}
+.userLogInfo {
+  flex: 1;
+}
+.userLogIcon {
+  align-self: flex-end;
+}
