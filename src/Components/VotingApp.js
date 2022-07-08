@@ -119,17 +119,7 @@ const VotingApp = (props) => {
     getVotes();
   };
 
-  const deleteItemsFav = async (id) => {
-    const response = await fetch(
-      `https://api.thecatapi.com/v1/favourites/${id}`,
-      {
-        headers: {
-          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-        },
-      }
-    );
-    getVotes();
-  };
+  
 
   return (
     <div className={classes.containerMain}>

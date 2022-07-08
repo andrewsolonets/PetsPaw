@@ -1,0 +1,115 @@
+.container {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-auto-rows: 9.722vw 9.722vw 9.722vw;
+  grid-template-columns: 16vw 16vw 16vw;
+  grid-template-rows: 9.722vw 9.722vw 9.722vw;
+  gap: 1.042vw 1.042vw;
+  /* grid-auto-flow: row; */
+  justify-content: center;
+  align-content: start;
+  justify-items: stretch;
+  grid-template-areas:
+    "frst sec thrd"
+    "frst fourth fourth"
+    "s1 fourth fourth"
+    "s2 s3 m1"
+    "b2 b2 m1"
+    "b2 b2 sl";
+  width: 680px;
+}
+
+.container div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  object-position: left center;
+}
+
+.container div {
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+}
+
+.overlay div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background-color: white;
+}
+.overlay div img {
+  width: 2vw;
+  padding: 1vw;
+}
+.container div:hover .overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 1;
+  border-radius: 20px;
+  background: rgba(255, 134, 142, 0.6);
+}
+
+.frst {
+  position: relative;
+  grid-area: frst;
+}
+
+.sec {
+  position: relative;
+  grid-area: sec;
+}
+
+.thrd {
+  position: relative;
+  grid-area: thrd;
+}
+
+.fourth {
+  position: relative;
+  grid-area: fourth;
+}
+
+.s1 {
+  position: relative;
+  grid-area: s1;
+}
+
+.s3 {
+  position: relative;
+  grid-area: s3;
+}
+
+.m1 {
+  position: relative;
+  grid-area: m1;
+}
+
+.b2 {
+  position: relative;
+  grid-area: b2;
+}
+
+.sl {
+  position: relative;
+  grid-area: sl;
+}
+
+.s2 {
+  position: relative;
+  grid-area: s2;
+}

@@ -3,14 +3,18 @@ import Button from "./UI/Button";
 import CardButton from "./UI/CardButton";
 import backArrow from "../assets/backArrow.png";
 import UserLogItem from "./UserLogItem";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Grid from "./UI/Grid";
 
 const FavouritesPage = (props) => {
+  const [favItems, setFavItems] = useState([]);
+
   const getFavourites = async () => {
     const response = await fetch(
       "https://api.thecatapi.com/v1/favourites/?" +
         new URLSearchParams({
           order: "DESC",
+          limit: 10,
         }),
       {
         headers: {
@@ -19,6 +23,22 @@ const FavouritesPage = (props) => {
       }
     );
     const data = await response.json();
+    setFavItems(data);
+    console.log(favItems);
+  };
+  const deleteItemsFav = async (id) => {
+    const response = await fetch(
+      `https://api.thecatapi.com/v1/favourites/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+        },
+      }
+    );
+    console.log(response);
+    getFavourites();
+    // getFavourites();
   };
 
   useEffect(() => {
@@ -33,14 +53,14 @@ const FavouritesPage = (props) => {
         </CardButton>
         <Button>FAVOURITES</Button>
       </div>
-      <div className={classes.itemsParent}>
+      <Grid items={favItems} onDelete={deleteItemsFav}></Grid>
+      {/* <div className={classes.itemsParent}>
         <div className={classes.item}></div>
         <div className={classes.item2}></div>
         <div className={classes.item2}></div>
-      </div>
+      </div> */}
       <div className={classes.userLog}>
-        <UserLogItem />
-        {/* {userLog.map((el) => {
+        {favItems.map((el) => {
           return (
             <UserLogItem
               key={el.id}
@@ -49,7 +69,7 @@ const FavouritesPage = (props) => {
               time={el.created_at}
             />
           );
-        })} */}
+        })}
       </div>
     </div>
   );

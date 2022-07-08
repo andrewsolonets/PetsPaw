@@ -23,13 +23,13 @@ const Header = (props) => {
           </div>
         </form>
       </div>
-      <div className={classes["like-icon"]}>
+      <div className={classes["like-icon"]} onClick={props.onLike}>
         <img src={Like} alt="tets0" />
       </div>
       <div className={classes["like-icon"]} onClick={props.onFav}>
         <img src={Favourites} alt="tets0" />
       </div>
-      <div className={classes["like-icon"]}>
+      <div className={classes["like-icon"]} onClick={props.onDislike}>
         <img src={Dislike} alt="tets0" />
       </div>
     </div>

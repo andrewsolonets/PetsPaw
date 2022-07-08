@@ -9,36 +9,71 @@ import Gallery from "./assets/Gallery.png";
 import logo from "./assets/Logo.png";
 import HomePic from "./Components/UI/HomePic";
 import Header from "./Components/UI/Header";
-import MainPic from "./Components/MainPic";
-import backArrow from "./assets/backArrow.png";
-import CardButton from "./Components/UI/CardButton";
+
+import BreedsPage from "./Components/BreedsPage";
 import VotingApp from "./Components/VotingApp";
 import FavouritesPage from "./Components/FavouritesPage";
+import LikedPage from "./Components/LikedPage";
 
 function App() {
   const [isVoteClicked, setIsVoteClicked] = useState(false);
   const [isFavClicked, setIsFavClicked] = useState(false);
-
+  const [isLikedClicked, setIsLikedClicked] = useState(false);
+  const [isDisLikedClicked, setIsDisLikedClicked] = useState(false);
+  const [isBreedClicked, setIsBreedClicked] = useState(false);
+  const [content, setContent] = useState();
   const onVoteHandler = () => {
+    setIsBreedClicked(false);
     setIsVoteClicked(true);
+    setContent(<VotingApp />);
     console.log("Vote");
   };
 
+  const backButtonHandler = () => {
+    console.log("Hello");
+  };
+
   const onBreedsHandler = () => {
+    setIsVoteClicked(false);
+    setIsBreedClicked(true);
+    setContent(<BreedsPage></BreedsPage>);
     console.log("Breed");
   };
   const favouritesPageHandler = () => {
     setIsFavClicked(true);
+    setContent(<FavouritesPage />);
   };
 
-  const contentApp = (
-    <div className="app">
-      <Header onFav={favouritesPageHandler}></Header>
-      <div className="appContent">
-        {isFavClicked ? <FavouritesPage /> : <VotingApp />}
+  const likedPageHandler = () => {
+    setIsLikedClicked(true);
+    setContent(
+      <LikedPage value={1} text={"LIKES"} onBack={backButtonHandler} />
+    );
+  };
+
+  const DislikePageHandler = () => {
+    setIsDisLikedClicked(true);
+    setContent(
+      <LikedPage value={0} text={"DISLIKES"} onBack={backButtonHandler} />
+    );
+  };
+
+  let contentApp;
+
+  if (isVoteClicked || isBreedClicked) {
+    contentApp = (
+      <div className="app">
+        <Header
+          onFav={favouritesPageHandler}
+          onLike={likedPageHandler}
+          onDislike={DislikePageHandler}
+        ></Header>
+        <div className="appContent">{content}</div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    contentApp = <HomePic />;
+  }
 
   return (
     <React.Fragment>
@@ -65,7 +100,12 @@ function App() {
                   </div>
                   <Button>VOTING</Button>
                 </div>
-                <div className="option-button" onClick={onBreedsHandler}>
+                <div
+                  className={`${"option-button"} ${
+                    isBreedClicked ? "active" : ""
+                  }`}
+                  onClick={onBreedsHandler}
+                >
                   <div className="breed-container">
                     <img src={PetBreed} alt="PetBreed"></img>
                   </div>
@@ -82,7 +122,7 @@ function App() {
           </section>
         </div>
 
-        {isVoteClicked ? contentApp : <HomePic />}
+        {contentApp}
       </div>
     </React.Fragment>
   );
