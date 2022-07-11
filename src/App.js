@@ -10,6 +10,8 @@ import logo from "./assets/Logo.png";
 import HomePic from "./Components/UI/HomePic";
 import Header from "./Components/UI/Header";
 
+import GalleryPage from "./Components/GalleryPage";
+
 import BreedsPage from "./Components/BreedsPage";
 import VotingApp from "./Components/VotingApp";
 import FavouritesPage from "./Components/FavouritesPage";
@@ -21,8 +23,10 @@ function App() {
   const [isLikedClicked, setIsLikedClicked] = useState(false);
   const [isDisLikedClicked, setIsDisLikedClicked] = useState(false);
   const [isBreedClicked, setIsBreedClicked] = useState(false);
+  const [isGalleryClicked, setIsGalleryClicked] = useState(false);
   const [content, setContent] = useState();
   const onVoteHandler = () => {
+    setIsGalleryClicked(false);
     setIsBreedClicked(false);
     setIsVoteClicked(true);
     setContent(<VotingApp />);
@@ -34,10 +38,18 @@ function App() {
   };
 
   const onBreedsHandler = () => {
+    setIsGalleryClicked(false);
     setIsVoteClicked(false);
     setIsBreedClicked(true);
     setContent(<BreedsPage></BreedsPage>);
     console.log("Breed");
+  };
+
+  const onGalleryHandler = () => {
+    setIsVoteClicked(false);
+    setIsBreedClicked(false);
+    setIsGalleryClicked(true);
+    setContent(<GalleryPage></GalleryPage>);
   };
   const favouritesPageHandler = () => {
     setIsFavClicked(true);
@@ -60,7 +72,7 @@ function App() {
 
   let contentApp;
 
-  if (isVoteClicked || isBreedClicked) {
+  if (isVoteClicked || isBreedClicked || isGalleryClicked) {
     contentApp = (
       <div className="app">
         <Header
@@ -111,7 +123,12 @@ function App() {
                   </div>
                   <Button>BREEDS</Button>
                 </div>
-                <div className="option-button">
+                <div
+                  className={`${"option-button"} ${
+                    isGalleryClicked ? "active" : ""
+                  }`}
+                  onClick={onGalleryHandler}
+                >
                   <div className="gallery-container">
                     <img src={Gallery} alt="Gallery"></img>
                   </div>

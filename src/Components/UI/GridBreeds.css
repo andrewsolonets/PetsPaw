@@ -2,7 +2,7 @@
   display: grid;
   grid-auto-flow: row dense;
   grid-template-columns: 16vw 16vw 16vw;
-  grid-template-rows: 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw;
+  grid-template-rows: 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw;
   grid-auto-rows: 9.722vw 9.722vw;
   gap: 1.042vw 1.042vw;
   justify-content: center;
@@ -20,11 +20,8 @@
     "s11 fourh2 fourh2"
     "s22 s33 m11"
     "b22 b22 m11"
-    "b22 b22 sll"
-    "frst3 sec3 thrd3"
-    "frst3 foruth3 foruth3"
-    "s111 foruth3 foruth3";
-  width: 680px;
+    "b22 b22 sll";
+  width: 47.222vw;
 }
 
 .container1 div img {
@@ -32,7 +29,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  object-position: left center;
+  object-position: auto;
 }
 
 .container1 div {
@@ -43,6 +40,10 @@
 .container .label1 {
   cursor: pointer;
   border-radius: 10px;
+}
+
+.container .overlay1 {
+  justify-content: center;
 }
 
 .overlay1 {
@@ -66,8 +67,8 @@
 
 .container1 div:hover .overlay1 {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: center;
   color: white;
   opacity: 1;
   border-radius: 20px;
@@ -218,4 +219,114 @@
 .s111 {
   position: relative;
   grid-area: s111;
+}
+
+.containerImg {
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  height: 25vw;
+
+  border-radius: 20px;
+}
+
+.parentImg {
+  height: 25vw;
+  width: 44.444vw;
+  align-self: center;
+  position: relative;
+  border-radius: 20px;
+}
+
+.containerImg img {
+  object-fit: contain;
+  width: 100%;
+  height: 25vw;
+}
+.singleCat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vw;
+}
+.headingCat {
+  position: absolute;
+  top: -12%;
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+  padding-top: 0.7vw;
+  padding-bottom: 0.7vw;
+  background: #ffffff;
+  border-radius: 20px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.5vw;
+  line-height: 3.611vw;
+  /* identical to box height */
+
+  color: #1d1d1d;
+}
+
+.catDesc {
+  border: 2px solid #fbe0dc;
+  border-radius: 20px;
+  width: 44.444vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1vw;
+}
+
+.mainDescr {
+  margin-top: 3vw;
+  margin-left: 1.6vw;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.389vw;
+  margin-right: 1.6vw;
+  /* identical to box height */
+
+  color: #8c8c8c;
+}
+
+.ContentContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3vw;
+}
+
+.propsContainer {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  justify-content: center;
+  margin-bottom: 2vw;
+}
+
+p b {
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
+p {
+  font-weight: 400;
+  color: #8c8c8c;
+  font-family: "Jost";
+  font-style: normal;
+  font-size: 1.3vw;
+}
+
+.textDescr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+  gap: 3vw;
 }

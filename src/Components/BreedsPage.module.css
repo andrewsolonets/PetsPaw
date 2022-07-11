@@ -9,6 +9,7 @@
   justify-content: flex-start;
   flex-direction: column;
   gap: 1vw;
+  box-sizing: border-box;
 }
 
 .nav-content {
@@ -36,58 +37,151 @@
   background: #ff868e;
 }
 
-.userLog {
-  width: 100%;
+.catId {
+  color: #ffffff;
+  background: #ff868e;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 1.389vw;
+  border-radius: 10px;
   display: flex;
-  align-items: stretch;
-  flex-direction: column;
-
-  gap: 0.7vw;
+  align-items: center;
+  justify-content: center;
 }
 
-.item {
-  width: 15vw;
-  height: 20.833vw;
-  border-radius: 20px;
-  background: gray;
-}
-
-.item2 {
-  width: 16vw;
-  height: 9.722vw;
-  border-radius: 20px;
-  background: gray;
-}
-
-.itemsParent {
-  gap: 1.3vw;
-  align-self: flex-start;
-
+.sorting {
   display: flex;
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: relative;
-  padding-left: 1vw;
+  align-items: center;
+  justify-content: center;
   background: #f8f8f7;
-  background-image: url(../assets/arrowDown.png);
-  background-repeat: no-repeat;
-  background-position: top 1.4vw right 1vw;
   border-radius: 10px;
-  border: 0;
-  width: 15vw;
-  color: #8c8c8c;
-  font-size: 1.3vw;
+  width: 2.6vw;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
-select:active {
-  border-radius: 10px;
+.sorting:hover {
+  border: 2px solid #fbe0dc;
+}
+
+.icon {
+  width: 1.319vw;
+}
+
+.sorting:hover .icon path {
+  fill: #ff868e;
+}
+
+.buttonPagination {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+  border-radius: 0.4vw;
   border: none;
+  font-weight: 500;
+  font-size: 3vw;
+  background: #fbe0dc;
+  letter-spacing: 2px;
+  padding: 12px 30px;
+  color: #ff868e;
 }
 
-select option {
+.buttonPagination:disabled {
   background: #f8f8f7;
-  border-radius: 10px;
+  cursor: default;
+  color: #8c8c8c;
 }
+
+.buttonPagination:disabled .arrow path {
+  fill: #8c8c8c;
+}
+
+@media (min-width: 768px) {
+  .buttonPagination {
+    border-radius: 0.694vw;
+    border: 0;
+    padding: 12px 30px;
+    font-size: 1.5vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttonPagination {
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2vw;
+  }
+}
+
+@media (min-width: 1440px) {
+}
+
+.buttonPagination:hover {
+  background: #ff868e;
+  color: white;
+}
+
+.buttonPagination:hover .arrow path {
+  fill: white;
+}
+
+.paginationContainer {
+  display: flex;
+  gap: 3vw;
+}
+
+.left {
+  transform: rotate(-180deg);
+}
+
+.buttonPagination:disabled .arrow path {
+  fill: #8c8c8c;
+}
+
+.buttonPagination:disabled:hover {
+  background: #f8f8f7;
+  color: #8c8c8c;
+}
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.389vw;
+  background: #f8f8f7;
+  border-radius: 20px;
+  width: 100%;
+  height: 14vw;
+}
+
+.filters p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8vw;
+  color: #8c8c8c;
+}
+
+/* .columnOptions p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8vw;
+  color: #8c8c8c;
+}
+
+.columnOptions {
+  display: flex;
+  gap: 1.389vw;
+}
+
+.itemColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3vw;
+}
+
+.itemColumn div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */

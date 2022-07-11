@@ -7,9 +7,10 @@ import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
+import { ReactComponent as Reload } from "../assets/reload.svg";
 import Select from "react-select";
 
-const BreedsPage = () => {
+const GalleryPage = () => {
   const [results, setResults] = useState([]);
   const [breed, setBreed] = useState(false);
   const [nameBreed, setNameBreed] = useState({
@@ -117,12 +118,12 @@ const BreedsPage = () => {
     control: (provided, state) => ({
       ...provided,
       // none of react-select's styles are passed to <Control />
-      width: "18vw",
+      width: "23vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "#f8f8f7",
+      background: "#FFFFFF",
       borderRadius: "10px",
     }),
     container: (provided, state) => ({
@@ -152,12 +153,12 @@ const BreedsPage = () => {
     control: (provided, state) => ({
       ...provided,
       // none of react-select's styles are passed to <Control />
-      width: "8.8vw",
+      width: "23vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "#f8f8f7",
+      background: "#FFFFFF",
       borderRadius: "10px",
     }),
     container: (provided, state) => ({
@@ -187,36 +188,6 @@ const BreedsPage = () => {
     setSingleCat({ state: true, id: id });
   };
 
-  let menuBar;
-
-  if (singleCat.id) {
-    menuBar = <div className={classes.catId}>{singleCat.id}</div>;
-  }
-  if (!singleCat.id) {
-    menuBar = (
-      <>
-        <Select
-          onChange={filterHandler}
-          options={options}
-          styles={customStyles}
-          placeholder={"All breeds"}
-        />
-        <Select
-          options={options2}
-          styles={customStyles2}
-          onChange={limitChangeHandler}
-          placeholder={"Limit: 10"}
-        />
-        <div className={classes.sorting} onClick={sortingDescHandler}>
-          <DescendingIcon className={classes.icon}></DescendingIcon>
-        </div>
-        <div className={classes.sorting} onClick={sortingAscHandler}>
-          <AscendingIcon className={classes.icon}></AscendingIcon>
-        </div>
-      </>
-    );
-  }
-
   const nextPageHandler = () => {
     setPageNumber((prevState) => {
       console.log(prevState);
@@ -238,9 +209,46 @@ const BreedsPage = () => {
           <img src={backArrow} alt="back arrow"></img>
         </CardButton>
         <Button style={{ background: "#1d1d1d" }} active={singleCat.state}>
-          BREEDS
+          GALLERY
         </Button>
-        {menuBar}
+      </div>
+      <div className={classes.filters}>
+        <div>
+          <p>ORDER</p>
+          <Select
+            onChange={filterHandler}
+            options={options}
+            styles={customStyles}
+            placeholder={"All breeds"}
+          />
+
+          <p>BREED</p>
+          <Select
+            options={options2}
+            styles={customStyles2}
+            onChange={limitChangeHandler}
+            placeholder={"Limit: 10"}
+          />
+        </div>
+
+        <div>
+          <p>TYPE</p>
+          <Select
+            onChange={filterHandler}
+            options={options}
+            styles={customStyles}
+            placeholder={"All breeds"}
+          />
+          <div>
+            <p>LIMIT</p>
+            <Select
+              options={options2}
+              styles={customStyles2}
+              onChange={limitChangeHandler}
+              placeholder={"Limit: 10"}
+            />
+          </div>
+        </div>
       </div>
       <Grid
         items={results}
@@ -276,4 +284,4 @@ const BreedsPage = () => {
   );
 };
 
-export default BreedsPage;
+export default GalleryPage;

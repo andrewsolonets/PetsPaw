@@ -1,7 +1,7 @@
 .regular {
   background: #ffffff;
   border-radius: 0.4vw;
-  border: 0;
+  border: none;
   color: #ff868e;
   padding: 0.4vw;
   font-size: 2vw;
@@ -20,6 +20,7 @@
 
 @media (min-width: 1024px) {
   .regular {
+    border: none;
     font-size: 1.2vw;
   }
 }
