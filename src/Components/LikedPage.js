@@ -77,11 +77,6 @@ const LikedPage = (props) => {
         <Button>{props.text}</Button>
       </div>
       <Grid items={props.value === 1 ? likedItems : dislikedItems}></Grid>
-      {/* <div className={classes.itemsParent}>
-        <div className={classes.item}></div>
-        <div className={classes.item2}></div>
-        <div className={classes.item2}></div>
-      </div> */}
     </div>
   );
 };

@@ -2,17 +2,18 @@
   font-size: 1.3vw;
   font-weight: 400;
   width: 35vw;
-  padding-top: 1vw;
+  padding-top: 0.8vw;
   padding-right: 2vw;
-  padding-bottom: 1vw;
+  padding-bottom: 0.8vw;
   padding-left: 2vw;
   background: #ffffff;
-  border: 0;
+  border: 2px solid transparent;
   border-radius: 20px;
 }
 
 .searchInput:focus {
-  border-width: 0;
+  outline-width: 0;
+  border: 2px solid #fbe0dc;
 }
 ::placeholder {
   color: #8c8c8c;
@@ -29,8 +30,17 @@
 }
 
 .searchBtn img {
-  width: 1.389vw;
-  height: 1.389vw;
+  width: 1.39vw;
+  height: 1.39vw;
+}
+
+.activeIcon {
+  display: flex;
+  background: #ffffff;
+  border-radius: 20px;
+  cursor: pointer;
+
+  padding: 0.8vw;
 }
 
 .header {
@@ -47,11 +57,17 @@
 
   padding: 0.8vw;
 }
-.like-icon img {
-  width: 2.083vw;
-  height: 2.083vw;
+
+.iconSvgHead {
+  /* width: 2.083vw;
+  height: 2.083vw; */
   align-items: center;
+
   justify-content: center;
+}
+
+.iconSvgHead path {
+  fill: #ff868e;
 }
 
 .like-icon:hover {
@@ -61,11 +77,21 @@
 .like-icon:active {
   background: #ff868e;
 }
+.like-icon:active .iconSvgHead path {
+  fill: #ffffff;
+}
+.activeIcon {
+  display: flex;
+  background: #ff868e;
+  border-radius: 20px;
+  cursor: pointer;
 
-.like-icon:active img {
-  filter: brightness(100);
+  padding: 0.8vw;
 }
 
+.activeIcon .iconSvgHead path {
+  fill: #ffffff;
+}
 @media (min-width: 1440px) {
   ::placeholder {
     font-size: 20px;

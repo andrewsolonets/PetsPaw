@@ -248,6 +248,7 @@ const BreedsPage = () => {
         breed={breed}
         loading={isLoading}
         onAction={actionGridHandler}
+        onPage={false}
       ></Grid>
       {singleCat ? (
         ""

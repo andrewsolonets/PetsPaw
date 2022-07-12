@@ -1,19 +1,28 @@
 import Search from "../../assets/Search.png";
-import Like from "../../assets/Like.png";
-import Dislike from "../../assets/Dislike.png";
-import Favourites from "../../assets/Favourites.png";
+
 import classes from "./Header.module.css";
 import CardButton from "./CardButton";
+import { useState } from "react";
+import { ReactComponent as Fav } from "../../assets/fav.svg";
+import { ReactComponent as Like } from "../../assets/like.svg";
+import { ReactComponent as DisLike } from "../../assets/dislike.svg";
 
 const Header = (props) => {
+  const [query, setQuery] = useState("");
+  const submitSearchHandler = (e) => {
+    console.log(e);
+  };
+  console.log(query);
+
   return (
     <div className={classes.header}>
       <div>
-        <form className={classes.searchBar}>
+        <form className={classes.searchBar} onSubmit={submitSearchHandler}>
           <input
             className={classes.searchInput}
             type="text"
             id="search"
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for breeds by name"
           ></input>
           <div className={classes.searchBtn}>
@@ -23,14 +32,23 @@ const Header = (props) => {
           </div>
         </form>
       </div>
-      <div className={classes["like-icon"]} onClick={props.onLike}>
-        <img src={Like} alt="tets0" />
+      <div
+        className={props.like ? classes.activeIcon : classes["like-icon"]}
+        onClick={props.onLike}
+      >
+        <Like className={classes.iconSvgHead} />
       </div>
-      <div className={classes["like-icon"]} onClick={props.onFav}>
-        <img src={Favourites} alt="tets0" />
+      <div
+        className={props.fav ? classes.activeIcon : classes["like-icon"]}
+        onClick={props.onFav}
+      >
+        <Fav className={classes.iconSvgHead} />
       </div>
-      <div className={classes["like-icon"]} onClick={props.onDislike}>
-        <img src={Dislike} alt="tets0" />
+      <div
+        className={props.dislike ? classes.activeIcon : classes["like-icon"]}
+        onClick={props.onDislike}
+      >
+        <DisLike className={classes.iconSvgHead} />
       </div>
     </div>
   );

@@ -4,14 +4,12 @@ import Button from "./UI/Button";
 import backArrow from "../assets/backArrow.png";
 import classes from "./VotingApp.module.css";
 
-import Like from "../assets/Like.png";
-import Dislike from "../assets/Dislike.png";
+import { ReactComponent as Fav } from "../assets/fav.svg";
+import { ReactComponent as Like } from "../assets/like.svg";
+import { ReactComponent as DisLike } from "../assets/dislike.svg";
 // import Favourites from "../assets/Favourites.png";
-import Favourites from "../assets/fav.svg";
 
 import UserLogItem from "./UserLogItem";
-
-let subId = Math.random().toString(36).substring(7);
 
 const VotingApp = (props) => {
   const [userLog, setUserLog] = useState([]);
@@ -33,7 +31,7 @@ const VotingApp = (props) => {
   async function postCat(num) {
     let catJson = {
       image_id: newCat.id,
-      sub_id: subId,
+      sub_id: props.subId,
       value: num,
     };
     const response = await fetch("https://api.thecatapi.com/v1/votes", {
@@ -89,7 +87,7 @@ const VotingApp = (props) => {
   async function addFav() {
     let fav = {
       image_id: newCat.id,
-      sub_id: subId,
+      sub_id: props.subId,
     };
     const response = await fetch("https://api.thecatapi.com/v1/favourites", {
       method: "POST",
@@ -119,8 +117,6 @@ const VotingApp = (props) => {
     getVotes();
   };
 
-  
-
   return (
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
@@ -136,16 +132,16 @@ const VotingApp = (props) => {
 
         <div className={classes.actions}>
           <div className={classes.likeAction} onClick={addLikeHandler}>
-            <img src={Like} alt="like"></img>
+            <Like className={classes.like} />
           </div>
           <div
             className={classes.favoutitesAction}
             onClick={addFavouriteHandler}
           >
-            <img src={Favourites} alt="like"></img>
+            <Fav className={classes.favIcon} />
           </div>
           <div className={classes.dislikeAction} onClick={addDislikeHandler}>
-            <img src={Dislike} alt="like"></img>
+            <DisLike className={classes.dislike} />
           </div>
         </div>
       </div>

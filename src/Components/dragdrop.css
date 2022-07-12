@@ -1,0 +1,36 @@
+.draganddrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47vw;
+  height: 40vh;
+  background: #ffffff;
+  border: 2px dashed #fbe0dc;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 1vw;
+}
+
+.draganddrop p {
+  position: absolute;
+}
+
+.placeImage img {
+  width: 15vw;
+}
+
+.draganddrop p b {
+  font-weight: 500;
+}
+.uploadedImage {
+  height: inherit;
+}
+.fileText {
+  position: absolute;
+  bottom: -15%;
+}
+
+.errorState {
+  background: #fbe0dc;
+  border: 2px dashed #ff868e;
+}

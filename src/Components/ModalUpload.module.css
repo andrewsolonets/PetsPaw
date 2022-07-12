@@ -1,0 +1,84 @@
+.containerBack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 30;
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  gap: 1vw;
+  width: 50%;
+  /* height: 40vw; */
+  bottom: 2%;
+  padding: 2vw;
+
+  background: #f8f8f7;
+  border-radius: 20px;
+}
+h1 {
+  font-size: 3vw;
+}
+
+/* .containerBack div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44.444vw;
+  height: 22.222vw;
+  background: #ffffff;
+  border: 2px dashed #fbe0dc;
+  border-radius: 20px;
+} */
+
+.containerBack div input {
+  position: absolute;
+}
+
+.closeDiv {
+  align-self: flex-end;
+  cursor: pointer;
+  position: relative;
+  right: 0%;
+}
+
+.containerBack button {
+  background: #ff868e;
+  border-radius: 10px;
+  padding-top: 0.7vw;
+  padding-bottom: 0.7vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  cursor: pointer;
+  font-size: 1.2vw;
+  border: none;
+  color: white;
+}
+
+.containerBack button:hover {
+  background: #fbe0dc;
+  color: #ff868e;
+}
+
+.close {
+  padding: 0.7vw;
+  background: #ffffff;
+  border-radius: 10px;
+}
+.close:hover {
+  background: #ff868e;
+}
+
+.close:hover path {
+  fill: white;
+}
+
+.finalMessage {
+  width: 97%;
+  padding: 1vw;
+  gap: 1vw;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}

@@ -4,6 +4,7 @@ import "./GridBreeds.css";
 import { useState } from "react";
 import Carousel from "./Slider";
 import { useCallback } from "react";
+import { ReactComponent as Heart } from "../../assets/heart.svg";
 
 export default function Grid(props) {
   const gridItems = [
@@ -73,6 +74,10 @@ export default function Grid(props) {
     getImages(el.target.dataset.index);
     setIndex(el.target.dataset.index);
     setWindowCat(true);
+  };
+
+  const favHandler = (id) => {
+    props.onFav(id);
   };
 
   let contentPage = "";
@@ -148,7 +153,9 @@ export default function Grid(props) {
               <div
                 className={gridItems[i]}
                 key={el.id}
-                onClick={openCatHandler}
+                onClick={
+                  props.onPage ? favHandler.bind(null, el.id) : openCatHandler
+                }
               >
                 {!props.isLoading ? (
                   <img
@@ -158,11 +165,19 @@ export default function Grid(props) {
                 ) : (
                   ""
                 )}
-                <div className="overlay1" data-index={i}>
-                  <div className="label1">
-                    <p>{props.breed ? el?.breeds[0]?.name : el.name}</p>
+                {props.onPage ? (
+                  <div className="overlay" data-index={i}>
+                    <div id="heart">
+                      <Heart className="heartSvg"></Heart>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="overlay1" data-index={i}>
+                    <div className="label1">
+                      <p>{props.breed ? el?.breeds[0]?.name : el.name}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           }

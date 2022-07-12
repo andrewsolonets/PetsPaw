@@ -17,6 +17,7 @@ import VotingApp from "./Components/VotingApp";
 import FavouritesPage from "./Components/FavouritesPage";
 import LikedPage from "./Components/LikedPage";
 
+let subId = Math.random().toString(36).substring(7);
 function App() {
   const [isVoteClicked, setIsVoteClicked] = useState(false);
   const [isFavClicked, setIsFavClicked] = useState(false);
@@ -29,7 +30,10 @@ function App() {
     setIsGalleryClicked(false);
     setIsBreedClicked(false);
     setIsVoteClicked(true);
-    setContent(<VotingApp />);
+    setIsFavClicked(false);
+    setIsLikedClicked(false);
+    setIsDisLikedClicked(false);
+    setContent(<VotingApp subId={subId} />);
     console.log("Vote");
   };
 
@@ -41,6 +45,9 @@ function App() {
     setIsGalleryClicked(false);
     setIsVoteClicked(false);
     setIsBreedClicked(true);
+    setIsFavClicked(false);
+    setIsLikedClicked(false);
+    setIsDisLikedClicked(false);
     setContent(<BreedsPage></BreedsPage>);
     console.log("Breed");
   };
@@ -49,15 +56,22 @@ function App() {
     setIsVoteClicked(false);
     setIsBreedClicked(false);
     setIsGalleryClicked(true);
-    setContent(<GalleryPage></GalleryPage>);
+    setIsFavClicked(false);
+    setIsLikedClicked(false);
+    setIsDisLikedClicked(false);
+    setContent(<GalleryPage subId={subId}></GalleryPage>);
   };
   const favouritesPageHandler = () => {
     setIsFavClicked(true);
+    setIsLikedClicked(false);
+    setIsDisLikedClicked(false);
     setContent(<FavouritesPage />);
   };
 
   const likedPageHandler = () => {
     setIsLikedClicked(true);
+    setIsDisLikedClicked(false);
+    setIsFavClicked(false);
     setContent(
       <LikedPage value={1} text={"LIKES"} onBack={backButtonHandler} />
     );
@@ -65,6 +79,8 @@ function App() {
 
   const DislikePageHandler = () => {
     setIsDisLikedClicked(true);
+    setIsLikedClicked(false);
+    setIsFavClicked(false);
     setContent(
       <LikedPage value={0} text={"DISLIKES"} onBack={backButtonHandler} />
     );
@@ -77,6 +93,9 @@ function App() {
       <div className="app">
         <Header
           onFav={favouritesPageHandler}
+          fav={isFavClicked}
+          like={isLikedClicked}
+          dislike={isDisLikedClicked}
           onLike={likedPageHandler}
           onDislike={DislikePageHandler}
         ></Header>

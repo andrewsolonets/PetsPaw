@@ -18,6 +18,37 @@
   gap: 0.8vw;
 }
 
+.nav-content1 {
+  align-self: flex-start;
+  justify-content: space-between;
+  display: flex;
+  gap: 25vw;
+}
+
+.nav-content1 img {
+  width: 0.833vw;
+  height: 1.389vw;
+  padding-left: 0.2vw;
+  padding-right: 0.3vw;
+}
+
+.backGallery {
+  display: flex;
+  gap: 0.8vw;
+}
+.nav-content1 Button {
+  color: #ffffff;
+  background: #ff868e;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  font-size: 1.389vw;
+}
+
+.nav-content1 Button:hover {
+  color: #ffffff;
+  background: #ff868e;
+}
+
 .nav-content img {
   width: 0.833vw;
   height: 1.389vw;
@@ -160,6 +191,84 @@
   font-weight: 500;
   font-size: 0.8vw;
   color: #8c8c8c;
+}
+
+.filterWraper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
+.filterReload {
+  display: flex;
+  align-items: center;
+}
+
+.reload {
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 0.5vw;
+  padding: 0.8vw;
+}
+
+.reload:hover {
+  background: #ff868e;
+}
+
+.reload:hover path {
+  fill: white;
+}
+
+.upload {
+  background: #fbe0dc;
+  border-radius: 0.4vw;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  border: none;
+  color: #ff868e;
+  padding: 0.7vw;
+  gap: 0.7vw;
+  font-size: 1.5vw;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 768px) {
+  .upload {
+    border-radius: 0.694vw;
+    border: 0;
+    color: #ff868e;
+    padding-top: 0.694vw;
+    padding-bottom: 0.694vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 1.2vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .upload {
+    border: none;
+    font-size: 1vw;
+  }
+}
+
+@media (min-width: 1440px) {
+}
+
+.upload:hover {
+  background: #ff868e;
+  color: white;
+}
+
+.upload:hover .reloadSvg path {
+  fill: white;
 }
 
 /* .columnOptions p {
