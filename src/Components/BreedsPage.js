@@ -8,6 +8,7 @@ import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
 import Select from "react-select";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const BreedsPage = () => {
   const [results, setResults] = useState([]);
@@ -242,6 +243,13 @@ const BreedsPage = () => {
         </Button>
         {menuBar}
       </div>
+      <BounceLoader
+        color={"#FF868E"}
+        loading={isLoading}
+        // cssOverride={override}
+        size={50}
+        speedMultiplier={1.5}
+      ></BounceLoader>
       <Grid
         items={results}
         limit={resultsLimit}

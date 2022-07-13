@@ -19,22 +19,13 @@ import LikedPage from "./Components/LikedPage";
 
 let subId = Math.random().toString(36).substring(7);
 function App() {
-  const [isVoteClicked, setIsVoteClicked] = useState(false);
-  const [isFavClicked, setIsFavClicked] = useState(false);
-  const [isLikedClicked, setIsLikedClicked] = useState(false);
-  const [isDisLikedClicked, setIsDisLikedClicked] = useState(false);
-  const [isBreedClicked, setIsBreedClicked] = useState(false);
-  const [isGalleryClicked, setIsGalleryClicked] = useState(false);
+  const [curPage, setCurPage] = useState("");
+  const [userPage, setUserPage] = useState("");
   const [content, setContent] = useState();
   const onVoteHandler = () => {
-    setIsGalleryClicked(false);
-    setIsBreedClicked(false);
-    setIsVoteClicked(true);
-    setIsFavClicked(false);
-    setIsLikedClicked(false);
-    setIsDisLikedClicked(false);
+    setCurPage("vote");
+    setUserPage("");
     setContent(<VotingApp subId={subId} />);
-    console.log("Vote");
   };
 
   const backButtonHandler = () => {
@@ -42,45 +33,35 @@ function App() {
   };
 
   const onBreedsHandler = () => {
-    setIsGalleryClicked(false);
-    setIsVoteClicked(false);
-    setIsBreedClicked(true);
-    setIsFavClicked(false);
-    setIsLikedClicked(false);
-    setIsDisLikedClicked(false);
+    setCurPage("breeds");
+    setUserPage("");
     setContent(<BreedsPage></BreedsPage>);
     console.log("Breed");
   };
 
   const onGalleryHandler = () => {
-    setIsVoteClicked(false);
-    setIsBreedClicked(false);
-    setIsGalleryClicked(true);
-    setIsFavClicked(false);
-    setIsLikedClicked(false);
-    setIsDisLikedClicked(false);
+    setCurPage("gallery");
+    setUserPage("");
+
     setContent(<GalleryPage subId={subId}></GalleryPage>);
   };
   const favouritesPageHandler = () => {
-    setIsFavClicked(true);
-    setIsLikedClicked(false);
-    setIsDisLikedClicked(false);
+    setUserPage("fav");
+
     setContent(<FavouritesPage />);
   };
 
   const likedPageHandler = () => {
-    setIsLikedClicked(true);
-    setIsDisLikedClicked(false);
-    setIsFavClicked(false);
+    setUserPage("liked");
+
     setContent(
       <LikedPage value={1} text={"LIKES"} onBack={backButtonHandler} />
     );
   };
 
   const DislikePageHandler = () => {
-    setIsDisLikedClicked(true);
-    setIsLikedClicked(false);
-    setIsFavClicked(false);
+    setUserPage("disliked");
+
     setContent(
       <LikedPage value={0} text={"DISLIKES"} onBack={backButtonHandler} />
     );
@@ -88,14 +69,12 @@ function App() {
 
   let contentApp;
 
-  if (isVoteClicked || isBreedClicked || isGalleryClicked) {
+  if (curPage) {
     contentApp = (
       <div className="app">
         <Header
           onFav={favouritesPageHandler}
-          fav={isFavClicked}
-          like={isLikedClicked}
-          dislike={isDisLikedClicked}
+          userPage={userPage}
           onLike={likedPageHandler}
           onDislike={DislikePageHandler}
         ></Header>
@@ -122,7 +101,7 @@ function App() {
               <div className="options">
                 <div
                   className={`${"option-button"} ${
-                    isVoteClicked ? "active" : ""
+                    curPage === "vote" ? "active" : ""
                   }`}
                   onClick={onVoteHandler}
                 >
@@ -133,7 +112,7 @@ function App() {
                 </div>
                 <div
                   className={`${"option-button"} ${
-                    isBreedClicked ? "active" : ""
+                    curPage === "breeds" ? "active" : ""
                   }`}
                   onClick={onBreedsHandler}
                 >
@@ -144,7 +123,7 @@ function App() {
                 </div>
                 <div
                   className={`${"option-button"} ${
-                    isGalleryClicked ? "active" : ""
+                    curPage === "gallery" ? "active" : ""
                   }`}
                   onClick={onGalleryHandler}
                 >

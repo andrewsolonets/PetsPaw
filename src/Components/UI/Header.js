@@ -33,19 +33,27 @@ const Header = (props) => {
         </form>
       </div>
       <div
-        className={props.like ? classes.activeIcon : classes["like-icon"]}
+        className={
+          props.userPage === "liked" ? classes.activeIcon : classes["like-icon"]
+        }
         onClick={props.onLike}
       >
         <Like className={classes.iconSvgHead} />
       </div>
       <div
-        className={props.fav ? classes.activeIcon : classes["like-icon"]}
+        className={
+          props.userPage === "fav" ? classes.activeIcon : classes["like-icon"]
+        }
         onClick={props.onFav}
       >
         <Fav className={classes.iconSvgHead} />
       </div>
       <div
-        className={props.dislike ? classes.activeIcon : classes["like-icon"]}
+        className={
+          props.userPage === "disliked"
+            ? classes.activeIcon
+            : classes["like-icon"]
+        }
         onClick={props.onDislike}
       >
         <DisLike className={classes.iconSvgHead} />

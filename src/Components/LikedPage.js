@@ -5,11 +5,15 @@ import backArrow from "../assets/backArrow.png";
 import { useCallback, useEffect, useState } from "react";
 import Grid from "./UI/GridLikes";
 
+import BounceLoader from "react-spinners/BounceLoader";
+
 const LikedPage = (props) => {
   const [likedItems, setLikedItems] = useState([]);
   const [dislikedItems, setDislikedItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getLikes = useCallback(async () => {
+    setIsLoading(true);
     const imgsGet = async (id) => {
       const response2 = await fetch(
         `https://api.thecatapi.com/v1/images/${id}`,
@@ -56,6 +60,7 @@ const LikedPage = (props) => {
       const data = await imgsGet(el.image_id);
       return data;
     });
+    setIsLoading(false);
 
     // setLikedItems(final);
   }, [props.value]);
@@ -76,6 +81,13 @@ const LikedPage = (props) => {
         </CardButton>
         <Button>{props.text}</Button>
       </div>
+      <BounceLoader
+        color={"#FF868E"}
+        loading={isLoading}
+        cssOverride={{ marginTop: "5vw" }}
+        size={50}
+        speedMultiplier={1.5}
+      ></BounceLoader>
       <Grid items={props.value === 1 ? likedItems : dislikedItems}></Grid>
     </div>
   );

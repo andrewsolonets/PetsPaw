@@ -10,6 +10,8 @@ import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
 import { ReactComponent as Reload } from "../assets/reload.svg";
 import { ReactComponent as Upload } from "../assets/upload.svg";
 
+import BounceLoader from "react-spinners/BounceLoader";
+
 import Select from "react-select";
 
 import Modal from "./ModalUpload";
@@ -297,6 +299,13 @@ const GalleryPage = (props) => {
           </div>
         </div>
       </div>
+      <BounceLoader
+        color={"#FF868E"}
+        loading={isLoading}
+        // cssOverride={override}
+        size={50}
+        speedMultiplier={1.5}
+      ></BounceLoader>
       <Grid
         items={results}
         limit={resultsLimit}

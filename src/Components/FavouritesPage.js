@@ -6,10 +6,13 @@ import UserLogItem from "./UserLogItem";
 import { useEffect, useState } from "react";
 import Grid from "./UI/Grid";
 
+import BounceLoader from "react-spinners/BounceLoader";
+
 const FavouritesPage = (props) => {
   const [favItems, setFavItems] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   const getFavourites = async () => {
+    setIsLoading(true);
     const response = await fetch(
       "https://api.thecatapi.com/v1/favourites/?" +
         new URLSearchParams({
@@ -25,6 +28,7 @@ const FavouritesPage = (props) => {
     const data = await response.json();
     setFavItems(data);
     console.log(favItems);
+    setIsLoading(false);
   };
   const deleteItemsFav = async (id) => {
     const response = await fetch(
@@ -53,12 +57,14 @@ const FavouritesPage = (props) => {
         </CardButton>
         <Button>FAVOURITES</Button>
       </div>
+      <BounceLoader
+        color={"#FF868E"}
+        loading={isLoading}
+        cssOverride={{ marginTop: "5vw" }}
+        size={50}
+        speedMultiplier={1.5}
+      ></BounceLoader>
       <Grid items={favItems} onDelete={deleteItemsFav}></Grid>
-      {/* <div className={classes.itemsParent}>
-        <div className={classes.item}></div>
-        <div className={classes.item2}></div>
-        <div className={classes.item2}></div>
-      </div> */}
       <div className={classes.userLog}>
         {favItems.map((el) => {
           return (
