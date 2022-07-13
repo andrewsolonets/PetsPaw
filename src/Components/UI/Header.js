@@ -10,22 +10,32 @@ import { ReactComponent as DisLike } from "../../assets/dislike.svg";
 const Header = (props) => {
   const [query, setQuery] = useState("");
   const submitSearchHandler = (e) => {
-    console.log(e);
+    e.preventDefault();
+    console.log(query);
+    props.onSearch(query);
   };
   console.log(query);
+
+  let styles;
+
+  if (props.search === "search") {
+    styles = { borderColor: "#FF868E" };
+  }
 
   return (
     <div className={classes.header}>
       <div>
-        <form className={classes.searchBar} onSubmit={submitSearchHandler}>
+        <form className={classes.searchBar}>
           <input
+            style={styles}
             className={classes.searchInput}
             type="text"
             id="search"
+            onSubmit={submitSearchHandler}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for breeds by name"
           ></input>
-          <div className={classes.searchBtn}>
+          <div className={classes.searchBtn} onClick={submitSearchHandler}>
             <CardButton>
               <img src={Search} alt="Search-Button"></img>
             </CardButton>

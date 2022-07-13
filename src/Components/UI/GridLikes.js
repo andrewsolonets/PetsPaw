@@ -4,6 +4,7 @@ import testImg from "../../assets/testImg.png";
 import heartFav1 from "../../assets/hearFav.png";
 
 export default function Grid(props) {
+  console.log(props.items);
   const gridItems = [
     "frst",
     "sec",
@@ -21,19 +22,40 @@ export default function Grid(props) {
   //   props.onDelete(id);
   // };
 
-  return (
-    <div className="container">
-      {props.items.map((el, i) => {
-        return (
-          <div
-            className={gridItems[i]}
-            key={el.id}
-            // onClick={favHandler.bind(null, el.id)}
-          >
-            <img src={el.url} alt="asda"></img>
+  let content;
+
+  if (props.searchPage) {
+    content = props.items.map((el, i) => {
+      return (
+        <div
+          className={gridItems[i]}
+          key={el.id}
+          // onClick={favHandler.bind(null, el.id)}
+        >
+          <img src={el.url} alt="asda"></img>
+
+          <div className="overlay1" data-index={i}>
+            <div className="label1">
+              <p>{el.breeds[0].name}</p>
+            </div>
           </div>
-        );
-      })}
-    </div>
-  );
+        </div>
+      );
+    });
+  }
+
+  if (!props.searchPage) {
+    content = props.items.map((el, i) => {
+      return (
+        <div
+          className={gridItems[i]}
+          key={el.id}
+          // onClick={favHandler.bind(null, el.id)}
+        >
+          <img src={el.url} alt="asda"></img>
+        </div>
+      );
+    });
+  }
+  return <div className="container">{content}</div>;
 }

@@ -16,6 +16,7 @@ import BreedsPage from "./Components/BreedsPage";
 import VotingApp from "./Components/VotingApp";
 import FavouritesPage from "./Components/FavouritesPage";
 import LikedPage from "./Components/LikedPage";
+import SearchPage from "./Components/SearchPage";
 
 let subId = Math.random().toString(36).substring(7);
 function App() {
@@ -67,16 +68,24 @@ function App() {
     );
   };
 
+  const searchHandler = (query) => {
+    setUserPage("search");
+
+    setContent(<SearchPage query={query} text={"SEARCH"} />);
+  };
+
   let contentApp;
 
   if (curPage) {
     contentApp = (
       <div className="app">
         <Header
+          search={userPage}
           onFav={favouritesPageHandler}
           userPage={userPage}
           onLike={likedPageHandler}
           onDislike={DislikePageHandler}
+          onSearch={searchHandler}
         ></Header>
         <div className="appContent">{content}</div>
       </div>
