@@ -9,6 +9,7 @@
   background: #ffffff;
   border: 2px solid transparent;
   border-radius: 20px;
+  color: #8c8c8c;
 }
 
 .searchInput:focus {
@@ -34,6 +35,15 @@
   height: 1.39vw;
 }
 
+.searchIcon {
+  width: 1.39vw;
+  height: 1.39vw;
+}
+.userPages {
+  display: flex;
+  gap: 0.5vw;
+}
+
 .activeIcon {
   display: flex;
   background: #ffffff;
@@ -56,13 +66,18 @@
   cursor: pointer;
 
   padding: 0.8vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.burgerMenu {
+  display: none;
 }
 
 .iconSvgHead {
   /* width: 2.083vw;
   height: 2.083vw; */
   align-items: center;
-
   justify-content: center;
 }
 
@@ -92,6 +107,81 @@
 .activeIcon .iconSvgHead path {
   fill: #ffffff;
 }
+
+@media (max-width: 425px) {
+  .header {
+    margin-top: 3vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+
+    width: 100%;
+  }
+  .userPages {
+    align-self: flex-end;
+    gap: 2vw;
+  }
+  .like-icon {
+    display: flex;
+    background: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+
+    padding: 3vw;
+  }
+  .searchBar {
+    width: 100%;
+    position: relative;
+  }
+  .searchContainer {
+    width: 100%;
+  }
+  .searchInput {
+    font-size: 4.5vw;
+    font-weight: 400;
+    width: 95%;
+    padding-top: 2.5vw;
+    padding-right: 2vw;
+    padding-bottom: 2.5vw;
+    padding-left: 2vw;
+    background: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 20px;
+  }
+  .searchIcon {
+    width: 5.5vw;
+    height: 5.5vw;
+    padding: 1.2vw;
+  }
+  .searchBtn {
+    position: absolute;
+    bottom: 12%;
+    right: 2.5vw;
+  }
+  .burgerMenu {
+    display: block;
+  }
+  .ham {
+    margin-right: 32vw;
+    display: flex;
+    background: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    justify-self: flex-start;
+    padding: 3vw;
+  }
+  .activeIcon {
+    display: flex;
+    background: #ff868e;
+    border-radius: 20px;
+    cursor: pointer;
+
+    padding: 3vw;
+  }
+}
+
 @media (min-width: 1440px) {
   ::placeholder {
     font-size: 20px;

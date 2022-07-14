@@ -1,0 +1,27 @@
+.loader {
+  border: 0.3vw solid #ff868e;
+  border-top: 0.3vw solid #ffffff;
+  border-radius: 50%;
+  width: 1vw;
+  margin-right: 0.7vw;
+  height: 1vw;
+  animation: spin 1.3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 425px) {
+  .loader {
+    width: 3vw;
+    height: 3vw;
+    border: 1vw solid #ff868e;
+    border-top: 1vw solid #ffffff;
+  }
+}

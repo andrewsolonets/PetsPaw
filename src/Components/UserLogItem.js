@@ -29,12 +29,12 @@ const UserLogItem = (props) => {
   return (
     <div className={classes.userLogElement}>
       <div className={classes.time}>
-        <p>{time}</p>
+        <span className={classes.userlogP}>{time}</span>
       </div>
       <div className={classes.userLogInfo}>
-        <p>
+        <span className={classes.userlogP}>
           Image ID: <b>{props.catId}</b> was added to {category}
-        </p>
+        </span>
       </div>
 
       <div className={classes.userLogIcon}>

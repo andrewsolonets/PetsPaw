@@ -8,6 +8,7 @@
   border: 2px dashed #fbe0dc;
   border-radius: 20px;
   cursor: pointer;
+  margin-bottom: 4vw;
   padding: 1vw;
 }
 
@@ -33,4 +34,39 @@
 .errorState {
   background: #fbe0dc;
   border: 2px dashed #ff868e;
+}
+
+@media (max-width: 425px) {
+  .draganddrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    height: 40vh;
+    background: #ffffff;
+    border: 2px dashed #fbe0dc;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 4vw;
+    padding: 1vw;
+    margin-left: 5vw;
+  }
+
+  .draganddrop p {
+    width: 50%;
+  }
+
+  .placeImage img {
+    width: auto;
+  }
+  .uploadedImage {
+    width: 100%;
+    height: auto;
+  }
+  .fileText {
+    position: absolute;
+    bottom: -15%;
+    left: 8%;
+    width: 100% !important;
+  }
 }

@@ -14,7 +14,6 @@ body {
 h1 {
   font-weight: 500;
   font-style: normal;
-  font-size: 3vw;
   line-height: 4vw;
   color: #1d1d1d;
   margin-bottom: 0.694vw;
@@ -26,7 +25,9 @@ h1 {
   line-height: 2vw;
   color: #8c8c8c;
 }
-
+.burgerMenu {
+  display: none;
+}
 .main {
   display: flex;
   gap: 6.5vw;
@@ -40,6 +41,7 @@ h1 {
   font-size: 1.38vw;
   line-height: 2vw;
   margin-bottom: 1.389vw;
+  color: #1d1d1d;
 }
 
 .parent {
@@ -157,12 +159,93 @@ section {
   height: auto;
 }
 
+@media (max-width: 425px) {
+  .main {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+  .parent {
+    position: fixed;
+    width: 100%;
+    /* margin-left: 4vw; */
+  }
+  .burgerMenu {
+    align-self: center;
+    justify-self: flex-start;
+    display: block;
+  }
+  .logo {
+    left: 5.333vw;
+    width: 20vw;
+  }
+  .option-button div {
+    display: none;
+  }
+  section {
+    width: 100%;
+    align-items: flex-start;
+    padding-left: 0;
+    gap: 10vw;
+    padding-top: 20vw;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .greetings h1 {
+    font-size: 10vw;
+  }
+  .greetings {
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 6vw;
+  }
+  .greetings p {
+    font-size: 4vw;
+    width: 100%;
+  }
+  .options-container {
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+    width: 96%;
+  }
+  .options-container p {
+    font-size: 4vw;
+  }
+  .options {
+    gap: 4vw;
+    width: 93%;
+    flex-direction: column;
+  }
+  .options div button {
+    font-size: 3.5vw;
+  }
+  .app {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    top: 0;
+    gap: 2vw;
+    width: 100%;
+    /* margin-left: 3.6vw;
+    margin-right: 3.6vw; */
+    position: relative;
+    left: 0;
+    height: auto;
+    background: #f8f8f7;
+  }
+}
 @media (min-width: 768px) {
   .logo {
     width: 7.222vw;
     position: fixed;
     left: 7vw;
     top: 2vw;
+  }
+  h1 {
+    font-size: 3vw;
   }
   .voting-container img {
     width: 10vw;
@@ -213,6 +296,9 @@ section {
   .hidden {
     display: none;
   }
+  h1 {
+    font-size: 3vw;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -239,6 +325,9 @@ section {
     position: relative;
     width: 6.944vw;
     height: 8.644vw;
+  }
+  h1 {
+    font-size: 3vw;
   }
 
   section {

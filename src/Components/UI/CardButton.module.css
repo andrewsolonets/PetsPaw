@@ -13,6 +13,10 @@
   background: #ff868e;
 }
 
+.cardbutton:hover svg path {
+  fill: white;
+}
+
 .cardbutton:hover img {
   filter: brightness(100);
 }

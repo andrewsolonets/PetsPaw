@@ -22,7 +22,7 @@
   padding: 0.2vw;
   border-radius: 5px;
 }
-.time p {
+.time span {
   color: #1d1d1d;
 }
 .userLogInfo {
@@ -30,4 +30,23 @@
 }
 .userLogIcon {
   align-self: flex-end;
+}
+
+@media (max-width: 425px) {
+  .userLogElement {
+    align-items: flex-start;
+    padding: 4vw;
+    flex-direction: column;
+  }
+  .userlogP {
+    font-size: 4vw;
+  }
+  .time {
+    align-self: flex-start;
+    padding: 0.8vw;
+  }
+  .userLogIcon {
+    position: absolute;
+    justify-self: top;
+  }
 }

@@ -1,11 +1,11 @@
 import classes from "./FavouritesPage.module.css";
 import Button from "./UI/Button";
 import CardButton from "./UI/CardButton";
-import backArrow from "../assets/backArrow.png";
+
 import UserLogItem from "./UserLogItem";
 import { useEffect, useState } from "react";
 import Grid from "./UI/Grid";
-
+import { ReactComponent as Back } from "../assets/back.svg";
 import BounceLoader from "react-spinners/BounceLoader";
 
 const FavouritesPage = (props) => {
@@ -53,7 +53,7 @@ const FavouritesPage = (props) => {
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
         <CardButton>
-          <img src={backArrow} alt="back arrow"></img>
+          <Back className={classes.back} />
         </CardButton>
         <Button>FAVOURITES</Button>
       </div>

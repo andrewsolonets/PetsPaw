@@ -35,6 +35,13 @@ h1 {
   position: absolute;
 }
 
+.uploadBtnloading {
+  align-items: center;
+  justify-content: center;
+  padding-left: 0vw;
+  display: flex;
+}
+
 .closeDiv {
   align-self: flex-end;
   cursor: pointer;
@@ -53,6 +60,10 @@ h1 {
   font-size: 1.2vw;
   border: none;
   color: white;
+}
+
+.spinner {
+  margin-right: 0.5vw;
 }
 
 .containerBack button:hover {
@@ -81,4 +92,63 @@ h1 {
   display: flex;
   align-items: center;
   border-radius: 10px;
+}
+
+@media (max-width: 425px) {
+  .containerBack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 30;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    gap: 6vw;
+    width: 100%;
+    height: 100%;
+    /* height: 40vw; */
+    bottom: 0%;
+    padding: 2vw;
+
+    border-radius: 0;
+
+    background: #f8f8f7;
+  }
+  h1 {
+    font-size: 5.5vw;
+  }
+  p {
+    width: 70%;
+  }
+  .containerBack button {
+    background: #ff868e;
+    border-radius: 10px;
+    padding-top: 1.5vw;
+    margin-top: 4vw;
+    width: 96%;
+    padding-bottom: 1.5vw;
+    cursor: pointer;
+    gap: 1vw;
+    font-size: 4vw;
+    margin-left: 3vw;
+    border: none;
+    color: white;
+  }
+  .finalMessage {
+    width: 90%;
+    margin-left: 2vw;
+    padding: 1vw;
+    margin-top: 5vw;
+    gap: 1vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+  }
+  .close {
+    padding: 2vw;
+    background: #ffffff;
+    border-radius: 10px;
+  }
 }

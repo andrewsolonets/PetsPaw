@@ -1,4 +1,5 @@
 import classes from "./ModalUpload.module.css";
+import "./loader.css";
 import classes1 from "./Backdrop.module.css";
 import imgUpload from "../assets/imgUpload.png";
 import imgSuccess from "../assets/success.png";
@@ -8,6 +9,7 @@ import { Fragment } from "react";
 import { useState } from "react";
 import DragDrop from "./DragDrop";
 import { ReactComponent as Close } from "../assets/cross.svg";
+import { MoonLoader } from "react-spinners";
 
 const Backdrop = (props) => {
   return <div className={classes1.backdrop} onClick={props.onClose}></div>;
@@ -15,7 +17,7 @@ const Backdrop = (props) => {
 
 const ModalUpload = (props) => {
   const [img, setImg] = useState();
-  const [status, setStatus] = useState("loading");
+  const [status, setStatus] = useState("");
 
   const uploaderPhoto = async () => {
     setStatus("loading");
@@ -67,13 +69,30 @@ const ModalUpload = (props) => {
     let formData = new FormData();
     formData.append("file", e);
     setImg(formData);
+    setStatus("");
   };
 
   let finalMessage;
 
-  if (img && status !== "success" && status !== "failure") {
-    finalMessage = <button onClick={uploadingHandler}> UPLOAD PHOTO</button>;
+  if (
+    img &&
+    status !== "success" &&
+    status !== "failure" &&
+    status !== "loading"
+  ) {
+    finalMessage = <button onClick={uploadingHandler}>UPLOAD PHOTO</button>;
   }
+
+  if (status === "loading") {
+    finalMessage = (
+      <button onClick={uploadingHandler} className={classes.uploadBtnloading}>
+        {" "}
+        <div class="loader"></div>
+        UPLOAD PHOTO
+      </button>
+    );
+  }
+
   if (status === "success") {
     finalMessage = (
       <div className={classes.finalMessage}>

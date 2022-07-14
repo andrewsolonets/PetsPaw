@@ -28,7 +28,7 @@
 
 .parentImg {
   height: 25vw;
-  width: 44.444vw;
+  width: 43vw;
   align-self: center;
   position: relative;
   border-radius: 20px;
@@ -39,9 +39,10 @@
   object-fit: contain;
   width: 100%;
   height: 25vw;
+  border-radius: 20px;
 }
 
-.nav-content img {
+.nav-content .back {
   width: 0.833vw;
   height: 1.389vw;
   padding-left: 0.2vw;
@@ -142,4 +143,88 @@
 
 .dislikeAction:hover .dislike path {
   fill: #ffd280;
+}
+
+@media (max-width: 425px) {
+  .containerMain {
+    padding: 4vw;
+    gap: 3vw;
+  }
+  .nav-content {
+    gap: 2vw;
+  }
+  .nav-content .back {
+    width: 2.933vw;
+    height: 6vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 0.8vw;
+    padding-bottom: 0.8vw;
+  }
+  .nav-content Button {
+    color: #ffffff;
+    background: #ff868e;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    font-size: 5vw;
+    border-radius: 10px;
+    letter-spacing: 2px;
+  }
+  .userLog {
+    gap: 2vw;
+  }
+
+  .containerImg {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    height: 50vw;
+
+    border-radius: 20px;
+  }
+
+  .parentImg {
+    height: 50vw;
+    width: 100%;
+    align-self: center;
+    position: relative;
+    border-radius: 20px;
+    margin-bottom: 10vw;
+  }
+
+  .containerImg img {
+    object-fit: contain;
+    width: 100%;
+    height: 50vw;
+    border-radius: 20px;
+  }
+  .actions {
+    position: absolute;
+    bottom: -17%;
+    left: 20%;
+    display: flex;
+    background: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: 20px;
+    gap: 0.3vw;
+  }
+  .actions div {
+    height: 13vw;
+    width: 13vw;
+  }
+  .likeAction:hover {
+    background: #97eab9;
+  }
+
+  .likeAction:hover .like path {
+    fill: white;
+  }
+
+  .dislikeAction:hover {
+    background: #ffd280;
+  }
+
+  .dislikeAction:hover .dislike path {
+    fill: white;
+  }
 }

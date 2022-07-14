@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
+import { ReactComponent as Back } from "../assets/back.svg";
 import Select from "react-select";
 import BounceLoader from "react-spinners/BounceLoader";
 
@@ -116,8 +117,13 @@ const BreedsPage = () => {
       color: "#8C8C8C",
     }),
     control: (provided, state) => ({
-      ...provided,
       // none of react-select's styles are passed to <Control />
+      ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
       width: "18vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
@@ -128,6 +134,11 @@ const BreedsPage = () => {
     }),
     container: (provided, state) => ({
       ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),
@@ -152,6 +163,11 @@ const BreedsPage = () => {
     }),
     control: (provided, state) => ({
       ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
       // none of react-select's styles are passed to <Control />
       width: "8.8vw",
       height: "3.2vw",
@@ -163,6 +179,11 @@ const BreedsPage = () => {
     }),
     container: (provided, state) => ({
       ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "70%",
+        height: "10vw",
+      },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),
@@ -219,6 +240,7 @@ const BreedsPage = () => {
   }
 
   const nextPageHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setPageNumber((prevState) => {
       console.log(prevState);
       return prevState + 1;
@@ -226,6 +248,7 @@ const BreedsPage = () => {
   };
 
   const prevPageHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setPageNumber((prevState) => {
       console.log(prevState);
       return prevState - 1;
@@ -236,7 +259,7 @@ const BreedsPage = () => {
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
         <CardButton>
-          <img src={backArrow} alt="back arrow"></img>
+          <Back className={classes.back} />
         </CardButton>
         <Button style={{ background: "#1d1d1d" }} active={singleCat.state}>
           BREEDS
@@ -258,7 +281,7 @@ const BreedsPage = () => {
         onAction={actionGridHandler}
         onPage={false}
       ></Grid>
-      {singleCat ? (
+      {singleCat.state ? (
         ""
       ) : (
         <div className={classes.paginationContainer}>

@@ -1,8 +1,8 @@
 .container1 {
   display: grid;
   grid-auto-flow: row dense;
-  grid-template-columns: 16vw 16vw 16vw;
-  grid-template-rows: 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw 9.722vw;
+  grid-template-columns: repeat(3, 16vw);
+  grid-template-rows: repeat(12, 9.722vw);
   grid-auto-rows: 9.722vw 9.722vw;
   gap: 1.042vw 1.042vw;
   justify-content: center;
@@ -348,4 +348,247 @@ p {
   justify-content: center;
   width: 20vw;
   gap: 3vw;
+}
+
+@media (max-width: 425px) {
+  .container1 {
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(20, 55vw);
+    grid-auto-rows: 9.722vw 9.722vw;
+    gap: 2.5vw 0vw;
+    justify-content: center;
+    align-content: start;
+    justify-items: stretch;
+    grid-template-areas:
+      "frst"
+      "sec"
+      "thrd"
+      "fourth"
+      "s1"
+      "s2"
+      "s3"
+      "m1"
+      "b2"
+      "sl"
+      "frst2"
+      "sec2"
+      "thrd2"
+      "fourth2"
+      "s11"
+      "s22"
+      "s33"
+      "m11"
+      "b22"
+      "sll";
+    width: 100%;
+  }
+  .containerImg {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    height: 60vw;
+
+    border-radius: 20px;
+  }
+  /* .containerImg {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    height: 50vw;
+
+    border-radius: 20px;
+  }
+
+  .parentImg {
+    height: 50vw;
+    width: 100%;
+    align-self: center;
+    position: relative;
+    border-radius: 20px;
+    margin-bottom: 10vw;
+  }
+
+  .containerImg img {
+    object-fit: contain;
+    width: 100%;
+    height: 50vw;
+    border-radius: 20px;
+  } */
+
+  .parentImg {
+    height: 60vw;
+    width: 100%;
+    align-self: center;
+    position: relative;
+    border-radius: 20px;
+  }
+
+  .containerImg img {
+    object-fit: contain;
+    width: 99%;
+    height: 60vw;
+  }
+  .singleCat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13vw;
+
+    width: 100%;
+  }
+  .headingCat {
+    position: absolute;
+    top: -3%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
+    background: #ffffff;
+    border-radius: 20px;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 5.333vw;
+    /* identical to box height */
+
+    color: #1d1d1d;
+  }
+
+  .catDesc {
+    border: 2px solid #fbe0dc;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5vw;
+    padding-bottom: 5vw;
+  }
+
+  .mainDescr {
+    margin-top: 8vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4.267vw;
+    /* identical to box height */
+
+    color: #8c8c8c;
+  }
+
+  .ContentContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3vw;
+  }
+
+  .propsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+    justify-content: flex-start;
+    margin-bottom: 2vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  p b {
+    font-weight: 500;
+    color: #1d1d1d;
+  }
+
+  p {
+    font-weight: 400;
+    color: #8c8c8c;
+    font-family: "Jost";
+    font-style: normal;
+    font-size: 4.267vw;
+    line-height: 23px;
+  }
+
+  .textDescr {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 4vw;
+  }
+  .overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+  }
+  #heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background-color: white;
+    padding: 2vw;
+  }
+
+  .overlay1 div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 1vw;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+
+  .container1 div:hover .overlay1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    opacity: 1;
+    border-radius: 20px;
+    background: rgba(255, 134, 142, 0.6);
+  }
+
+  .container1 div:hover .overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 1;
+    border-radius: 20px;
+    background: rgba(255, 134, 142, 0.6);
+  }
+
+  .container div:hover .overlay1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    opacity: 1;
+    border-radius: 20px;
+    background: rgba(255, 134, 142, 0.6);
+  }
+
+  .overlay1 p {
+    font-size: 5vw;
+    text-align: center;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+
+    padding-left: 4vw;
+    padding-right: 4vw;
+    color: #ff868e;
+  }
 }

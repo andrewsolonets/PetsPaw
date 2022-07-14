@@ -20,3 +20,15 @@
   border-radius: 20px;
   width: fit-content !important;
 }
+
+@media (max-width: 425px) {
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    padding: 0.5vw;
+    background-color: white !important;
+    position: absolute !important;
+    left: 37% !important;
+    bottom: -2% !important;
+    border-radius: 20px;
+    width: fit-content !important;
+  }
+}

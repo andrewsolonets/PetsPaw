@@ -7,6 +7,7 @@ import classes from "./VotingApp.module.css";
 import { ReactComponent as Fav } from "../assets/fav.svg";
 import { ReactComponent as Like } from "../assets/like.svg";
 import { ReactComponent as DisLike } from "../assets/dislike.svg";
+import { ReactComponent as Back } from "../assets/back.svg";
 // import Favourites from "../assets/Favourites.png";
 
 import UserLogItem from "./UserLogItem";
@@ -120,8 +121,8 @@ const VotingApp = (props) => {
   return (
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
-        <CardButton>
-          <img src={backArrow} alt="back arrow"></img>
+        <CardButton className={classes.backContainer}>
+          <Back className={classes.back} />
         </CardButton>
         <Button>VOTING</Button>
       </div>

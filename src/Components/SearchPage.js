@@ -4,6 +4,7 @@ import CardButton from "./UI/CardButton";
 import backArrow from "../assets/backArrow.png";
 import { useCallback, useEffect, useState } from "react";
 import Grid from "./UI/GridLikes";
+import { ReactComponent as Back } from "../assets/back.svg";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
@@ -64,7 +65,7 @@ const SearchPage = (props) => {
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
         <CardButton onClick={props.onBack}>
-          <img src={backArrow} alt="back arrow"></img>
+          <Back className={classes.back} />
         </CardButton>
         <Button>{props.text}</Button>
       </div>

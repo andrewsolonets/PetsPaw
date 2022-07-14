@@ -4,11 +4,10 @@ import Button from "./UI/Button";
 import backArrow from "../assets/backArrow.png";
 import Grid from "./UI/GridBreeds";
 import { useCallback, useEffect, useState } from "react";
-import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
-import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
 import { ReactComponent as Reload } from "../assets/reload.svg";
 import { ReactComponent as Upload } from "../assets/upload.svg";
+import { ReactComponent as Back } from "../assets/back.svg";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
@@ -147,9 +146,14 @@ const GalleryPage = (props) => {
       color: "#8C8C8C",
     }),
     control: (provided, state) => ({
-      ...provided,
       // none of react-select's styles are passed to <Control />
-      width: "23vw",
+      ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
+      width: "18vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
       outline: "none",
@@ -159,6 +163,11 @@ const GalleryPage = (props) => {
     }),
     container: (provided, state) => ({
       ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),
@@ -183,7 +192,11 @@ const GalleryPage = (props) => {
     }),
     control: (provided, state) => ({
       ...provided,
-      // none of react-select's styles are passed to <Control />
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
       width: "19.5vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
@@ -194,6 +207,11 @@ const GalleryPage = (props) => {
     }),
     container: (provided, state) => ({
       ...provided,
+      "@media only screen and (max-width: 425px)": {
+        ...provided["@media (max-width: 425px)"],
+        width: "100%",
+        height: "10vw",
+      },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),
@@ -214,6 +232,7 @@ const GalleryPage = (props) => {
   };
 
   const nextPageHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setPageNumber((prevState) => {
       console.log(prevState);
       return prevState + 1;
@@ -221,6 +240,7 @@ const GalleryPage = (props) => {
   };
 
   const prevPageHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setPageNumber((prevState) => {
       console.log(prevState);
       return prevState - 1;
@@ -248,7 +268,7 @@ const GalleryPage = (props) => {
       <div className={classes["nav-content1"]}>
         <div className={classes.backGallery}>
           <CardButton>
-            <img src={backArrow} alt="back arrow"></img>
+            <Back className={classes.back} />
           </CardButton>
           <Button style={{ background: "#1d1d1d" }} active={singleCat.state}>
             GALLERY

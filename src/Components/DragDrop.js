@@ -16,6 +16,7 @@ function DragDrop(props) {
   };
   console.log(file);
   console.log(props.onStatus);
+
   return (
     <FileUploader
       handleChange={handleChange}
@@ -37,7 +38,9 @@ function DragDrop(props) {
             </>
           )}
           <p className="fileText">{`${
-            file ? `Image File Name: ${file.name}` : "No file selected"
+            file && props.onStatus !== "success"
+              ? `Image File Name: ${file.name}`
+              : "No file selected"
           } `}</p>
         </div>
       }

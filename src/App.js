@@ -8,22 +8,27 @@ import PetBreed from "./assets/pet-breeds.png";
 import Gallery from "./assets/Gallery.png";
 import logo from "./assets/Logo.png";
 import HomePic from "./Components/UI/HomePic";
+import { ReactComponent as Cross } from "./assets/cross.svg";
 import Header from "./Components/UI/Header";
 
 import GalleryPage from "./Components/GalleryPage";
+import SideBar from "./Components/UI/SideBar";
 
 import BreedsPage from "./Components/BreedsPage";
 import VotingApp from "./Components/VotingApp";
 import FavouritesPage from "./Components/FavouritesPage";
 import LikedPage from "./Components/LikedPage";
 import SearchPage from "./Components/SearchPage";
+import Menu from "./Components/UI/Menu";
 
 let subId = Math.random().toString(36).substring(7);
 function App() {
   const [curPage, setCurPage] = useState("");
   const [userPage, setUserPage] = useState("");
   const [content, setContent] = useState();
+  const [hamburger, setHamburger] = useState(false);
   const onVoteHandler = () => {
+    setHamburger(false);
     setCurPage("vote");
     setUserPage("");
     setContent(<VotingApp subId={subId} />);
@@ -34,6 +39,7 @@ function App() {
   };
 
   const onBreedsHandler = () => {
+    setHamburger(false);
     setCurPage("breeds");
     setUserPage("");
     setContent(<BreedsPage></BreedsPage>);
@@ -41,6 +47,7 @@ function App() {
   };
 
   const onGalleryHandler = () => {
+    setHamburger(false);
     setCurPage("gallery");
     setUserPage("");
 
@@ -73,6 +80,9 @@ function App() {
 
     setContent(<SearchPage query={query} text={"SEARCH"} />);
   };
+  const toggleHambHandler = (e) => {
+    setHamburger((prevState) => !prevState);
+  };
 
   let contentApp;
 
@@ -86,7 +96,26 @@ function App() {
           onLike={likedPageHandler}
           onDislike={DislikePageHandler}
           onSearch={searchHandler}
-        ></Header>
+        >
+          <div className="burgerMenu">
+            {" "}
+            <SideBar hamburger={hamburger} setHamburger={setHamburger} />
+            <Menu hamburger={hamburger} setHamburger={setHamburger}>
+              <div onClick={toggleHambHandler}>
+                <Cross />
+              </div>
+              <Button className="menuOption" onClick={onVoteHandler}>
+                VOTING
+              </Button>
+              <Button className="menuOption" onClick={onBreedsHandler}>
+                BREEDS
+              </Button>
+              <Button className="menuOption" onClick={onGalleryHandler}>
+                GALLERY
+              </Button>
+            </Menu>
+          </div>
+        </Header>
         <div className="appContent">{content}</div>
       </div>
     );
