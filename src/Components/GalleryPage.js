@@ -1,7 +1,6 @@
 import classes from "./BreedsPage.module.css";
 import CardButton from "./UI/CardButton";
 import Button from "./UI/Button";
-import backArrow from "../assets/backArrow.png";
 import Grid from "./UI/GridBreeds";
 import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
@@ -153,7 +152,7 @@ const GalleryPage = (props) => {
         width: "100%",
         height: "10vw",
       },
-      width: "18vw",
+      width: "23vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
       outline: "none",
@@ -168,6 +167,7 @@ const GalleryPage = (props) => {
         width: "100%",
         height: "10vw",
       },
+      width: "23vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),
