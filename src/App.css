@@ -245,7 +245,8 @@ input:checked + .slider:before {
   }
   .logo {
     left: 5.333vw;
-    width: 20vw;
+    width: 25vw;
+    top: 4vw;
   }
   .option-button div {
     display: none;
@@ -304,6 +305,32 @@ input:checked + .slider:before {
     left: 0;
     height: auto;
     background: var(--background);
+  }
+  .switch {
+    position: relative;
+    top: 5vw;
+    left: 75vw;
+    display: inline-block;
+    width: 10vw;
+    height: 5vw;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 3vw;
+    width: 3vw;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--main);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(4.5vw);
+    -ms-transform: translateX(4.5vw);
+    transform: translateX(4.5vw);
   }
 }
 @media (min-width: 768px) {
