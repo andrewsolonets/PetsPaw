@@ -8,7 +8,7 @@
   padding: 1.2vw;
 
   flex: 1;
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -49,16 +49,16 @@
   padding-right: 0.3vw;
 }
 .nav-content Button {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
   padding-left: 3vw;
   padding-right: 3vw;
   font-size: 1.389vw;
 }
 
 .nav-content Button:hover {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
 }
 
 .userLog {
@@ -75,8 +75,8 @@
   bottom: -10%;
   left: 30%;
   display: flex;
-  background: #ffffff;
-  border: 4px solid #ffffff;
+  background: var(--backgroundBlock);
+  border: 4px solid var(--backgroundBlock);
   border-radius: 20px;
   gap: 0.3vw;
 }
@@ -94,7 +94,7 @@
 }
 
 .favoutitesAction {
-  background: #ff868e;
+  background: var(--main);
 }
 
 .likeAction {
@@ -114,11 +114,11 @@
   background: rgba(255, 134, 142, 0.3);
 }
 .favoutitesAction:hover .favIcon path {
-  fill: #ff868e;
+  fill: var(--main);
 }
 
 .favoutitesAction:active .favIcon {
-  fill: #ffffff;
+  fill: var(--textWhite);
   fill-rule: nonzero;
 }
 
@@ -126,7 +126,7 @@
   background: #ff7881;
 }
 .favoutitesAction:active .favIcon path {
-  fill: #ffffff;
+  fill: var(--textWhite);
 }
 
 .likeAction:hover {
@@ -162,8 +162,8 @@
     padding-bottom: 0.8vw;
   }
   .nav-content Button {
-    color: #ffffff;
-    background: #ff868e;
+    color: var(--textWhite);
+    background: var(--main);
     padding-left: 6vw;
     padding-right: 6vw;
     font-size: 5vw;
@@ -203,8 +203,8 @@
     bottom: -17%;
     left: 20%;
     display: flex;
-    background: #ffffff;
-    border: 4px solid #ffffff;
+    background: var(--backgroundBlock);
+    border: 4px solid var(--backgroundBlock);
     border-radius: 20px;
     gap: 0.3vw;
   }

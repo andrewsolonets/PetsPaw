@@ -1,7 +1,7 @@
 .userLogElement {
   flex: 1;
   display: flex;
-  background: #f8f8f7;
+  background: var(--backgroundBlock2);
   border-radius: 10px;
   padding: 1vw;
   color: #8c8c8c;
@@ -11,19 +11,19 @@
 }
 .userLogElement b {
   font-weight: 500;
-  color: #1d1d1d;
+  color: var(--textBlack);
 }
 
 .time {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--backgroundBlock);
   padding: 0.2vw;
   border-radius: 5px;
 }
 .time span {
-  color: #1d1d1d;
+  color: var(--textBlack);
 }
 .userLogInfo {
   flex: 1;

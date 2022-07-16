@@ -1,19 +1,19 @@
 /* .swiper-pagination-bullet-active {
   opacity: 1 !important;
 
-  background-color: #ff868e !important;
+  background-color: var(--main) !important;
 }
 .swiper-pagination-bullet1 {
   opacity: 0.21 !important;
   background-color: #ffb5ba !important;
 } */
 :root {
-  --swiper-theme-color: #ff868e;
+  --swiper-theme-color: var(--main);
   --swiper-pagination-bullet-inactive-color: var(--swiper-theme-color);
 }
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   padding: 0.5vw;
-  background-color: white !important;
+  background-color: var(--backgroundBlock) !important;
   position: absolute !important;
   left: 42% !important;
   bottom: -3% !important;
@@ -24,7 +24,7 @@
 @media (max-width: 425px) {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     padding: 0.5vw;
-    background-color: white !important;
+    background-color: var(--backgroundBlock) !important;
     position: absolute !important;
     left: 37% !important;
     bottom: -2% !important;

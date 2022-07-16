@@ -1,5 +1,5 @@
 .cardbutton {
-  background: #fbe0dc;
+  background: var(--btnColor);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
 }
 
 .cardbutton:hover {
-  background: #ff868e;
+  background: var(--main);
 }
 
 .cardbutton:hover svg path {

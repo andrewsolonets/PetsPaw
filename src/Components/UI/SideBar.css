@@ -22,7 +22,7 @@
   width: 2rem;
   height: 1.2vw;
   /* height: 0.25rem; */
-  background: #ff868e;
+  background: var(--main);
   border-radius: 10px;
   transition: all 0.3s linear;
   position: relative;
@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: #f8f8f7;
+  background: var(--background);
   height: 100vh;
   padding: 1rem;
   gap: 5vw;
@@ -60,5 +60,5 @@
   border-radius: 15px;
   padding: 3vw;
   display: flex;
-  background: white;
+  background: var(--backgroundBlock);
 }

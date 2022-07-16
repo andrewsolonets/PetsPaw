@@ -4,8 +4,8 @@
   justify-content: center;
   width: 47vw;
   height: 40vh;
-  background: #ffffff;
-  border: 2px dashed #fbe0dc;
+  background: var(--backgroundBlock);
+  border: 2px dashed var(--btnColor);
   border-radius: 20px;
   cursor: pointer;
   margin-bottom: 4vw;
@@ -32,8 +32,8 @@
 }
 
 .errorState {
-  background: #fbe0dc;
-  border: 2px dashed #ff868e;
+  background: var(--btnColor);
+  border: 2px dashed var(--main);
 }
 
 @media (max-width: 425px) {
@@ -43,8 +43,8 @@
     justify-content: center;
     width: 90vw;
     height: 40vh;
-    background: #ffffff;
-    border: 2px dashed #fbe0dc;
+    background: var(--backgroundBlock);
+    border: 2px dashed var(--btnColor);
     border-radius: 20px;
     cursor: pointer;
     margin-bottom: 4vw;
@@ -70,7 +70,7 @@
     width: 100% !important;
   }
   .errorState {
-    background: #fbe0dc;
-    border: 2px dashed #ff868e;
+    background: var(--btnColor);
+    border: 2px dashed var(--main);
   }
 }

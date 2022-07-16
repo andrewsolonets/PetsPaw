@@ -2,7 +2,7 @@
   padding: 1.2vw;
 
   flex: 1;
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -37,16 +37,16 @@
   gap: 0.8vw;
 }
 .nav-content1 Button {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
   padding-left: 3vw;
   padding-right: 3vw;
   font-size: 1.389vw;
 }
 
 .nav-content1 Button:hover {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
 }
 
 .back {
@@ -56,21 +56,21 @@
   padding-right: 0.3vw;
 }
 .nav-content Button {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
   padding-left: 3vw;
   padding-right: 3vw;
   font-size: 1.389vw;
 }
 
 .nav-content Button:hover {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
 }
 
 .catId {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
   padding-left: 2vw;
   padding-right: 2vw;
   font-size: 1.389vw;
@@ -84,7 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8f8f7;
+  background: var(--background);
   border-radius: 10px;
   width: 2.6vw;
   cursor: pointer;
@@ -92,7 +92,7 @@
 }
 
 .sorting:hover {
-  border: 2px solid #fbe0dc;
+  border: 2px solid var(--btnColor);
 }
 
 .icon {
@@ -100,7 +100,7 @@
 }
 
 .sorting:hover .icon path {
-  fill: #ff868e;
+  fill: var(--main);
 }
 
 .buttonPagination {
@@ -113,14 +113,14 @@
   border: none;
   font-weight: 500;
   font-size: 3vw;
-  background: #fbe0dc;
+  background: var(--btnColor);
   letter-spacing: 2px;
   padding: 12px 30px;
-  color: #ff868e;
+  color: var(--main);
 }
 
 .buttonPagination:disabled {
-  background: #f8f8f7;
+  background: var(--background);
   cursor: default;
   color: #8c8c8c;
 }
@@ -150,7 +150,7 @@
 }
 
 .buttonPagination:hover {
-  background: #ff868e;
+  background: var(--main);
   color: white;
 }
 
@@ -172,7 +172,7 @@
 }
 
 .buttonPagination:disabled:hover {
-  background: #f8f8f7;
+  background: var(--background);
   color: #8c8c8c;
 }
 .filters {
@@ -180,7 +180,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.389vw;
-  background: #f8f8f7;
+  background: var(--background);
   border-radius: 20px;
   width: 100%;
   height: 14vw;
@@ -206,7 +206,7 @@
 }
 
 .reload {
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -217,7 +217,7 @@
 }
 
 .reload:hover {
-  background: #ff868e;
+  background: var(--main);
 }
 
 .reload:hover path {
@@ -225,7 +225,7 @@
 }
 
 .upload {
-  background: #fbe0dc;
+  background: var(--btnColor);
   border-radius: 0.4vw;
   display: flex;
   align-items: center;
@@ -233,7 +233,7 @@
   cursor: pointer;
 
   border: none;
-  color: #ff868e;
+  color: var(--main);
   padding: 0.7vw;
   gap: 0.7vw;
   font-size: 1.5vw;
@@ -244,7 +244,7 @@
   .upload {
     border-radius: 0.694vw;
     border: 0;
-    color: #ff868e;
+    color: var(--main);
     padding-top: 0.694vw;
     padding-bottom: 0.694vw;
     padding-left: 2vw;
@@ -264,7 +264,7 @@
 }
 
 .upload:hover {
-  background: #ff868e;
+  background: var(--main);
   color: white;
 }
 
@@ -304,8 +304,8 @@
     margin-right: 1vw;
   }
   .nav-content Button {
-    color: #ffffff;
-    background: #ff868e;
+    color: var(--textWhite);
+    background: var(--main);
     padding-left: 6vw;
     padding-right: 6vw;
     padding-top: 2vw;
@@ -315,8 +315,8 @@
     letter-spacing: 2px;
   }
   .nav-content1 Button {
-    color: #ffffff;
-    background: #ff868e;
+    color: var(--textWhite);
+    background: var(--main);
     padding-left: 6vw;
     padding-right: 6vw;
     padding-top: 2vw;
@@ -329,7 +329,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f8f7;
+    background: var(--background);
     border-radius: 10px;
     width: 9.600000000000001vw;
     cursor: pointer;
@@ -337,7 +337,7 @@
   }
 
   .sorting:hover {
-    border: 2px solid #fbe0dc;
+    border: 2px solid var(--btnColor);
   }
 
   .icon {
@@ -345,11 +345,11 @@
   }
 
   .sorting:hover .icon path {
-    fill: #ff868e;
+    fill: var(--main);
   }
   .catId {
-    color: #ffffff;
-    background: #ff868e;
+    color: var(--textWhite);
+    background: var(--main);
     padding-left: 2vw;
     padding-right: 2vw;
     font-size: 4vw;
@@ -374,7 +374,7 @@
     align-items: center;
     justify-content: center;
     gap: 3vw;
-    background: #f8f8f7;
+    background: var(--background);
     border-radius: 20px;
     width: 100%;
     flex-wrap: wrap;
@@ -404,7 +404,7 @@
     flex-wrap: wrap;
   }
   .reload {
-    background: #ffffff;
+    background: var(--backgroundBlock);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -416,7 +416,7 @@
     padding: 2vw;
   }
   .upload {
-    background: #fbe0dc;
+    background: var(--btnColor);
     border-radius: 0.4vw;
     display: flex;
     align-items: center;
@@ -424,7 +424,7 @@
     justify-content: center;
     width: 100%;
     border: none;
-    color: #ff868e;
+    color: var(--main);
     padding: 12vw;
     border-radius: 10px;
     gap: 2vw;
@@ -446,9 +446,9 @@
     border: none;
     font-weight: 500;
     font-size: 3vw;
-    background: #fbe0dc;
+    background: var(--btnColor);
     letter-spacing: 2px;
     padding: 12px 30px;
-    color: #ff868e;
+    color: var(--main);
   }
 }

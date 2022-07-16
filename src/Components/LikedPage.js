@@ -82,7 +82,7 @@ const LikedPage = (props) => {
         <Button>{props.text}</Button>
       </div>
       <BounceLoader
-        color={"#FF868E"}
+        color={"var(--main)"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

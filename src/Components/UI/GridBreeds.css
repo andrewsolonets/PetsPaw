@@ -70,7 +70,7 @@
   align-items: flex-end;
   justify-content: center;
   margin-bottom: 1vw;
-  background: #ffffff;
+  background: var(--textWhite);
   border-radius: 5px;
 }
 
@@ -112,7 +112,7 @@
 
   padding-left: 2vw;
   padding-right: 2vw;
-  color: #ff868e;
+  color: var(--main);
 }
 
 .frst {
@@ -275,7 +275,7 @@
   padding-right: 3.5vw;
   padding-top: 0.7vw;
   padding-bottom: 0.7vw;
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 20px;
   font-family: "Jost";
   font-style: normal;
@@ -284,11 +284,11 @@
   line-height: 3.611vw;
   /* identical to box height */
 
-  color: #1d1d1d;
+  color: var(--textBlack);
 }
 
 .catDesc {
-  border: 2px solid #fbe0dc;
+  border: 2px solid var(--btnColor);
   border-radius: 20px;
   width: 44.444vw;
   height: auto;
@@ -331,7 +331,7 @@
 
 p b {
   font-weight: 500;
-  color: #1d1d1d;
+  color: var(--textBlack);
 }
 
 p {
@@ -445,7 +445,7 @@ p {
     padding-right: 3.5vw;
     padding-top: 0.7vw;
     padding-bottom: 0.7vw;
-    background: #ffffff;
+    background: var(--backgroundBlock);
     border-radius: 20px;
     font-family: "Jost";
     font-style: normal;
@@ -453,11 +453,11 @@ p {
     font-size: 5.333vw;
     /* identical to box height */
 
-    color: #1d1d1d;
+    color: var(--textBlack);
   }
 
   .catDesc {
-    border: 2px solid #fbe0dc;
+    border: 2px solid var(--btnColor);
     border-radius: 20px;
     width: 100%;
     height: auto;
@@ -504,7 +504,7 @@ p {
 
   p b {
     font-weight: 500;
-    color: #1d1d1d;
+    color: var(--textBlack);
   }
 
   p {
@@ -547,7 +547,7 @@ p {
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 1vw;
-    background: #ffffff;
+    background: var(--textWhite);
     border-radius: 5px;
   }
 
@@ -589,6 +589,6 @@ p {
 
     padding-left: 4vw;
     padding-right: 4vw;
-    color: #ff868e;
+    color: var(--main);
   }
 }

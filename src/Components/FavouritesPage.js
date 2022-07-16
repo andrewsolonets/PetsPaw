@@ -58,7 +58,7 @@ const FavouritesPage = (props) => {
         <Button>FAVOURITES</Button>
       </div>
       <BounceLoader
-        color={"#FF868E"}
+        color={"var(--main)"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

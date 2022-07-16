@@ -104,9 +104,9 @@ const BreedsPage = () => {
       ...provided,
       color: "#8C8C8C",
 
-      backgroundColor: state.isFocused ? "#F8F8F7" : "",
+      backgroundColor: state.isFocused ? "var(--background)" : "",
 
-      background: state.isFocused ? "#F8F8F7" : "",
+      background: state.isFocused ? "var(--background)" : "",
 
       "&:hover": {
         backgroundColor: state.isFocused ? "#e6e6e6" : "",
@@ -129,7 +129,7 @@ const BreedsPage = () => {
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "#f8f8f7",
+      background: "var(--background)",
       borderRadius: "10px",
     }),
     container: (provided, state) => ({
@@ -149,9 +149,9 @@ const BreedsPage = () => {
       ...provided,
       color: "#8C8C8C",
 
-      backgroundColor: state.isFocused ? "#F8F8F7" : "",
+      backgroundColor: state.isFocused ? "var(--background)" : "",
 
-      background: state.isFocused ? "#F8F8F7" : "",
+      background: state.isFocused ? "var(--background)" : "",
 
       "&:hover": {
         backgroundColor: state.isFocused ? "#e6e6e6" : "",
@@ -174,7 +174,7 @@ const BreedsPage = () => {
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "#f8f8f7",
+      background: "var(--background)",
       borderRadius: "10px",
     }),
     container: (provided, state) => ({
@@ -261,13 +261,16 @@ const BreedsPage = () => {
         <CardButton>
           <Back className={classes.back} />
         </CardButton>
-        <Button style={{ background: "#1d1d1d" }} active={singleCat.state}>
+        <Button
+          style={{ background: "var(--textBlack)" }}
+          active={singleCat.state}
+        >
           BREEDS
         </Button>
         {menuBar}
       </div>
       <BounceLoader
-        color={"#FF868E"}
+        color={"var(--main)"}
         loading={isLoading}
         // cssOverride={override}
         size={50}

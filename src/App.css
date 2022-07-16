@@ -8,14 +8,14 @@
 }
 
 body {
-  background-color: #f8f8f7;
+  background-color: var(--background);
   box-sizing: border-box;
 }
 h1 {
   font-weight: 500;
   font-style: normal;
   line-height: 4vw;
-  color: #1d1d1d;
+  color: var(--textBlack);
   margin-bottom: 0.694vw;
 }
 .greetings p {
@@ -41,7 +41,7 @@ h1 {
   font-size: 1.38vw;
   line-height: 2vw;
   margin-bottom: 1.389vw;
-  color: #1d1d1d;
+  color: var(--textBlack);
 }
 
 .parent {
@@ -49,10 +49,17 @@ h1 {
 }
 
 .logo {
+  display: flex;
+  gap: 0.5vw;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   width: 15vw;
   left: 9vw;
   top: 3vw;
+}
+.logotext path {
+  fill: var(--textBlack);
 }
 section {
   display: flex;
@@ -75,28 +82,28 @@ section {
 }
 
 .option-button:hover div {
-  border: 4px solid #ffffff;
+  border: 4px solid var(--backgroundBlock);
 }
 
 .option-button:active div {
-  border: 4px solid #fbe0dc;
+  border: 4px solid var(--btnColor);
 }
 
 .option-button:hover Button {
-  background: #fbe0dc;
+  background: var(--btnColor);
 }
 .option-button:active Button {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
 }
 
 .option-button.active div {
-  border: 4px solid #fbe0dc;
+  border: 4px solid var(--btnColor);
 }
 
 .option-button.active Button {
-  color: #ffffff;
-  background: #ff868e;
+  color: var(--textWhite);
+  background: var(--main);
 }
 
 .option-button {
@@ -107,10 +114,10 @@ section {
 }
 
 .options div button {
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 10px;
   border: 0;
-  color: #ff868e;
+  color: var(--main);
   padding: 10px;
 }
 
@@ -234,14 +241,14 @@ section {
     position: relative;
     left: 0;
     height: auto;
-    background: #f8f8f7;
+    background: var(--background);
   }
 }
 @media (min-width: 768px) {
   .logo {
     width: 7.222vw;
     position: fixed;
-    left: 7vw;
+    left: 6vw;
     top: 2vw;
   }
   h1 {
@@ -266,7 +273,7 @@ section {
   }
   section {
     padding-top: 7vw;
-    padding-left: 9vw;
+    padding-left: 6vw;
   }
   .hidden {
     display: none;
@@ -304,7 +311,7 @@ section {
 @media (min-width: 1440px) {
   .logo {
     position: fixed;
-    left: 7vw;
+    left: 8vw;
     top: 2vw;
   }
   .option-button div {

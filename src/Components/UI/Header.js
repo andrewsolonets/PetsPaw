@@ -19,7 +19,7 @@ const Header = (props) => {
   let styles;
 
   if (props.search === "search") {
-    styles = { borderColor: "#FF868E" };
+    styles = { borderColor: "var(--main)" };
   }
 
   return (

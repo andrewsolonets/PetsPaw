@@ -73,7 +73,7 @@ const SearchPage = (props) => {
         Search results for:<b>{` ${props.query}`}</b>
       </p>
       <BounceLoader
-        color={"#FF868E"}
+        color={"var(--main)"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

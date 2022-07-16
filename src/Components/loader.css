@@ -1,6 +1,6 @@
 .loader {
-  border: 0.3vw solid #ff868e;
-  border-top: 0.3vw solid #ffffff;
+  border: 0.3vw solid var(--main);
+  border-top: 0.3vw solid var(--backgroundBlock);
   border-radius: 50%;
   width: 1vw;
   margin-right: 0.7vw;
@@ -21,7 +21,7 @@
   .loader {
     width: 3vw;
     height: 3vw;
-    border: 1vw solid #ff868e;
-    border-top: 1vw solid #ffffff;
+    border: 1vw solid var(--main);
+    border-top: 1vw solid var(--backgroundBlock);
   }
 }

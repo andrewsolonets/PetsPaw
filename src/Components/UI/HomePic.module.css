@@ -17,7 +17,7 @@
   top: 40px;
   width: 47.222vw;
   height: 58.333vw;
-  background: #fbe0dc;
+  background: var(--btnColor);
   border-radius: 20px;
 }
 

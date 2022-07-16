@@ -9,6 +9,8 @@ import Gallery from "./assets/Gallery.png";
 import logo from "./assets/Logo.png";
 import HomePic from "./Components/UI/HomePic";
 import { ReactComponent as Cross } from "./assets/cross.svg";
+import { ReactComponent as Logo1 } from "./assets/logo2.svg";
+import { ReactComponent as TextLogo } from "./assets/PetsPaw.svg";
 import Header from "./Components/UI/Header";
 
 import GalleryPage from "./Components/GalleryPage";
@@ -27,6 +29,7 @@ function App() {
   const [userPage, setUserPage] = useState("");
   const [content, setContent] = useState();
   const [hamburger, setHamburger] = useState(false);
+  const [theme, setTheme] = useState("light");
   const onVoteHandler = () => {
     setHamburger(false);
     setCurPage("vote");
@@ -84,6 +87,52 @@ function App() {
     setHamburger((prevState) => !prevState);
   };
 
+  const toggleThemeHandler = () => {
+    if (theme === "light") {
+      document.documentElement.style.setProperty(
+        "--background",
+        "var(--darkBg)"
+      );
+      document.documentElement.style.setProperty("--textBlack", "var(--white)");
+      document.documentElement.style.setProperty(
+        "--backgroundBlock",
+        "var(--dark)"
+      );
+      document.documentElement.style.setProperty(
+        "--backgroundBlock2",
+        "var(--dark2)"
+      );
+      document.documentElement.style.setProperty(
+        "--btnColor",
+        "var(--btnColorDark)"
+      );
+      setTheme("dark");
+    }
+    if (theme === "dark") {
+      document.documentElement.style.setProperty(
+        "--background",
+        "var(--whiteBg)"
+      );
+      document.documentElement.style.setProperty(
+        "--textBlack",
+        "var(--darkBg)"
+      );
+      document.documentElement.style.setProperty(
+        "--backgroundBlock",
+        "var(--white)"
+      );
+      document.documentElement.style.setProperty(
+        "--backgroundBlock2",
+        "var(--whiteBg)"
+      );
+      document.documentElement.style.setProperty(
+        "--btnColor",
+        "var(--btnColorLight)"
+      );
+      setTheme("light");
+    }
+  };
+
   let contentApp;
 
   if (curPage) {
@@ -127,7 +176,13 @@ function App() {
     <React.Fragment>
       <div className="main">
         <div className="parent">
-          <img className="logo" src={logo} alt="Logo"></img>
+          {/* <img className="logo" src={logo} alt="Logo"></img> */}
+          <div className="logo">
+            <Logo1></Logo1>
+            <TextLogo className="logotext"></TextLogo>
+          </div>
+
+          <input type="checkbox" onClick={toggleThemeHandler}></input>
           <section>
             <div className="greetings">
               <h1>Hi intern!</h1>

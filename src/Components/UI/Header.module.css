@@ -6,7 +6,7 @@
   padding-right: 2vw;
   padding-bottom: 0.8vw;
   padding-left: 2vw;
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border: 2px solid transparent;
   border-radius: 20px;
   color: #8c8c8c;
@@ -14,7 +14,7 @@
 
 .searchInput:focus {
   outline-width: 0;
-  border: 2px solid #fbe0dc;
+  border: 2px solid var(--btnColor);
 }
 ::placeholder {
   color: #8c8c8c;
@@ -46,7 +46,7 @@
 
 .activeIcon {
   display: flex;
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 20px;
   cursor: pointer;
 
@@ -61,7 +61,7 @@
 }
 .like-icon {
   display: flex;
-  background: #ffffff;
+  background: var(--backgroundBlock);
   border-radius: 20px;
   cursor: pointer;
 
@@ -82,22 +82,22 @@
 }
 
 .iconSvgHead path {
-  fill: #ff868e;
+  fill: var(--main);
 }
 
 .like-icon:hover {
-  background: #fbe0dc;
+  background: var(--btnColor);
 }
 
 .like-icon:active {
-  background: #ff868e;
+  background: var(--main);
 }
 .like-icon:active .iconSvgHead path {
-  fill: #ffffff;
+  fill: var(--textWhite);
 }
 .activeIcon {
   display: flex;
-  background: #ff868e;
+  background: var(--main);
   border-radius: 20px;
   cursor: pointer;
 
@@ -105,7 +105,7 @@
 }
 
 .activeIcon .iconSvgHead path {
-  fill: #ffffff;
+  fill: var(--textWhite);
 }
 
 @media (max-width: 425px) {
@@ -125,7 +125,7 @@
   }
   .like-icon {
     display: flex;
-    background: #ffffff;
+    background: var(--backgroundBlock);
     border-radius: 20px;
     cursor: pointer;
 
@@ -146,7 +146,7 @@
     padding-right: 2vw;
     padding-bottom: 2.5vw;
     padding-left: 2vw;
-    background: #ffffff;
+    background: var(--backgroundBlock);
     border: 2px solid transparent;
     border-radius: 20px;
   }
@@ -166,7 +166,7 @@
   .ham {
     margin-right: 32vw;
     display: flex;
-    background: #ffffff;
+    background: var(--backgroundBlock);
     border-radius: 20px;
     cursor: pointer;
     justify-self: flex-start;
@@ -174,7 +174,7 @@
   }
   .activeIcon {
     display: flex;
-    background: #ff868e;
+    background: var(--main);
     border-radius: 20px;
     cursor: pointer;
 
