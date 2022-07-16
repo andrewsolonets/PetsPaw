@@ -182,7 +182,7 @@ function App() {
             <TextLogo className="logotext"></TextLogo>
           </div>
 
-          <input type="checkbox" onClick={toggleThemeHandler}></input>
+          {/* <input type="checkbox" onClick={toggleThemeHandler}></input> */}
           <section>
             <div className="greetings">
               <h1>Hi intern!</h1>
