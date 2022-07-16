@@ -181,8 +181,10 @@ function App() {
             <Logo1></Logo1>
             <TextLogo className="logotext"></TextLogo>
           </div>
-
-          {/* <input type="checkbox" onClick={toggleThemeHandler}></input> */}
+          <label className="switch">
+            <input type="checkbox" onClick={toggleThemeHandler}></input>
+            <span className="slider round"></span>
+          </label>
           <section>
             <div className="greetings">
               <h1>Hi intern!</h1>

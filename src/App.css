@@ -5,6 +5,7 @@
 * {
   font-family: "Jost", sans-serif;
   margin: 0;
+  -webkit-transition: 0.4s;
 }
 
 body {
@@ -164,6 +165,67 @@ section {
   position: relative;
   left: 45vw;
   height: auto;
+}
+
+.switch {
+  position: relative;
+  top: 2.1vw;
+  left: 40vw;
+  display: inline-block;
+  width: 3.056vw;
+  height: 1.667vw;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--btnColor);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.111vw;
+  width: 1.111vw;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--main);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--btnColor);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--btnColor);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1.4vw);
+  -ms-transform: translateX(1.4vw);
+  transform: translateX(1.4vw);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 @media (max-width: 425px) {
