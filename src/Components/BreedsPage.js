@@ -104,9 +104,13 @@ const BreedsPage = () => {
       ...provided,
       color: "#8C8C8C",
 
-      backgroundColor: state.isFocused ? "var(--background)" : "",
+      backgroundColor: state.isFocused
+        ? "var(--background)"
+        : "var(--backgroundBlock)",
 
-      background: state.isFocused ? "var(--background)" : "",
+      background: state.isFocused
+        ? "var(--background)"
+        : "var(--backgroundBlock)",
 
       "&:hover": {
         backgroundColor: state.isFocused ? "#e6e6e6" : "",
@@ -149,9 +153,13 @@ const BreedsPage = () => {
       ...provided,
       color: "#8C8C8C",
 
-      backgroundColor: state.isFocused ? "var(--background)" : "",
+      backgroundColor: state.isFocused
+        ? "var(--background)"
+        : "var(--backgroundBlock)",
 
-      background: state.isFocused ? "var(--background)" : "",
+      background: state.isFocused
+        ? "var(--background)"
+        : "var(--backgroundBlock)",
 
       "&:hover": {
         backgroundColor: state.isFocused ? "#e6e6e6" : "",
