@@ -16,6 +16,7 @@ const Backdrop = (props) => {
 };
 
 const ModalUpload = (props) => {
+  console.log(props.subId);
   const [img, setImg] = useState();
   const [status, setStatus] = useState("");
 
@@ -25,6 +26,7 @@ const ModalUpload = (props) => {
     const options = {
       method: "POST",
       body: img,
+
       headers: {
         "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
       },
@@ -68,6 +70,7 @@ const ModalUpload = (props) => {
   const imgUploadedHandler = (e) => {
     let formData = new FormData();
     formData.append("file", e);
+    formData.append("sub_id", "ys1ebn");
     setImg(formData);
     setStatus("");
   };
@@ -138,7 +141,9 @@ const Modal = (props) => {
         portalElement
       )}
       {ReactDOM.createPortal(
-        <ModalUpload onClose={props.onClose}>{props.children}</ModalUpload>,
+        <ModalUpload subId={props.subId} onClose={props.onClose}>
+          {props.children}
+        </ModalUpload>,
         portalElement
       )}
     </Fragment>

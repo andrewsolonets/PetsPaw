@@ -36,14 +36,20 @@ const GalleryPage = (props) => {
       setLoading(true);
       setResults([]);
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search/?` +
-          new URLSearchParams({
-            limit: resultsLimit,
-            page: pageNumber,
-            order: sorting,
-            breed_ids: value.value,
-            mime_types: type,
-          }),
+        `https://api.thecatapi.com/v1/images/${
+          type === "upload" ? "?" : "search/?"
+        }` +
+          new URLSearchParams(
+            type === "upload"
+              ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
+              : {
+                  limit: resultsLimit,
+                  page: pageNumber,
+                  order: sorting,
+                  breed_ids: value.value,
+                  mime_types: type,
+                }
+          ),
         {
           headers: {
             "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
@@ -120,6 +126,7 @@ const GalleryPage = (props) => {
     { value: "", label: "All" },
     { value: "jpg,png", label: "Static" },
     { value: "gif", label: "Animated" },
+    { value: "upload", label: "Uploaded" },
   ];
 
   const optionsOrder = [
@@ -264,7 +271,11 @@ const GalleryPage = (props) => {
 
   return (
     <div className={classes.containerMain}>
-      {modal ? <Modal onClose={closeModalHandler}></Modal> : ""}
+      {modal ? (
+        <Modal onClose={closeModalHandler} subId={props.subId}></Modal>
+      ) : (
+        ""
+      )}
       <div className={classes["nav-content1"]}>
         <div className={classes.backGallery}>
           <CardButton>
