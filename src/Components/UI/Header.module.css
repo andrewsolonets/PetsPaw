@@ -16,6 +16,10 @@
   outline-width: 0;
   border: 2px solid var(--btnColor);
 }
+
+.searchInput:active {
+  border-color: var(--main);
+}
 ::placeholder {
   color: #8c8c8c;
 }

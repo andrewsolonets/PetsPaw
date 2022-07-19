@@ -7,11 +7,13 @@ import { useEffect, useState } from "react";
 import Grid from "./UI/Grid";
 import { ReactComponent as Back } from "../assets/back.svg";
 import BounceLoader from "react-spinners/BounceLoader";
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
 const FavouritesPage = (props) => {
   const [favItems, setFavItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const getFavourites = async () => {
+  const getFavourites = useCallback(async () => {
     setIsLoading(true);
     const response = await fetch(
       "https://api.thecatapi.com/v1/favourites/?" +
@@ -27,9 +29,9 @@ const FavouritesPage = (props) => {
     );
     const data = await response.json();
     setFavItems(data);
-    console.log(favItems);
     setIsLoading(false);
-  };
+  }, []);
+
   const deleteItemsFav = async (id) => {
     const response = await fetch(
       `https://api.thecatapi.com/v1/favourites/${id}`,
@@ -47,12 +49,17 @@ const FavouritesPage = (props) => {
 
   useEffect(() => {
     getFavourites();
-  }, []);
+  }, [getFavourites]);
+
+  let navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
 
   return (
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
-        <CardButton>
+        <CardButton onClick={backHandler}>
           <Back className={classes.back} />
         </CardButton>
         <Button>FAVOURITES</Button>

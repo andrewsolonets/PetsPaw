@@ -1,8 +1,7 @@
 import classes from "./BreedsPage.module.css";
-import CardButton from "./UI/CardButton";
-import Button from "./UI/Button";
-import backArrow from "../assets/backArrow.png";
-import Grid from "./UI/GridBreeds";
+import CardButton from "../Components/UI/CardButton";
+import Button from "../Components/UI/Button";
+import Grid from "../Components/UI/GridBreeds";
 import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
@@ -10,8 +9,9 @@ import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
 import { ReactComponent as Back } from "../assets/back.svg";
 import Select from "react-select";
 import BounceLoader from "react-spinners/BounceLoader";
+import { useNavigate } from "react-router-dom";
 
-const BreedsPage = () => {
+const BreedsPage = (props) => {
   const [results, setResults] = useState([]);
   const [breed, setBreed] = useState(false);
   const [nameBreed, setNameBreed] = useState({
@@ -263,10 +263,19 @@ const BreedsPage = () => {
     });
   };
 
+  const catPageHandler = () => {
+    props.oneCat({ results, breed });
+  };
+
+  let navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
-        <CardButton>
+        <CardButton onClick={backHandler}>
           <Back className={classes.back} />
         </CardButton>
         <Button
@@ -285,6 +294,7 @@ const BreedsPage = () => {
         speedMultiplier={1.5}
       ></BounceLoader>
       <Grid
+        onCat={catPageHandler}
         items={results}
         limit={resultsLimit}
         breed={breed}
@@ -292,29 +302,24 @@ const BreedsPage = () => {
         onAction={actionGridHandler}
         onPage={false}
       ></Grid>
-      {singleCat.state ? (
-        ""
-      ) : (
-        <div className={classes.paginationContainer}>
-          <button
-            className={classes.buttonPagination}
-            disabled={pageNumber === 0 ? true : false}
-            onClick={prevPageHandler}
-          >
-            <PageRight
-              className={`${classes.arrow} ${classes.left}`}
-            ></PageRight>{" "}
-            PREV
-          </button>
-          <button
-            className={classes.buttonPagination}
-            disabled={false}
-            onClick={nextPageHandler}
-          >
-            NEXT <PageRight className={classes.arrow}></PageRight>
-          </button>
-        </div>
-      )}
+
+      <div className={classes.paginationContainer}>
+        <button
+          className={classes.buttonPagination}
+          disabled={pageNumber === 0 ? true : false}
+          onClick={prevPageHandler}
+        >
+          <PageRight className={`${classes.arrow} ${classes.left}`}></PageRight>{" "}
+          PREV
+        </button>
+        <button
+          className={classes.buttonPagination}
+          disabled={false}
+          onClick={nextPageHandler}
+        >
+          NEXT <PageRight className={classes.arrow}></PageRight>
+        </button>
+      </div>
     </div>
   );
 };

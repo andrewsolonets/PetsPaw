@@ -10,6 +10,7 @@
     "react-burger-menu": "^3.0.8",
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.7",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
     "react-spinners": "^0.13.3",

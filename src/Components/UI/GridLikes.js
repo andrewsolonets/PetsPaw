@@ -1,7 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Grid.css";
-import testImg from "../../assets/testImg.png";
-import heartFav1 from "../../assets/hearFav.png";
 
 export default function Grid(props) {
   console.log(props.items);
@@ -34,11 +33,16 @@ export default function Grid(props) {
         >
           <img src={el.url} alt="asda"></img>
 
-          <div className="overlay1" data-index={i}>
+          <NavLink
+            className="overlay1"
+            onClick={props.onSingle}
+            data-index={i}
+            to={`/breeds/${el.breeds[0].id}/${i}`}
+          >
             <div className="label1">
               <p>{el.breeds[0].name}</p>
             </div>
-          </div>
+          </NavLink>
         </div>
       );
     });

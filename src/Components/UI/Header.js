@@ -5,74 +5,60 @@ import { ReactComponent as Fav } from "../../assets/fav.svg";
 import { ReactComponent as Like } from "../../assets/like.svg";
 import { ReactComponent as DisLike } from "../../assets/dislike.svg";
 import { ReactComponent as Search } from "../../assets/search.svg";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   const [query, setQuery] = useState("");
-  const submitSearchHandler = (e) => {
-    e.preventDefault();
-    console.log(query);
-    props.onSearch(query);
-    e.value = "";
-  };
-  console.log(query);
 
-  let styles;
-
-  if (props.search === "search") {
-    styles = { borderColor: "var(--main)" };
-  }
+  let style;
+  style = props.onSearch ? { borderColor: " var(--main)" } : {};
 
   return (
     <div className={classes.header}>
       <div className={classes.searchContainer}>
         <form className={classes.searchBar}>
           <input
-            style={styles}
+            style={style}
             className={classes.searchInput}
             type="text"
             id="search"
-            onSubmit={submitSearchHandler}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for breeds by name"
           ></input>
-          <div className={classes.searchBtn} onClick={submitSearchHandler}>
+          <NavLink className={classes.searchBtn} to={`/search/${query}`}>
             <CardButton>
               <Search className={classes.searchIcon} />
             </CardButton>
-          </div>
+          </NavLink>
         </form>
       </div>
       <div className={classes.userPages}>
         <div className={classes["ham"]}>{props.children}</div>
-        <div
-          className={
-            props.userPage === "liked"
-              ? classes.activeIcon
-              : classes["like-icon"]
-          }
-          onClick={props.onLike}
+        <NavLink
+          className={(state) => {
+            return state.isActive ? classes.activeIcon : classes["like-icon"];
+          }}
+          to="/liked"
         >
           <Like className={classes.iconSvgHead} />
-        </div>
-        <div
-          className={
-            props.userPage === "fav" ? classes.activeIcon : classes["like-icon"]
-          }
-          onClick={props.onFav}
+        </NavLink>
+        <NavLink
+          className={(state) => {
+            return state.isActive ? classes.activeIcon : classes["like-icon"];
+          }}
+          to="/favourites"
         >
           <Fav className={classes.iconSvgHead} />
-        </div>
-        <div
-          className={
-            props.userPage === "disliked"
-              ? classes.activeIcon
-              : classes["like-icon"]
-          }
-          onClick={props.onDislike}
+        </NavLink>
+        <NavLink
+          className={(state) => {
+            return state.isActive ? classes.activeIcon : classes["like-icon"];
+          }}
+          to="/disliked"
         >
           <DisLike className={classes.iconSvgHead} />
-        </div>
+        </NavLink>
       </div>
     </div>
   );

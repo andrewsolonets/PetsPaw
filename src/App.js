@@ -6,85 +6,31 @@ import Button from "./Components/UI/Button";
 import VoteTable from "./assets/vote-table.png";
 import PetBreed from "./assets/pet-breeds.png";
 import Gallery from "./assets/Gallery.png";
-import logo from "./assets/Logo.png";
 import HomePic from "./Components/UI/HomePic";
-import { ReactComponent as Cross } from "./assets/cross.svg";
+
 import { ReactComponent as Logo1 } from "./assets/logo2.svg";
 import { ReactComponent as TextLogo } from "./assets/PetsPaw.svg";
-import Header from "./Components/UI/Header";
 
-import GalleryPage from "./Components/GalleryPage";
-import SideBar from "./Components/UI/SideBar";
+import GalleryPage from "./pages/GalleryPage";
 
-import BreedsPage from "./Components/BreedsPage";
-import VotingApp from "./Components/VotingApp";
+import BreedsPage from "./pages/BreedsPage";
+import VotingApp from "./pages/VotingApp";
 import FavouritesPage from "./Components/FavouritesPage";
 import LikedPage from "./Components/LikedPage";
 import SearchPage from "./Components/SearchPage";
-import Menu from "./Components/UI/Menu";
+
+import { NavLink, Route, Routes } from "react-router-dom";
+import AppContainer from "./pages/AppContainerPage";
+import SingleCat from "./pages/SingleCat";
 
 let subId = Math.random().toString(36).substring(7);
 function App() {
-  const [curPage, setCurPage] = useState("");
-  const [userPage, setUserPage] = useState("");
-  const [content, setContent] = useState();
-  const [hamburger, setHamburger] = useState(false);
   const [theme, setTheme] = useState("light");
-  const onVoteHandler = () => {
-    setHamburger(false);
-    setCurPage("vote");
-    setUserPage("");
-    setContent(<VotingApp subId={subId} />);
-  };
+  const [results, setResults] = useState([]);
+  const [breed, setBreed] = useState(false);
 
   const backButtonHandler = () => {
     console.log("Hello");
-  };
-
-  const onBreedsHandler = () => {
-    setHamburger(false);
-    setCurPage("breeds");
-    setUserPage("");
-    setContent(<BreedsPage></BreedsPage>);
-    console.log("Breed");
-  };
-
-  const onGalleryHandler = () => {
-    setHamburger(false);
-    setCurPage("gallery");
-    setUserPage("");
-
-    setContent(<GalleryPage subId={subId}></GalleryPage>);
-  };
-  const favouritesPageHandler = () => {
-    setUserPage("fav");
-
-    setContent(<FavouritesPage />);
-  };
-
-  const likedPageHandler = () => {
-    setUserPage("liked");
-
-    setContent(
-      <LikedPage value={1} text={"LIKES"} onBack={backButtonHandler} />
-    );
-  };
-
-  const DislikePageHandler = () => {
-    setUserPage("disliked");
-
-    setContent(
-      <LikedPage value={0} text={"DISLIKES"} onBack={backButtonHandler} />
-    );
-  };
-
-  const searchHandler = (query) => {
-    setUserPage("search");
-
-    setContent(<SearchPage query={query} text={"SEARCH"} />);
-  };
-  const toggleHambHandler = (e) => {
-    setHamburger((prevState) => !prevState);
   };
 
   const toggleThemeHandler = () => {
@@ -133,44 +79,16 @@ function App() {
     }
   };
 
-  let contentApp;
+  const catHandler = ({ results, breed }) => {
+    setResults(results);
+    setBreed(breed);
+  };
 
-  if (curPage) {
-    contentApp = (
-      <div className="app">
-        <Header
-          search={userPage}
-          onFav={favouritesPageHandler}
-          userPage={userPage}
-          onLike={likedPageHandler}
-          onDislike={DislikePageHandler}
-          onSearch={searchHandler}
-        >
-          <div className="burgerMenu">
-            {" "}
-            <SideBar hamburger={hamburger} setHamburger={setHamburger} />
-            <Menu hamburger={hamburger} setHamburger={setHamburger}>
-              <div onClick={toggleHambHandler}>
-                <Cross />
-              </div>
-              <Button className="menuOption" onClick={onVoteHandler}>
-                VOTING
-              </Button>
-              <Button className="menuOption" onClick={onBreedsHandler}>
-                BREEDS
-              </Button>
-              <Button className="menuOption" onClick={onGalleryHandler}>
-                GALLERY
-              </Button>
-            </Menu>
-          </div>
-        </Header>
-        <div className="appContent">{content}</div>
-      </div>
-    );
-  } else {
-    contentApp = <HomePic />;
-  }
+  const searchClickHandler = ({ results, breed }) => {
+    console.log(results);
+    setResults([results]);
+    setBreed(breed);
+  };
 
   return (
     <React.Fragment>
@@ -194,45 +112,121 @@ function App() {
             <div className="options-container">
               <p>Lets start using The Cat API</p>
               <div className="options">
-                <div
-                  className={`${"option-button"} ${
-                    curPage === "vote" ? "active" : ""
-                  }`}
-                  onClick={onVoteHandler}
+                <NavLink
+                  className={(state) =>
+                    `${"option-button"} ${state.isActive ? "active" : ""}`
+                  }
+                  to="/voting"
                 >
                   <div className="voting-container">
                     <img src={VoteTable} alt="VoteTable"></img>
                   </div>
                   <Button>VOTING</Button>
-                </div>
-                <div
-                  className={`${"option-button"} ${
-                    curPage === "breeds" ? "active" : ""
-                  }`}
-                  onClick={onBreedsHandler}
+                </NavLink>
+                <NavLink
+                  className={(state) =>
+                    `${"option-button"} ${state.isActive ? "active" : ""}`
+                  }
+                  to="/breeds"
                 >
                   <div className="breed-container">
                     <img src={PetBreed} alt="PetBreed"></img>
                   </div>
                   <Button>BREEDS</Button>
-                </div>
-                <div
-                  className={`${"option-button"} ${
-                    curPage === "gallery" ? "active" : ""
-                  }`}
-                  onClick={onGalleryHandler}
+                </NavLink>
+                <NavLink
+                  className={(state) =>
+                    `${"option-button"} ${state.isActive ? "active" : ""}`
+                  }
+                  to="/gallery"
                 >
                   <div className="gallery-container">
                     <img src={Gallery} alt="Gallery"></img>
                   </div>
                   <Button>GALLERY</Button>
-                </div>
+                </NavLink>
               </div>
             </div>
           </section>
         </div>
 
-        {contentApp}
+        {/* {contentApp} */}
+        <Routes>
+          <Route path="/" element={<HomePic />} />
+          <Route
+            path="voting"
+            element={
+              <AppContainer>
+                <VotingApp subId={subId} />
+              </AppContainer>
+            }
+          />
+          <Route
+            path="breeds"
+            element={
+              <AppContainer>
+                <BreedsPage oneCat={catHandler}></BreedsPage>
+              </AppContainer>
+            }
+          />
+          <Route
+            path="breeds/:cat/:id"
+            exact="true"
+            element={
+              <AppContainer>
+                <SingleCat items={results} breed={breed} />
+              </AppContainer>
+            }
+          />
+          <Route
+            path="gallery"
+            element={
+              <AppContainer>
+                <GalleryPage subId={subId}></GalleryPage>
+              </AppContainer>
+            }
+          />
+          <Route
+            path="search/:searchItem"
+            element={
+              <AppContainer search={true}>
+                <SearchPage onClick={searchClickHandler} text={"SEARCH"} />
+              </AppContainer>
+            }
+          />
+          <Route
+            path="liked"
+            element={
+              <AppContainer>
+                <LikedPage
+                  value={1}
+                  text={"LIKES"}
+                  onBack={backButtonHandler}
+                />
+              </AppContainer>
+            }
+          />
+          <Route
+            path="disliked"
+            element={
+              <AppContainer>
+                <LikedPage
+                  value={0}
+                  text={"DISLIKES"}
+                  onBack={backButtonHandler}
+                />
+              </AppContainer>
+            }
+          />
+          <Route
+            path="favourites"
+            element={
+              <AppContainer>
+                <FavouritesPage />
+              </AppContainer>
+            }
+          />
+        </Routes>
       </div>
     </React.Fragment>
   );

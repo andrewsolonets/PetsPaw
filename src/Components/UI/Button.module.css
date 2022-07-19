@@ -7,6 +7,14 @@
   font-size: 2vw;
 }
 
+@media (max-width: 425px) {
+  .regular {
+    padding: 4vw;
+    border-radius: 10px;
+    font-size: 3vw;
+  }
+}
+
 @media (min-width: 768px) {
   .regular {
     background: var(--backgroundBlock);

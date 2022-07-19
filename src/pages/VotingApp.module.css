@@ -166,6 +166,8 @@
     background: var(--main);
     padding-left: 6vw;
     padding-right: 6vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
     font-size: 5vw;
     border-radius: 10px;
     letter-spacing: 2px;

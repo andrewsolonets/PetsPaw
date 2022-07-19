@@ -1,32 +1,26 @@
 import React, { useEffect, useState } from "react";
-import CardButton from "./UI/CardButton";
-import Button from "./UI/Button";
-import backArrow from "../assets/backArrow.png";
+import CardButton from "../Components/UI/CardButton";
+import Button from "../Components/UI/Button";
 import classes from "./VotingApp.module.css";
 
 import { ReactComponent as Fav } from "../assets/fav.svg";
 import { ReactComponent as Like } from "../assets/like.svg";
 import { ReactComponent as DisLike } from "../assets/dislike.svg";
 import { ReactComponent as Back } from "../assets/back.svg";
-// import Favourites from "../assets/Favourites.png";
+import { useNavigate } from "react-router-dom";
 
-import UserLogItem from "./UserLogItem";
+import UserLogItem from "../Components/UserLogItem";
+import { useCallback } from "react";
 
 const VotingApp = (props) => {
   const [userLog, setUserLog] = useState([]);
   const [newCat, setNewCat] = useState({});
 
-  const randomCat = async () => {
+  const randomCat = useCallback(async () => {
     const response = await fetch("https://api.thecatapi.com/v1/images/search");
     const data = await response.json();
     const [{ url, id }] = await data;
-    console.log(url, id);
     setNewCat({ url, id });
-  };
-
-  useEffect(() => {
-    randomCat();
-    getVotes();
   }, []);
 
   async function postCat(num) {
@@ -35,7 +29,7 @@ const VotingApp = (props) => {
       sub_id: props.subId,
       value: num,
     };
-    const response = await fetch("https://api.thecatapi.com/v1/votes", {
+    await fetch("https://api.thecatapi.com/v1/votes", {
       method: "POST",
       body: JSON.stringify(catJson),
       headers: {
@@ -43,11 +37,10 @@ const VotingApp = (props) => {
         "Content-Type": "application/json",
       },
     });
-    const data = await response.json();
     getVotes();
   }
 
-  async function getVotes() {
+  const getVotes = useCallback(async () => {
     const response = await fetch(
       "https://api.thecatapi.com/v1/votes/?" +
         new URLSearchParams({
@@ -81,16 +74,19 @@ const VotingApp = (props) => {
     });
 
     setUserLog(finalArr);
+  }, []);
 
-    console.log(userLog);
-  }
+  useEffect(() => {
+    randomCat();
+    getVotes();
+  }, [randomCat, getVotes]);
 
   async function addFav() {
     let fav = {
       image_id: newCat.id,
       sub_id: props.subId,
     };
-    const response = await fetch("https://api.thecatapi.com/v1/favourites", {
+    await fetch("https://api.thecatapi.com/v1/favourites", {
       method: "POST",
       body: JSON.stringify(fav),
       headers: {
@@ -118,10 +114,15 @@ const VotingApp = (props) => {
     getVotes();
   };
 
+  let navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
-        <CardButton className={classes.backContainer}>
+        <CardButton className={classes.backContainer} onClick={backHandler}>
           <Back className={classes.back} />
         </CardButton>
         <Button>VOTING</Button>

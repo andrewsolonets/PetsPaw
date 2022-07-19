@@ -1,15 +1,17 @@
 import classes from "./FavouritesPage.module.css";
 import Button from "./UI/Button";
 import CardButton from "./UI/CardButton";
-import backArrow from "../assets/backArrow.png";
 import { useCallback, useEffect, useState } from "react";
 import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
+import { useParams, useNavigate } from "react-router-dom";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
 const SearchPage = (props) => {
-  console.log(props.query);
+  const params = useParams();
+
+  console.log(params.searchItem);
   const [isLoading, setIsLoading] = useState(true);
   const [searchItems, setSearchItems] = useState();
 
@@ -17,7 +19,7 @@ const SearchPage = (props) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://api.thecatapi.com/v1/breeds/search/?q=${props.query}`,
+        `https://api.thecatapi.com/v1/breeds/search/?q=${params.searchItem}`,
         {
           headers: {
             "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
@@ -55,22 +57,32 @@ const SearchPage = (props) => {
     } catch (err) {
       console.log(err);
     }
-  }, [props.query]);
+  }, [params.searchItem]);
 
   useEffect(() => {
     getSearchResults();
   }, [getSearchResults]);
 
+  let navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
+
+  const singleSearch = () => {
+    console.log(searchItems);
+    props.onClick({ results: searchItems, breed: true });
+  };
+
   return (
     <div className={classes.containerMain}>
       <div className={classes["nav-content"]}>
-        <CardButton onClick={props.onBack}>
+        <CardButton onClick={backHandler}>
           <Back className={classes.back} />
         </CardButton>
         <Button>{props.text}</Button>
       </div>
       <p className={classes.searchP}>
-        Search results for:<b>{` ${props.query}`}</b>
+        Search results for:<b>{` ${params.searchItem}`}</b>
       </p>
       <BounceLoader
         color={"var(--main)"}
@@ -81,6 +93,7 @@ const SearchPage = (props) => {
       ></BounceLoader>
       {!isLoading && searchItems && (
         <Grid
+          onSingle={singleSearch}
           items={[searchItems]}
           isLoading={isLoading}
           searchPage={true}

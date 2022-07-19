@@ -1,22 +1,21 @@
 import classes from "./BreedsPage.module.css";
-import CardButton from "./UI/CardButton";
-import Button from "./UI/Button";
-import Grid from "./UI/GridBreeds";
+import CardButton from "../Components/UI/CardButton";
+import Button from "../Components/UI/Button";
+import Grid from "../Components/UI/GridBreeds";
 import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
 import { ReactComponent as Reload } from "../assets/reload.svg";
 import { ReactComponent as Upload } from "../assets/upload.svg";
 import { ReactComponent as Back } from "../assets/back.svg";
-
+import { useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
 
 import Select from "react-select";
 
-import Modal from "./ModalUpload";
+import Modal from "../Components/ModalUpload";
 
 const GalleryPage = (props) => {
   const [results, setResults] = useState([]);
-  const [breed, setBreed] = useState(true);
   const [nameBreed, setNameBreed] = useState({
     value: "",
     label: "All breeds",
@@ -26,7 +25,6 @@ const GalleryPage = (props) => {
   const [sorting, setSorting] = useState("rand");
   const [pageNumber, setPageNumber] = useState(0);
   const [isLoading, setLoading] = useState(true);
-  const [singleCat, setSingleCat] = useState({ state: false });
   const [type, setType] = useState("");
   const [modal, setModal] = useState(false);
 
@@ -277,6 +275,11 @@ const GalleryPage = (props) => {
     setModal(false);
   };
 
+  let navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={classes.containerMain}>
       {modal ? (
@@ -287,14 +290,9 @@ const GalleryPage = (props) => {
       <div className={classes["nav-content1"]}>
         <div className={classes.backGallery}>
           <CardButton>
-            <Back className={classes.back} />
+            <Back className={classes.back} onClick={backHandler} />
           </CardButton>
-          <Button
-            style={{ background: "var(--textBlack)" }}
-            active={singleCat.state}
-          >
-            GALLERY
-          </Button>
+          <Button style={{ background: "var(--textBlack)" }}>GALLERY</Button>
         </div>
         <div className={classes.upload} onClick={uploadHandler}>
           <Upload className={classes.reloadSvg}></Upload> UPLOAD
@@ -351,7 +349,7 @@ const GalleryPage = (props) => {
       <Grid
         items={results}
         limit={resultsLimit}
-        breed={breed}
+        breed={true}
         loading={isLoading}
         onFav={favouritesHandler}
         onPage={true}
