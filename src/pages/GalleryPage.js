@@ -30,54 +30,55 @@ const GalleryPage = (props) => {
 
   const getAllCats = useCallback(
     async (value = nameBreed) => {
-      console.log(sorting);
       setLoading(true);
       setResults([]);
-      const response = await fetch(
-        `https://api.thecatapi.com/v1/images/${
-          type === "upload" ? "?" : "search/?"
-        }` +
-          new URLSearchParams(
-            type === "upload"
-              ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
-              : {
-                  limit: resultsLimit,
-                  page: pageNumber,
-                  order: sorting,
-                  breed_ids: value.value,
-                  mime_types: type,
-                }
-          ),
-        {
-          headers: {
-            "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-          },
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-      setResults(data);
-      const response2 = await fetch(
-        `https://api.thecatapi.com/v1/breeds/?` +
-          new URLSearchParams({
-            limit: resultsLimit,
-            page: pageNumber,
-            order: sorting,
-          }),
-        {
-          headers: {
-            "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-          },
-        }
-      );
-      const data2 = await response2.json();
-      console.log(data2);
-      const breeds = data2.map((el) => {
-        return { value: el.id, label: el.name };
-      });
-      setBreeds(breeds);
-      // set setBreeds to the breeds id as a value and name as a label for select options
-      setLoading(false);
+      try {
+        const response = await fetch(
+          `https://api.thecatapi.com/v1/images/${
+            type === "upload" ? "?" : "search/?"
+          }` +
+            new URLSearchParams(
+              type === "upload"
+                ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
+                : {
+                    limit: resultsLimit,
+                    page: pageNumber,
+                    order: sorting,
+                    breed_ids: value.value,
+                    mime_types: type,
+                  }
+            ),
+          {
+            headers: {
+              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+            },
+          }
+        );
+        const data = await response.json();
+        setResults(data);
+        const response2 = await fetch(
+          `https://api.thecatapi.com/v1/breeds/?` +
+            new URLSearchParams({
+              limit: resultsLimit,
+              page: pageNumber,
+              order: sorting,
+            }),
+          {
+            headers: {
+              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+            },
+          }
+        );
+        const data2 = await response2.json();
+        const breeds = data2.map((el) => {
+          return { value: el.id, label: el.name };
+        });
+        setBreeds(breeds);
+        // set setBreeds to the breeds id as a value and name as a label for select options
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+      }
     },
     [resultsLimit, sorting, nameBreed, pageNumber, type]
   );
@@ -90,25 +91,18 @@ const GalleryPage = (props) => {
       image_id: id,
       sub_id: props.subId,
     };
-    const response = await fetch("https://api.thecatapi.com/v1/favourites", {
-      method: "POST",
-      body: JSON.stringify(fav),
-      headers: {
-        "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(response);
-    // const response = await fetch(
-    //   `https://api.thecatapi.com/v1/favourites/${id}`,
-    //   {
-    //     method: "DELETE",
-    //     headers: {
-    //       "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-    //     },
-    //   }
-    // );
-    // console.log(response);
+    try {
+      await fetch("https://api.thecatapi.com/v1/favourites", {
+        method: "POST",
+        body: JSON.stringify(fav),
+        headers: {
+          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const options = [{ value: "", label: "None" }, ...breeds];
@@ -161,6 +155,12 @@ const GalleryPage = (props) => {
         width: "100%",
         height: "10vw",
       },
+      "@media (min-width: 430px) and (max-width: 860px) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+        width: "40vw",
+        height: "5vw",
+      },
+
       width: "23vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
@@ -175,6 +175,11 @@ const GalleryPage = (props) => {
         ...provided["@media (max-width: 425px)"],
         width: "100%",
         height: "10vw",
+      },
+      "@media (min-width: 430px) and (max-width: 860px) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+        width: "40vw",
+        height: "5vw",
       },
       width: "23vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",
@@ -210,6 +215,11 @@ const GalleryPage = (props) => {
         width: "100%",
         height: "10vw",
       },
+      "@media (min-width: 430px) and (max-width: 860px) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+        width: "36vw",
+        height: "5vw",
+      },
       width: "19.5vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
@@ -224,6 +234,11 @@ const GalleryPage = (props) => {
         ...provided["@media (max-width: 425px)"],
         width: "100%",
         height: "10vw",
+      },
+      "@media (min-width: 430px) and (max-width: 860px) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+        width: "36vw",
+        height: "5vw",
       },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),

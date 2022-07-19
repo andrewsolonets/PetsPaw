@@ -35,52 +35,60 @@ const BreedsPage = (props) => {
         // (breed && !filter)
       ) {
         setBreed(true);
-
-        const response = await fetch(
-          `https://api.thecatapi.com/v1/images/search/?` +
-            new URLSearchParams({
-              limit: resultsLimit,
-              page: pageNumber,
-              order: sorting,
-              attach_breed: 1,
-              breed_ids: value.value,
-            }),
-          {
-            headers: {
-              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-            },
-          }
-        );
-        const data = await response.json();
-        setResults(data);
+        try {
+          const response = await fetch(
+            `https://api.thecatapi.com/v1/images/search/?` +
+              new URLSearchParams({
+                limit: resultsLimit,
+                page: pageNumber,
+                order: sorting,
+                attach_breed: 1,
+                breed_ids: value.value,
+              }),
+            {
+              headers: {
+                "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+              },
+            }
+          );
+          const data = await response.json();
+          setResults(data);
+        } catch (err) {
+          console.error(err);
+        }
       } else if (
         (value.value && value.value === "all-breeds") ||
         value === "all-breeds"
       ) {
         setBreed(false);
         // setResults([])
-        const response = await fetch(
-          `https://api.thecatapi.com/v1/breeds/?` +
-            new URLSearchParams({
-              limit: resultsLimit,
-              page: pageNumber,
-              order: sorting,
-              attach_breed: 1,
-              breed_ids: "",
-            }),
-          {
-            headers: {
-              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-            },
-          }
-        );
-        const data = await response.json();
-        console.log(data);
-        const breeds = data.map((el) => {
-          return { value: el.id, label: el.name };
-        });
-        setResults(data);
-        setBreeds(breeds);
+        try {
+          const response = await fetch(
+            `https://api.thecatapi.com/v1/breeds/?` +
+              new URLSearchParams({
+                limit: resultsLimit,
+                page: pageNumber,
+                order: sorting,
+                attach_breed: 1,
+                breed_ids: "",
+              }),
+            {
+              headers: {
+                "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+              },
+            }
+          );
+          const data = await response.json();
+          console.log(data);
+          const breeds = data.map((el) => {
+            return { value: el.id, label: el.name };
+          });
+          setResults(data);
+          setBreeds(breeds);
+        } catch (err) {
+          console.error(err);
+        }
+
         // set setBreeds to the breeds id as a value and name as a label for select options
       }
       setLoading(false);
@@ -128,7 +136,13 @@ const BreedsPage = (props) => {
         width: "100%",
         height: "10vw",
       },
-      width: "18vw",
+      "@media (min-width: 430px) and (max-width: 860px)": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+        width: "33vw",
+        height: "7vw",
+      },
+
+      width: "16vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
       outline: "none",
@@ -143,6 +157,12 @@ const BreedsPage = (props) => {
         width: "100%",
         height: "10vw",
       },
+      "@media (min-width: 430px) and (max-width: 860px)": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+        width: "33vw",
+        height: "7vw",
+      },
+
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),
@@ -176,8 +196,13 @@ const BreedsPage = (props) => {
         width: "100%",
         height: "10vw",
       },
+      "@media (min-width: 430px) and (max-width: 860px)": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+        width: "25vw",
+        height: "7vw",
+      },
       // none of react-select's styles are passed to <Control />
-      width: "8.8vw",
+      width: "12vw",
       height: "3.2vw",
       border: state.isFocused ? 0 : 0,
       outline: "none",
@@ -192,6 +217,13 @@ const BreedsPage = (props) => {
         width: "70%",
         height: "10vw",
       },
+
+      "@media (min-width: 430px) and (max-width: 860px)": {
+        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+        width: "25vw",
+        height: "7vw",
+      },
+      width: "12vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
     indicatorSeparator: (provided, state) => ({}),

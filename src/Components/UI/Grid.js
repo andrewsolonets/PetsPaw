@@ -1,6 +1,5 @@
 import React from "react";
 import "./Grid.css";
-import testImg from "../../assets/testImg.png";
 import heartFav1 from "../../assets/hearFav.png";
 
 export default function Grid(props) {

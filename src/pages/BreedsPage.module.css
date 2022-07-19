@@ -253,6 +253,89 @@
     font-size: 1.2vw;
   }
 }
+@media (min-width: 430px) and (max-width: 860px) {
+  .nav-content1 {
+    width: 100%;
+  }
+  .nav-content1 Button {
+    color: var(--textWhite);
+    background: var(--main);
+    padding-left: 3vw;
+    padding-right: 3vw;
+    font-size: 3vw;
+  }
+
+  .back {
+    width: 2vw;
+    height: 2.5vw;
+    padding-left: 0.2vw;
+    padding-right: 0.3vw;
+  }
+  .nav-content Button {
+    color: var(--textWhite);
+    background: var(--main);
+    padding-left: 3vw;
+    padding-right: 3vw;
+    font-size: 3vw;
+    border-radius: 10px;
+  }
+  .icon {
+    width: 4.319vw;
+  }
+
+  .sorting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    border-radius: 10px;
+    width: 5vw;
+    height: 6.6vw;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.389vw;
+    background: var(--background);
+    border-radius: 20px;
+    width: 100%;
+    height: 19vw;
+  }
+
+  .filters p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5vw;
+    color: #8c8c8c;
+  }
+
+  .filterWraper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+  }
+
+  .filterReload {
+    display: flex;
+    align-items: center;
+  }
+
+  .reload {
+    background: var(--backgroundBlock);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 0.5vw;
+    padding: 0.8vw;
+  }
+}
 
 @media (min-width: 1024px) {
   .upload {

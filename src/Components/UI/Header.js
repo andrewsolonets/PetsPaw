@@ -35,30 +35,32 @@ const Header = (props) => {
       </div>
       <div className={classes.userPages}>
         <div className={classes["ham"]}>{props.children}</div>
-        <NavLink
-          className={(state) => {
-            return state.isActive ? classes.activeIcon : classes["like-icon"];
-          }}
-          to="/liked"
-        >
-          <Like className={classes.iconSvgHead} />
-        </NavLink>
-        <NavLink
-          className={(state) => {
-            return state.isActive ? classes.activeIcon : classes["like-icon"];
-          }}
-          to="/favourites"
-        >
-          <Fav className={classes.iconSvgHead} />
-        </NavLink>
-        <NavLink
-          className={(state) => {
-            return state.isActive ? classes.activeIcon : classes["like-icon"];
-          }}
-          to="/disliked"
-        >
-          <DisLike className={classes.iconSvgHead} />
-        </NavLink>
+        <div className={classes.userPages2}>
+          <NavLink
+            className={(state) => {
+              return state.isActive ? classes.activeIcon : classes["like-icon"];
+            }}
+            to="/liked"
+          >
+            <Like className={classes.iconSvgHead} />
+          </NavLink>
+          <NavLink
+            className={(state) => {
+              return state.isActive ? classes.activeIcon : classes["like-icon"];
+            }}
+            to="/favourites"
+          >
+            <Fav className={classes.iconSvgHead} />
+          </NavLink>
+          <NavLink
+            className={(state) => {
+              return state.isActive ? classes.activeIcon : classes["like-icon"];
+            }}
+            to="/disliked"
+          >
+            <DisLike className={classes.iconSvgHead} />
+          </NavLink>
+        </div>
       </div>
     </div>
   );

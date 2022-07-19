@@ -74,3 +74,9 @@
     border: 2px dashed var(--main);
   }
 }
+
+@media (max-width: 860px) {
+  .draganddrop {
+    width: 86vw;
+  }
+}

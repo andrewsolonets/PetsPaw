@@ -117,3 +117,18 @@
     letter-spacing: 2px;
   }
 }
+@media (min-width: 430px) and (max-width: 860px) {
+  .nav-content Button {
+    color: var(--textWhite);
+    background: var(--main);
+    padding-left: 3vw;
+    padding-right: 3vw;
+    font-size: 3vw;
+  }
+  .back {
+    width: 2vw;
+    height: 2vw;
+    padding-left: 0.2vw;
+    padding-right: 0.3vw;
+  }
+}

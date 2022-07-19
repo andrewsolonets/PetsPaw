@@ -26,9 +26,7 @@ const SearchPage = (props) => {
           },
         }
       );
-      console.log(response);
       const data = await response.json();
-      console.log(data[0]);
       if (!data[0]) {
         setSearchItems();
         setIsLoading(false);
@@ -44,13 +42,11 @@ const SearchPage = (props) => {
             },
           }
         );
-        console.log(response2);
         if (!response2.ok) {
           console.log("errr");
         }
         const data2 = await response2.json();
         setSearchItems(data2);
-        console.log(data2);
         setIsLoading(false);
       };
       getImgs();
@@ -69,7 +65,6 @@ const SearchPage = (props) => {
   };
 
   const singleSearch = () => {
-    console.log(searchItems);
     props.onClick({ results: searchItems, breed: true });
   };
 

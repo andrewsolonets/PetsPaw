@@ -60,8 +60,13 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1vw;
+}
+
+.userPages2 {
+  display: flex;
+  gap: 0.5vw;
 }
 .like-icon {
   display: flex;
@@ -112,7 +117,7 @@
   fill: var(--textWhite);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 764px) {
   .header {
     margin-top: 3vw;
     display: flex;
@@ -123,8 +128,14 @@
 
     width: 100%;
   }
+  .userPages2 {
+    display: flex;
+    gap: 2vw;
+  }
   .userPages {
     align-self: flex-end;
+    width: 100%;
+    justify-content: space-between;
     gap: 2vw;
   }
   .like-icon {
@@ -168,7 +179,6 @@
     display: block;
   }
   .ham {
-    margin-right: 32vw;
     display: flex;
     background: var(--backgroundBlock);
     border-radius: 20px;
@@ -185,7 +195,83 @@
     padding: 3vw;
   }
 }
+@media (min-width: 765px) and (max-width: 860px) {
+  .header {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
 
+    width: 100%;
+  }
+  .userPages2 {
+    display: flex;
+    gap: 2vw;
+  }
+  .userPages {
+    align-self: flex-end;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+  .like-icon {
+    display: flex;
+    background: var(--backgroundBlock);
+    border-radius: 20px;
+    cursor: pointer;
+
+    padding: 1.5vw;
+  }
+  .searchBar {
+    width: 100%;
+    position: relative;
+  }
+  .searchContainer {
+    width: 100%;
+  }
+  .searchInput {
+    font-size: 2.5vw;
+    font-weight: 400;
+    width: 95%;
+
+    padding-right: 2vw;
+
+    padding-left: 2vw;
+    background: var(--backgroundBlock);
+    border: 2px solid transparent;
+    border-radius: 20px;
+  }
+  .searchIcon {
+    width: 2.5vw;
+    height: 2.5vw;
+    padding: 0.2vw;
+  }
+  .searchBtn {
+    position: absolute;
+    bottom: 12%;
+    right: 2.5vw;
+  }
+  .burgerMenu {
+    display: block;
+  }
+  .ham {
+    display: flex;
+    background: var(--backgroundBlock);
+    border-radius: 20px;
+    cursor: pointer;
+    justify-self: flex-start;
+    padding: 1.5vw;
+  }
+  .activeIcon {
+    display: flex;
+    background: var(--main);
+    border-radius: 20px;
+    cursor: pointer;
+
+    padding: 1.5vw;
+  }
+}
 @media (min-width: 1440px) {
   ::placeholder {
     font-size: 20px;

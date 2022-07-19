@@ -86,14 +86,20 @@ const VotingApp = (props) => {
       image_id: newCat.id,
       sub_id: props.subId,
     };
-    await fetch("https://api.thecatapi.com/v1/favourites", {
-      method: "POST",
-      body: JSON.stringify(fav),
-      headers: {
-        "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-        "Content-Type": "application/json",
-      },
-    });
+
+    try {
+      await fetch("https://api.thecatapi.com/v1/favourites", {
+        method: "POST",
+        body: JSON.stringify(fav),
+        headers: {
+          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
     // console.log(response);
   }
 

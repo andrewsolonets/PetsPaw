@@ -17,22 +17,24 @@ const SingleCat = (props) => {
 
   const getImages = useCallback(async () => {
     if (!props.items[params.id].url) {
-      console.log(props.items);
-      const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search/?` +
-          new URLSearchParams({
-            limit: 5,
-            breed_ids: props.items[params.id].id,
-          }),
-        {
-          headers: {
-            "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-          },
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-      setImages(data);
+      try {
+        const response = await fetch(
+          `https://api.thecatapi.com/v1/images/search/?` +
+            new URLSearchParams({
+              limit: 5,
+              breed_ids: props.items[params.id].id,
+            }),
+          {
+            headers: {
+              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
+            },
+          }
+        );
+        const data = await response.json();
+        setImages(data);
+      } catch (err) {
+        console.error(err);
+      }
     } else {
       setImages(props.items);
     }

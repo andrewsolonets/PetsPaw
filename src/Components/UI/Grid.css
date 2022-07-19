@@ -16,7 +16,6 @@
     "s2 s3 m1"
     "b2 b2 m1"
     "b2 b2 sl";
-  width: 680px;
 }
 
 .container div img {
@@ -115,6 +114,102 @@
 }
 
 @media (max-width: 425px) {
+  .container {
+    display: grid;
+    grid-auto-rows: 55vw 55vw 55vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 55vw);
+    gap: 1.042vw 0vw;
+    /* grid-auto-flow: row; */
+    justify-content: center;
+    align-content: start;
+    justify-items: stretch;
+    grid-template-areas:
+      "frst"
+      "sec"
+      "thrd"
+      "fourth"
+      "s1"
+      "s2"
+      "s3"
+      "m1"
+      "b2"
+      "sl";
+
+    width: 100%;
+    grid-auto-flow: dense;
+  }
+
+  .container img {
+    height: auto;
+  }
+
+  .frst {
+    height: 53.333vw;
+    position: relative;
+    grid-area: frst;
+  }
+
+  .sec {
+    height: 53.333vw;
+    position: relative;
+    grid-area: sec;
+  }
+
+  .thrd {
+    height: 53.333vw;
+    position: relative;
+    grid-area: thrd;
+  }
+
+  .fourth {
+    height: 53.333vw;
+    position: relative;
+    grid-area: fourth;
+  }
+
+  .s1 {
+    height: 53.333vw;
+    position: relative;
+    grid-area: s1;
+  }
+
+  .s3 {
+    height: 53.333vw;
+    position: relative;
+    grid-area: s3;
+  }
+
+  .m1 {
+    height: 53.333vw;
+    position: relative;
+    grid-area: m1;
+  }
+
+  .b2 {
+    height: 53.333vw;
+    position: relative;
+    grid-area: b2;
+  }
+
+  .sl {
+    height: 53.333vw;
+    position: relative;
+    grid-area: sl;
+  }
+
+  .s2 {
+    height: 53.333vw;
+    position: relative;
+    grid-area: s2;
+  }
+  .overlay div img {
+    width: 8vw;
+    padding: 2vw;
+  }
+}
+
+@media (max-width: 1023px) {
   .container {
     display: grid;
     grid-auto-rows: 55vw 55vw 55vw;

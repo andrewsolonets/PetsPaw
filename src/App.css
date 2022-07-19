@@ -6,6 +6,7 @@
   font-family: "Jost", sans-serif;
   margin: 0;
   -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 a {
@@ -63,6 +64,12 @@ h1 {
   width: 15vw;
   left: 9vw;
   top: 3vw;
+}
+.logo {
+  width: 7.222vw;
+  position: fixed;
+  left: 6vw;
+  top: 2vw;
 }
 .logotext path {
   fill: var(--textBlack);
@@ -338,12 +345,20 @@ input:checked + .slider:before {
     transform: translateX(4.5vw);
   }
 }
-@media (min-width: 768px) {
+@media (max-width: 1023px) {
+  .main {
+    padding: 2vw;
+  }
   .logo {
     width: 7.222vw;
     position: fixed;
     left: 6vw;
     top: 2vw;
+  }
+  .burgerMenu {
+    align-self: center;
+    justify-self: flex-start;
+    display: block;
   }
   h1 {
     font-size: 3vw;
@@ -365,12 +380,24 @@ input:checked + .slider:before {
     width: 16vw;
     height: 20vw;
   }
-  section {
-    padding-top: 7vw;
-    padding-left: 6vw;
-  }
+
   .hidden {
     display: none;
+  }
+  .app {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    top: 0;
+    gap: 2vw;
+    width: 100%;
+    /* margin-left: 3.6vw;
+    margin-right: 3.6vw; */
+    position: relative;
+    left: 0;
+    height: auto;
+    background: var(--background);
   }
 }
 
@@ -399,6 +426,10 @@ input:checked + .slider:before {
   }
   h1 {
     font-size: 3vw;
+  }
+  section {
+    padding-top: 7vw;
+    padding-left: 6vw;
   }
 }
 
