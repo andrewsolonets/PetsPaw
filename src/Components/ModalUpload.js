@@ -1,7 +1,6 @@
 import classes from "./ModalUpload.module.css";
 import "./loader.css";
 import classes1 from "./Backdrop.module.css";
-import imgUpload from "../assets/imgUpload.png";
 import imgSuccess from "../assets/success.png";
 import imgFailure from "../assets/failure.png";
 import ReactDOM from "react-dom";
@@ -9,7 +8,6 @@ import { Fragment } from "react";
 import { useState } from "react";
 import DragDrop from "./DragDrop";
 import { ReactComponent as Close } from "../assets/cross.svg";
-import { MoonLoader } from "react-spinners";
 
 const Backdrop = (props) => {
   return <div className={classes1.backdrop} onClick={props.onClose}></div>;
