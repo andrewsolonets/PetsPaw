@@ -12,7 +12,7 @@
   <p align="center">
     All things Cats!
   </p>
-   <a href="petspaws.netlify.com">See a working demo</a>
+   <a href="https://petspaws.netlify.app/">See a working demo</a>
 </div>
 
 
