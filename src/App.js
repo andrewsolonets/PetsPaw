@@ -154,7 +154,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePic />} />
           <Route
-            path="voting"
+            path="/voting"
             element={
               <AppContainer>
                 <VotingApp subId={subId} />
@@ -162,7 +162,7 @@ function App() {
             }
           />
           <Route
-            path="breeds"
+            path="/breeds"
             element={
               <AppContainer>
                 <BreedsPage oneCat={catHandler}></BreedsPage>
@@ -170,7 +170,7 @@ function App() {
             }
           />
           <Route
-            path="breeds/:cat/:id"
+            path="/breeds/:cat/:id"
             exact="true"
             element={
               <AppContainer>
@@ -179,7 +179,7 @@ function App() {
             }
           />
           <Route
-            path="gallery"
+            path="/gallery"
             element={
               <AppContainer>
                 <GalleryPage subId={subId}></GalleryPage>
@@ -187,7 +187,7 @@ function App() {
             }
           />
           <Route
-            path="search/:searchItem"
+            path="/search/:searchItem"
             element={
               <AppContainer search={true}>
                 <SearchPage onClick={searchClickHandler} text={"SEARCH"} />
@@ -195,7 +195,7 @@ function App() {
             }
           />
           <Route
-            path="liked"
+            path="/liked"
             element={
               <AppContainer>
                 <LikedPage
@@ -207,7 +207,7 @@ function App() {
             }
           />
           <Route
-            path="disliked"
+            path="/disliked"
             element={
               <AppContainer>
                 <LikedPage
@@ -219,7 +219,7 @@ function App() {
             }
           />
           <Route
-            path="favourites"
+            path="/favourites"
             element={
               <AppContainer>
                 <FavouritesPage />
