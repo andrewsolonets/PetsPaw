@@ -29,10 +29,6 @@ function App() {
   const [results, setResults] = useState([]);
   const [breed, setBreed] = useState(false);
 
-  const backButtonHandler = () => {
-    console.log("Hello");
-  };
-
   const toggleThemeHandler = () => {
     if (theme === "light") {
       document.documentElement.style.setProperty(
@@ -198,11 +194,7 @@ function App() {
             path="/liked"
             element={
               <AppContainer>
-                <LikedPage
-                  value={1}
-                  text={"LIKES"}
-                  onBack={backButtonHandler}
-                />
+                <LikedPage value={1} text={"LIKES"} />
               </AppContainer>
             }
           />
@@ -210,11 +202,7 @@ function App() {
             path="/disliked"
             element={
               <AppContainer>
-                <LikedPage
-                  value={0}
-                  text={"DISLIKES"}
-                  onBack={backButtonHandler}
-                />
+                <LikedPage value={0} text={"DISLIKES"} />
               </AppContainer>
             }
           />
