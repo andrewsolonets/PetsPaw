@@ -108,6 +108,7 @@ const VotingApp = (props) => {
     getVotes();
   };
 
+  // USE USEEFFECT FOR REPEATED ACTIONS
   const addLikeHandler = () => {
     postCat(1);
     randomCat();
