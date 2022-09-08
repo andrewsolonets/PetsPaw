@@ -15,13 +15,7 @@ import { useFetch } from "../hooks/useFetch";
 import UserLog from "./UserLog";
 
 const VotingApp = (props) => {
-  const [{ apiData, isLoading }, postAction] = useFetch(
-    "images/search",
-    null,
-    null,
-    "get"
-  );
-  const [{ apiData: userLog }, fetchData] = useFetch(
+  const { apiData, fetchData, additional, isLoading, postAction } = useFetch(
     "images/search",
     null,
     null,
@@ -29,13 +23,16 @@ const VotingApp = (props) => {
     "voting"
   );
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const addFavouriteHandler = () => {
     let catJson = {
       image_id: apiData[0]?.id,
       sub_id: props.subId,
     };
     postAction("favourites", {}, catJson);
-    fetchData("images/search", null, null, "get", "voting");
   };
 
   // USE USEEFFECT FOR REPEATED ACTIONS
@@ -46,7 +43,6 @@ const VotingApp = (props) => {
       value: 1,
     };
     postAction("votes", {}, catJson);
-    fetchData("images/search", null, null, "get", "voting");
   };
 
   const addDislikeHandler = () => {
@@ -56,7 +52,6 @@ const VotingApp = (props) => {
       value: 0,
     };
     postAction("votes", {}, catJson);
-    fetchData("images/search", null, null, "get", "voting");
   };
 
   let navigate = useNavigate();
@@ -94,7 +89,7 @@ const VotingApp = (props) => {
         </div>
       </div>
 
-      <UserLog log={userLog} />
+      <UserLog log={additional} />
     </div>
   );
 };

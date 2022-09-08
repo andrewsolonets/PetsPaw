@@ -9,103 +9,71 @@ import { ReactComponent as Upload } from "../assets/upload.svg";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
-
+import { useFetch } from "../hooks/useFetch";
 import Select from "react-select";
 
 import Modal from "../Components/ModalUpload";
 
 const GalleryPage = (props) => {
-  const [results, setResults] = useState([]);
+  console.log("GalleryPage render");
+  // const [results, setResults] = useState([]);
   const [nameBreed, setNameBreed] = useState({
     value: "",
     label: "All breeds",
   });
   const [resultsLimit, setResultsLimit] = useState(10);
-  const [breeds, setBreeds] = useState([]);
+  // const [breeds, setBreeds] = useState([]);
   const [sorting, setSorting] = useState("rand");
   const [pageNumber, setPageNumber] = useState(0);
-  const [isLoading, setLoading] = useState(true);
+  // const [isLoading, setLoading] = useState(true);
   const [type, setType] = useState("");
   const [modal, setModal] = useState(false);
 
-  const getAllCats = useCallback(
-    async (value = nameBreed) => {
-      setLoading(true);
-      setResults([]);
-      try {
-        const response = await fetch(
-          `https://api.thecatapi.com/v1/images/${
-            type === "upload" ? "?" : "search/?"
-          }` +
-            new URLSearchParams(
-              type === "upload"
-                ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
-                : {
-                    limit: resultsLimit,
-                    page: pageNumber,
-                    order: sorting,
-                    breed_ids: value.value,
-                    mime_types: type,
-                  }
-            ),
-          {
-            headers: {
-              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-            },
-          }
-        );
-        const data = await response.json();
-        setResults(data);
-        const response2 = await fetch(
-          `https://api.thecatapi.com/v1/breeds/?` +
-            new URLSearchParams({
-              limit: resultsLimit,
-              page: pageNumber,
-              order: sorting,
-            }),
-          {
-            headers: {
-              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-            },
-          }
-        );
-        const data2 = await response2.json();
-        const breeds = data2.map((el) => {
-          return { value: el.id, label: el.name };
-        });
-        setBreeds(breeds);
-        // set setBreeds to the breeds id as a value and name as a label for select options
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-      }
-    },
-    [resultsLimit, sorting, nameBreed, pageNumber, type]
+  const { apiData, additional, isLoading, fetchData, postAction } = useFetch(
+    `images/${type === "upload" ? "?" : "search/?"}`,
+    type === "upload"
+      ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
+      : {
+          limit: resultsLimit,
+          page: pageNumber,
+          order: sorting,
+          breed_ids: nameBreed.value,
+          mime_types: type,
+        },
+    null,
+    "get",
+    "gallery"
   );
+
+  const getAllCats = useCallback(() => {
+    fetchData(
+      `images/${type === "upload" ? "?" : "search/?"}`,
+      type === "upload"
+        ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
+        : {
+            limit: resultsLimit,
+            page: pageNumber,
+            order: sorting,
+            breed_ids: nameBreed.value,
+            mime_types: type,
+          },
+      null,
+      "get"
+    );
+  }, [resultsLimit, sorting, nameBreed, pageNumber, type]);
   useEffect(() => {
     getAllCats();
   }, [getAllCats]);
 
-  const favouritesHandler = async (id) => {
+  const favouritesHandler = (id) => {
     let fav = {
       image_id: id,
       sub_id: props.subId,
     };
-    try {
-      await fetch("https://api.thecatapi.com/v1/favourites", {
-        method: "POST",
-        body: JSON.stringify(fav),
-        headers: {
-          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-          "Content-Type": "application/json",
-        },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    postAction("favourites", {}, fav);
   };
 
-  const options = [{ value: "", label: "None" }, ...breeds];
+  const options = [{ value: "", label: "None" }, ...(additional || [])];
 
   const options2 = [
     { value: 5, label: "5 items per page" },
@@ -362,7 +330,7 @@ const GalleryPage = (props) => {
         speedMultiplier={1.5}
       ></BounceLoader>
       <Grid
-        items={results}
+        items={apiData}
         limit={resultsLimit}
         breed={true}
         loading={isLoading}

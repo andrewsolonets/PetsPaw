@@ -15,6 +15,8 @@ const SingleCat = (props) => {
     navigate(-1);
   };
 
+  console.log(props.items);
+
   const getImages = useCallback(async () => {
     if (!props.items[params.id].url) {
       try {

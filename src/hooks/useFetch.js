@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useCallback } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -17,11 +18,26 @@ export const useFetch = (
 ) => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiData, setApiData] = useState([]);
+  const [additional, setAdditional] = useState();
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
+    setApiData([]);
     setIsLoading(true);
     if (special === "voting") {
+      try {
+        const response = await petspaw({
+          method: method,
+          params: params,
+          url: url,
+        });
+        const data = await response.data;
+        setApiData(data);
+      } catch (err) {
+        console.log(err);
+        setError(err);
+        setIsLoading(false);
+      }
       try {
         const [res2, res3] = await Promise.all([
           await petspaw({
@@ -33,17 +49,106 @@ export const useFetch = (
             params: { order: "DESC", limit: 3 },
           }),
         ]);
-        const data2 = await res2.data;
-        const data3 = await res3.data;
+        const data2 = await res2?.data;
+        const data3 = await res3?.data;
         let finalArr = [...data2, ...data3].sort((el1, el2) => {
           return new Date(el2.created_at) - new Date(el1.created_at);
         });
-        setApiData(finalArr);
+        setAdditional(finalArr);
       } catch (err) {
         console.log(err);
         setError(err);
         setIsLoading(false);
       } finally {
+        setIsLoading(false);
+      }
+    } else if (special === "breeds") {
+      if (type.value && type.value !== "all-breeds") {
+        console.log("ONE BREED FETCH");
+        setAdditional((prevState) => {
+          return { ...prevState, breed: true };
+        });
+        try {
+          const response = await petspaw({
+            method: method,
+            params: params,
+            url: url,
+          });
+          const data = await response.data;
+          setApiData(data);
+          setIsLoading(false);
+        } catch (err) {
+          console.log(err);
+          setError(err);
+          setIsLoading(false);
+        }
+      }
+      if (
+        (type.value && type.value === "all-breeds") ||
+        type === "all-breeds"
+      ) {
+        setAdditional({ breed: false });
+        console.log("All-breeds FETCH");
+        try {
+          const response = await petspaw({
+            method: method,
+            params: params,
+            url: "breeds/?",
+          });
+          const data = await response.data;
+          setApiData(data);
+        } catch (err) {
+          console.log(err);
+          setError(err);
+          setIsLoading(false);
+        }
+        try {
+          const response2 = await petspaw({
+            method: method,
+            params: {},
+            url: "breeds/?",
+          });
+          const data2 = await response2?.data;
+          const breeds = data2.map((el) => {
+            return { value: el.id, label: el.name };
+          });
+          setAdditional({ breed: false, breeds });
+          setIsLoading(false);
+        } catch (err) {
+          console.log(err);
+          setError(err);
+          setIsLoading(false);
+        }
+      }
+    } else if (special === "gallery") {
+      try {
+        const response = await petspaw({
+          method: method,
+          params: params,
+          url: url,
+        });
+        const data = await response?.data;
+        setApiData(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+        setError(err);
+        setIsLoading(false);
+      }
+      try {
+        const response2 = await petspaw({
+          method: method,
+          params: {},
+          url: "breeds/?",
+        });
+        const data2 = await response2?.data;
+        const breeds = data2.map((el) => {
+          return { value: el.id, label: el.name };
+        });
+        setAdditional(breeds);
+      } catch (err) {
+        console.log(err);
+        setError(err);
         setIsLoading(false);
       }
     } else {
@@ -79,29 +184,62 @@ export const useFetch = (
     }
   };
 
+  // const getLog = async () => {
+  //   try {
+  //     const [res2, res3] = await Promise.all([
+  //       await petspaw({
+  //         url: "votes/?",
+  //         params: { order: "DESC", limit: 10 },
+  //       }),
+  //       await petspaw({
+  //         url: "favourites/?",
+  //         params: { order: "DESC", limit: 3 },
+  //       }),
+  //     ]);
+  //     const data2 = await res2?.data;
+  //     const data3 = await res3?.data;
+  //     let finalArr = [...data2, ...data3].sort((el1, el2) => {
+  //       return new Date(el2.created_at) - new Date(el1.created_at);
+  //     });
+  //     setAdditional(finalArr);
+  //   } catch (err) {
+  //     console.log(err);
+  //     setError(err);
+  //     setIsLoading(false);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const postAction = async (url, params, payload = null, method = "post") => {
+    console.log("ACTION");
     try {
-      await petspaw({
+      const response = await petspaw({
         method: method,
         params: params,
         url: url,
         data: payload,
       });
+      console.log(response);
       if (url !== "favourites") fetchData();
     } catch (err) {
       setError(err);
     }
   };
 
-  useEffect(() => {
-    setApiData([]);
-    fetchData();
-  }, [type]);
+  // useEffect(() => {
+  //   setApiData([]);
+  //   fetchData();
+  // }, [fetchData]);
 
-  return [
-    { apiData, isLoading, error },
+  return {
+    apiData,
+    isLoading,
+    error,
+    additional,
     postAction,
     fetchData,
+    // getLog,
     // getUserLog,
-  ];
+  };
 };

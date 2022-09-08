@@ -15,14 +15,16 @@ import UserLog from "../pages/UserLog";
 const FavouritesPage = (props) => {
   console.log("render");
 
-  const [result, postAction] = useFetch(
+  const { apiData, isLoading, postAction, fetchData } = useFetch(
     `favourites/?`,
     { order: "DESC", limit: 10 },
     null,
     "get"
   );
 
-  const { apiData, isLoading, error } = result;
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const deleteItemsFav = (id) => {
     postAction(`favourites/${id}`, {}, null, "delete");

@@ -9,7 +9,7 @@ import { useFetch } from "../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
 
 const LikedPage = (props) => {
-  const [{ apiData, isLoading, error }] = useFetch(
+  const { apiData, isLoading, error, fetchData } = useFetch(
     `votes/?`,
     { order: "DESC", limit: 10 },
     null,
@@ -17,6 +17,10 @@ const LikedPage = (props) => {
     "likedFilter",
     props.value
   );
+
+  useEffect(() => {
+    fetchData();
+  }, [props.value]);
 
   let navigate = useNavigate();
   const backHandler = () => {
