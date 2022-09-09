@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import "./dragdrop.css";
 import imgUpload from "../assets/imgUpload.png";
+import { useEffect } from "react";
 
 function DragDrop(props) {
   const [file, setFile] = useState(null);
@@ -11,9 +12,16 @@ function DragDrop(props) {
   const handleChange = (file) => {
     setFile(file);
     const imgURL = URL.createObjectURL(file);
+    console.log(imgURL);
     setImg(imgURL);
     props.onChange(file);
   };
+
+  useEffect(() => {
+    if (props.onStatus === "success") {
+      setFile(null);
+    }
+  }, [props.onStatus]);
   console.log(file);
   console.log(props.onStatus);
 

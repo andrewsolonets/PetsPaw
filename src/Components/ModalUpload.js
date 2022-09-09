@@ -8,6 +8,9 @@ import { Fragment } from "react";
 import { useState } from "react";
 import DragDrop from "./DragDrop";
 import { ReactComponent as Close } from "../assets/cross.svg";
+import { useCallback } from "react";
+import { useFetch } from "../hooks/useFetch";
+import { useEffect } from "react";
 
 const Backdrop = (props) => {
   return <div className={classes1.backdrop} onClick={props.onClose}></div>;
@@ -16,64 +19,32 @@ const Backdrop = (props) => {
 const ModalUpload = (props) => {
   console.log(props.subId);
   const [img, setImg] = useState();
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
 
-  const uploaderPhoto = async () => {
-    setStatus("loading");
-    console.log(img);
-    const options = {
-      method: "POST",
-      body: img,
-
-      headers: {
-        "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-      },
-    };
-
-    delete options.headers["Content-Type"];
-    try {
-      const response = await fetch(
-        `https://api.thecatapi.com/v1/images/upload/`,
-        options
-      );
-      if (!response.ok) {
-        setStatus("failure");
-        throw new Error("Failed");
-      }
-      console.log(response);
-      const data = await response.json();
-      let uploadedImg = await data;
-      console.log(uploadedImg.id);
-      loadImageAnalysis(uploadedImg.id);
-      setStatus("success");
-    } catch (err) {
-      setStatus("failure");
-      console.error(err);
-    }
-  };
-
-  const loadImageAnalysis = async (id) => {
-    const response = await fetch(
-      `https://api.thecatapi.com/v1/images/${id}/analysis`
-    );
-    const data = await response.json();
-    console.log(data[0].labels);
-  };
+  const {
+    apiData,
+    isLoading,
+    additional: status,
+    error,
+    fetchData,
+    setAdditional,
+  } = useFetch(`images/upload/`, {}, img, "post", "upload");
 
   const uploadingHandler = () => {
     console.log("START");
-    uploaderPhoto();
+    fetchData(`images/upload/`, {}, img, "post", "upload");
   };
 
   const imgUploadedHandler = (e) => {
     let formData = new FormData();
     formData.append("file", e);
     formData.append("sub_id", "ys1ebn");
+    console.log(formData);
     setImg(formData);
-    setStatus("");
+    setAdditional("");
   };
 
-  let finalMessage;
+  let finalMessage; // separate this logic to its own component
 
   if (
     img &&

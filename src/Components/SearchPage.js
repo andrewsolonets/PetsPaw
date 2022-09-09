@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useParams, useNavigate } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
@@ -12,52 +13,25 @@ const SearchPage = (props) => {
   const params = useParams();
 
   console.log(params.searchItem);
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchItems, setSearchItems] = useState();
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [searchItems, setSearchItems] = useState();
 
-  const getSearchResults = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        `https://api.thecatapi.com/v1/breeds/search/?q=${params.searchItem}`,
-        {
-          headers: {
-            "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-          },
-        }
-      );
-      const data = await response.json();
-      if (!data[0]) {
-        setSearchItems();
-        setIsLoading(false);
-        return;
-      }
-
-      const getImgs = async () => {
-        const response2 = await fetch(
-          `https://api.thecatapi.com/v1/images/${data[0].reference_image_id}`,
-          {
-            headers: {
-              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-            },
-          }
-        );
-        if (!response2.ok) {
-          console.log("errr");
-        }
-        const data2 = await response2.json();
-        setSearchItems(data2);
-        setIsLoading(false);
-      };
-      getImgs();
-    } catch (err) {
-      console.log(err);
-    }
-  }, [params.searchItem]);
+  const {
+    apiData: searchItems,
+    isLoading,
+    error,
+    fetchData,
+  } = useFetch(
+    `breeds/search/?q=${params.searchItem}`,
+    {},
+    null,
+    "get",
+    "search"
+  );
 
   useEffect(() => {
-    getSearchResults();
-  }, [getSearchResults]);
+    fetchData();
+  }, []);
 
   let navigate = useNavigate();
   const backHandler = () => {

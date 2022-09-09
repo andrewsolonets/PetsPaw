@@ -26,7 +26,10 @@ const Header = (props) => {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for breeds by name"
           ></input>
-          <NavLink className={classes.searchBtn} to={`/search/${query}`}>
+          <NavLink
+            className={classes.searchBtn}
+            to={`/search/${query ? query : "please type anything"}`}
+          >
             <CardButton>
               <Search className={classes.searchIcon} />
             </CardButton>

@@ -151,6 +151,57 @@ export const useFetch = (
         setError(err);
         setIsLoading(false);
       }
+    } else if (special === "upload") {
+      setAdditional("loading");
+      console.log(payload);
+      try {
+        const res1 = await petspaw({
+          method: method,
+          params: params,
+          url: url,
+          headers: { "Content-Type": "multipart/form-data" },
+          data: payload,
+        });
+        // console.log(res1.statusText);
+        if (res1.status !== 201) {
+          setAdditional("failure");
+          throw new Error("Failed");
+        }
+        const data = await res1?.data;
+        loadImageAnalysis(data.id);
+        setAdditional("success");
+      } catch (err) {
+        setAdditional("failure");
+        console.log(err);
+        setError(err);
+        setIsLoading(false);
+      }
+    } else if (special === "search") {
+      try {
+        const response = await petspaw({
+          method: method,
+          params: params,
+          url: url,
+        });
+        const data = await response?.data;
+        if (!data[0]) {
+          setApiData();
+          setIsLoading(false);
+        }
+        const res2 = await petspaw({
+          method: method,
+          params: params,
+          url: `images/${data[0].reference_image_id}`,
+        });
+        /// res not 201??
+        const data2 = await res2?.data;
+        setApiData(data2);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+        setError(err);
+        setIsLoading(false);
+      }
     } else {
       try {
         const response = await petspaw({
@@ -184,32 +235,14 @@ export const useFetch = (
     }
   };
 
-  // const getLog = async () => {
-  //   try {
-  //     const [res2, res3] = await Promise.all([
-  //       await petspaw({
-  //         url: "votes/?",
-  //         params: { order: "DESC", limit: 10 },
-  //       }),
-  //       await petspaw({
-  //         url: "favourites/?",
-  //         params: { order: "DESC", limit: 3 },
-  //       }),
-  //     ]);
-  //     const data2 = await res2?.data;
-  //     const data3 = await res3?.data;
-  //     let finalArr = [...data2, ...data3].sort((el1, el2) => {
-  //       return new Date(el2.created_at) - new Date(el1.created_at);
-  //     });
-  //     setAdditional(finalArr);
-  //   } catch (err) {
-  //     console.log(err);
-  //     setError(err);
-  //     setIsLoading(false);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+  const loadImageAnalysis = async (id) => {
+    const res = await petspaw({
+      method: "get",
+      url: `images/${id}/analysis`,
+    });
+    const data = await res?.data;
+    console.log(data[0].labels);
+  };
 
   const postAction = async (url, params, payload = null, method = "post") => {
     console.log("ACTION");
@@ -239,6 +272,7 @@ export const useFetch = (
     additional,
     postAction,
     fetchData,
+    setAdditional,
     // getLog,
     // getUserLog,
   };
