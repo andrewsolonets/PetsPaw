@@ -1,7 +1,7 @@
 import classes from "./FavouritesPage.module.css";
 import Button from "./UI/Button";
 import CardButton from "./UI/CardButton";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { useFetch } from "../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
 
 const LikedPage = (props) => {
-  const { apiData, isLoading, error, fetchData } = useFetch(
+  const { apiData, isLoading, fetchData } = useFetch(
     `votes/?`,
     { order: "DESC", limit: 10 },
     null,

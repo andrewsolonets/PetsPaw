@@ -1,7 +1,7 @@
 import classes from "./FavouritesPage.module.css";
 import Button from "./UI/Button";
 import CardButton from "./UI/CardButton";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useParams, useNavigate } from "react-router-dom";
@@ -13,13 +13,10 @@ const SearchPage = (props) => {
   const params = useParams();
 
   console.log(params.searchItem);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [searchItems, setSearchItems] = useState();
 
   const {
     apiData: searchItems,
     isLoading,
-    error,
     fetchData,
   } = useFetch(
     `breeds/search/?q=${params.searchItem}`,

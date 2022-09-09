@@ -6,10 +6,11 @@ import CardButton from "../Components/UI/CardButton";
 import Button from "../Components/UI/Button";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
 const SingleCat = (props) => {
   const params = useParams();
-  const [images, setImages] = useState();
+  // const [images, setImages] = useState();
   let navigate = useNavigate();
   const backHandler = () => {
     navigate(-1);
@@ -17,34 +18,20 @@ const SingleCat = (props) => {
 
   console.log(props.items);
 
-  const getImages = useCallback(async () => {
-    if (!props.items[params.id].url) {
-      try {
-        const response = await fetch(
-          `https://api.thecatapi.com/v1/images/search/?` +
-            new URLSearchParams({
-              limit: 5,
-              breed_ids: props.items[params.id].id,
-            }),
-          {
-            headers: {
-              "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-            },
-          }
-        );
-        const data = await response.json();
-        setImages(data);
-      } catch (err) {
-        console.error(err);
-      }
-    } else {
-      setImages(props.items);
-    }
-  }, [props.items, params.id]);
+  const {
+    apiData: images,
+    isLoading,
+    fetchData,
+  } = useFetch(
+    `images/search/?`,
+    { limit: 5, breed_ids: props.items[params.id].id },
+    null,
+    "get"
+  );
 
   useEffect(() => {
-    getImages();
-  }, [getImages]);
+    fetchData();
+  }, [props.items, params.id]);
 
   return (
     <div className={classes.containerMain}>
