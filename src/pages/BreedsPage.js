@@ -2,7 +2,7 @@ import classes from "./BreedsPage.module.css";
 import CardButton from "../Components/UI/CardButton";
 import Button from "../Components/UI/Button";
 import Grid from "../Components/UI/GridBreeds";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
@@ -10,96 +10,57 @@ import { ReactComponent as Back } from "../assets/back.svg";
 import Select from "react-select";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useNavigate } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
 const BreedsPage = (props) => {
-  const [results, setResults] = useState([]);
-  const [breed, setBreed] = useState(false);
   const [nameBreed, setNameBreed] = useState({
     value: "all-breeds",
     label: "All breeds",
   });
   const [resultsLimit, setResultsLimit] = useState(10);
-  const [breeds, setBreeds] = useState([]);
   const [sorting, setSorting] = useState("ASC");
   const [pageNumber, setPageNumber] = useState(0);
-  const [isLoading, setLoading] = useState(true);
   const [singleCat, setSingleCat] = useState({ state: false });
 
-  const getAllCats = useCallback(
-    async (value = nameBreed) => {
-      setLoading(true);
-      setResults([]);
-      if (
-        value.value &&
-        value.value !== "all-breeds"
-        // (breed && !filter)
-      ) {
-        setBreed(true);
-        try {
-          const response = await fetch(
-            `https://api.thecatapi.com/v1/images/search/?` +
-              new URLSearchParams({
-                limit: resultsLimit,
-                page: pageNumber,
-                order: sorting,
-                attach_breed: 1,
-                breed_ids: value.value,
-              }),
-            {
-              headers: {
-                "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-              },
-            }
-          );
-          const data = await response.json();
-          setResults(data);
-        } catch (err) {
-          console.error(err);
-        }
-      } else if (
-        (value.value && value.value === "all-breeds") ||
-        value === "all-breeds"
-      ) {
-        setBreed(false);
-        // setResults([])
-        try {
-          const response = await fetch(
-            `https://api.thecatapi.com/v1/breeds/?` +
-              new URLSearchParams({
-                limit: resultsLimit,
-                page: pageNumber,
-                order: sorting,
-                attach_breed: 1,
-                breed_ids: "",
-              }),
-            {
-              headers: {
-                "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-              },
-            }
-          );
-          const data = await response.json();
-          console.log(data);
-          const breeds = data.map((el) => {
-            return { value: el.id, label: el.name };
-          });
-          setResults(data);
-          setBreeds(breeds);
-        } catch (err) {
-          console.error(err);
-        }
-
-        // set setBreeds to the breeds id as a value and name as a label for select options
-      }
-      setLoading(false);
+  const { apiData, additional, isLoading, fetchData } = useFetch(
+    "images/search/?",
+    {
+      limit: resultsLimit,
+      page: pageNumber,
+      order: sorting,
+      attach_breed: 1,
+      breed_ids: nameBreed.value,
     },
-    [resultsLimit, sorting, nameBreed, pageNumber]
+    null,
+    "get",
+    "breeds",
+    nameBreed
   );
+
+  const getAllCats = useCallback(() => {
+    fetchData(
+      "images/search/?",
+      {
+        limit: resultsLimit,
+        page: pageNumber,
+        order: sorting,
+        attach_breed: 1,
+        breed_ids: nameBreed.value,
+      },
+      null,
+      "get",
+      "breeds",
+      nameBreed
+    );
+  }, [nameBreed, pageNumber, resultsLimit, sorting]);
   useEffect(() => {
     getAllCats();
   }, [getAllCats]);
 
-  const options = [{ value: "all-breeds", label: "All breeds" }, ...breeds];
+  const options = [
+    { value: "all-breeds", label: "All breeds" },
+    ...(additional?.breeds || []),
+  ];
 
   const options2 = [
     { value: 5, label: "Limit: 5" },
@@ -230,19 +191,19 @@ const BreedsPage = (props) => {
   };
 
   const limitChangeHandler = (value) => {
+    console.log(value.value);
     setResultsLimit(value.value);
   };
 
   const sortingDescHandler = () => {
-    if (!breed) setSorting("DESC");
+    if (nameBreed.value === "all-breeds") setSorting("DESC");
   };
   const sortingAscHandler = () => {
-    if (!breed) setSorting("ASC");
+    if (nameBreed.value === "all-breeds") setSorting("ASC");
   };
   const filterHandler = (value) => {
     setNameBreed(value);
     setPageNumber(0);
-    // getAllCats(value, true);
   };
 
   const actionGridHandler = (id) => {
@@ -296,7 +257,7 @@ const BreedsPage = (props) => {
   };
 
   const catPageHandler = () => {
-    props.oneCat({ results, breed });
+    props.oneCat({ results: apiData, breed: additional?.breed });
   };
 
   let navigate = useNavigate();
@@ -327,9 +288,9 @@ const BreedsPage = (props) => {
       ></BounceLoader>
       <Grid
         onCat={catPageHandler}
-        items={results}
+        items={apiData}
         limit={resultsLimit}
-        breed={breed}
+        breed={additional?.breed}
         loading={isLoading}
         onAction={actionGridHandler}
         onPage={false}

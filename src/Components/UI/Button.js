@@ -1,10 +1,8 @@
-import classes from "./Button.module.css";
+import { ButtonRegular } from "./Button.styles";
 
 const Button = (props) => {
   return (
-    <button className={classes.regular} onClick={props.onClick}>
-      {props.children}
-    </button>
+    <ButtonRegular onClick={props.onClick}>{props.children}</ButtonRegular>
   );
 };
 

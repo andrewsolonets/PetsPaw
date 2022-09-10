@@ -4,52 +4,31 @@ import CardButton from "./UI/CardButton";
 
 import UserLogItem from "./UserLogItem";
 import { useEffect, useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import Grid from "./UI/Grid";
 import { ReactComponent as Back } from "../assets/back.svg";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+import UserLog from "../pages/UserLog";
 
 const FavouritesPage = (props) => {
-  const [favItems, setFavItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const getFavourites = useCallback(async () => {
-    setIsLoading(true);
-    const response = await fetch(
-      "https://api.thecatapi.com/v1/favourites/?" +
-        new URLSearchParams({
-          order: "DESC",
-          limit: 10,
-        }),
-      {
-        headers: {
-          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-        },
-      }
-    );
-    const data = await response.json();
-    setFavItems(data);
-    setIsLoading(false);
-  }, []);
+  console.log("render");
 
-  const deleteItemsFav = async (id) => {
-    const response = await fetch(
-      `https://api.thecatapi.com/v1/favourites/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "x-api-key": "4072d7cf-ded4-47a3-bf51-39851c2428b8",
-        },
-      }
-    );
-    console.log(response);
-    getFavourites();
-    // getFavourites();
-  };
+  const { apiData, isLoading, postAction, fetchData } = useFetch(
+    `favourites/?`,
+    { order: "DESC", limit: 10 },
+    null,
+    "get"
+  );
 
   useEffect(() => {
-    getFavourites();
-  }, [getFavourites]);
+    fetchData();
+  }, []);
+
+  const deleteItemsFav = (id) => {
+    postAction(`favourites/${id}`, {}, null, "delete");
+  };
 
   let navigate = useNavigate();
   const backHandler = () => {
@@ -71,19 +50,8 @@ const FavouritesPage = (props) => {
         size={50}
         speedMultiplier={1.5}
       ></BounceLoader>
-      <Grid items={favItems} onDelete={deleteItemsFav}></Grid>
-      <div className={classes.userLog}>
-        {favItems.map((el) => {
-          return (
-            <UserLogItem
-              key={el.id}
-              catId={el.image_id}
-              value={el.value}
-              time={el.created_at}
-            />
-          );
-        })}
-      </div>
+      <Grid items={apiData} onDelete={deleteItemsFav}></Grid>
+      <UserLog log={apiData} favPage={true} />
     </div>
   );
 };

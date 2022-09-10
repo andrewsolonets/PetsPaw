@@ -16,12 +16,6 @@ const AppContainer = (props) => {
   return (
     <div className="app">
       <Header
-        // search={userPage}
-        // onFav={favouritesPageHandler}
-        // userPage={userPage}
-        // onLike={likedPageHandler}
-        // onDislike={DislikePageHandler}
-        // onSearch={searchHandler}
         onSearch={props.search}
       >
         <div className="burgerMenu">

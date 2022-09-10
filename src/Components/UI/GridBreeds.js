@@ -5,6 +5,7 @@ import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { NavLink } from "react-router-dom";
 
 export default function Grid(props) {
+  console.log(props.items);
   const gridItems = [
     "frst",
     "sec",

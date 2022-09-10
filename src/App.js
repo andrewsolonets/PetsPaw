@@ -76,6 +76,7 @@ function App() {
   };
 
   const catHandler = ({ results, breed }) => {
+    console.log(results);
     setResults(results);
     setBreed(breed);
   };
