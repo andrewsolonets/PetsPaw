@@ -45,25 +45,9 @@ const GalleryPage = (props) => {
     "gallery"
   );
 
-  const getAllCats = useCallback(() => {
-    fetchData(
-      `images/${type === "upload" ? "?" : "search/?"}`,
-      type === "upload"
-        ? { limit: resultsLimit, sub_id: "ys1ebn", page: pageNumber }
-        : {
-            limit: resultsLimit,
-            page: pageNumber,
-            order: sorting,
-            breed_ids: nameBreed.value,
-            mime_types: type,
-          },
-      null,
-      "get"
-    );
-  }, [resultsLimit, sorting, nameBreed, pageNumber, type]);
   useEffect(() => {
-    getAllCats();
-  }, [getAllCats]);
+    fetchData();
+  }, [resultsLimit, sorting, nameBreed, pageNumber, type]);
 
   const favouritesHandler = (id) => {
     let fav = {
@@ -247,7 +231,7 @@ const GalleryPage = (props) => {
   };
 
   const reloadHandler = () => {
-    getAllCats();
+    fetchData();
   };
 
   const uploadHandler = () => {
