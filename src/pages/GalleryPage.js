@@ -2,7 +2,7 @@ import classes from "./BreedsPage.module.css";
 import CardButton from "../Components/UI/CardButton";
 import Button from "../Components/UI/Button";
 import Grid from "../Components/UI/GridBreeds";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
 import { ReactComponent as Reload } from "../assets/reload.svg";
 import { ReactComponent as Upload } from "../assets/upload.svg";

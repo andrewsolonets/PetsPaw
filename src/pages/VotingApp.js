@@ -9,8 +9,6 @@ import { ReactComponent as DisLike } from "../assets/dislike.svg";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 
-import UserLogItem from "../Components/UserLogItem";
-import { useCallback } from "react";
 import { useFetch } from "../hooks/useFetch";
 import UserLog from "./UserLog";
 
