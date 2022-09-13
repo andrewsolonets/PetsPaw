@@ -5,6 +5,8 @@ import Header from "../Components/UI/Header";
 import { ReactComponent as Cross } from "../assets/cross.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AppContainerWrapper, BurgerMenu } from "./AppContainerPage.styles";
+import { BurgerCrossButton } from "../Components/UI/Button.styles";
 
 const AppContainer = (props) => {
   const [hamburger, setHamburger] = useState(false);
@@ -14,30 +16,28 @@ const AppContainer = (props) => {
   };
 
   return (
-    <div className="app">
-      <Header
-        onSearch={props.search}
-      >
-        <div className="burgerMenu">
+    <AppContainerWrapper>
+      <Header onSearch={props.search}>
+        <BurgerMenu>
           <SideBar hamburger={hamburger} setHamburger={setHamburger} />
           <Menu hamburger={hamburger} setHamburger={setHamburger}>
-            <div onClick={toggleHambHandler}>
+            <BurgerCrossButton onClick={toggleHambHandler}>
               <Cross />
-            </div>
-            <Button className="menuOption" onClick={toggleHambHandler}>
+            </BurgerCrossButton>
+            <Button onClick={toggleHambHandler}>
               <NavLink to="/voting">VOTING</NavLink>
             </Button>
-            <Button className="menuOption" onClick={toggleHambHandler}>
+            <Button onClick={toggleHambHandler}>
               <NavLink to="/breeds">BREEDS</NavLink>
             </Button>
-            <Button className="menuOption" onClick={toggleHambHandler}>
+            <Button onClick={toggleHambHandler}>
               <NavLink to="/gallery">GALLERY</NavLink>
             </Button>
           </Menu>
-        </div>
+        </BurgerMenu>
       </Header>
-      <div className="appContent">{props.children}</div>
-    </div>
+      <div>{props.children}</div>
+    </AppContainerWrapper>
   );
 };
 

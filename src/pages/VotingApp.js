@@ -3,16 +3,13 @@ import CardButton from "../Components/UI/CardButton";
 import Button from "../Components/UI/Button";
 import classes from "./VotingApp.module.css";
 
-import { ReactComponent as Fav } from "../assets/fav.svg";
-import { ReactComponent as Like } from "../assets/like.svg";
-import { ReactComponent as DisLike } from "../assets/dislike.svg";
-import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 
 import { useFetch } from "../hooks/useFetch";
 import UserLog from "./UserLog";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
+import { UserActions } from "./UserActions/UserActions";
 
 const VotingApp = (props) => {
   const { apiData, fetchData, additional, isLoading, postAction, logAction } =
@@ -68,20 +65,12 @@ const VotingApp = (props) => {
           {isLoading ? "" : <img src={apiData[0]?.url} alt="testImg"></img>}
         </div>
 
-        <div className={classes.actions}>
-          <div className={classes.likeAction} onClick={addLikeHandler}>
-            <Like className={classes.like} />
-          </div>
-          <div
-            className={classes.favoutitesAction}
-            onClick={addFavouriteHandler}
-          >
-            <Fav className={classes.favIcon} />
-          </div>
-          <div className={classes.dislikeAction} onClick={addDislikeHandler}>
-            <DisLike className={classes.dislike} />
-          </div>
-        </div>
+        <UserActions
+          addDislikeHandler={addDislikeHandler}
+          addLikeHandler={addLikeHandler}
+          addFavouriteHandler={addFavouriteHandler}
+          img={apiData}
+        />
       </div>
 
       <UserLog log={additional} />

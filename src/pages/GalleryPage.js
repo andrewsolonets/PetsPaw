@@ -19,6 +19,7 @@ import Select from "react-select";
 import Modal from "../Components/ModalUpload";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
 import { GalleryFilters } from "./FiltersContainer/GalleryFilters";
+import { PaginationContainer } from "./PaginationContainer/PaginationContainer";
 
 const GalleryPage = (props) => {
   console.log("GalleryPage render");
@@ -154,23 +155,11 @@ const GalleryPage = (props) => {
         onFav={favouritesHandler}
         onPage={true}
       ></Grid>
-      <div className={classes.paginationContainer}>
-        <button
-          className={classes.buttonPagination}
-          disabled={pageNumber === 0 ? true : false}
-          onClick={prevPageHandler}
-        >
-          <PageRight className={`${classes.arrow} ${classes.left}`}></PageRight>{" "}
-          PREV
-        </button>
-        <button
-          className={classes.buttonPagination}
-          disabled={false}
-          onClick={nextPageHandler}
-        >
-          NEXT <PageRight className={classes.arrow}></PageRight>
-        </button>
-      </div>
+      <PaginationContainer
+        pageNumber={pageNumber}
+        prevPageHandler={prevPageHandler}
+        nextPageHandler={nextPageHandler}
+      />
     </MainContentContainer>
   );
 };

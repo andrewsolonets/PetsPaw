@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 
 import { GlobalStyles } from "./Components/styles/globalstyles.styles";
-import "./App.css";
-
-import Button from "./Components/UI/Button";
-import VoteTable from "./assets/vote-table.png";
-import PetBreed from "./assets/pet-breeds.png";
-import Gallery from "./assets/Gallery.png";
+// import "./App.css";
 
 import { ReactComponent as Logo1 } from "./assets/logo2.svg";
 
-import { NavLink } from "react-router-dom";
 import { RoutesContainer } from "./routes/Routes";
 import {
   FixedMainContainer,
@@ -89,7 +83,7 @@ function App() {
     <React.Fragment>
       <MainContainer>
         {/* <img className="logo" src={logo} alt="Logo"></img> */}
-        <LogoSwitchContainer>
+        <LogoSwitchContainer to={"/"}>
           <Logo1></Logo1>
           <TextLogoContainer />
           <SwitchContainer>

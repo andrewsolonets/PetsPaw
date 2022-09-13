@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css";
-import "./slider.css";
+// import "./slider.css";
 import "swiper/css/pagination";
 
 const Carousel = (props) => {

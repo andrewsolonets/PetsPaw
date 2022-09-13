@@ -1,7 +1,12 @@
 import favouriteIconS from "../assets/favouritesiconS.png";
 import dislikes from "../assets/dislikes.png";
 import likes from "../assets/likes.png";
-import classes from "./UserLogItem.module.css";
+import {
+  TimeWrapper,
+  UserLogElement,
+  UserLogIcon,
+  UserLogInfo,
+} from "./UserLogItem.styles";
 
 const UserLogItem = (props) => {
   const newDate = new Date(props.time);
@@ -27,20 +32,20 @@ const UserLogItem = (props) => {
   }
 
   return (
-    <div className={classes.userLogElement}>
-      <div className={classes.time}>
-        <span className={classes.userlogP}>{time}</span>
-      </div>
-      <div className={classes.userLogInfo}>
-        <span className={classes.userlogP}>
+    <UserLogElement>
+      <TimeWrapper>
+        <span>{time}</span>
+      </TimeWrapper>
+      <UserLogInfo>
+        <span>
           Image ID: <b>{props.catId}</b> was added to {category}
         </span>
-      </div>
+      </UserLogInfo>
 
-      <div className={classes.userLogIcon}>
+      <UserLogIcon>
         <img src={icon} alt="icon fav S"></img>
-      </div>
-    </div>
+      </UserLogIcon>
+    </UserLogElement>
   );
 };
 export default UserLogItem;

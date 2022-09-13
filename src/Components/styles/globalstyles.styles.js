@@ -48,6 +48,32 @@ h2 {
   line-height: ${lineHeights[5]}rem;
   color: var(--textBlack);
 }
+:root {
+  --swiper-theme-color: var(--main);
+  --swiper-pagination-bullet-inactive-color: var(--swiper-theme-color);
+}
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  padding: 0.5vw;
+  background-color: var(--backgroundBlock) !important;
+  position: absolute !important;
+  left: 42% !important;
+  bottom: -3% !important;
+  border-radius: 20px;
+  width: fit-content !important;
+}
+
+@media (max-width: 425px) {
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    padding: 0.5vw;
+    background-color: var(--backgroundBlock) !important;
+    position: absolute !important;
+    left: 38% !important;
+    bottom: -2% !important;
+    border-radius: 20px;
+    width: fit-content !important;
+  }
+}
+
 `;
 
 export const MainContentContainer = styled.div`

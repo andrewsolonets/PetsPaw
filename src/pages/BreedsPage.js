@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
 import { BreedsFilters } from "./FiltersContainer/BreedsFilters";
+import { PaginationContainer } from "./PaginationContainer/PaginationContainer";
 
 const BreedsPage = (props) => {
   const [nameBreed, setNameBreed] = useState({
@@ -122,23 +123,11 @@ const BreedsPage = (props) => {
         onPage={false}
       ></Grid>
 
-      <div className={classes.paginationContainer}>
-        <button
-          className={classes.buttonPagination}
-          disabled={pageNumber === 0 ? true : false}
-          onClick={prevPageHandler}
-        >
-          <PageRight className={`${classes.arrow} ${classes.left}`}></PageRight>{" "}
-          PREV
-        </button>
-        <button
-          className={classes.buttonPagination}
-          disabled={false}
-          onClick={nextPageHandler}
-        >
-          NEXT <PageRight className={classes.arrow}></PageRight>
-        </button>
-      </div>
+      <PaginationContainer
+        pageNumber={pageNumber}
+        prevPageHandler={prevPageHandler}
+        nextPageHandler={nextPageHandler}
+      />
     </MainContentContainer>
   );
 };

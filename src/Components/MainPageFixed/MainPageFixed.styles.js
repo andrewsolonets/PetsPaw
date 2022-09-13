@@ -16,6 +16,9 @@ export const FixedSection = styled.section`
 `;
 
 export const GreetingsText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 5.9rem;
   p {
     color: #8c8c8c;
@@ -87,6 +90,16 @@ export const OptionButton = styled(NavLink)`
   gap: 0.8rem;
   cursor: pointer;
 
+  &.active {
+    ${OptionButtonContainer} {
+      border: 4px solid var(--btnColor);
+    }
+    Button {
+      color: var(--textWhite);
+      background: var(--main);
+    }
+  }
+
   &:hover {
     ${OptionButtonContainer} {
       border: 4px solid var(--backgroundBlock);
@@ -103,14 +116,13 @@ export const OptionButton = styled(NavLink)`
       color: var(--textWhite);
       background: var(--main);
     }
-  }
-  &:focus {
-    ${OptionButtonContainer} {
-      border: 4px solid var(--btnColor);
-    }
-    Button {
-      color: var(--textWhite);
-      background: var(--main);
+    &:hover {
+      ${OptionButtonContainer} {
+        border: 4px solid var(--backgroundBlock);
+      }
+      Button {
+        background: var(--btnColor);
+      }
     }
   }
 `;

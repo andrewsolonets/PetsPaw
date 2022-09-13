@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { ReactComponent as TextLogo } from "./assets/PetsPaw.svg";
 
 export const MainContainer = styled.div`
@@ -19,7 +20,7 @@ export const FixedMainContainer = styled.div`
   }
 `;
 
-export const LogoSwitchContainer = styled.div`
+export const LogoSwitchContainer = styled(Link)`
   display: flex;
   gap: 0.5vw;
   justify-content: center;

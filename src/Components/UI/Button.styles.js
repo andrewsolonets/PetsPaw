@@ -73,3 +73,72 @@ export const SortingButton = styled.button`
 export const ReloadButton = styled(CardButton)`
   background: var(--backgroundBlock);
 `;
+
+export const ButtonPagination = styled.button`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  gap: 1vw;
+  color: var(--main);
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  background: var(--btnColor);
+  border-radius: 1rem;
+  padding: 1.2rem 3rem;
+  border: none;
+
+  &:first-child svg {
+    transform: rotate(-180deg);
+  }
+
+  &:hover {
+    background: var(--main);
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+  }
+
+  &:disabled {
+    background: var(--background);
+    cursor: default;
+    color: #8c8c8c;
+  }
+
+  &:disabled svg path {
+    fill: #8c8c8c;
+  }
+  &:disabled:hover {
+    background: var(--background);
+    color: #8c8c8c;
+  }
+`;
+
+export const BurgerMenuButton = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const BurgerCrossButton = styled.div`
+  display: flex;
+  align-self: end;
+  justify-content: center;
+  width: fit-content;
+  padding: 1.7rem;
+  background-color: white;
+  border-radius: 1rem;
+`;
