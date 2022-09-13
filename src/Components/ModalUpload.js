@@ -22,10 +22,7 @@ const ModalUpload = (props) => {
   // const [status, setStatus] = useState("");
 
   const {
-    apiData,
-    isLoading,
     additional: status,
-    error,
     fetchData,
     setAdditional,
   } = useFetch(`images/upload/`, {}, img, "post", "upload");
@@ -88,7 +85,7 @@ const ModalUpload = (props) => {
         <Close className={classes.close} onClick={props.onClose} />
       </div>
 
-      <h1>Upload a .jpg or .png Cat Image</h1>
+      <h2>Upload a .jpg or .png Cat Image</h2>
       <p>
         Any uploads must comply with the upload guidelines or face deletion.
       </p>

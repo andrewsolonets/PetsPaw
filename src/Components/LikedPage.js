@@ -7,6 +7,8 @@ import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
+import { MainContentContainer } from "./styles/globalstyles.styles";
+import { PageNavBar } from "./PageNavBar/PageNavBar";
 
 const LikedPage = (props) => {
   const { apiData, isLoading, fetchData } = useFetch(
@@ -28,13 +30,9 @@ const LikedPage = (props) => {
   };
 
   return (
-    <div className={classes.containerMain}>
-      <div className={classes["nav-content"]}>
-        <CardButton onClick={backHandler}>
-          <Back className={classes.back} />
-        </CardButton>
-        <Button>{props.text}</Button>
-      </div>
+    <MainContentContainer>
+      <PageNavBar backHandler={backHandler} title={props.text} />
+
       <BounceLoader
         color={"var(--main)"}
         loading={isLoading}
@@ -44,7 +42,7 @@ const LikedPage = (props) => {
       ></BounceLoader>
 
       <Grid items={apiData}></Grid>
-    </div>
+    </MainContentContainer>
   );
 };
 

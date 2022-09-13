@@ -25,6 +25,7 @@ export default function Grid(props) {
 
   if (props.searchPage) {
     content = props.items.map((el, i) => {
+      console.log(el);
       return (
         <div
           className={gridItems[i]}

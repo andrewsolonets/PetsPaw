@@ -8,18 +8,19 @@ import { ReactComponent as Like } from "../assets/like.svg";
 import { ReactComponent as DisLike } from "../assets/dislike.svg";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
+import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 
 import { useFetch } from "../hooks/useFetch";
 import UserLog from "./UserLog";
+import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
 
 const VotingApp = (props) => {
-  const { apiData, fetchData, additional, isLoading, postAction } = useFetch(
-    "images/search",
-    null,
-    null,
-    "get",
-    "voting"
-  );
+  const { apiData, fetchData, additional, isLoading, postAction, logAction } =
+    useFetch("images/search", null, null, "get");
+
+  useEffect(() => {
+    logAction();
+  }, [apiData]);
 
   useEffect(() => {
     fetchData();
@@ -31,6 +32,7 @@ const VotingApp = (props) => {
       sub_id: props.subId,
     };
     postAction("favourites", {}, catJson);
+    logAction();
   };
 
   // USE USEEFFECT FOR REPEATED ACTIONS
@@ -58,13 +60,8 @@ const VotingApp = (props) => {
   };
 
   return (
-    <div className={classes.containerMain}>
-      <div className={classes["nav-content"]}>
-        <CardButton className={classes.backContainer} onClick={backHandler}>
-          <Back className={classes.back} />
-        </CardButton>
-        <Button>VOTING</Button>
-      </div>
+    <MainContentContainer>
+      <PageNavBar backHandler={backHandler} title={"VOTING"} />
 
       <div className={classes.parentImg}>
         <div className={classes.containerImg}>
@@ -88,7 +85,7 @@ const VotingApp = (props) => {
       </div>
 
       <UserLog log={additional} />
-    </div>
+    </MainContentContainer>
   );
 };
 

@@ -6,6 +6,7 @@ import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useParams, useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { MainContentContainer } from "./styles/globalstyles.styles";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
@@ -28,7 +29,7 @@ const SearchPage = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [params.searchItem]);
 
   let navigate = useNavigate();
   const backHandler = () => {
@@ -36,11 +37,11 @@ const SearchPage = (props) => {
   };
 
   const singleSearch = () => {
-    props.onClick({ results: searchItems, breed: true });
+    props.onClick({ results: searchItems, breed: true, search: true });
   };
 
   return (
-    <div className={classes.containerMain}>
+    <MainContentContainer>
       <div className={classes["nav-content"]}>
         <CardButton onClick={backHandler}>
           <Back className={classes.back} />
@@ -65,7 +66,7 @@ const SearchPage = (props) => {
           searchPage={true}
         ></Grid>
       )}
-    </div>
+    </MainContentContainer>
   );
 };
 

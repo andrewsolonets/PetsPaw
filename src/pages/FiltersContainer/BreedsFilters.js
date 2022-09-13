@@ -1,6 +1,7 @@
 import Select from "react-select";
 import { ReactComponent as DescendingIcon } from "../../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../../assets/asc.svg";
+import { SortingButton } from "../../Components/UI/Button.styles";
 
 export const BreedsFilters = ({
   breeds,
@@ -21,6 +22,7 @@ export const BreedsFilters = ({
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
       backgroundColor: state.isFocused
         ? "var(--background)"
@@ -37,6 +39,7 @@ export const BreedsFilters = ({
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
     }),
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
@@ -53,12 +56,13 @@ export const BreedsFilters = ({
       },
 
       width: "16vw",
-      height: "3.2vw",
+      height: "4.4rem",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
       background: "var(--background)",
-      borderRadius: "10px",
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
@@ -82,6 +86,7 @@ export const BreedsFilters = ({
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
       backgroundColor: state.isFocused
         ? "var(--background)"
@@ -98,6 +103,7 @@ export const BreedsFilters = ({
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
     }),
     control: (provided, state) => ({
       ...provided,
@@ -113,12 +119,13 @@ export const BreedsFilters = ({
       },
       // none of react-select's styles are passed to <Control />
       width: "12vw",
-      height: "3.2vw",
+      height: "4.4rem",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
       background: "var(--background)",
-      borderRadius: "10px",
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
@@ -153,12 +160,12 @@ export const BreedsFilters = ({
         onChange={limitChangeHandler}
         placeholder={"Limit: 10"}
       />
-      <div className={classes.sorting} onClick={sortingDescHandler}>
-        <DescendingIcon className={classes.icon}></DescendingIcon>
-      </div>
-      <div className={classes.sorting} onClick={sortingAscHandler}>
-        <AscendingIcon className={classes.icon}></AscendingIcon>
-      </div>
+      <SortingButton onClick={sortingDescHandler}>
+        <DescendingIcon></DescendingIcon>
+      </SortingButton>
+      <SortingButton onClick={sortingAscHandler}>
+        <AscendingIcon></AscendingIcon>
+      </SortingButton>
     </>
   );
 };

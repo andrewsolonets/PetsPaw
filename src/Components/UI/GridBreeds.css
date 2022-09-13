@@ -334,13 +334,13 @@ p b {
   color: var(--textBlack);
 }
 
-p {
+/* p { ADD IN SEPARATE FILE!!!
   font-weight: 400;
   color: #8c8c8c;
   font-family: "Jost";
   font-style: normal;
   font-size: 1.3vw;
-}
+} */
 
 .textDescr {
   display: flex;
@@ -592,7 +592,7 @@ p {
     color: var(--main);
   }
 }
-@media (min-width: 765px) and (max-width:860px) {
+@media (min-width: 765px) and (max-width: 860px) {
   .mainDescr {
     margin-top: 3vw;
     margin-left: 1.6vw;

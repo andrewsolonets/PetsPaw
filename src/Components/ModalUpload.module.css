@@ -16,8 +16,12 @@
   background: var(--background);
   border-radius: 20px;
 }
-h1 {
+/* h1 {
   font-size: 3vw;
+} */
+
+h2 {
+  font-size: 3.6rem;
 }
 
 /* .containerBack div {

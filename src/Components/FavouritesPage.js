@@ -3,6 +3,7 @@ import Button from "./UI/Button";
 import CardButton from "./UI/CardButton";
 
 import UserLogItem from "./UserLogItem";
+import { MainContentContainer } from "./styles/globalstyles.styles";
 import { useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import Grid from "./UI/Grid";
@@ -11,6 +12,7 @@ import BounceLoader from "react-spinners/BounceLoader";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import UserLog from "../pages/UserLog";
+import { PageNavBar } from "./PageNavBar/PageNavBar";
 
 const FavouritesPage = (props) => {
   console.log("render");
@@ -36,13 +38,9 @@ const FavouritesPage = (props) => {
   };
 
   return (
-    <div className={classes.containerMain}>
-      <div className={classes["nav-content"]}>
-        <CardButton onClick={backHandler}>
-          <Back className={classes.back} />
-        </CardButton>
-        <Button>FAVOURITES</Button>
-      </div>
+    <MainContentContainer>
+      <PageNavBar backHandler={backHandler} title={"FAVOURITES"} />
+
       <BounceLoader
         color={"var(--main)"}
         loading={isLoading}
@@ -52,7 +50,7 @@ const FavouritesPage = (props) => {
       ></BounceLoader>
       <Grid items={apiData} onDelete={deleteItemsFav}></Grid>
       <UserLog log={apiData} favPage={true} />
-    </div>
+    </MainContentContainer>
   );
 };
 

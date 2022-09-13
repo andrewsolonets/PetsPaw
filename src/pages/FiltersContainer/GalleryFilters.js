@@ -1,7 +1,20 @@
 import Select from "react-select";
 import { ReactComponent as Reload } from "../../assets/reload.svg";
+import { ReloadButton } from "../../Components/UI/Button.styles";
+import {
+  FilterReloadBox,
+  FilterWrapperChild,
+  GalleryFiltersWrapper,
+} from "./Filters.styles";
 
-export const GalleryFilters = ({ breeds }) => {
+export const GalleryFilters = ({
+  breeds,
+  sortingHandler,
+  filterHandler,
+  typeHandler,
+  limitChangeHandler,
+  reloadHandler,
+}) => {
   const options = [{ value: "", label: "None" }, ...breeds];
 
   const options2 = [
@@ -27,6 +40,7 @@ export const GalleryFilters = ({ breeds }) => {
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
       backgroundColor: state.isFocused
         ? "var(--background)"
@@ -43,6 +57,7 @@ export const GalleryFilters = ({ breeds }) => {
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
     }),
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
@@ -60,11 +75,12 @@ export const GalleryFilters = ({ breeds }) => {
 
       width: "23vw",
       height: "3.2vw",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
       background: "var(--backgroundBlock)",
-      borderRadius: "10px",
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
@@ -88,6 +104,7 @@ export const GalleryFilters = ({ breeds }) => {
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
       backgroundColor: state.isFocused
         ? "var(--background)"
@@ -104,6 +121,7 @@ export const GalleryFilters = ({ breeds }) => {
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
     }),
     control: (provided, state) => ({
       ...provided,
@@ -119,6 +137,7 @@ export const GalleryFilters = ({ breeds }) => {
       },
       width: "19.5vw",
       height: "3.2vw",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
@@ -143,8 +162,8 @@ export const GalleryFilters = ({ breeds }) => {
   };
 
   return (
-    <div className={classes.filters}>
-      <div className={classes.filterWraper}>
+    <GalleryFiltersWrapper>
+      <FilterWrapperChild>
         <p>ORDER</p>
         <Select
           onChange={sortingHandler}
@@ -160,9 +179,9 @@ export const GalleryFilters = ({ breeds }) => {
           styles={customStyles}
           placeholder={"None"}
         />
-      </div>
+      </FilterWrapperChild>
 
-      <div className={classes.filterWraper}>
+      <FilterWrapperChild>
         <p>TYPE</p>
         <Select
           onChange={typeHandler}
@@ -172,7 +191,7 @@ export const GalleryFilters = ({ breeds }) => {
         />
 
         <p>LIMIT</p>
-        <div className={classes.filterReload}>
+        <FilterReloadBox>
           <Select
             options={options2}
             styles={customStyles2}
@@ -180,9 +199,11 @@ export const GalleryFilters = ({ breeds }) => {
             placeholder={"10 items per page"}
           />
 
-          <Reload className={classes.reload} onClick={reloadHandler}></Reload>
-        </div>
-      </div>
-    </div>
+          <ReloadButton onClick={reloadHandler}>
+            <Reload />
+          </ReloadButton>
+        </FilterReloadBox>
+      </FilterWrapperChild>
+    </GalleryFiltersWrapper>
   );
 };
