@@ -1,16 +1,13 @@
-import classes from "./ModalUpload.module.css";
 import "./loader.css";
 import classes1 from "./Backdrop.module.css";
-import imgSuccess from "../assets/success.png";
-import imgFailure from "../assets/failure.png";
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
 import { useState } from "react";
 import DragDrop from "./DragDrop";
 import { ReactComponent as Close } from "../assets/cross.svg";
-import { useCallback } from "react";
 import { useFetch } from "../hooks/useFetch";
-import { useEffect } from "react";
+import { FinalUploadMessage } from "./FinalUploadMessage/FinalUploadMessage";
+import { CloseButton, ModalWrapper } from "./ModalUpload.styles";
 
 const Backdrop = (props) => {
   return <div className={classes1.backdrop} onClick={props.onClose}></div>;
@@ -41,49 +38,11 @@ const ModalUpload = (props) => {
     setAdditional("");
   };
 
-  let finalMessage; // separate this logic to its own component
-
-  if (
-    img &&
-    status !== "success" &&
-    status !== "failure" &&
-    status !== "loading"
-  ) {
-    finalMessage = <button onClick={uploadingHandler}>UPLOAD PHOTO</button>;
-  }
-
-  if (status === "loading") {
-    finalMessage = (
-      <button onClick={uploadingHandler} className={classes.uploadBtnloading}>
-        {" "}
-        <div class="loader"></div>
-        UPLOAD PHOTO
-      </button>
-    );
-  }
-
-  if (status === "success") {
-    finalMessage = (
-      <div className={classes.finalMessage}>
-        <img src={imgSuccess} alt="asd"></img>
-        <p>Thanks for the Upload - Cat found!</p>
-      </div>
-    );
-  }
-  if (status === "failure") {
-    finalMessage = (
-      <div className={classes.finalMessage}>
-        <img src={imgFailure} alt="asd"></img>
-        <p>No Cat found - try a different one</p>
-      </div>
-    );
-  }
-
   return (
-    <div className={classes.containerBack}>
-      <div className={classes.closeDiv}>
-        <Close className={classes.close} onClick={props.onClose} />
-      </div>
+    <ModalWrapper>
+      <CloseButton>
+        <Close onClick={props.onClose} />
+      </CloseButton>
 
       <h2>Upload a .jpg or .png Cat Image</h2>
       <p>
@@ -92,8 +51,12 @@ const ModalUpload = (props) => {
       <div>
         <DragDrop onChange={imgUploadedHandler} onStatus={status}></DragDrop>
       </div>
-      {finalMessage}
-    </div>
+      <FinalUploadMessage
+        img={img}
+        status={status}
+        uploadingHandler={uploadingHandler}
+      />
+    </ModalWrapper>
   );
 };
 

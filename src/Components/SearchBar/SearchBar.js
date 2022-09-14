@@ -1,29 +1,32 @@
-import CardButton from "../UI/CardButton";
-import { NavLink } from "react-router-dom";
+import { CardButton } from "../UI/Button.styles";
 import { ReactComponent as Search } from "../../assets/search.svg";
+import {
+  SearchBarForm,
+  SearchButtonLink,
+  SearchInput,
+  SearchWrapper,
+} from "./SearchBar.styles";
 
-export const SearchBar = ({ query, setQuery }) => {
+export const SearchBar = ({ query, setQuery, onSearch }) => {
   return (
-    <div className={classes.searchContainer}>
-      <form className={classes.searchBar}>
-        <input
-          style={style}
-          className={classes.searchInput}
+    <SearchWrapper>
+      <SearchBarForm>
+        <SearchInput
+          styleChange={onSearch}
           type="text"
           id="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search for breeds by name"
-        ></input>
-        <NavLink
-          className={classes.searchBtn}
+        ></SearchInput>
+        <SearchButtonLink
           to={`/search/${query ? query : "please type anything"}`}
         >
           <CardButton>
-            <Search className={classes.searchIcon} />
+            <Search />
           </CardButton>
-        </NavLink>
-      </form>
-    </div>
+        </SearchButtonLink>
+      </SearchBarForm>
+    </SearchWrapper>
   );
 };

@@ -8,6 +8,7 @@ import { ReactComponent as Logo1 } from "./assets/logo2.svg";
 import { RoutesContainer } from "./routes/Routes";
 import {
   FixedMainContainer,
+  LogoContainerLink,
   LogoSwitchContainer,
   MainContainer,
   SwitchContainer,
@@ -21,7 +22,11 @@ function App() {
   const [results, setResults] = useState([]);
   const [breed, setBreed] = useState(false);
 
+  // const defaultDarkTheme =
+  //   window.matchMedia?.("(prefers-color-scheme:dark)")?.matches ?? false;
+
   const toggleThemeHandler = () => {
+    console.log("theme");
     if (theme === "light") {
       document.documentElement.style.setProperty(
         "--background",
@@ -83,11 +88,14 @@ function App() {
     <React.Fragment>
       <MainContainer>
         {/* <img className="logo" src={logo} alt="Logo"></img> */}
-        <LogoSwitchContainer to={"/"}>
-          <Logo1></Logo1>
-          <TextLogoContainer />
+        <LogoSwitchContainer>
+          <LogoContainerLink to={"/"}>
+            <Logo1></Logo1>
+            <TextLogoContainer />
+          </LogoContainerLink>
+
           <SwitchContainer>
-            <input type="checkbox" onClick={toggleThemeHandler}></input>
+            <input type="checkbox" onClick={toggleThemeHandler} />
             <span></span>
           </SwitchContainer>
         </LogoSwitchContainer>

@@ -20,7 +20,7 @@ export const FixedMainContainer = styled.div`
   }
 `;
 
-export const LogoSwitchContainer = styled(Link)`
+export const LogoSwitchContainer = styled.div`
   display: flex;
   gap: 0.5vw;
   justify-content: center;
@@ -34,6 +34,13 @@ export const LogoSwitchContainer = styled(Link)`
     width: 25vw;
     top: 1.7rem;
   }
+`;
+
+export const LogoContainerLink = styled(Link)`
+  display: flex;
+  gap: 0.5vw;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const TextLogoContainer = styled(TextLogo)`
@@ -51,17 +58,16 @@ export const SwitchContainer = styled.label`
 
   input {
     opacity: 0;
-    width: 0;
-    height: 0;
-    &:checked + span {
+    width: 4.4rem;
+    &:checked ~ span {
       background-color: var(--btnColor);
     }
-    &:checked + span:before {
+    &:checked ~ span:before {
       -webkit-transform: translateX(1.4vw);
       -ms-transform: translateX(1.4vw);
       transform: translateX(1.4vw);
     }
-    &:focus + span {
+    &:focus ~ span {
       box-shadow: 0 0 1px var(--btnColor);
     }
   }
@@ -89,4 +95,9 @@ export const SwitchContainer = styled.label`
       border-radius: 50%;
     }
   }
+`;
+
+export const SearchParagraph = styled.p`
+  margin-left: 1vw;
+  align-self: flex-start;
 `;

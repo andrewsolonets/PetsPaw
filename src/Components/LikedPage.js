@@ -1,6 +1,4 @@
-import classes from "./FavouritesPage.module.css";
 import Button from "./UI/Button";
-import CardButton from "./UI/CardButton";
 import { useEffect } from "react";
 import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
@@ -24,14 +22,9 @@ const LikedPage = (props) => {
     fetchData();
   }, [props.value]);
 
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
-
   return (
     <MainContentContainer>
-      <PageNavBar backHandler={backHandler} title={props.text} />
+      <PageNavBar title={props.text} />
 
       <BounceLoader
         color={"var(--main)"}

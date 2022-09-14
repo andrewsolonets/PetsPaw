@@ -1,5 +1,7 @@
-import imgSuccess from "../assets/success.png";
-import imgFailure from "../assets/failure.png";
+import imgSuccess from "../../assets/success.png";
+import imgFailure from "../../assets/failure.png";
+import { UploadBtn, UploadImageButton } from "../UI/Button.styles";
+import { FinalMessageWrapper } from "./FinalUploadMessage.styles";
 
 export const FinalUploadMessage = ({ img, status, uploadingHandler }) => {
   let finalMessage; // separate this logic to its own component
@@ -10,34 +12,38 @@ export const FinalUploadMessage = ({ img, status, uploadingHandler }) => {
     status !== "failure" &&
     status !== "loading"
   ) {
-    finalMessage = <button onClick={uploadingHandler}>UPLOAD PHOTO</button>;
+    finalMessage = (
+      <UploadImageButton onClick={uploadingHandler}>
+        UPLOAD PHOTO
+      </UploadImageButton>
+    );
   }
 
   if (status === "loading") {
     finalMessage = (
-      <button onClick={uploadingHandler} className={classes.uploadBtnloading}>
+      <UploadBtn onClick={uploadingHandler}>
         {" "}
         <div class="loader"></div>
         UPLOAD PHOTO
-      </button>
+      </UploadBtn>
     );
   }
 
   if (status === "success") {
     finalMessage = (
-      <div className={classes.finalMessage}>
+      <FinalMessageWrapper>
         <img src={imgSuccess} alt="asd"></img>
         <p>Thanks for the Upload - Cat found!</p>
-      </div>
+      </FinalMessageWrapper>
     );
   }
   if (status === "failure") {
     finalMessage = (
-      <div className={classes.finalMessage}>
+      <FinalMessageWrapper>
         <img src={imgFailure} alt="asd"></img>
         <p>No Cat found - try a different one</p>
-      </div>
+      </FinalMessageWrapper>
     );
   }
-  return { finalMessage };
+  return finalMessage;
 };

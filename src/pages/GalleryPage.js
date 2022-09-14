@@ -1,20 +1,12 @@
-import classes from "./BreedsPage.module.css";
-import CardButton from "../Components/UI/CardButton";
-import Button from "../Components/UI/Button";
-
 import Grid from "../Components/UI/GridBreeds";
 import { UploadButton } from "../Components/UI/Button.styles";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 
-import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
-import { ReactComponent as Reload } from "../assets/reload.svg";
 import { ReactComponent as Upload } from "../assets/upload.svg";
-import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useFetch } from "../hooks/useFetch";
-import Select from "react-select";
 
 import Modal from "../Components/ModalUpload";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
@@ -123,7 +115,6 @@ const GalleryPage = (props) => {
       )}
 
       <PageNavBar
-        backHandler={backHandler}
         title={"GALLERY"}
         additional={
           <UploadButton onClick={uploadHandler}>

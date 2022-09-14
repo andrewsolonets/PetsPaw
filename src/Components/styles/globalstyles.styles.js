@@ -48,6 +48,9 @@ h2 {
   line-height: ${lineHeights[5]}rem;
   color: var(--textBlack);
 }
+
+
+
 :root {
   --swiper-theme-color: var(--main);
   --swiper-pagination-bullet-inactive-color: var(--swiper-theme-color);

@@ -1,71 +1,43 @@
-import classes from "./Header.module.css";
-import CardButton from "./CardButton";
 import { useState } from "react";
 import { ReactComponent as Fav } from "../../assets/fav.svg";
 import { ReactComponent as Like } from "../../assets/like.svg";
 import { ReactComponent as DisLike } from "../../assets/dislike.svg";
-import { ReactComponent as Search } from "../../assets/search.svg";
-import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { SearchBar } from "../SearchBar/SearchBar";
+import {
+  BurgerWrapper,
+  HeaderWrapper,
+  NavLinkHeader,
+  NavLinksWrapper,
+  NavLinksWrapperSecondary,
+} from "./Header.styles";
 
 const Header = (props) => {
   const [query, setQuery] = useState("");
 
-  let style;
-  style = props.onSearch ? { borderColor: " var(--main)" } : {};
-
+  useEffect(() => {
+    if (!props.onSearch) {
+      setQuery("");
+    }
+  }, [props.onSearch]);
   return (
-    <div className={classes.header}>
-      <div className={classes.searchContainer}>
-        <form className={classes.searchBar}>
-          <input
-            style={style}
-            className={classes.searchInput}
-            type="text"
-            id="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search for breeds by name"
-          ></input>
-          <NavLink
-            className={classes.searchBtn}
-            to={`/search/${query ? query : "please type anything"}`}
-          >
-            <CardButton>
-              <Search className={classes.searchIcon} />
-            </CardButton>
-          </NavLink>
-        </form>
-      </div>
-      <div className={classes.userPages}>
-        <div className={classes["ham"]}>{props.children}</div>
-        <div className={classes.userPages2}>
-          <NavLink
-            className={(state) => {
-              return state.isActive ? classes.activeIcon : classes["like-icon"];
-            }}
-            to="/liked"
-          >
-            <Like className={classes.iconSvgHead} />
-          </NavLink>
-          <NavLink
-            className={(state) => {
-              return state.isActive ? classes.activeIcon : classes["like-icon"];
-            }}
-            to="/favourites"
-          >
-            <Fav className={classes.iconSvgHead} />
-          </NavLink>
-          <NavLink
-            className={(state) => {
-              return state.isActive ? classes.activeIcon : classes["like-icon"];
-            }}
-            to="/disliked"
-          >
-            <DisLike className={classes.iconSvgHead} />
-          </NavLink>
-        </div>
-      </div>
-    </div>
+    <HeaderWrapper>
+      <SearchBar query={query} setQuery={setQuery} onSearch={props.onSearch} />
+      <NavLinksWrapper>
+        <BurgerWrapper>{props.children}</BurgerWrapper>
+        <NavLinksWrapperSecondary>
+          <NavLinkHeader to="/liked">
+            <Like />
+          </NavLinkHeader>
+          <NavLinkHeader to="/favourites">
+            <Fav />
+          </NavLinkHeader>
+          <NavLinkHeader to="/disliked">
+            <DisLike />
+          </NavLinkHeader>
+        </NavLinksWrapperSecondary>
+      </NavLinksWrapper>
+    </HeaderWrapper>
   );
 };
 export default Header;

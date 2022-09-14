@@ -1,22 +1,26 @@
 import Carousel from "../Components/UI/Slider";
-import { useState, useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 import { useParams } from "react-router-dom";
 import classes from "./BreedsPage.module.css";
-import CardButton from "../Components/UI/CardButton";
-import Button from "../Components/UI/Button";
-import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
+import {
+  MainDescrWrapper,
+  ParentImgContainer,
+  SecondaryDescr,
+  SecondaryDescrItem,
+  SingleCatContent,
+  SingleCatDescription,
+  SingleCatHeading,
+  SingleCatId,
+  SingleCatWrapper,
+} from "./SingleCat.styles";
 
 const SingleCat = ({ items, breed, search = false }) => {
   const params = useParams();
   // const [images, setImages] = useState();
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
 
   console.log(items, search);
 
@@ -42,30 +46,29 @@ const SingleCat = ({ items, breed, search = false }) => {
   return (
     <MainContentContainer>
       <PageNavBar
-        backHandler={backHandler}
         title={"BREEDS"}
-        additional={<div className={classes.catId}>{params.cat}</div>}
+        additional={<SingleCatId>{params.cat}</SingleCatId>}
       />
 
-      <div className="singleCat">
-        <div className="parentImg">
-          <div className="containerImg">
+      <SingleCatWrapper>
+        <ParentImgContainer>
+          <div>
             <Carousel images={images}></Carousel>
           </div>
-        </div>
-        <div className="ContentContainer">
-          <div className="headingCat">
+        </ParentImgContainer>
+        <SingleCatContent>
+          <SingleCatHeading>
             {breed ? items[params.id].breeds[0].name : items[params.id].name}
-          </div>
+          </SingleCatHeading>
 
-          <div className="catDesc">
-            <div className="mainDescr">
+          <SingleCatDescription>
+            <MainDescrWrapper>
               {breed
                 ? items[params.id].breeds[0].description
                 : items[params.id].description}
-            </div>
-            <div className="propsContainer">
-              <div className="textDescr">
+            </MainDescrWrapper>
+            <SecondaryDescr>
+              <SecondaryDescrItem>
                 <p>
                   <b>Temperament:</b>
                   <br></br>
@@ -73,9 +76,9 @@ const SingleCat = ({ items, breed, search = false }) => {
                     ? items[params.id].breeds[0].temperament
                     : items[params.id].temperament}
                 </p>
-              </div>
+              </SecondaryDescrItem>
 
-              <div className="textDescr">
+              <SecondaryDescrItem>
                 <p>
                   <b>Origin:</b>{" "}
                   {breed
@@ -96,11 +99,11 @@ const SingleCat = ({ items, breed, search = false }) => {
                       : items[params.id].life_span
                   } years`}
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </SecondaryDescrItem>
+            </SecondaryDescr>
+          </SingleCatDescription>
+        </SingleCatContent>
+      </SingleCatWrapper>
     </MainContentContainer>
   );
 };

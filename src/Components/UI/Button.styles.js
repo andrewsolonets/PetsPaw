@@ -142,3 +142,28 @@ export const BurgerCrossButton = styled.div`
   background-color: white;
   border-radius: 1rem;
 `;
+
+export const UploadImageButton = styled.button`
+  background: var(--main);
+  border-radius: 10px;
+  padding: 1.2rem 3rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  border: none;
+  color: white;
+
+  &:hover {
+    background: var(--btnColor);
+    color: var(--main);
+  }
+
+  @media (max-width: 425px) {
+  }
+`;
+
+export const UploadBtn = styled(UploadImageButton)`
+  align-items: center;
+  justify-content: center;
+  padding-left: 2rem;
+  display: flex;
+`;

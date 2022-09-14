@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CardButton from "../Components/UI/CardButton";
 import Button from "../Components/UI/Button";
 import classes from "./VotingApp.module.css";
 
@@ -10,6 +9,7 @@ import { useFetch } from "../hooks/useFetch";
 import UserLog from "./UserLog";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
 import { UserActions } from "./UserActions/UserActions";
+import { ContainerImg, ImgWrapper } from "./VotingApp.styles";
 
 const VotingApp = (props) => {
   const { apiData, fetchData, additional, isLoading, postAction, logAction } =
@@ -51,19 +51,14 @@ const VotingApp = (props) => {
     postAction("votes", {}, catJson);
   };
 
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
-
   return (
     <MainContentContainer>
-      <PageNavBar backHandler={backHandler} title={"VOTING"} />
+      <PageNavBar title={"VOTING"} />
 
-      <div className={classes.parentImg}>
-        <div className={classes.containerImg}>
+      <ContainerImg>
+        <ImgWrapper>
           {isLoading ? "" : <img src={apiData[0]?.url} alt="testImg"></img>}
-        </div>
+        </ImgWrapper>
 
         <UserActions
           addDislikeHandler={addDislikeHandler}
@@ -71,7 +66,7 @@ const VotingApp = (props) => {
           addFavouriteHandler={addFavouriteHandler}
           img={apiData}
         />
-      </div>
+      </ContainerImg>
 
       <UserLog log={additional} />
     </MainContentContainer>

@@ -1,16 +1,10 @@
-import classes from "./FavouritesPage.module.css";
-import Button from "./UI/Button";
-import CardButton from "./UI/CardButton";
-
-import UserLogItem from "./UserLogItem";
 import { MainContentContainer } from "./styles/globalstyles.styles";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 import Grid from "./UI/Grid";
-import { ReactComponent as Back } from "../assets/back.svg";
+
 import BounceLoader from "react-spinners/BounceLoader";
-import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
+
 import UserLog from "../pages/UserLog";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
 
@@ -32,14 +26,9 @@ const FavouritesPage = (props) => {
     postAction(`favourites/${id}`, {}, null, "delete");
   };
 
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
-
   return (
     <MainContentContainer>
-      <PageNavBar backHandler={backHandler} title={"FAVOURITES"} />
+      <PageNavBar title={"FAVOURITES"} />
 
       <BounceLoader
         color={"var(--main)"}

@@ -1,14 +1,6 @@
-import classes from "./BreedsPage.module.css";
-import CardButton from "../Components/UI/CardButton";
-import Button from "../Components/UI/Button";
 import Grid from "../Components/UI/GridBreeds";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ReactComponent as DescendingIcon } from "../assets/desc.svg";
-import { ReactComponent as AscendingIcon } from "../assets/asc.svg";
-import { ReactComponent as PageRight } from "../assets/arrowRight.svg";
-import { ReactComponent as Back } from "../assets/back.svg";
+import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
-import Select from "react-select";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
@@ -93,7 +85,6 @@ const BreedsPage = (props) => {
   return (
     <MainContentContainer>
       <PageNavBar
-        backHandler={backHandler}
         title={"BREEDS"}
         additional={
           <BreedsFilters
