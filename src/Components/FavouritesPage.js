@@ -37,7 +37,7 @@ const FavouritesPage = (props) => {
         size={50}
         speedMultiplier={1.5}
       ></BounceLoader>
-      <Grid items={apiData} onDelete={deleteItemsFav}></Grid>
+      <Grid items={apiData} onAction={deleteItemsFav} page={"fav"}></Grid>
       <UserLog log={apiData} favPage={true} />
     </MainContentContainer>
   );

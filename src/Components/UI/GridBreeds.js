@@ -54,7 +54,6 @@ export default function Grid(props) {
             </GridItemWrapper>
           );
         }
-        return "";
       })}
     </GridContainer>
   );

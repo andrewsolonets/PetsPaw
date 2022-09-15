@@ -1,27 +1,142 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Grid.css";
 import heartFav1 from "../../assets/hearFav.png";
-import { GridContainer, GridItemWrapper, OverlayWrapper } from "./Grid.styles";
+import { ReactComponent as Heart } from "../../assets/heart.svg";
+import { ReactComponent as Heart1 } from "../../assets/heart1.svg";
+import {
+  BreedsSingleCatLink,
+  GridContainer,
+  GridItemWrapper,
+  HeartWrapper,
+  LabelBreed,
+  OverlayWrapper,
+} from "./Grid.styles";
 
-export default function Grid(props) {
-  const favHandler = (id) => {
-    props.onDelete(id);
+export default function Grid({
+  onAction,
+  items,
+  page,
+  onSingle,
+  isLoading,
+  onPage,
+  breed,
+  onCat,
+}) {
+  const actionHandler = (id) => {
+    onAction(id);
+    // if (page === "gallery") {
+    //   setHeart(true);
+    // }
   };
 
-  return (
-    <GridContainer>
-      {props.items.map((el, i) => {
+  // const [heart, setHeart] = useState(false);
+
+  let content;
+  if (page === "search") {
+    content = items.map((el, i) => {
+      console.log(el);
+      return (
+        <GridItemWrapper
+          key={el.id}
+          // onClick={actionHandler.bind(null, el.id)}
+        >
+          <img src={el.url} alt="asda"></img>
+
+          <BreedsSingleCatLink
+            onClick={onSingle}
+            data-index={i}
+            to={`/breeds/${el.breeds[0].id}/${i}`}
+          >
+            <LabelBreed>
+              <p>{el.breeds[0].name}</p>
+            </LabelBreed>
+          </BreedsSingleCatLink>
+        </GridItemWrapper>
+      );
+    });
+  }
+
+  if (page === "liked") {
+    content = items.map((el, i) => {
+      return (
+        <GridItemWrapper
+          key={el.id}
+          // onClick={actionHandler.bind(null, el.id)}
+        >
+          <img src={el.url} alt="asda"></img>
+        </GridItemWrapper>
+      );
+    });
+  }
+
+  if (page === "breeds" || page === "gallery") {
+    content = items?.map((el, i) => {
+      if ((!isLoading && el?.image?.url) || (!isLoading && el?.url)) {
         return (
-          <GridItemWrapper key={el.id} onClick={favHandler.bind(null, el.id)}>
-            <img src={el.image.url} alt="asda"></img>
-            <OverlayWrapper>
-              <div>
-                <img src={heartFav1} alt="sds"></img>
-              </div>
-            </OverlayWrapper>
+          <GridItemWrapper
+            key={el.id}
+            onClick={onPage ? actionHandler.bind(null, el.id) : null}
+          >
+            {!isLoading ? (
+              <img src={breed ? el.url : el.image.url} alt="asda"></img>
+            ) : (
+              ""
+            )}
+            {onPage ? (
+              <OverlayWrapper data-index={i}>
+                {/* {heart ? <Heart1 /> : <Heart />} */}
+                <HeartWrapper>
+                  <Heart />
+                </HeartWrapper>
+              </OverlayWrapper>
+            ) : (
+              <BreedsSingleCatLink
+                data-index={i}
+                onClick={onCat}
+                to={`${el.id}/${i}`}
+              >
+                <LabelBreed>
+                  <p>{breed ? el?.breeds[0]?.name : el.name}</p>
+                </LabelBreed>
+              </BreedsSingleCatLink>
+            )}
           </GridItemWrapper>
         );
-      })}
-    </GridContainer>
-  );
+      }
+      return "";
+    });
+  }
+
+  if (page === "fav") {
+    content = items.map((el, i) => {
+      return (
+        <GridItemWrapper key={el.id} onClick={actionHandler.bind(null, el.id)}>
+          <img src={el.image.url} alt="asda"></img>
+          <OverlayWrapper>
+            <HeartWrapper>
+              <Heart1 />
+            </HeartWrapper>
+          </OverlayWrapper>
+        </GridItemWrapper>
+      );
+    });
+  }
+  return <GridContainer>{content}</GridContainer>;
+
+  // return (
+  //   <GridContainer>
+  //     {items.map((el, i) => {
+  //       return (
+  //         <GridItemWrapper key={el.id} onClick={actionHandler.bind(null, el.id)}>
+  //           <img src={el.image.url} alt="asda"></img>
+  //           <OverlayWrapper>
+  //             <div>
+  //               <img src={heartFav1} alt="sds"></img>
+  //             </div>
+  //           </OverlayWrapper>
+  //         </GridItemWrapper>
+  //       );
+  //     })}
+  //   </GridContainer>
+  // );
 }

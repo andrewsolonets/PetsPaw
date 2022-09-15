@@ -4,6 +4,7 @@ import {
   BreedsSingleCatLink,
   GridContainer,
   GridItemWrapper,
+  LabelBreed,
 } from "./Grid.styles";
 
 export default function Grid(props) {
@@ -30,9 +31,9 @@ export default function Grid(props) {
             data-index={i}
             to={`/breeds/${el.breeds[0].id}/${i}`}
           >
-            <div className="label1">
+            <LabelBreed>
               <p>{el.breeds[0].name}</p>
-            </div>
+            </LabelBreed>
           </BreedsSingleCatLink>
         </GridItemWrapper>
       );

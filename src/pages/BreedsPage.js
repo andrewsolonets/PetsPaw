@@ -1,4 +1,4 @@
-import Grid from "../Components/UI/GridBreeds";
+import Grid from "../Components/UI/Grid";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 import BounceLoader from "react-spinners/BounceLoader";
@@ -112,6 +112,7 @@ const BreedsPage = (props) => {
         loading={isLoading}
         onAction={actionGridHandler}
         onPage={false}
+        page={"breeds"}
       ></Grid>
 
       <PaginationContainer

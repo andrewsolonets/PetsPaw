@@ -1,4 +1,4 @@
-import Grid from "../Components/UI/GridBreeds";
+import Grid from "../Components/UI/Grid";
 import { UploadButton } from "../Components/UI/Button.styles";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
@@ -143,8 +143,9 @@ const GalleryPage = (props) => {
         limit={resultsLimit}
         breed={true}
         loading={isLoading}
-        onFav={favouritesHandler}
+        onAction={favouritesHandler}
         onPage={true}
+        page={"gallery"}
       ></Grid>
       <PaginationContainer
         pageNumber={pageNumber}

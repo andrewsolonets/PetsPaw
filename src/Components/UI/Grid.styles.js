@@ -15,7 +15,7 @@ export const OverlayWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    border-radius: 10px;
+    border-radius: 1rem;
     background-color: white;
 
     img {
@@ -24,23 +24,21 @@ export const OverlayWrapper = styled.div`
     }
   }
 
-  ${(props) =>
-    props.id === "heart"
-      ? `display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 10px;
-  background-color: white;
-  padding: 0.7vw;`
-      : ""}
-
   @media (max-width: 1023px) {
     div img {
       width: 8vw;
       padding: 2vw;
     }
   }
+`;
+
+export const HeartWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: white;
 `;
 
 export const BreedsSingleCatLink = styled(NavLink)`
