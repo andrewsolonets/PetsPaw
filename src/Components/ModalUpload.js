@@ -1,5 +1,4 @@
 import "./loader.css";
-import classes1 from "./Backdrop.module.css";
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
 import { useState } from "react";
@@ -7,10 +6,14 @@ import DragDrop from "./DragDrop";
 import { ReactComponent as Close } from "../assets/cross.svg";
 import { useFetch } from "../hooks/useFetch";
 import { FinalUploadMessage } from "./FinalUploadMessage/FinalUploadMessage";
-import { CloseButton, ModalWrapper } from "./ModalUpload.styles";
+import {
+  BackdropWrapper,
+  CloseButton,
+  ModalWrapper,
+} from "./ModalUpload.styles";
 
 const Backdrop = (props) => {
-  return <div className={classes1.backdrop} onClick={props.onClose}></div>;
+  return <BackdropWrapper onClick={props.onClose}></BackdropWrapper>;
 };
 
 const ModalUpload = (props) => {

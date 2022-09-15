@@ -167,6 +167,9 @@ export const SecondaryDescrItem = styled.div`
     font-size: 1.8rem;
     color: #8c8c8c;
   }
+  b {
+    color: black;
+  }
   @media (max-width: 425px) {
     justify-content: flex-start;
     width: 100%;

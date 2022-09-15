@@ -158,6 +158,8 @@ export const UploadImageButton = styled.button`
   }
 
   @media (max-width: 425px) {
+    width: 96%;
+    margin-top: 2.5rem;
   }
 `;
 

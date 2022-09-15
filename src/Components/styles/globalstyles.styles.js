@@ -40,6 +40,9 @@ p {
   font-size: ${fontSizes[3]}rem;
   line-height: ${lineHeights[3]}rem;
   color: var(--textBlack);
+  b {
+    font-weight:500;
+  }
 }
 h2 {
   font-size: ${fontSizes[4]}rem;

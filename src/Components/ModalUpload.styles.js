@@ -18,6 +18,17 @@ export const ModalWrapper = styled.div`
 
   background: var(--background);
   border-radius: 20px;
+
+  @media (max-width: 425px) {
+    top: 0%;
+    right: 0%;
+    gap: 6vw;
+    width: 96%;
+    height: 100%;
+
+    bottom: 0%;
+    padding: 2vw;
+  }
 `;
 
 export const CloseButton = styled(CardButton)`
@@ -26,8 +37,18 @@ export const CloseButton = styled(CardButton)`
   position: relative;
   right: 0%;
   background: var(--backgroundBlock);
-  svg {
-    width: 1.7rem;
-    height: 1.7rem;
+
+  @media (max-width: 425px) {
+    padding: 1.7rem;
   }
+`;
+
+export const BackdropWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background: rgba(29, 29, 29, 0.6);
 `;

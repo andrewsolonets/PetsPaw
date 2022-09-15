@@ -1,11 +1,11 @@
-import classes from "./HomePic.module.css";
 import girl from "../../assets/girl-and-pet.svg";
+import { HomePicWrapper } from "./HomePic.styled";
 const HomePic = () => {
   return (
-    <div className={classes["girl-pets"]}>
+    <HomePicWrapper>
       <div></div>
       <img src={girl} alt="Girl"></img>
-    </div>
+    </HomePicWrapper>
   );
 };
 export default HomePic;

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
-import "./dragdrop.css";
 import imgUpload from "../assets/imgUpload.png";
 import { useEffect } from "react";
+import {
+  DragDropWrapper,
+  FileText,
+  PlaceholderWrapper,
+  UploadedImg,
+} from "./DragDrop.styles";
 
 function DragDrop(props) {
   const [file, setFile] = useState(null);
@@ -30,27 +35,26 @@ function DragDrop(props) {
       handleChange={handleChange}
       name="file"
       children={
-        <div
-          className={`draganddrop ${
-            props.onStatus === "failure" ? "errorState" : ""
-          } `}
-        >
+        <DragDropWrapper onStatus={props.onStatus}>
           {file ? (
-            <img className="uploadedImage" src={img} alt="dsds"></img>
+            <UploadedImg src={img} alt="dsds"></UploadedImg>
           ) : (
             <>
               <p>
                 <b>Drag here</b> your file or <b>Click here</b> to upload
               </p>
-              <img className="placeImage" src={imgUpload} alt="asd"></img>
+              <PlaceholderWrapper
+                src={imgUpload}
+                alt="asd"
+              ></PlaceholderWrapper>
             </>
           )}
-          <p className="fileText">{`${
+          <FileText>{`${
             file && props.onStatus !== "success"
               ? `Image File Name: ${file.name}`
               : "No file selected"
-          } `}</p>
-        </div>
+          } `}</FileText>
+        </DragDropWrapper>
       }
     />
   );
