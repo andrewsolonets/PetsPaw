@@ -77,11 +77,6 @@ const BreedsPage = (props) => {
     props.oneCat({ results: apiData, breed: additional?.breed });
   };
 
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
-
   return (
     <MainContentContainer>
       <PageNavBar

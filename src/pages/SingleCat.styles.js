@@ -180,10 +180,10 @@ export const SecondaryDescrItem = styled.div`
 export const SingleCatId = styled.div`
   color: var(--textWhite);
   background: var(--main);
-  padding-left: 2vw;
-  padding-right: 2vw;
-  font-size: 1.389vw;
-  border-radius: 10px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-size: 2rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;

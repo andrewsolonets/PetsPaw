@@ -16,16 +16,34 @@ export const GalleryFiltersWrapper = styled.div`
     font-size: 1rem;
     color: #8c8c8c;
   }
+  @media (max-width: 425px) {
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const FilterWrapperChild = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+
+  @media (max-width: 425px) {
+    width: 100%;
+
+    flex-direction: column;
+  }
 `;
 
 export const FilterReloadBox = styled.div`
   display: flex;
   width: 100%;
+  gap: 0.5rem;
   justify-content: space-between;
+
+  @media (max-width: 425px) {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 `;

@@ -45,6 +45,10 @@ export const UploadButton = styled(CardButton)`
   &:hover {
     color: white;
   }
+
+  @media (max-width: 425px) {
+    width: 100%;
+  }
 `;
 
 export const SortingButton = styled.button`

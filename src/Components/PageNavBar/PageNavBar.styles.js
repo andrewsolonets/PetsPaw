@@ -7,6 +7,10 @@ export const NavWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  @media (max-width: 425px) {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 `;
 
 export const MainNavWrapper = styled.div`
@@ -15,6 +19,12 @@ export const MainNavWrapper = styled.div`
   align-self: flex-start;
   display: flex;
   gap: 0.8vw;
+
+  @media (max-width: 425px) {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
 `;
 
 export const BackButton = styled(Back)`

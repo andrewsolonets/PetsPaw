@@ -21,6 +21,12 @@ export const UserLogElement = styled.div`
   span {
     font-size: 1.6rem;
   }
+
+  @media (max-width: 425px) {
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 `;
 
 export const TimeWrapper = styled.div`
@@ -61,6 +67,11 @@ export const FavUserLogIcon = styled(Fav)`
 export const UserLogIcon = styled.div`
   svg {
     width: 2rem;
+  }
+
+  @media (max-width: 425px) {
+    position: absolute;
+    top: 1.87rem;
   }
 
   align-self: flex-end;
