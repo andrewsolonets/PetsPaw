@@ -157,7 +157,7 @@ h2 {
   }
 }
 
-@media (min-width: 765px) and (max-width: 860px) {
+@media (min-width: 765px) and (max-width: 56.25em) {
   .containerBack {
     display: flex;
     flex-direction: column;

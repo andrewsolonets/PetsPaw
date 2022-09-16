@@ -1,7 +1,7 @@
-import favouriteIconS from "../assets/favouritesiconS.png";
-import dislikes from "../assets/dislikes.png";
-import likes from "../assets/likes.png";
 import {
+  DislikeUserLogIcon,
+  FavUserLogIcon,
+  LikeUserLogIcon,
   TimeWrapper,
   UserLogElement,
   UserLogIcon,
@@ -18,16 +18,16 @@ const UserLogItem = (props) => {
   let category;
   let icon;
   if (props.value === 1) {
-    icon = likes;
+    icon = <LikeUserLogIcon />;
     category = "Likes";
   }
   if (props.value === 0) {
-    icon = dislikes;
+    icon = <DislikeUserLogIcon />;
     category = "Dislikes";
   }
 
   if (props.value === undefined) {
-    icon = favouriteIconS;
+    icon = <FavUserLogIcon />;
     category = "Favourites";
   }
 
@@ -42,9 +42,7 @@ const UserLogItem = (props) => {
         </span>
       </UserLogInfo>
 
-      <UserLogIcon>
-        <img src={icon} alt="icon fav S"></img>
-      </UserLogIcon>
+      <UserLogIcon>{icon}</UserLogIcon>
     </UserLogElement>
   );
 };

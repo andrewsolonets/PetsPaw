@@ -29,7 +29,7 @@ export const UserActionsWrapper = styled.div`
       width: 13vw;
     }
 
-    @media (min-width: 430px) and (max-width: 860px) {
+    @media (min-width: 430px) and (max-width: 56.25em) {
       position: absolute;
       bottom: -10%;
       left: 23%;
@@ -48,6 +48,9 @@ export const ActionWrapper = styled.div`
   align-items: center;
   padding: 1.736vw;
   cursor: pointer;
+  svg {
+    width: 3rem;
+  }
   background-color: ${(props) => props.element};
   ${(props) =>
     props.element === "#97eab9"

@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { CardButton } from "../UI/Button.styles";
 
 export const SearchWrapper = styled.div`
-  @media (max-width: 860px) {
+  @media (max-width: 56.25em) {
     width: 100%;
   }
 `;
 
 export const SearchBarForm = styled.form`
   position: relative;
-  @media (max-width: 860px) {
+  @media (max-width: 56.25em) {
     width: 100%;
   }
 `;
@@ -19,7 +19,7 @@ export const SearchInput = styled.input`
   font-size: 1.8rem;
   font-weight: 400;
   width: 35vw;
-  padding: 1.1rem 2.8rem;
+  padding: 1.3rem 2.8rem;
 
   background: var(--backgroundBlock);
   border: 2px solid transparent;
@@ -34,7 +34,7 @@ export const SearchInput = styled.input`
   &:active {
     border-color: var(--main);
   }
-  @media (max-width: 860px) {
+  @media (max-width: 56.25em) {
     font-size: 1.8rem;
     font-weight: 400;
     width: 88%;
@@ -62,20 +62,18 @@ export const SearchButtonLink = styled(NavLink)`
     height: 1.85rem;
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 56.25em) {
     position: absolute;
 
     bottom: 16%;
     right: 2.5vw;
 
     svg {
-      padding: 0.6rem;
       width: 1.9rem;
       height: 1.9rem;
     }
-  }
-
-  ${CardButton} {
-    padding: 1rem;
+    ${CardButton} {
+      padding: 1rem;
+    }
   }
 `;

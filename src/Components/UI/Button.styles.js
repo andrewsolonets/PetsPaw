@@ -66,7 +66,8 @@ export const SortingButton = styled.button`
   }
 
   svg {
-    width: 1.319vw;
+    width: 1.85rem;
+    height: 2.2rem;
   }
 `;
 
@@ -145,7 +146,7 @@ export const BurgerCrossButton = styled.div`
 
 export const UploadImageButton = styled.button`
   background: var(--main);
-  border-radius: 10px;
+  border-radius: 1rem;
   padding: 1.2rem 3rem;
   cursor: pointer;
   font-size: 1.6rem;

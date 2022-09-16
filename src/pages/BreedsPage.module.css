@@ -253,7 +253,7 @@
     font-size: 1.2vw;
   }
 }
-@media (min-width: 430px) and (max-width: 860px) {
+@media (min-width: 430px) and (max-width: 56.25em) {
   .nav-content1 {
     width: 100%;
   }

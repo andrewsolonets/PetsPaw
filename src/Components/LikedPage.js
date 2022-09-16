@@ -7,6 +7,7 @@ import { useFetch } from "../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
 import { MainContentContainer } from "./styles/globalstyles.styles";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
+import { DefaultMessageWrapper } from "./LikedPage.styles";
 
 const LikedPage = (props) => {
   const { apiData, isLoading, fetchData } = useFetch(
@@ -34,7 +35,11 @@ const LikedPage = (props) => {
         speedMultiplier={1.5}
       ></BounceLoader>
 
-      <Grid items={apiData}></Grid>
+      {apiData ? (
+        <Grid items={apiData}></Grid>
+      ) : (
+        <DefaultMessageWrapper>No items found</DefaultMessageWrapper>
+      )}
     </MainContentContainer>
   );
 };

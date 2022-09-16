@@ -116,28 +116,30 @@ export const GridContainer = styled.div`
   grid-template-rows: repeat(6, 14rem);
   grid-auto-rows: 14rem;
 
-  @media (max-width: 425px) {
+  @media (max-width: 56.25em) {
     grid-template-columns: 1fr;
     width: 100%;
     grid-template-rows: repeat(6, 20rem);
     grid-auto-rows: 20rem;
   }
 
-  ${GridItemWrapper}:nth-of-type(10n + 1) {
-    grid-row-start: span 2;
-  }
+  @media (min-width: 56.26em) {
+    ${GridItemWrapper}:nth-of-type(10n + 1) {
+      grid-row-start: span 2;
+    }
 
-  ${GridItemWrapper}:nth-of-type(10n + 4) {
-    grid-column-start: span 2;
-    grid-row-start: span 2;
-  }
+    ${GridItemWrapper}:nth-of-type(10n + 4) {
+      grid-column-start: span 2;
+      grid-row-start: span 2;
+    }
 
-  ${GridItemWrapper}:nth-of-type(10n + 8) {
-    grid-row-start: span 2;
-  }
-  ${GridItemWrapper}:nth-of-type(10n + 9) {
-    grid-column-start: span 2;
-    grid-row-start: span 2;
+    ${GridItemWrapper}:nth-of-type(10n + 8) {
+      grid-row-start: span 2;
+    }
+    ${GridItemWrapper}:nth-of-type(10n + 9) {
+      grid-column-start: span 2;
+      grid-row-start: span 2;
+    }
   }
 `;
 

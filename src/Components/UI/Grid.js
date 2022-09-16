@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Grid.css";
-import heartFav1 from "../../assets/hearFav.png";
 import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { ReactComponent as Heart1 } from "../../assets/heart1.svg";
 import {
@@ -22,11 +21,12 @@ export default function Grid({
   breed,
   onCat,
 }) {
+  const [liked, setLiked] = useState([]);
   const actionHandler = (id) => {
     onAction(id);
-    // if (page === "gallery") {
-    //   setHeart(true);
-    // }
+    if (page === "gallery" || page === "fav") {
+      setLiked((prevState) => [...prevState, id]);
+    }
   };
 
   // const [heart, setHeart] = useState(false);
@@ -86,7 +86,7 @@ export default function Grid({
               <OverlayWrapper data-index={i}>
                 {/* {heart ? <Heart1 /> : <Heart />} */}
                 <HeartWrapper>
-                  <Heart />
+                  {liked.includes(el.id) ? <Heart1 /> : <Heart />}
                 </HeartWrapper>
               </OverlayWrapper>
             ) : (
@@ -114,7 +114,7 @@ export default function Grid({
           <img src={el.image.url} alt="asda"></img>
           <OverlayWrapper>
             <HeartWrapper>
-              <Heart1 />
+              {liked.includes(el.id) ? <Heart /> : <Heart1 />}
             </HeartWrapper>
           </OverlayWrapper>
         </GridItemWrapper>
@@ -122,21 +122,4 @@ export default function Grid({
     });
   }
   return <GridContainer>{content}</GridContainer>;
-
-  // return (
-  //   <GridContainer>
-  //     {items.map((el, i) => {
-  //       return (
-  //         <GridItemWrapper key={el.id} onClick={actionHandler.bind(null, el.id)}>
-  //           <img src={el.image.url} alt="asda"></img>
-  //           <OverlayWrapper>
-  //             <div>
-  //               <img src={heartFav1} alt="sds"></img>
-  //             </div>
-  //           </OverlayWrapper>
-  //         </GridItemWrapper>
-  //       );
-  //     })}
-  //   </GridContainer>
-  // );
 }

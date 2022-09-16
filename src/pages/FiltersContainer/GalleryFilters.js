@@ -67,8 +67,8 @@ export const GalleryFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 430px) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
         width: "40vw",
         height: "5vw",
       },
@@ -89,8 +89,8 @@ export const GalleryFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 430px) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
         width: "40vw",
         height: "5vw",
       },
@@ -130,8 +130,8 @@ export const GalleryFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 430px) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
         width: "36vw",
         height: "5vw",
       },
@@ -151,8 +151,8 @@ export const GalleryFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 430px) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
         width: "36vw",
         height: "5vw",
       },

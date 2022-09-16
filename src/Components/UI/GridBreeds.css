@@ -592,7 +592,7 @@ p b {
     color: var(--main);
   }
 }
-@media (min-width: 765px) and (max-width: 860px) {
+@media (min-width: 765px) and (max-width: 56.25em) {
   .mainDescr {
     margin-top: 3vw;
     margin-left: 1.6vw;

@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ReactComponent as Like } from "../assets/like.svg";
+import { ReactComponent as DisLike } from "../assets/dislike.svg";
+import { ReactComponent as Fav } from "../assets/fav.svg";
 
 export const UserLogElement = styled.div`
   flex: 1;
@@ -37,7 +40,29 @@ export const UserLogInfo = styled.div`
   flex: 1;
 `;
 
+export const LikeUserLogIcon = styled(Like)`
+  path {
+    fill: #97eab9;
+  }
+`;
+
+export const DislikeUserLogIcon = styled(DisLike)`
+  path {
+    fill: #ffd280;
+  }
+`;
+
+export const FavUserLogIcon = styled(Fav)`
+  path {
+    fill: #ff868e;
+  }
+`;
+
 export const UserLogIcon = styled.div`
+  svg {
+    width: 2rem;
+  }
+
   align-self: flex-end;
 `;
 

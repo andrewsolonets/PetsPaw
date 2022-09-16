@@ -1,4 +1,4 @@
-import "./loader.css";
+
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
 import { useState } from "react";

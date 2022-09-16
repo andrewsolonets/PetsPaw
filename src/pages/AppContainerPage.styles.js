@@ -5,8 +5,9 @@ export const AppContainerWrapper = styled.div`
   justify-content: center;
   align-items: stretch;
   flex-direction: column;
-  top: 2.8rem;
+  top: 1.8rem;
   gap: 0.8vw;
+
   position: relative;
   left: 45vw;
   height: auto;
@@ -17,12 +18,13 @@ export const AppContainerWrapper = styled.div`
     align-items: stretch;
     flex-direction: column;
     top: 0;
+    padding: 1rem;
     gap: 2vw;
-    width: 100%;
     /* margin-left: 3.6vw;
     margin-right: 3.6vw; */
-    position: relative;
+    position: absolute;
     left: 0;
+    right: 0;
     height: auto;
     background: var(--background);
   }

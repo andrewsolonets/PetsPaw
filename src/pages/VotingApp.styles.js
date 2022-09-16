@@ -17,7 +17,7 @@ export const ContainerImg = styled.div`
     margin-bottom: 10vw;
   }
 
-  @media (min-width: 430px) and (max-width: 860px) {
+  @media (min-width: 430px) and (max-width: 56.25em) {
     height: 25vw;
     width: 43vw;
     align-self: center;

@@ -18,6 +18,7 @@ export const MainNavWrapper = styled.div`
 `;
 
 export const BackButton = styled(Back)`
+  height: 2rem;
   padding-left: 0.2rem;
   padding-right: 0.25rem;
 `;

@@ -1,7 +1,10 @@
 import imgSuccess from "../../assets/success.png";
 import imgFailure from "../../assets/failure.png";
 import { UploadBtn, UploadImageButton } from "../UI/Button.styles";
-import { FinalMessageWrapper } from "./FinalUploadMessage.styles";
+import {
+  FinalMessageWrapper,
+  LoaderSpinner,
+} from "./FinalUploadMessage.styles";
 
 export const FinalUploadMessage = ({ img, status, uploadingHandler }) => {
   let finalMessage; // separate this logic to its own component
@@ -23,7 +26,7 @@ export const FinalUploadMessage = ({ img, status, uploadingHandler }) => {
     finalMessage = (
       <UploadBtn onClick={uploadingHandler}>
         {" "}
-        <div class="loader"></div>
+        <LoaderSpinner></LoaderSpinner>
         UPLOAD PHOTO
       </UploadBtn>
     );

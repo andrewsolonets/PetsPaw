@@ -5,8 +5,11 @@ import { ReactComponent as TextLogo } from "./assets/PetsPaw.svg";
 export const MainContainer = styled.div`
   display: flex;
   @media (max-width: 425px) {
-    padding-left: 3vw;
-    padding-right: 3vw;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -15,8 +18,10 @@ export const FixedMainContainer = styled.div`
   top: 13rem;
   left: 7rem;
   @media (max-width: 425px) {
-    position: fixed;
+    position: initial;
     width: 100%;
+    top: 8rem;
+    left: 3rem;
   }
 `;
 
@@ -37,13 +42,22 @@ export const LogoSwitchContainer = styled.div`
 `;
 
 export const LogoContainerLink = styled(Link)`
+  svg:first-child {
+    width: 2.4rem;
+  }
+
   display: flex;
   gap: 0.5vw;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 425px) {
+    gap: 0.5rem;
+  }
 `;
 
 export const TextLogoContainer = styled(TextLogo)`
+  width: 7.5rem;
   path {
     fill: var(--textBlack);
   }
@@ -55,6 +69,10 @@ export const SwitchContainer = styled.label`
   display: inline-block;
   width: 4.4rem;
   height: 2.4rem;
+
+  @media (max-width: 425px) {
+    left: 80%;
+  }
 
   input {
     opacity: 0;
