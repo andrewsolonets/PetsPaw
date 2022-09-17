@@ -12,7 +12,7 @@ export const AppContainerWrapper = styled.div`
   left: 45vw;
   height: auto;
 
-  @media (max-width: 425px) {
+  @media (max-width: 56.25em) {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -32,7 +32,7 @@ export const AppContainerWrapper = styled.div`
 
 export const BurgerMenu = styled.div`
   display: none;
-  @media (max-width: 425px) {
+  @media (max-width: 56.25em) {
     align-self: center;
     justify-self: flex-start;
     display: block;

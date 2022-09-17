@@ -21,7 +21,7 @@ export const HomePicWrapper = styled.div`
     height: 62.5vw;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 36.5em) {
     position: absolute;
     left: 45vw;
   }

@@ -16,7 +16,7 @@ export const GalleryFiltersWrapper = styled.div`
     font-size: 1rem;
     color: #8c8c8c;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     height: auto;
     padding: 1rem;
     flex-direction: column;
@@ -29,7 +29,7 @@ export const FilterWrapperChild = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     width: 100%;
 
     flex-direction: column;
@@ -42,7 +42,7 @@ export const FilterReloadBox = styled.div`
   gap: 0.5rem;
   justify-content: space-between;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     flex-wrap: wrap;
     gap: 1rem;
   }

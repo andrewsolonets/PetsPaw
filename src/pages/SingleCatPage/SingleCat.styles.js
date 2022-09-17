@@ -6,7 +6,7 @@ export const SingleCatWrapper = styled.div`
   align-items: center;
   gap: 4vw;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     gap: 13vw;
 
     width: 100%;
@@ -33,7 +33,7 @@ export const ParentImgContainer = styled.div`
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     height: 60vw;
     width: 100%;
     align-self: center;
@@ -77,7 +77,7 @@ export const SingleCatHeading = styled.div`
   font-weight: 500;
   font-size: 3.4rem;
   line-height: 3.611vw;
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     top: -4%;
     padding-left: 3.5vw;
     padding-right: 3.5vw;
@@ -104,7 +104,7 @@ export const SingleCatDescription = styled.div`
   justify-content: flex-start;
   gap: 1vw;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     border: 2px solid var(--btnColor);
     border-radius: 20px;
     width: 100%;
@@ -128,7 +128,7 @@ export const MainDescrWrapper = styled.div`
 
   color: #8c8c8c;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     margin-top: 8vw;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -148,7 +148,7 @@ export const SecondaryDescr = styled.div`
   justify-content: center;
   margin-bottom: 2vw;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     gap: 3vw;
     justify-content: flex-start;
     margin-bottom: 2vw;
@@ -170,7 +170,7 @@ export const SecondaryDescrItem = styled.div`
   b {
     color: black;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     justify-content: flex-start;
     width: 100%;
     gap: 4vw;

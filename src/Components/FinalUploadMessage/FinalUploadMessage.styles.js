@@ -40,7 +40,7 @@ export const LoaderSpinner = styled.div`
   height: 1vw;
   animation: ${Spin} 1.3s linear infinite;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     width: 3vw;
     height: 3vw;
     border: 1vw solid var(--main);

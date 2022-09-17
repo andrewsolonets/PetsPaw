@@ -36,7 +36,7 @@ a {
 body {
   background-color: var(--background);
   box-sizing: border-box;
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
       padding: 7rem 2rem;
    }
 }
@@ -89,7 +89,7 @@ h2 {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 37.5em) {
 
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     padding: 0.5vw;

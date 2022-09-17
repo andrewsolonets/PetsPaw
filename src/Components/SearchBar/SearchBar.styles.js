@@ -3,8 +3,15 @@ import styled from "styled-components";
 import { CardButton } from "../UI/Button.styles";
 
 export const SearchWrapper = styled.div`
-  @media (max-width: 56.25em) {
+  @media (max-width: 37.5em) {
     width: 100%;
+  }
+
+  @media (min-width: 37.5em) and (max-width: 56.25em) {
+    width: 66%;
+    left: 8rem;
+    right: 2rem;
+    position: absolute;
   }
 `;
 
@@ -23,7 +30,7 @@ export const SearchInput = styled.input`
 
   background: var(--backgroundBlock);
   border: 2px solid transparent;
-  border-radius: 20px;
+  border-radius: 2rem;
   color: #8c8c8c;
 
   &:focus {
@@ -35,13 +42,8 @@ export const SearchInput = styled.input`
     border-color: var(--main);
   }
   @media (max-width: 56.25em) {
-    font-size: 1.8rem;
-    font-weight: 400;
     width: 88%;
     padding: 1.3rem 2rem;
-    background: var(--backgroundBlock);
-    border: 2px solid transparent;
-    border-radius: 20px;
   }
 
   ${(props) => (props.styleChange ? "border-color: var(--main)" : "")}

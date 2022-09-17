@@ -1,11 +1,10 @@
-
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
 import { useState } from "react";
-import DragDrop from "./DragDrop";
-import { ReactComponent as Close } from "../assets/cross.svg";
-import { useFetch } from "../hooks/useFetch";
-import { FinalUploadMessage } from "./FinalUploadMessage/FinalUploadMessage";
+import DragDrop from "../DragDrop/DragDrop";
+import { ReactComponent as Close } from "../../assets/cross.svg";
+import { useFetch } from "../../hooks/useFetch";
+import { FinalUploadMessage } from "../FinalUploadMessage/FinalUploadMessage";
 import {
   BackdropWrapper,
   CloseButton,

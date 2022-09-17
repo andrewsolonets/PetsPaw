@@ -1,11 +1,9 @@
-import Carousel from "../Components/UI/Slider";
+import Carousel from "../../Components/UI/Slider";
 import { useEffect } from "react";
-import { MainContentContainer } from "../Components/styles/globalstyles.styles";
+import { MainContentContainer } from "../../Components/styles/globalstyles.styles";
 import { useParams } from "react-router-dom";
-import classes from "./BreedsPage.module.css";
-import { useNavigate } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
-import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
+import { useFetch } from "../../hooks/useFetch";
+import { PageNavBar } from "../../Components/PageNavBar/PageNavBar";
 import {
   MainDescrWrapper,
   ParentImgContainer,

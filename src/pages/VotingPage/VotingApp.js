@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Button from "../Components/UI/Button";
-import classes from "./VotingApp.module.css";
+import React, { useEffect } from "react";
 
-import { useNavigate } from "react-router-dom";
-import { MainContentContainer } from "../Components/styles/globalstyles.styles";
+import { MainContentContainer } from "../../Components/styles/globalstyles.styles";
 
-import { useFetch } from "../hooks/useFetch";
-import UserLog from "./UserLog";
-import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
-import { UserActions } from "./UserActions/UserActions";
+import { useFetch } from "../../hooks/useFetch";
+import UserLog from "../UserLog/UserLog";
+import { PageNavBar } from "../../Components/PageNavBar/PageNavBar";
+import { UserActions } from "../UserActions/UserActions";
 import { ContainerImg, ImgWrapper } from "./VotingApp.styles";
 
 const VotingApp = (props) => {

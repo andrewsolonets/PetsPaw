@@ -1,12 +1,12 @@
-import Button from "../Components/UI/Button";
-import Menu from "../Components/UI/Menu";
-import SideBar from "../Components/UI/SideBar";
-import Header from "../Components/UI/Header";
-import { ReactComponent as Cross } from "../assets/cross.svg";
+import Button from "../../Components/UI/Button";
+import Menu from "../../Components/UI/Menu";
+import SideBar from "../../Components/UI/SideBar";
+import Header from "../../Components/UI/Header";
+import { ReactComponent as Cross } from "../../assets/cross.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AppContainerWrapper, BurgerMenu } from "./AppContainerPage.styles";
-import { BurgerCrossButton } from "../Components/UI/Button.styles";
+import { BurgerCrossButton } from "../../Components/UI/Button.styles";
 
 const AppContainer = (props) => {
   const [hamburger, setHamburger] = useState(false);

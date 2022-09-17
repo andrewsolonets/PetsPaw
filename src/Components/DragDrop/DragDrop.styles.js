@@ -23,7 +23,7 @@ export const DragDropWrapper = styled.div`
     position: absolute;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     width: 90vw;
     height: 40vh;
   }
@@ -43,7 +43,7 @@ export const FileText = styled.p`
   position: absolute;
   bottom: -15%;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     position: absolute;
     bottom: -15%;
     left: 8%;

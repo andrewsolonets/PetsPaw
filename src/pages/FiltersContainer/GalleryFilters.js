@@ -62,13 +62,13 @@ export const GalleryFilters = ({
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
         width: "40vw",
         height: "5vw",
       },
@@ -84,13 +84,13 @@ export const GalleryFilters = ({
     }),
     container: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
         width: "40vw",
         height: "5vw",
       },
@@ -125,13 +125,13 @@ export const GalleryFilters = ({
     }),
     control: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
         width: "36vw",
         height: "5vw",
       },
@@ -146,13 +146,13 @@ export const GalleryFilters = ({
     }),
     container: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
         width: "36vw",
         height: "5vw",
       },

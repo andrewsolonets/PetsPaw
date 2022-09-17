@@ -98,7 +98,7 @@ h2 {
   border-radius: 10px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 37.5em) {
   .containerBack {
     display: flex;
     flex-direction: column;
@@ -157,7 +157,7 @@ h2 {
   }
 }
 
-@media (min-width: 765px) and (max-width: 56.25em) {
+@media (min-width: 36.5em) and (max-width: 56.25em) {
   .containerBack {
     display: flex;
     flex-direction: column;

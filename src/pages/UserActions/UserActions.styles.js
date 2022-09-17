@@ -7,7 +7,7 @@ export const UserActionsWrapper = styled.div`
   display: flex;
   background: var(--backgroundBlock);
   border: 4px solid var(--backgroundBlock);
-  border-radius: 20px;
+  border-radius: 2rem;
   gap: 0.3vw;
 
   img {
@@ -24,19 +24,11 @@ export const UserActionsWrapper = styled.div`
     border-radius: 20px;
     gap: 0.3vw;
 
-    div {
-      height: 13vw;
-      width: 13vw;
-    }
-
-    @media (min-width: 430px) and (max-width: 56.25em) {
+    @media (min-width: 37.5em) and (max-width: 56.25em) {
       position: absolute;
       bottom: -10%;
       left: 23%;
       display: flex;
-      background: var(--backgroundBlock);
-      border: 4px solid var(--backgroundBlock);
-      border-radius: 20px;
       gap: 0.3vw;
     }
   }
@@ -94,7 +86,7 @@ export const ActionWrapper = styled.div`
       }
       `
       : ""}
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     height: 13vw;
     width: 13vw;
   }

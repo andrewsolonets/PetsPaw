@@ -5,7 +5,7 @@ export const FixedSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 5.6rem;
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     width: 100%;
     align-items: flex-start;
     padding-left: 0;
@@ -22,7 +22,7 @@ export const GreetingsText = styled.div`
   p {
     color: #8c8c8c;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     display: flex;
     flex-direction: column;
     p {
@@ -39,7 +39,7 @@ export const OptionsContainer = styled.div`
   p {
     font-weight: 500;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     gap: 5vw;
     width: 100%;
   }
@@ -48,7 +48,7 @@ export const OptionsContainer = styled.div`
 export const OptionsContainerSecond = styled.div`
   display: flex;
   gap: 0.694vw;
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     flex-direction: column;
     gap: 4vw;
     width: 100%;
@@ -64,7 +64,7 @@ export const OptionButtonContainer = styled.div`
   border: 4px solid rgba(255, 255, 255, 0.6);
   border-radius: 20px;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     display: none;
   }
 

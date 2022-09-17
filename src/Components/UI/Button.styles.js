@@ -46,7 +46,7 @@ export const UploadButton = styled(CardButton)`
     color: white;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     width: 100%;
   }
 `;
@@ -162,7 +162,7 @@ export const UploadImageButton = styled.button`
     color: var(--main);
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     width: 96%;
     margin-top: 2.5rem;
   }

@@ -145,7 +145,7 @@
   fill: #ffd280;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 37.5em) {
   .containerMain {
     padding: 4vw;
     gap: 3vw;
@@ -230,7 +230,7 @@
     fill: white;
   }
 }
-@media (min-width: 430px) and (max-width: 56.25em) {
+@media (min-width: 37.5em) and (max-width: 56.25em) {
   .actions {
     position: absolute;
     bottom: -10%;

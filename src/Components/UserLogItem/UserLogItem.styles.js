@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as Like } from "../assets/like.svg";
-import { ReactComponent as DisLike } from "../assets/dislike.svg";
-import { ReactComponent as Fav } from "../assets/fav.svg";
+import { ReactComponent as Like } from "../../assets/like.svg";
+import { ReactComponent as DisLike } from "../../assets/dislike.svg";
+import { ReactComponent as Fav } from "../../assets/fav.svg";
 
 export const UserLogElement = styled.div`
   flex: 1;
@@ -22,7 +22,7 @@ export const UserLogElement = styled.div`
     font-size: 1.6rem;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     position: relative;
     align-items: flex-start;
     flex-direction: column;
@@ -69,7 +69,7 @@ export const UserLogIcon = styled.div`
     width: 2rem;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     position: absolute;
     top: 1.87rem;
   }
@@ -111,7 +111,7 @@ export const UserLogIcon = styled.div`
 //   align-self: flex-end;
 // }
 
-// @media (max-width: 425px) {
+// @media (max-width: 37.5em) {
 //   .userLogElement {
 //     align-items: flex-start;
 //     padding: 4vw;

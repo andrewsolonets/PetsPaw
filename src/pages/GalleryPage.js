@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useFetch } from "../hooks/useFetch";
 
-import Modal from "../Components/ModalUpload";
+import Modal from "../Components/ModalUpload/ModalUpload";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
 import { GalleryFilters } from "./FiltersContainer/GalleryFilters";
 import { PaginationContainer } from "./PaginationContainer/PaginationContainer";

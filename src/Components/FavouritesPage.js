@@ -5,7 +5,7 @@ import Grid from "./UI/Grid";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
-import UserLog from "../pages/UserLog";
+import UserLog from "../pages/UserLog/UserLog";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
 
 const FavouritesPage = (props) => {

@@ -113,7 +113,7 @@
   grid-area: s2;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 37.5em) {
   .container {
     display: grid;
     grid-auto-rows: 55vw 55vw 55vw;

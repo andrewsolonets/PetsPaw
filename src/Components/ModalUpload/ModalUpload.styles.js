@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CardButton } from "./UI/Button.styles";
+import { CardButton } from "../UI/Button.styles";
 
 export const ModalWrapper = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const ModalWrapper = styled.div`
   background: var(--background);
   border-radius: 20px;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     top: 0%;
     right: 0%;
     gap: 6vw;
@@ -38,7 +38,7 @@ export const CloseButton = styled(CardButton)`
   right: 0%;
   background: var(--backgroundBlock);
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     padding: 1.7rem;
   }
 `;

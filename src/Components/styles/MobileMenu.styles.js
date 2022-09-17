@@ -8,7 +8,7 @@ export const BurgerLine = styled.div`
   transition: all 0.3s linear;
   position: relative;
   transform-origin: 1px;
-  @media (min-width: 768px) {
+  @media (min-width: 36.5em) {
     width: 3.2rem;
     height: 0.45rem;
     /* height: 0.25rem; */

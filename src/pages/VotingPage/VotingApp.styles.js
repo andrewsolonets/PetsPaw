@@ -8,7 +8,7 @@ export const ContainerImg = styled.div`
   border-radius: 20px;
   margin-bottom: 3vw;
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     height: 50vw;
     width: 100%;
     align-self: center;
@@ -17,7 +17,7 @@ export const ContainerImg = styled.div`
     margin-bottom: 10vw;
   }
 
-  @media (min-width: 430px) and (max-width: 56.25em) {
+  @media (min-width: 37.5em) and (max-width: 56.25em) {
     height: 25vw;
     width: 43vw;
     align-self: center;
@@ -42,7 +42,7 @@ export const ImgWrapper = styled.div`
     border-radius: 20px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     align-self: center;
     justify-self: center;
     width: 100%;

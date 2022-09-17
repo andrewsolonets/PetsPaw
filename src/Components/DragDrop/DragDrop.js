@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
-import imgUpload from "../assets/imgUpload.png";
+import imgUpload from "../../assets/imgUpload.png";
 import { useEffect } from "react";
 import {
   DragDropWrapper,

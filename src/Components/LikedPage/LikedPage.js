@@ -1,12 +1,9 @@
-import Button from "./UI/Button";
 import { useEffect } from "react";
-import Grid from "./UI/GridLikes";
-import { ReactComponent as Back } from "../assets/back.svg";
-import { useNavigate } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
+import Grid from "../UI/GridLikes";
+import { useFetch } from "../../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
-import { MainContentContainer } from "./styles/globalstyles.styles";
-import { PageNavBar } from "./PageNavBar/PageNavBar";
+import { MainContentContainer } from "../styles/globalstyles.styles";
+import { PageNavBar } from "../PageNavBar/PageNavBar";
 import { DefaultMessageWrapper } from "./LikedPage.styles";
 
 const LikedPage = (props) => {

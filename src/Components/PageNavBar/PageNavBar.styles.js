@@ -7,7 +7,7 @@ export const NavWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  @media (max-width: 425px) {
+  @media (max-width: 37.5em) {
     gap: 1rem;
     flex-wrap: wrap;
   }
@@ -20,7 +20,7 @@ export const MainNavWrapper = styled.div`
   display: flex;
   gap: 0.8vw;
 
-  @media (max-width: 425px) {
+  @media (max-width: 56.5em) {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: flex-start;

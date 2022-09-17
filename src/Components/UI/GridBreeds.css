@@ -350,7 +350,7 @@ p b {
   gap: 3vw;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 37.5em) {
   .container1 {
     display: grid;
     grid-auto-flow: row dense;

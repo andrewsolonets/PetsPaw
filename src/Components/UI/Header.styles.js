@@ -7,6 +7,10 @@ export const HeaderWrapper = styled.div`
   justify-content: flex-start;
   gap: 0.5rem;
 
+  @media (max-width: 37.5em) {
+    flex-direction: row;
+  }
+
   @media (max-width: 56.25em) {
     flex-direction: column-reverse;
     justify-content: center;

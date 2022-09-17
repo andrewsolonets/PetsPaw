@@ -1,4 +1,4 @@
-import UserLogItem from "../Components/UserLogItem";
+import UserLogItem from "../../Components/UserLogItem/UserLogItem";
 import { UserLogContainer } from "./UserLog.styles";
 import { useRef } from "react";
 

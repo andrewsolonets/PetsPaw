@@ -11,7 +11,7 @@
 
 a {
   color: inherit;
- 
+
   text-decoration: none;
 }
 
@@ -239,7 +239,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 37.5em) {
   .main {
     padding-left: 3vw;
     padding-right: 3vw;
