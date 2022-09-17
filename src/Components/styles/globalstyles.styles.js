@@ -44,7 +44,8 @@ a {
 }
 
 body {
-  background-color: var(--background);
+  background: ${({ theme }) => theme.bg};
+    
   box-sizing: border-box;
   @media (max-width: 37.5em) {
       padding: 7rem 2rem;
@@ -56,7 +57,7 @@ h1 {
   font-weight: ${fontWeights[1]};
   font-style: normal;
   line-height: ${lineHeights[6]}rem;
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
 }
 
 p {
@@ -64,7 +65,7 @@ p {
   font-weight: ${fontWeights[0]};
   font-size: ${fontSizes[3]}rem;
   line-height: ${lineHeights[3]}rem;
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
   b {
     font-weight:500;
   }
@@ -74,18 +75,18 @@ h2 {
   font-weight: ${fontWeights[1]};
   font-style: normal;
   line-height: ${lineHeights[5]}rem;
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
 }
 
 
 
 :root {
-  --swiper-theme-color: var(--main);
+  --swiper-theme-color: ${({ theme }) => theme.main};
   --swiper-pagination-bullet-inactive-color: var(--swiper-theme-color);
 }
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   padding: 0.5vw;
-  background-color: var(--backgroundBlock) !important;
+  background-color: ${({ theme }) => theme.backgroundBlock} !important;
   position: absolute !important;
   left: 42% !important;
   bottom: -3% !important;
@@ -98,7 +99,7 @@ h2 {
 
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     padding: 0.5vw;
-    background-color: var(--backgroundBlock) !important;
+    background-color: ${({ theme }) => theme.backgroundBlock} !important;
     position: absolute !important;
     left: 38% !important;
     bottom: -2% !important;
@@ -115,7 +116,7 @@ export const MainContentContainer = styled.div`
   padding: 1.7rem;
 
   flex: 1;
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   border-radius: 2rem;
   display: flex;
   align-items: center;

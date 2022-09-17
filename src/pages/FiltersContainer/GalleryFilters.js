@@ -43,12 +43,12 @@ export const GalleryFilters = ({
       fontSize: "1.6rem",
 
       backgroundColor: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+        ? `${({ theme }) => theme.bg}`
+        : `${({ theme }) => theme.backgroundBlock}`,
 
       background: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+        ? `${({ theme }) => theme.bg}`
+        : `${({ theme }) => theme.backgroundBlock}`,
 
       "&:hover": {
         backgroundColor: state.isFocused ? "#e6e6e6" : "",
@@ -79,7 +79,6 @@ export const GalleryFilters = ({
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "var(--backgroundBlock)",
       borderRadius: "1rem",
     }),
     container: (provided, state) => ({
@@ -107,12 +106,12 @@ export const GalleryFilters = ({
       fontSize: "1.6rem",
 
       backgroundColor: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+        ? `${({ theme }) => theme.bg}`
+        : `${({ theme }) => theme.backgroundBlock}`,
 
       background: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+        ? `${({ theme }) => theme.bg}`
+        : `${({ theme }) => theme.backgroundBlock}`,
 
       "&:hover": {
         backgroundColor: state.isFocused ? "#e6e6e6" : "",
@@ -141,7 +140,7 @@ export const GalleryFilters = ({
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "var(--backgroundBlock)",
+      background: `${({ theme }) => theme.backgroundBlock}`,
       borderRadius: "1rem",
     }),
     container: (provided, state) => ({

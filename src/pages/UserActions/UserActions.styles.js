@@ -5,8 +5,8 @@ export const UserActionsWrapper = styled.div`
   bottom: -10%;
   left: 30%;
   display: flex;
-  background: var(--backgroundBlock);
-  border: 4px solid var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
+  border: 4px solid ${({ theme }) => theme.backgroundBlock};
   border-radius: 2rem;
   gap: 0.3vw;
 
@@ -19,8 +19,8 @@ export const UserActionsWrapper = styled.div`
     bottom: -17%;
     left: 20%;
     display: flex;
-    background: var(--backgroundBlock);
-    border: 4px solid var(--backgroundBlock);
+    background: ${({ theme }) => theme.backgroundBlock};
+    border: 4px solid ${({ theme }) => theme.backgroundBlock};
     border-radius: 20px;
     gap: 0.3vw;
 
@@ -60,14 +60,14 @@ export const ActionWrapper = styled.div`
       : ""}
 
   ${(props) =>
-    props.element === "var(--main)"
+    props.element === "${({ theme }) => theme.main}"
       ? `
       &:hover {
         background: rgba(255, 134, 142, 0.3);
       }
       
       &:hover svg path {
-        fill: var(--main)
+        fill: ${({ theme }) => theme.main}
       }
   `
       : ""}

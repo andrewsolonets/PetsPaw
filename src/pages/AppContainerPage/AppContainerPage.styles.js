@@ -26,7 +26,7 @@ export const AppContainerWrapper = styled.div`
     left: 0;
     right: 0;
     height: auto;
-    background: var(--background);
+    background: ${({ theme }) => theme.bg};
   }
 `;
 

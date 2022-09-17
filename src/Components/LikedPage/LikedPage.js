@@ -25,7 +25,7 @@ const LikedPage = (props) => {
       <PageNavBar title={props.text} />
 
       <BounceLoader
-        color={"var(--main)"}
+        color={"${({ theme }) => theme.main}"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

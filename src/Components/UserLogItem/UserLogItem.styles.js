@@ -6,7 +6,7 @@ import { ReactComponent as Fav } from "../../assets/fav.svg";
 export const UserLogElement = styled.div`
   flex: 1;
   display: flex;
-  background: var(--backgroundBlock2);
+  background: ${({ theme }) => theme.backgroundBlock2};
   border-radius: 1rem;
   padding: 1.4rem;
   color: #8c8c8c;
@@ -15,7 +15,7 @@ export const UserLogElement = styled.div`
   gap: 1.4rem;
   b {
     font-weight: 500;
-    color: var(--textBlack);
+    color: ${({ theme }) => theme.textMain};
   }
 
   span {
@@ -33,12 +33,12 @@ export const TimeWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--backgroundBlock);
+  background-color: ${({ theme }) => theme.backgroundBlock};
   padding: 0.3rem 1rem;
   border-radius: 5px;
 
   span {
-    color: var(--textBlack);
+    color: ${({ theme }) => theme.textMain};
   }
 `;
 
@@ -80,7 +80,7 @@ export const UserLogIcon = styled.div`
 // .userLogElement {
 //   flex: 1;
 //   display: flex;
-//   background: var(--backgroundBlock2);
+//   background: ${({ theme }) => theme.backgroundBlock2};
 //   border-radius: 10px;
 //   padding: 1vw;
 //   color: #8c8c8c;
@@ -90,19 +90,19 @@ export const UserLogIcon = styled.div`
 // }
 // .userLogElement b {
 //   font-weight: 500;
-//   color: var(--textBlack);
+//   color: ${({ theme }) => theme.textMain};
 // }
 
 // .time {
 //   display: flex;
 //   justify-content: center;
 //   align-items: center;
-//   background-color: var(--backgroundBlock);
+//   background-color: ${({ theme }) => theme.backgroundBlock};
 //   padding: 0.2vw;
 //   border-radius: 5px;
 // }
 // .time span {
-//   color: var(--textBlack);
+//   color: ${({ theme }) => theme.textMain};
 // }
 // .userLogInfo {
 //   flex: 1;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ReactComponent as Back } from "../../assets/back.svg";
-import Button from "../Button/Button";
 
 export const NavWrapper = styled.div`
   align-self: flex-start;
@@ -36,8 +35,8 @@ export const BackButton = styled(Back)`
 export const NavTitle = styled.div`
   display: flex;
   align-items: center;
-  color: var(--textWhite);
-  background: var(--main);
+  color: ${({ theme }) => theme.textWhite};
+  background: ${({ theme }) => theme.main};
   border-radius: 1rem;
   padding-left: 3rem;
   padding-right: 3rem;

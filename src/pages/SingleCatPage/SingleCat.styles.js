@@ -69,8 +69,8 @@ export const SingleCatHeading = styled.div`
   padding-right: 3.5vw;
   padding-top: 0.7vw;
   padding-bottom: 0.7vw;
-  color: var(--textBlack);
-  background: var(--backgroundBlock);
+  color: ${({ theme }) => theme.textMain};
+  background: ${({ theme }) => theme.backgroundBlock};
   border-radius: 20px;
   font-family: "Jost";
   font-style: normal;
@@ -83,8 +83,8 @@ export const SingleCatHeading = styled.div`
     padding-right: 3.5vw;
     padding-top: 0.7vw;
     padding-bottom: 0.7vw;
-    color: var(--textBlack);
-    background: var(--backgroundBlock);
+    color: ${({ theme }) => theme.textMain};
+    background: ${({ theme }) => theme.backgroundBlock};
     border-radius: 20px;
     font-family: "Jost";
     font-style: normal;
@@ -94,7 +94,7 @@ export const SingleCatHeading = styled.div`
 `;
 
 export const SingleCatDescription = styled.div`
-  border: 2px solid var(--btnColor);
+  border: 2px solid ${({ theme }) => theme.btnColor};
   border-radius: 20px;
   width: 44.444vw;
   height: auto;
@@ -105,7 +105,7 @@ export const SingleCatDescription = styled.div`
   gap: 1vw;
 
   @media (max-width: 37.5em) {
-    border: 2px solid var(--btnColor);
+    border: 2px solid ${({ theme }) => theme.btnColor};
     border-radius: 20px;
     width: 100%;
     height: auto;
@@ -178,8 +178,8 @@ export const SecondaryDescrItem = styled.div`
 `;
 
 export const SingleCatId = styled.div`
-  color: var(--textWhite);
-  background: var(--main);
+  color: ${({ theme }) => theme.textWhite};
+  background: ${({ theme }) => theme.main};
   padding-left: 3rem;
   padding-right: 3rem;
   font-size: 2rem;

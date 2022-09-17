@@ -70,7 +70,7 @@
   align-items: flex-end;
   justify-content: center;
   margin-bottom: 1vw;
-  background: var(--textWhite);
+  background: ${({ theme }) => theme.textWhite};
   border-radius: 5px;
 }
 
@@ -112,7 +112,7 @@
 
   padding-left: 2vw;
   padding-right: 2vw;
-  color: var(--main);
+  color: ${({ theme }) => theme.main};
 }
 
 .frst {
@@ -275,7 +275,7 @@
   padding-right: 3.5vw;
   padding-top: 0.7vw;
   padding-bottom: 0.7vw;
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   border-radius: 20px;
   font-family: "Jost";
   font-style: normal;
@@ -284,11 +284,11 @@
   line-height: 3.611vw;
   /* identical to box height */
 
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
 }
 
 .catDesc {
-  border: 2px solid var(--btnColor);
+  border: 2px solid ${({ theme }) => theme.btnColor};
   border-radius: 20px;
   width: 44.444vw;
   height: auto;
@@ -331,7 +331,7 @@
 
 p b {
   font-weight: 500;
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
 }
 
 /* p { ADD IN SEPARATE FILE!!!
@@ -445,7 +445,7 @@ p b {
     padding-right: 3.5vw;
     padding-top: 0.7vw;
     padding-bottom: 0.7vw;
-    background: var(--backgroundBlock);
+    background: ${({ theme }) => theme.backgroundBlock};
     border-radius: 20px;
     font-family: "Jost";
     font-style: normal;
@@ -453,11 +453,11 @@ p b {
     font-size: 5.333vw;
     /* identical to box height */
 
-    color: var(--textBlack);
+    color: ${({ theme }) => theme.textMain};
   }
 
   .catDesc {
-    border: 2px solid var(--btnColor);
+    border: 2px solid ${({ theme }) => theme.btnColor};
     border-radius: 20px;
     width: 100%;
     height: auto;
@@ -504,7 +504,7 @@ p b {
 
   p b {
     font-weight: 500;
-    color: var(--textBlack);
+    color: ${({ theme }) => theme.textMain};
   }
 
   p {
@@ -547,7 +547,7 @@ p b {
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 1vw;
-    background: var(--textWhite);
+    background: ${({ theme }) => theme.textWhite};
     border-radius: 5px;
   }
 
@@ -589,7 +589,7 @@ p b {
 
     padding-left: 4vw;
     padding-right: 4vw;
-    color: var(--main);
+    color: ${({ theme }) => theme.main};
   }
 }
 @media (min-width: 765px) and (max-width: 75em) {
@@ -606,7 +606,7 @@ p b {
     color: #8c8c8c;
   }
   .catDesc {
-    border: 2px solid var(--btnColor);
+    border: 2px solid ${({ theme }) => theme.btnColor};
     border-radius: 20px;
     width: 80%;
     height: auto;

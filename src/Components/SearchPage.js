@@ -1,20 +1,15 @@
-import Button from "./Button/Button";
 import { useEffect } from "react";
 import Grid from "./UI/GridLikes";
-import { ReactComponent as Back } from "../assets/back.svg";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { MainContentContainer } from "./styles/globalstyles.styles";
 
 import BounceLoader from "react-spinners/BounceLoader";
-import { CardButton } from "./Button/Button.styles";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
 import { SearchParagraph } from "../App.styles";
 
 const SearchPage = (props) => {
   const params = useParams();
-
-  console.log(params.searchItem);
 
   const {
     apiData: searchItems,
@@ -44,7 +39,7 @@ const SearchPage = (props) => {
         Search results for:<b>{` ${params.searchItem}`}</b>
       </SearchParagraph>
       <BounceLoader
-        color={"var(--main)"}
+        color={"${({ theme }) => theme.main}"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

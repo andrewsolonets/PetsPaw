@@ -16,7 +16,7 @@ export const ModalWrapper = styled.div`
   bottom: 2%;
   padding: 2vw;
 
-  background: var(--background);
+  background: ${({ theme }) => theme.bg};
   border-radius: 20px;
 
   @media (max-width: 75em) {
@@ -36,7 +36,7 @@ export const CloseButton = styled(CardButton)`
   cursor: pointer;
   position: relative;
   right: 0%;
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
 
   svg {
     width: 2.6rem;

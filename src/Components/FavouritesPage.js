@@ -31,7 +31,7 @@ const FavouritesPage = (props) => {
       <PageNavBar title={"FAVOURITES"} />
 
       <BounceLoader
-        color={"var(--main)"}
+        color={"${({ theme }) => theme.main}"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

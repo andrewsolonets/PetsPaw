@@ -6,8 +6,8 @@ export const DragDropWrapper = styled.div`
   justify-content: center;
   width: 47vw;
   height: 40vh;
-  background: var(--backgroundBlock);
-  border: 2px dashed var(--btnColor);
+  background: ${({ theme }) => theme.backgroundBlock};
+  border: 2px dashed ${({ theme }) => theme.btnColor};
   border-radius: 20px;
   cursor: pointer;
   margin-bottom: 4vw;
@@ -15,8 +15,8 @@ export const DragDropWrapper = styled.div`
 
   ${(props) =>
     props.onStatus === "failure"
-      ? `background: var(--btnColor);
-  border: 2px dashed var(--main);`
+      ? `background: ${({ theme }) => theme.btnColor};
+  border: 2px dashed ${({ theme }) => theme.main};`
       : ""}
 
   p {

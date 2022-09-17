@@ -35,7 +35,7 @@ export const NavLinksWrapper = styled.div`
 export const BurgerWrapper = styled.div`
   @media (max-width: 75em) {
     display: flex;
-    background: var(--backgroundBlock);
+    background: ${({ theme }) => theme.backgroundBlock};
     border-radius: 2rem;
     cursor: pointer;
     justify-self: flex-start;
@@ -50,7 +50,7 @@ export const NavLinksWrapperSecondary = styled.div`
 
 export const NavLinkHeader = styled(NavLink)`
   display: flex;
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   border-radius: 2rem;
   cursor: pointer;
 
@@ -64,25 +64,25 @@ export const NavLinkHeader = styled(NavLink)`
     justify-content: center;
 
     path {
-      fill: var(--main);
+      fill: ${({ theme }) => theme.main};
     }
   }
 
   &:hover {
-    background: var(--btnColor);
+    background: ${({ theme }) => theme.btnColor};
   }
 
   &:active {
-    background: var(--main);
+    background: ${({ theme }) => theme.main};
   }
   &:active svg path {
-    fill: var(--textWhite);
+    fill: ${({ theme }) => theme.textWhite};
   }
 
   &.active {
-    background: var(--main);
+    background: ${({ theme }) => theme.main};
     svg path {
-      fill: var(--textWhite);
+      fill: ${({ theme }) => theme.textWhite};
     }
   }
 `;

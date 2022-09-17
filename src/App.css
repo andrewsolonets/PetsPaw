@@ -16,7 +16,7 @@ a {
 }
 
 body {
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.bg};
   box-sizing: border-box;
 }
 h1 {
@@ -24,7 +24,7 @@ h1 {
   font-weight: 500;
   font-style: normal;
   line-height: 5.8rem;
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
   margin-bottom: 0.694vw;
 }
 .greetings p {
@@ -50,7 +50,7 @@ h1 {
   font-size: 2rem;
   line-height: 2vw;
   margin-bottom: 2.9rem;
-  color: var(--textBlack);
+  color: ${({ theme }) => theme.textMain};
 }
 
 .parent {
@@ -70,7 +70,7 @@ h1 {
   top: 2vw;
 }
 .logotext path {
-  fill: var(--textBlack);
+  fill: ${({ theme }) => theme.textMain};
 }
 section {
   display: flex;
@@ -94,28 +94,28 @@ section {
 }
 
 .option-button:hover div {
-  border: 4px solid var(--backgroundBlock);
+  border: 4px solid ${({ theme }) => theme.backgroundBlock};
 }
 
 .option-button:active div {
-  border: 4px solid var(--btnColor);
+  border: 4px solid ${({ theme }) => theme.btnColor};
 }
 
 .option-button:hover Button {
-  background: var(--btnColor);
+  background: ${({ theme }) => theme.btnColor};
 }
 .option-button:active Button {
-  color: var(--textWhite);
-  background: var(--main);
+  color: ${({ theme }) => theme.textWhite};
+  background: ${({ theme }) => theme.main};
 }
 
 .option-button.active div {
-  border: 4px solid var(--btnColor);
+  border: 4px solid ${({ theme }) => theme.btnColor};
 }
 
 .option-button.active Button {
-  color: var(--textWhite);
-  background: var(--main);
+  color: ${({ theme }) => theme.textWhite};
+  background: ${({ theme }) => theme.main};
 }
 
 .option-button {
@@ -127,10 +127,10 @@ section {
 }
 
 .options div button {
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   border-radius: 10px;
   border: 0;
-  color: var(--main);
+  color: ${({ theme }) => theme.main};
   padding: 10px;
 }
 
@@ -200,7 +200,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--btnColor);
+  background-color: ${({ theme }) => theme.btnColor};
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -212,17 +212,17 @@ section {
   width: 1.111vw;
   left: 4px;
   bottom: 4px;
-  background-color: var(--main);
+  background-color: ${({ theme }) => theme.main};
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: var(--btnColor);
+  background-color: ${({ theme }) => theme.btnColor};
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px var(--btnColor);
+  box-shadow: 0 0 1px ${({ theme }) => theme.btnColor};
 }
 
 input:checked + .slider:before {
@@ -315,7 +315,7 @@ input:checked + .slider:before {
     position: relative;
     left: 0;
     height: auto;
-    background: var(--background);
+    background: ${({ theme }) => theme.bg};
   }
   .switch {
     position: relative;
@@ -333,7 +333,7 @@ input:checked + .slider:before {
     width: 3vw;
     left: 4px;
     bottom: 20%;
-    background-color: var(--main);
+    background-color: ${({ theme }) => theme.main};
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
@@ -400,7 +400,7 @@ input:checked + .slider:before {
     position: relative;
     left: 0;
     height: auto;
-    background: var(--background);
+    background: ${({ theme }) => theme.bg};
   }
   .switch {
     position: relative;
@@ -419,7 +419,7 @@ input:checked + .slider:before {
     width: 2vw;
     left: 4px;
     bottom: 20%;
-    background-color: var(--main);
+    background-color: ${({ theme }) => theme.main};
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }

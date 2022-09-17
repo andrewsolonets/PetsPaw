@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 export const ButtonRegular = styled.button`
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   border-radius: 1rem;
   border: none;
-  color: var(--main);
+  color: ${({ theme }) => theme.main};
   padding: 1rem 3rem;
   font-size: 1.6rem;
 
   &:hover {
-    background: var(--btnColor);
+    background: ${({ theme }) => theme.btnColor};
   }
 `;
 
 export const CardButton = styled.div`
-  background: var(--btnColor);
+  background: ${({ theme }) => theme.btnColor};
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@ export const CardButton = styled.div`
   padding: 1.2rem;
 
   &:hover {
-    background: var(--main);
+    background: ${({ theme }) => theme.main};
   }
 
   &:hover svg path {
@@ -37,7 +37,7 @@ export const CardButton = styled.div`
 `;
 
 export const UploadButton = styled(CardButton)`
-  color: var(--main);
+  color: ${({ theme }) => theme.main};
   padding: 1rem 3rem;
   font-size: 1.4rem;
   letter-spacing: 2px;
@@ -58,7 +58,7 @@ export const SortingButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--background);
+  background: ${({ theme }) => theme.bg};
   border-radius: 1rem;
   padding-left: 0.9rem;
   padding-right: 0.9rem;
@@ -66,9 +66,9 @@ export const SortingButton = styled.button`
   border: 2px solid transparent;
 
   &:hover {
-    border: 2px solid var(--btnColor);
+    border: 2px solid ${({ theme }) => theme.btnColor};
     svg path {
-      fill: var(--main);
+      fill: ${({ theme }) => theme.main};
     }
   }
 
@@ -79,7 +79,7 @@ export const SortingButton = styled.button`
 `;
 
 export const ReloadButton = styled(CardButton)`
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   @media (max-width: 75em) {
     width: 100%;
   }
@@ -94,11 +94,11 @@ export const ButtonPagination = styled.button`
   cursor: pointer;
   justify-content: center;
   gap: 1vw;
-  color: var(--main);
+  color: ${({ theme }) => theme.main};
   font-weight: 500;
   font-size: 1.6rem;
   letter-spacing: 2px;
-  background: var(--btnColor);
+  background: ${({ theme }) => theme.btnColor};
   border-radius: 1rem;
   padding: 1.2rem 3rem;
   border: none;
@@ -113,7 +113,7 @@ export const ButtonPagination = styled.button`
   }
 
   &:hover {
-    background: var(--main);
+    background: ${({ theme }) => theme.main};
     color: white;
 
     svg path {
@@ -122,7 +122,7 @@ export const ButtonPagination = styled.button`
   }
 
   &:disabled {
-    background: var(--background);
+    background: ${({ theme }) => theme.bg};
     cursor: default;
     color: #8c8c8c;
   }
@@ -131,7 +131,7 @@ export const ButtonPagination = styled.button`
     fill: #8c8c8c;
   }
   &:disabled:hover {
-    background: var(--background);
+    background: ${({ theme }) => theme.bg};
     color: #8c8c8c;
   }
 `;
@@ -167,7 +167,7 @@ export const BurgerCrossButton = styled.div`
 `;
 
 export const UploadImageButton = styled.button`
-  background: var(--main);
+  background: ${({ theme }) => theme.main};
   border-radius: 1rem;
   padding: 1.2rem 3rem;
   cursor: pointer;
@@ -176,8 +176,8 @@ export const UploadImageButton = styled.button`
   color: white;
 
   &:hover {
-    background: var(--btnColor);
-    color: var(--main);
+    background: ${({ theme }) => theme.btnColor};
+    color: ${({ theme }) => theme.main};
   }
 
   @media (max-width: 37.5em) {

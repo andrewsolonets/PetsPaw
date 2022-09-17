@@ -11,7 +11,7 @@ export const HomePicWrapper = styled.div`
     top: 40px;
     width: 47.222vw;
     height: 58.333vw;
-    background: var(--btnColor);
+    background: ${({ theme }) => theme.btnColor};
     border-radius: 20px;
   }
 

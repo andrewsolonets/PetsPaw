@@ -97,36 +97,36 @@ export const OptionButton = styled(NavLink)`
 
   &.active {
     ${OptionButtonContainer} {
-      border: 4px solid var(--btnColor);
+      border: 4px solid ${({ theme }) => theme.btnColor};
     }
     Button {
-      color: var(--textWhite);
-      background: var(--main);
+      color: ${({ theme }) => theme.textWhite};
+      background: ${({ theme }) => theme.main};
     }
   }
 
   &:hover {
     ${OptionButtonContainer} {
-      border: 4px solid var(--backgroundBlock);
+      border: 4px solid ${({ theme }) => theme.backgroundBlock};
     }
     Button {
-      background: var(--btnColor);
+      background: ${({ theme }) => theme.btnColor};
     }
   }
   &:active {
     ${OptionButtonContainer} {
-      border: 4px solid var(--btnColor);
+      border: 4px solid ${({ theme }) => theme.btnColor};
     }
     Button {
-      color: var(--textWhite);
-      background: var(--main);
+      color: ${({ theme }) => theme.textWhite};
+      background: ${({ theme }) => theme.main};
     }
     &:hover {
       ${OptionButtonContainer} {
-        border: 4px solid var(--backgroundBlock);
+        border: 4px solid ${({ theme }) => theme.backgroundBlock};
       }
       Button {
-        background: var(--btnColor);
+        background: ${({ theme }) => theme.btnColor};
       }
     }
   }

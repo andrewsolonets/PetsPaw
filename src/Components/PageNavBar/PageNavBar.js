@@ -33,7 +33,7 @@ export const PageNavBar = ({ title, additional }) => {
 //           <CardButton>
 //             <Back className={classes.back} onClick={backHandler} />
 //           </CardButton>
-//           <Button style={{ background: "var(--textBlack)" }}>GALLERY</Button>
+//           <Button style={{ background: "${({ theme }) => theme.textMain}" }}>GALLERY</Button>
 //         </div>
 //         <div className={classes.upload} onClick={uploadHandler}>
 //           <Upload className={classes.reloadSvg}></Upload> UPLOAD

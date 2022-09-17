@@ -28,18 +28,18 @@ export const SearchInput = styled.input`
   width: 35vw;
   padding: 1.3rem 2.8rem;
 
-  background: var(--backgroundBlock);
+  background: ${({ theme }) => theme.backgroundBlock};
   border: 2px solid transparent;
   border-radius: 2rem;
   color: #8c8c8c;
 
   &:focus {
     outline-width: 0;
-    border: 2px solid var(--btnColor);
+    border: 2px solid ${({ theme }) => theme.btnColor};
   }
 
   &:active {
-    border-color: var(--main);
+    border-color: ${({ theme }) => theme.main};
   }
   @media (min-width: 37.5em) and (max-width: 42em) {
     width: 50vw;
@@ -70,7 +70,8 @@ export const SearchInput = styled.input`
     padding: 1.3rem 2rem;
   }
 
-  ${(props) => (props.styleChange ? "border-color: var(--main)" : "")}
+  ${(props) =>
+    props.styleChange ? "border-color: ${({ theme }) => theme.main}" : ""}
 `;
 
 export const SearchButtonLink = styled(NavLink)`

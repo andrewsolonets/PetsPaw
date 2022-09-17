@@ -59,7 +59,7 @@ export const LogoContainerLink = styled(Link)`
 export const TextLogoContainer = styled(TextLogo)`
   width: 7.5rem;
   path {
-    fill: var(--textBlack);
+    fill: ${({ theme }) => theme.textMain};
   }
 `;
 
@@ -78,7 +78,7 @@ export const SwitchContainer = styled.label`
     opacity: 0;
     width: 4.4rem;
     &:checked ~ span {
-      background-color: var(--btnColor);
+      background-color: ${({ theme }) => theme.btnColor};
     }
     &:checked ~ span:before {
       -webkit-transform: translateX(2rem);
@@ -86,7 +86,7 @@ export const SwitchContainer = styled.label`
       transform: translateX(2rem);
     }
     &:focus ~ span {
-      box-shadow: 0 0 1px var(--btnColor);
+      box-shadow: 0 0 1px ${({ theme }) => theme.btnColor};
     }
   }
   span {
@@ -97,7 +97,7 @@ export const SwitchContainer = styled.label`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--btnColor);
+    background-color: ${({ theme }) => theme.btnColor};
     -webkit-transition: 0.4s;
     transition: 0.4s;
     &:before {
@@ -107,7 +107,7 @@ export const SwitchContainer = styled.label`
       width: 1.6rem;
       left: 0.4rem;
       bottom: 0.4rem;
-      background-color: var(--main);
+      background-color: ${({ theme }) => theme.main};
       -webkit-transition: 0.4s;
       transition: 0.4s;
       border-radius: 50%;

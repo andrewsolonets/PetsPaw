@@ -56,7 +56,7 @@ export const BreedsSingleCatLink = styled(NavLink)`
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 1vw;
-    background: var(--textWhite);
+    background: ${({ theme }) => theme.textWhite};
     border-radius: 5px;
   }
 
@@ -68,7 +68,7 @@ export const BreedsSingleCatLink = styled(NavLink)`
 
     padding-left: 2vw;
     padding-right: 2vw;
-    color: var(--main);
+    color: ${({ theme }) => theme.main};
   }
 `;
 

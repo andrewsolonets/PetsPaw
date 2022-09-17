@@ -93,7 +93,7 @@ const BreedsPage = (props) => {
       />
 
       <BounceLoader
-        color={"var(--main)"}
+        color={"${({ theme }) => theme.main}"}
         loading={isLoading}
         // cssOverride={override}
         size={50}

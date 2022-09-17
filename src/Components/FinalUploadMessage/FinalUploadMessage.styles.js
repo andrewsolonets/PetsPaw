@@ -32,8 +32,8 @@ export const Spin = keyframes`
 `;
 
 export const LoaderSpinner = styled.div`
-  border: 0.3vw solid var(--main);
-  border-top: 0.3vw solid var(--backgroundBlock);
+  border: 0.3vw solid ${({ theme }) => theme.main};
+  border-top: 0.3vw solid ${({ theme }) => theme.backgroundBlock};
   border-radius: 50%;
   width: 1vw;
   margin-right: 0.7vw;
@@ -43,7 +43,7 @@ export const LoaderSpinner = styled.div`
   @media (max-width: 37.5em) {
     width: 3vw;
     height: 3vw;
-    border: 1vw solid var(--main);
-    border-top: 1vw solid var(--backgroundBlock);
+    border: 1vw solid ${({ theme }) => theme.main};
+    border-top: 1vw solid ${({ theme }) => theme.backgroundBlock};
   }
 `;

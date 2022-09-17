@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 
 import { ReactComponent as Upload } from "../assets/upload.svg";
-import { useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useFetch } from "../hooks/useFetch";
 
@@ -14,17 +13,13 @@ import { GalleryFilters } from "./FiltersContainer/GalleryFilters";
 import { PaginationContainer } from "./PaginationContainer/PaginationContainer";
 
 const GalleryPage = (props) => {
-  console.log("GalleryPage render");
-  // const [results, setResults] = useState([]);
   const [nameBreed, setNameBreed] = useState({
     value: "",
     label: "All breeds",
   });
   const [resultsLimit, setResultsLimit] = useState(10);
-  // const [breeds, setBreeds] = useState([]);
   const [sorting, setSorting] = useState("rand");
   const [pageNumber, setPageNumber] = useState(0);
-  // const [isLoading, setLoading] = useState(true);
   const [type, setType] = useState("");
   const [modal, setModal] = useState(false);
 
@@ -101,11 +96,6 @@ const GalleryPage = (props) => {
     setModal(false);
   };
 
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
-
   return (
     <MainContentContainer>
       {modal ? (
@@ -132,9 +122,8 @@ const GalleryPage = (props) => {
         reloadHandler={reloadHandler}
       />
       <BounceLoader
-        color={"var(--main)"}
+        color={"${({ theme }) => theme.main}"}
         loading={isLoading}
-        // cssOverride={override}
         size={50}
         speedMultiplier={1.5}
       ></BounceLoader>

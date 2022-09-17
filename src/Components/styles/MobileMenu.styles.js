@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BurgerLine = styled.div`
   width: 3.2rem;
   height: 0.4rem;
-  background: var(--main);
+  background: ${({ theme }) => theme.main};
   border-radius: 1rem;
   transition: all 0.3s linear;
   position: relative;
@@ -14,7 +14,7 @@ export const BurgerMenu = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: var(--background);
+  background: ${({ theme }) => theme.bg};
   height: 100vh;
   padding: 1rem;
   gap: 5vw;

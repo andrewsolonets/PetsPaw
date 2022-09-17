@@ -5,7 +5,7 @@ export const GalleryFiltersWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.389vw;
-  background: var(--background);
+  background: ${({ theme }) => theme.bg};
   border-radius: 2rem;
   width: 100%;
   padding: 2rem 0rem;

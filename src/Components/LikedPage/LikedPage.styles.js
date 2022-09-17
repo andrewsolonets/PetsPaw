@@ -6,6 +6,6 @@ export const DefaultMessageWrapper = styled.div`
   padding: 2rem;
   font-size: 1.6rem;
   color: #8c8c8c;
-  background: var(--background);
+  background: ${({ theme }) => theme.bg};
   margin-bottom: 60vh;
 `;
