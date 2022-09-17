@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { CardButton } from "../UI/Button.styles";
+import { CardButton } from "../Button/Button.styles";
 
 export const SearchWrapper = styled.div`
   @media (max-width: 37.5em) {

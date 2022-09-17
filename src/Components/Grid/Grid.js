@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Grid.css";
+
 import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { ReactComponent as Heart1 } from "../../assets/heart1.svg";
 import {

@@ -1,7 +1,7 @@
 import { MainContentContainer } from "./styles/globalstyles.styles";
 import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
-import Grid from "./UI/Grid";
+import Grid from "./Grid/Grid";
 
 import BounceLoader from "react-spinners/BounceLoader";
 

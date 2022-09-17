@@ -1,6 +1,6 @@
 import imgSuccess from "../../assets/success.png";
 import imgFailure from "../../assets/failure.png";
-import { UploadBtn, UploadImageButton } from "../UI/Button.styles";
+import { UploadBtn, UploadImageButton } from "../Button/Button.styles";
 import {
   FinalMessageWrapper,
   LoaderSpinner,

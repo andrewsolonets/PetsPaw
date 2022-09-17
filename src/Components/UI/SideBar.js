@@ -1,6 +1,6 @@
 import React from "react";
 import { BurgerLine } from "../styles/MobileMenu.styles";
-import { BurgerMenuButton } from "./Button.styles";
+import { BurgerMenuButton } from "../Button/Button.styles";
 
 const SideBar = (props) => {
   return (

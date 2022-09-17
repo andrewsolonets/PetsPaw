@@ -1,4 +1,4 @@
-import { CardButton } from "../UI/Button.styles";
+import { CardButton } from "../Button/Button.styles";
 import { ReactComponent as Search } from "../../assets/search.svg";
 import {
   SearchBarForm,

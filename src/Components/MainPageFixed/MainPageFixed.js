@@ -1,4 +1,4 @@
-import Button from "../UI/Button";
+import Button from "../Button/Button";
 
 import VoteTable from "../../assets/vote-table.png";
 import PetBreed from "../../assets/pet-breeds.png";

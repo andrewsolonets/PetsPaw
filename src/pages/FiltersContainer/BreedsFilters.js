@@ -1,7 +1,7 @@
 import Select from "react-select";
 import { ReactComponent as DescendingIcon } from "../../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../../assets/asc.svg";
-import { SortingButton } from "../../Components/UI/Button.styles";
+import { SortingButton } from "../../Components/Button/Button.styles";
 
 export const BreedsFilters = ({
   breeds,

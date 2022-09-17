@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CardButton } from "../UI/Button.styles";
+import { CardButton } from "../Button/Button.styles";
 
 export const ModalWrapper = styled.div`
   display: flex;

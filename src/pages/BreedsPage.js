@@ -1,4 +1,4 @@
-import Grid from "../Components/UI/Grid";
+import Grid from "../Components/Grid/Grid";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 import BounceLoader from "react-spinners/BounceLoader";

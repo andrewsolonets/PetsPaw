@@ -5,7 +5,7 @@ import {
   GridContainer,
   GridItemWrapper,
   LabelBreed,
-} from "./Grid.styles";
+} from "../Grid/Grid.styles";
 
 export default function Grid(props) {
   console.log(props.items);

@@ -1,5 +1,5 @@
-import Grid from "../Components/UI/Grid";
-import { UploadButton } from "../Components/UI/Button.styles";
+import Grid from "../Components/Grid/Grid";
+import { UploadButton } from "../Components/Button/Button.styles";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 

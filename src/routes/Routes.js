@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AppContainer from "../pages/AppContainerPage/AppContainerPage";
-import HomePic from "../Components/UI/HomePic";
+import HomePic from "../Components/HomePic/HomePic";
 import VotingApp from "../pages/VotingPage/VotingApp";
 import BreedsPage from "../pages/BreedsPage";
 import SingleCat from "../pages/SingleCatPage/SingleCat";

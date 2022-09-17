@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Back } from "../../assets/back.svg";
-import Button from "../UI/Button";
+import Button from "../Button/Button";
 
 export const NavWrapper = styled.div`
   align-self: flex-start;

@@ -1,4 +1,4 @@
-import Button from "./UI/Button";
+import Button from "./Button/Button";
 import { useEffect } from "react";
 import Grid from "./UI/GridLikes";
 import { ReactComponent as Back } from "../assets/back.svg";
@@ -7,7 +7,7 @@ import { useFetch } from "../hooks/useFetch";
 import { MainContentContainer } from "./styles/globalstyles.styles";
 
 import BounceLoader from "react-spinners/BounceLoader";
-import { CardButton } from "./UI/Button.styles";
+import { CardButton } from "./Button/Button.styles";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
 import { SearchParagraph } from "../App.styles";
 
