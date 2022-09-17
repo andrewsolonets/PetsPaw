@@ -52,7 +52,7 @@ export const BreedsFilters = ({
       "@media (min-width: 37.5em) and (max-width: 75em)": {
         ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "33vw",
-        height: "7vw",
+        height: "5rem",
       },
 
       width: "16vw",
@@ -74,7 +74,7 @@ export const BreedsFilters = ({
       "@media (min-width: 37.5em) and (max-width: 75em)": {
         ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "33vw",
-        height: "7vw",
+        height: "5rem",
       },
 
       borderColor: state.isFocused ? "#fffff" : "#fffff",
@@ -115,7 +115,7 @@ export const BreedsFilters = ({
       "@media (min-width: 37.5em) and (max-width: 75em)": {
         ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "25vw",
-        height: "7vw",
+        height: "5rem",
       },
       // none of react-select's styles are passed to <Control />
       width: "12vw",
@@ -138,7 +138,7 @@ export const BreedsFilters = ({
       "@media (min-width: 37.5em) and (max-width: 75em)": {
         ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "25vw",
-        height: "7vw",
+        height: "5rem",
       },
       width: "12vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",

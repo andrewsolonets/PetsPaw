@@ -8,7 +8,7 @@ export const SearchWrapper = styled.div`
   }
 
   @media (min-width: 37.5em) and (max-width: 75em) {
-    width: 66%;
+    width: fit-content;
     left: 8rem;
     right: 2rem;
     position: absolute;
@@ -41,8 +41,32 @@ export const SearchInput = styled.input`
   &:active {
     border-color: var(--main);
   }
-  @media (max-width: 75em) {
+  @media (min-width: 37.5em) and (max-width: 42em) {
+    width: 50vw;
+    padding: 1.3rem 2rem;
+  }
+  @media (min-width: 42em) and (max-width: 50em) {
+    width: 55vw;
+    padding: 1.3rem 2rem;
+  }
+  @media (min-width: 50em) and (max-width: 60em) {
+    width: 65vw;
+    padding: 1.3rem 2rem;
+  }
+  @media (min-width: 60em) and (max-width: 75em) {
+    width: 70vw;
+    padding: 1.3rem 2rem;
+  }
+  @media (max-width: 28.5em) {
     width: 88%;
+    padding: 1.3rem 2rem;
+  }
+  @media (min-width: 24.5em) and (max-width: 28.5em) {
+    width: 90%;
+    padding: 1.3rem 2rem;
+  }
+  @media (min-width: 28.5em) and (max-width: 37.5em) {
+    width: 90vw;
     padding: 1.3rem 2rem;
   }
 

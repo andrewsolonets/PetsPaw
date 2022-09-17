@@ -108,7 +108,7 @@ export const GridItemWrapper = styled.div`
 `;
 
 export const GridContainer = styled.div`
-  width: 68rem;
+  width: 70rem;
   display: grid;
   height: auto;
   grid-gap: 2rem;
