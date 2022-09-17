@@ -116,11 +116,18 @@ export const GridContainer = styled.div`
   grid-template-rows: repeat(6, 14rem);
   grid-auto-rows: 14rem;
 
-  @media (max-width: 56.25em) {
+  @media (max-width: 37.5em) {
     grid-template-columns: 1fr;
     width: 100%;
     grid-template-rows: repeat(6, 20rem);
     grid-auto-rows: 20rem;
+  }
+
+  @media (min-width: 37.5em) and (max-width: 75em) {
+    grid-template-columns: 1fr;
+    width: 100%;
+    grid-template-rows: repeat(6, 30rem);
+    grid-auto-rows: 30rem;
   }
 
   @media (min-width: 56.26em) {

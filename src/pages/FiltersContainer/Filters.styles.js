@@ -6,9 +6,9 @@ export const GalleryFiltersWrapper = styled.div`
   justify-content: center;
   gap: 1.389vw;
   background: var(--background);
-  border-radius: 20px;
+  border-radius: 2rem;
   width: 100%;
-  height: 14vw;
+  padding: 2rem 0rem;
 
   p {
     font-style: normal;
@@ -21,6 +21,9 @@ export const GalleryFiltersWrapper = styled.div`
     padding: 1rem;
     flex-direction: column;
     width: 100%;
+  }
+  @media (min-width: 37.5em) and (max-width: 75em) {
+    padding: 2rem;
   }
 `;
 
@@ -44,6 +47,6 @@ export const FilterReloadBox = styled.div`
 
   @media (max-width: 37.5em) {
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 `;

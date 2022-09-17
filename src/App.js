@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { GlobalStyles } from "./Components/styles/globalstyles.styles";
-// import "./App.css";
 
 import { ReactComponent as Logo1 } from "./assets/logo2.svg";
 
@@ -87,13 +86,11 @@ function App() {
   return (
     <React.Fragment>
       <MainContainer>
-        {/* <img className="logo" src={logo} alt="Logo"></img> */}
         <LogoSwitchContainer>
           <LogoContainerLink to={"/"}>
             <Logo1></Logo1>
             <TextLogoContainer />
           </LogoContainerLink>
-
           <SwitchContainer>
             <input type="checkbox" onClick={toggleThemeHandler} />
             <span></span>
@@ -102,8 +99,6 @@ function App() {
         <FixedMainContainer>
           <MainPageFixed />
         </FixedMainContainer>
-
-        {/* {contentApp} */}
         <RoutesContainer
           subId={subId}
           catHandler={catHandler}

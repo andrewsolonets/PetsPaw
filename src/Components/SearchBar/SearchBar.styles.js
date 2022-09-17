@@ -7,7 +7,7 @@ export const SearchWrapper = styled.div`
     width: 100%;
   }
 
-  @media (min-width: 37.5em) and (max-width: 56.25em) {
+  @media (min-width: 37.5em) and (max-width: 75em) {
     width: 66%;
     left: 8rem;
     right: 2rem;
@@ -17,7 +17,7 @@ export const SearchWrapper = styled.div`
 
 export const SearchBarForm = styled.form`
   position: relative;
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     width: 100%;
   }
 `;
@@ -41,7 +41,7 @@ export const SearchInput = styled.input`
   &:active {
     border-color: var(--main);
   }
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     width: 88%;
     padding: 1.3rem 2rem;
   }
@@ -64,7 +64,7 @@ export const SearchButtonLink = styled(NavLink)`
     height: 1.85rem;
   }
 
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     position: absolute;
 
     bottom: 16%;

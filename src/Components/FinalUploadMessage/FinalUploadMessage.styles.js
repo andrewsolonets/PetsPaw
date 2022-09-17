@@ -9,7 +9,7 @@ export const FinalMessageWrapper = styled.div`
   align-items: center;
   border-radius: 10px;
 
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     width: 90%;
     margin-left: 2vw;
     padding: 1vw;

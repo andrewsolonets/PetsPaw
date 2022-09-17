@@ -49,8 +49,8 @@ export const BreedsFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em)": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "33vw",
         height: "7vw",
       },
@@ -71,8 +71,8 @@ export const BreedsFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em)": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "33vw",
         height: "7vw",
       },
@@ -112,8 +112,8 @@ export const BreedsFilters = ({
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em)": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "25vw",
         height: "7vw",
       },
@@ -135,8 +135,8 @@ export const BreedsFilters = ({
         height: "10vw",
       },
 
-      "@media (min-width: 37.5em) and (max-width: 56.25em)": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "25vw",
         height: "7vw",
       },

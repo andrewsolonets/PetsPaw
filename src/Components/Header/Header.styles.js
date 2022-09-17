@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.div`
     flex-direction: row;
   }
 
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     flex-direction: column-reverse;
     justify-content: center;
     gap: 2vw;
@@ -24,7 +24,7 @@ export const NavLinksWrapper = styled.div`
   display: flex;
   gap: 1rem;
 
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     align-self: flex-end;
     width: 100%;
     justify-content: space-between;
@@ -33,7 +33,7 @@ export const NavLinksWrapper = styled.div`
 `;
 
 export const BurgerWrapper = styled.div`
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     display: flex;
     background: var(--backgroundBlock);
     border-radius: 2rem;

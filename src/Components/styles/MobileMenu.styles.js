@@ -2,22 +2,12 @@ import styled from "styled-components";
 
 export const BurgerLine = styled.div`
   width: 3.2rem;
-  height: 0.45rem;
+  height: 0.4rem;
   background: var(--main);
-  border-radius: 10px;
+  border-radius: 1rem;
   transition: all 0.3s linear;
   position: relative;
   transform-origin: 1px;
-  @media (min-width: 36.5em) {
-    width: 3.2rem;
-    height: 0.45rem;
-    /* height: 0.25rem; */
-    background: var(--main);
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-  }
 `;
 
 export const BurgerMenu = styled.div`
@@ -34,6 +24,10 @@ export const BurgerMenu = styled.div`
   left: 0;
   right: 0;
   transition: transform 0.3s ease-in-out;
+
+  svg {
+    width: 2.6rem;
+  }
 
   ${(props) =>
     props.state ? `transform:translateX(0)` : "transform:translateX(-100%)"}

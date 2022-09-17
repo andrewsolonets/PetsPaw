@@ -81,9 +81,9 @@ export const SwitchContainer = styled.label`
       background-color: var(--btnColor);
     }
     &:checked ~ span:before {
-      -webkit-transform: translateX(1.4vw);
-      -ms-transform: translateX(1.4vw);
-      transform: translateX(1.4vw);
+      -webkit-transform: translateX(2rem);
+      -ms-transform: translateX(2rem);
+      transform: translateX(2rem);
     }
     &:focus ~ span {
       box-shadow: 0 0 1px var(--btnColor);

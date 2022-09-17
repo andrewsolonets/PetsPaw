@@ -24,7 +24,7 @@ export const UserActionsWrapper = styled.div`
     border-radius: 20px;
     gap: 0.3vw;
 
-    @media (min-width: 37.5em) and (max-width: 56.25em) {
+    @media (min-width: 37.5em) and (max-width: 75em) {
       position: absolute;
       bottom: -10%;
       left: 23%;

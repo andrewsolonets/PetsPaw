@@ -65,16 +65,16 @@ export const GalleryFilters = ({
       "@media only screen and (max-width: 37.5em)": {
         ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "40vw",
-        height: "5vw",
+        height: "5rem",
       },
 
       width: "23vw",
-      height: "3.2vw",
+      height: "5rem",
       fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
@@ -87,12 +87,12 @@ export const GalleryFilters = ({
       "@media only screen and (max-width: 37.5em)": {
         ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "40vw",
-        height: "5vw",
+        height: "5rem",
       },
       width: "23vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",
@@ -128,33 +128,33 @@ export const GalleryFilters = ({
       "@media only screen and (max-width: 37.5em)": {
         ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "36vw",
-        height: "5vw",
+        height: "5rem",
       },
       width: "19.5vw",
-      height: "3.2vw",
+      height: "5rem",
       fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
       background: "var(--backgroundBlock)",
-      borderRadius: "10px",
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
       "@media only screen and (max-width: 37.5em)": {
         ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 37.5em) and (max-width: 56.25em) ": {
-        ...provided["@media (min-width: 37.5em) and (max-width: 56.25em) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "36vw",
-        height: "5vw",
+        height: "5rem",
       },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),

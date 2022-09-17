@@ -42,6 +42,9 @@ export const UploadButton = styled(CardButton)`
   font-size: 1.4rem;
   letter-spacing: 2px;
   gap: 1rem;
+  svg {
+    width: 1.6rem;
+  }
   &:hover {
     color: white;
   }
@@ -77,6 +80,12 @@ export const SortingButton = styled.button`
 
 export const ReloadButton = styled(CardButton)`
   background: var(--backgroundBlock);
+  @media (max-width: 75em) {
+    width: 100%;
+  }
+  svg {
+    width: 2rem;
+  }
 `;
 
 export const ButtonPagination = styled.button`
@@ -93,6 +102,11 @@ export const ButtonPagination = styled.button`
   border-radius: 1rem;
   padding: 1.2rem 3rem;
   border: none;
+
+  svg {
+    width: 0.7rem;
+    height: 1.2rem;
+  }
 
   &:first-child svg {
     transform: rotate(-180deg);
@@ -143,9 +157,13 @@ export const BurgerCrossButton = styled.div`
   align-self: end;
   justify-content: center;
   width: fit-content;
-  padding: 1.7rem;
+  padding: 1.3rem;
   background-color: white;
   border-radius: 1rem;
+
+  svg {
+    width: 2.6rem;
+  }
 `;
 
 export const UploadImageButton = styled.button`
