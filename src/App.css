@@ -324,6 +324,7 @@ input:checked + .slider:before {
     display: inline-block;
     width: 10vw;
     height: 5vw;
+
   }
 
   .slider:before {
@@ -344,6 +345,7 @@ input:checked + .slider:before {
     transform: translateX(4.5vw);
   }
 }
+
 @media (min-width: 550px) and (max-width: 1023px) {
   /* .main {
     padding: 2vw;

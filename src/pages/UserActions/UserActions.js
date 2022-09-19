@@ -22,7 +22,7 @@ export const UserActions = ({
         <Like />
       </ActionWrapper>
       <ActionWrapper
-        element={"${({ theme }) => theme.main}"}
+        element={"#ff868e"}
         liked={liked}
         onClick={() => {
           setLiked(true);

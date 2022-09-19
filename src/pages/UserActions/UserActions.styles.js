@@ -60,14 +60,14 @@ export const ActionWrapper = styled.div`
       : ""}
 
   ${(props) =>
-    props.element === "${({ theme }) => theme.main}"
+    props.element === "#ff868e"
       ? `
       &:hover {
         background: rgba(255, 134, 142, 0.3);
       }
       
       &:hover svg path {
-        fill: ${({ theme }) => theme.main}
+        fill: '#ff868e'
       }
   `
       : ""}

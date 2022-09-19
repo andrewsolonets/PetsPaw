@@ -2,13 +2,15 @@ import Select from "react-select";
 import { ReactComponent as DescendingIcon } from "../../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../../assets/asc.svg";
 import { SortingButton } from "../../Components/Button/Button.styles";
+import { withTheme } from "styled-components";
 
-export const BreedsFilters = ({
+const BreedsFilters = ({
   breeds,
   filterHandler,
   limitChangeHandler,
   sortingDescHandler,
   sortingAscHandler,
+  theme,
 }) => {
   const options = [{ value: "all-breeds", label: "All breeds" }, ...breeds];
 
@@ -24,22 +26,22 @@ export const BreedsFilters = ({
       color: "#8C8C8C",
       fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      backgroundColor: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
       fontSize: "1.6rem",
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
@@ -61,7 +63,7 @@ export const BreedsFilters = ({
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: `${({ theme }) => theme.bg}`,
+      background: theme.bg,
       borderRadius: "1rem",
     }),
     container: (provided, state) => ({
@@ -83,27 +85,51 @@ export const BreedsFilters = ({
   };
 
   const customStyles2 = {
-    option: (provided, state) => ({
+    option: (provided, state, isDisabled, isFocused, isSelected) => ({
       ...provided,
       color: "#8C8C8C",
       fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      backgroundColor: isDisabled
+        ? theme.backgroundBlock
+        : isSelected
+        ? theme.backgroundBlock
+        : isFocused
+        ? theme.bg
+        : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      // background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
+      ":active": {
+        ...provided[":active"],
+        backgroundColor: !isDisabled
+          ? isSelected
+            ? theme.bg
+            : theme.backgroundBlock
+          : undefined,
+      },
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
       fontSize: "1.6rem",
+
+      ":before": {
+        backgroundColor: theme.bg,
+        borderRadius: 10,
+        content: '" "',
+        display: "block",
+        marginRight: 8,
+        height: 10,
+        width: 10,
+      },
     }),
     control: (provided, state) => ({
       ...provided,
@@ -124,7 +150,7 @@ export const BreedsFilters = ({
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: `${({ theme }) => theme.bg}`,
+      background: theme.bg,
       borderRadius: "1rem",
     }),
     container: (provided, state) => ({
@@ -169,3 +195,5 @@ export const BreedsFilters = ({
     </>
   );
 };
+
+export default withTheme(BreedsFilters);

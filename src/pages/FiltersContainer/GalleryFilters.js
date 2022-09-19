@@ -6,14 +6,16 @@ import {
   FilterWrapperChild,
   GalleryFiltersWrapper,
 } from "./Filters.styles";
+import { withTheme } from "styled-components";
 
-export const GalleryFilters = ({
+const GalleryFilters = ({
   breeds,
   sortingHandler,
   filterHandler,
   typeHandler,
   limitChangeHandler,
   reloadHandler,
+  theme,
 }) => {
   const options = [{ value: "", label: "None" }, ...breeds];
 
@@ -42,22 +44,22 @@ export const GalleryFilters = ({
       color: "#8C8C8C",
       fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      backgroundColor: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
       fontSize: "1.6rem",
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
@@ -76,6 +78,7 @@ export const GalleryFilters = ({
       width: "23vw",
       height: "5rem",
       fontSize: "1.6rem",
+      background: theme.backgroundBlock,
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
@@ -105,17 +108,17 @@ export const GalleryFilters = ({
       color: "#8C8C8C",
       fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      backgroundColor: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? `${({ theme }) => theme.bg}`
-        : `${({ theme }) => theme.backgroundBlock}`,
+      background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -140,9 +143,10 @@ export const GalleryFilters = ({
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: `${({ theme }) => theme.backgroundBlock}`,
+      background: theme.backgroundBlock,
       borderRadius: "1rem",
     }),
+
     container: (provided, state) => ({
       ...provided,
       "@media only screen and (max-width: 37.5em)": {
@@ -206,3 +210,5 @@ export const GalleryFilters = ({
     </GalleryFiltersWrapper>
   );
 };
+
+export default withTheme(GalleryFilters);

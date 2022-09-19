@@ -2,10 +2,9 @@ import Grid from "../Components/Grid/Grid";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../Components/styles/globalstyles.styles";
 import BounceLoader from "react-spinners/BounceLoader";
-import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
-import { BreedsFilters } from "./FiltersContainer/BreedsFilters";
+import BreedsFilters from "./FiltersContainer/BreedsFilters";
 import { PaginationContainer } from "./PaginationContainer/PaginationContainer";
 
 const BreedsPage = (props) => {

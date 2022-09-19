@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Select from "react-select";
 
 export const GalleryFiltersWrapper = styled.div`
   display: flex;
@@ -50,3 +51,11 @@ export const FilterReloadBox = styled.div`
     gap: 1.5rem;
   }
 `;
+
+export const FilterBreedStyles = styled(Select)`
+  & .Select__control {
+    background: ${({ theme }) => theme.bg};
+  }
+`;
+
+export const FilterLimitStyles = styled(Select)``;
