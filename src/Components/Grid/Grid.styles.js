@@ -61,14 +61,17 @@ export const BreedsSingleCatLink = styled(NavLink)`
   }
 
   p {
-    font-size: 1.4vw;
+    font-size: 1.8rem;
     text-align: center;
-    padding-top: 0.2vw;
-    padding-bottom: 0.2vw;
-
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding: 0.5rem 1rem;
     color: ${({ theme }) => theme.main};
+  }
+
+  @media (min-width: 37.5em) and (max-width: 75em) {
+    p {
+      font-size: 4rem;
+      padding: 2rem;
+    }
   }
 `;
 
