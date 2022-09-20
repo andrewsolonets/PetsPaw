@@ -16,7 +16,7 @@ export const OverlayWrapper = styled.div`
     justify-content: center;
 
     border-radius: 1rem;
-    background-color: white;
+    background-color: ${({ theme }) => theme.bg};
 
     img {
       width: 2vw;
@@ -56,7 +56,7 @@ export const BreedsSingleCatLink = styled(NavLink)`
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 1vw;
-    background: ${({ theme }) => theme.textWhite};
+    background: ${({ theme }) => theme.backgroundBlock};
     border-radius: 5px;
   }
 
@@ -90,7 +90,7 @@ export const GridItemWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: ${({ theme }) => theme.textWhite};
     opacity: 1;
     border-radius: 20px;
     background: rgba(255, 134, 142, 0.6);
@@ -99,7 +99,7 @@ export const GridItemWrapper = styled.div`
   &:hover ${BreedsSingleCatLink} {
     display: flex;
     justify-content: center;
-    color: white;
+    color: ${({ theme }) => theme.bg};
     opacity: 1;
     border-radius: 20px;
     background: rgba(255, 134, 142, 0.6);
@@ -116,18 +116,25 @@ export const GridContainer = styled.div`
   grid-template-rows: repeat(6, 14rem);
   grid-auto-rows: 14rem;
 
-  @media (max-width: 37.5em) {
+  @media (max-width: 27.5em) {
     grid-template-columns: 1fr;
     width: 100%;
-    grid-template-rows: repeat(6, 20rem);
-    grid-auto-rows: 20rem;
+    grid-template-rows: repeat(6, 30rem);
+    grid-auto-rows: 30rem;
+  }
+
+  @media (min-width: 27.5em) and (max-width: 37.5em) {
+    grid-template-columns: 1fr;
+    width: 100%;
+    grid-template-rows: repeat(6, 35rem);
+    grid-auto-rows: 35rem;
   }
 
   @media (min-width: 37.5em) and (max-width: 75em) {
     grid-template-columns: 1fr;
     width: 100%;
-    grid-template-rows: repeat(6, 30rem);
-    grid-auto-rows: 30rem;
+    grid-template-rows: repeat(6, 50rem);
+    grid-auto-rows: 50rem;
   }
 
   @media (min-width: 56.26em) {

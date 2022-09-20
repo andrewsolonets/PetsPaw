@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Grid from "../UI/GridLikes";
+import Grid from "../Grid/Grid";
 import { useFetch } from "../../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
 import { MainContentContainer } from "../styles/globalstyles.styles";
@@ -25,7 +25,7 @@ const LikedPage = (props) => {
       <PageNavBar title={props.text} />
 
       <BounceLoader
-        color={"${({ theme }) => theme.main}"}
+        color={"#FF868E"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}
@@ -33,7 +33,7 @@ const LikedPage = (props) => {
       ></BounceLoader>
 
       {apiData ? (
-        <Grid items={apiData}></Grid>
+        <Grid items={apiData} page={"liked"}></Grid>
       ) : (
         <DefaultMessageWrapper>No items found</DefaultMessageWrapper>
       )}

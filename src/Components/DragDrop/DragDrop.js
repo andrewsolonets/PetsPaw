@@ -17,7 +17,6 @@ function DragDrop(props) {
   const handleChange = (file) => {
     setFile(file);
     const imgURL = URL.createObjectURL(file);
-    console.log(imgURL);
     setImg(imgURL);
     props.onChange(file);
   };
@@ -27,8 +26,6 @@ function DragDrop(props) {
       setFile(null);
     }
   }, [props.onStatus]);
-  console.log(file);
-  console.log(props.onStatus);
 
   return (
     <FileUploader

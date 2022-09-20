@@ -38,7 +38,25 @@ export const ParentImgContainer = styled.div`
     width: 100%;
     align-self: center;
     position: relative;
-    border-radius: 20px;
+    border-radius: 2rem;
+
+    div {
+      align-self: center;
+      justify-self: center;
+      width: 100%;
+
+      border-radius: 2rem;
+      img {
+        height: 60vw;
+      }
+    }
+  }
+  @media (min-width: 37.5em) and (max-width: 75em) {
+    height: 60vw;
+    width: 75rem;
+    align-self: center;
+    position: relative;
+    border-radius: 2rem;
 
     div {
       align-self: center;
@@ -91,6 +109,20 @@ export const SingleCatHeading = styled.div`
     font-weight: 500;
     font-size: 2rem;
   }
+  @media (max-width: 75em) {
+    top: -4%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
+    color: ${({ theme }) => theme.textMain};
+    background: ${({ theme }) => theme.backgroundBlock};
+    border-radius: 20px;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3rem;
+  }
 `;
 
 export const SingleCatDescription = styled.div`
@@ -104,7 +136,7 @@ export const SingleCatDescription = styled.div`
   justify-content: flex-start;
   gap: 1vw;
 
-  @media (max-width: 37.5em) {
+  @media (max-width: 75em) {
     border: 2px solid ${({ theme }) => theme.btnColor};
     border-radius: 20px;
     width: 100%;
@@ -122,19 +154,19 @@ export const MainDescrWrapper = styled.div`
   margin-top: 3vw;
   margin-left: 1.6vw;
   font-weight: 500;
-  font-size: 1.389vw;
+  font-size: 2rem;
   margin-right: 1.6vw;
   /* identical to box height */
 
   color: #8c8c8c;
 
-  @media (max-width: 37.5em) {
+  @media (max-width: 75em) {
     margin-top: 8vw;
     margin-left: 5vw;
     margin-right: 5vw;
     font-style: normal;
     font-weight: 500;
-    font-size: 4.267vw;
+    font-size: 2rem;
     /* identical to box height */
 
     color: #8c8c8c;
@@ -148,7 +180,7 @@ export const SecondaryDescr = styled.div`
   justify-content: center;
   margin-bottom: 2vw;
 
-  @media (max-width: 37.5em) {
+  @media (max-width: 75em) {
     gap: 3vw;
     justify-content: flex-start;
     margin-bottom: 2vw;
@@ -168,7 +200,7 @@ export const SecondaryDescrItem = styled.div`
     color: #8c8c8c;
   }
   b {
-    color: black;
+    color: ${({ theme }) => theme.textMain};
   }
   @media (max-width: 37.5em) {
     justify-content: flex-start;

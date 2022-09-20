@@ -16,7 +16,6 @@ const Backdrop = (props) => {
 };
 
 const ModalUpload = (props) => {
-  console.log(props.subId);
   const [img, setImg] = useState();
   // const [status, setStatus] = useState("");
 
@@ -27,7 +26,6 @@ const ModalUpload = (props) => {
   } = useFetch(`images/upload/`, {}, img, "post", "upload");
 
   const uploadingHandler = () => {
-    console.log("START");
     fetchData(`images/upload/`, {}, img, "post", "upload");
   };
 
@@ -35,7 +33,6 @@ const ModalUpload = (props) => {
     let formData = new FormData();
     formData.append("file", e);
     formData.append("sub_id", "ys1ebn");
-    console.log(formData);
     setImg(formData);
     setAdditional("");
   };

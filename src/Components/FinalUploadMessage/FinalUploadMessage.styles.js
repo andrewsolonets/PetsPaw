@@ -4,10 +4,14 @@ export const FinalMessageWrapper = styled.div`
   width: 97%;
   padding: 1vw;
   gap: 1vw;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundBlock};
   display: flex;
   align-items: center;
   border-radius: 10px;
+
+  img {
+    width: 2rem;
+  }
 
   @media (max-width: 75em) {
     width: 90%;
@@ -15,7 +19,7 @@ export const FinalMessageWrapper = styled.div`
     padding: 1vw;
     margin-top: 5vw;
     gap: 1vw;
-    background-color: white;
+    background-color: ${({ theme }) => theme.backgroundBlock};
     display: flex;
     align-items: center;
     border-radius: 10px;
@@ -33,7 +37,7 @@ export const Spin = keyframes`
 
 export const LoaderSpinner = styled.div`
   border: 0.3vw solid ${({ theme }) => theme.main};
-  border-top: 0.3vw solid ${({ theme }) => theme.backgroundBlock};
+  border-top: 0.3vw solid white;
   border-radius: 50%;
   width: 1vw;
   margin-right: 0.7vw;
@@ -44,6 +48,6 @@ export const LoaderSpinner = styled.div`
     width: 3vw;
     height: 3vw;
     border: 1vw solid ${({ theme }) => theme.main};
-    border-top: 1vw solid ${({ theme }) => theme.backgroundBlock};
+    border-top: 1vw solid white;
   }
 `;

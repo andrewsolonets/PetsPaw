@@ -27,11 +27,17 @@ html {
   @media (max-width:75em) {
     font-size: 45.5%;
   }
-  @media (max-width:90.5em) {
+  @media (min-width:75em) and (max-width:90.5em) {
     font-size: 55.5%;
   }
-  @media (min-width:112.5em) {
+  @media (min-width:90.5em) and (max-width:110.5em) {
+    font-size: 68.5%;
+  }
+  @media (min-width:110.5em) and (max-width:142.5em) {
     font-size: 85.5%;
+  }
+  @media (min-width:142.5em) {
+    font-size: 105.5%;
   }
 }
 
@@ -82,23 +88,62 @@ h2 {
 
 :root {
   --swiper-theme-color: ${({ theme }) => theme.main};
-  --swiper-pagination-bullet-inactive-color: var(--swiper-theme-color);
+  --swiper-pagination-bullet-inactive-color: ${({ theme }) => theme.main};
 }
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  padding: 0.5vw;
+  padding: 0.8rem;
   background-color: ${({ theme }) => theme.backgroundBlock} !important;
   position: absolute !important;
   left: 42% !important;
-  bottom: -3% !important;
-  border-radius: 20px;
+  bottom: 3% !important;
+  border-radius: 2rem;
   width: fit-content !important;
 }
 
+.swiper-pagination-bullet {
+  width: 0.8rem;
+  height: 0.8rem;
+}
 
-@media (max-width: 37.5em) {
+@media (max-width: 20.5em)  {
 
   .swiper-pagination-bullets.swiper-pagination-horizontal {
-    padding: 0.5vw;
+    padding: 1.6rem;
+    background-color: ${({ theme }) => theme.backgroundBlock} !important;
+    position: absolute !important;
+    left: 33% !important;
+    bottom: -2% !important;
+    border-radius: 20px;
+    width: fit-content !important;
+  }
+  .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+  }
+
+}
+@media (max-width: 25.5em)  {
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    padding: 1.6rem;
+    background-color: ${({ theme }) => theme.backgroundBlock} !important;
+    position: absolute !important;
+    left: 35% !important;
+    bottom: -2% !important;
+    border-radius: 20px;
+    width: fit-content !important;
+  }
+  .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+  }
+
+}
+
+@media (min-width: 25.5em) and (max-width: 37.5em)  {
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    padding: 1.6rem;
     background-color: ${({ theme }) => theme.backgroundBlock} !important;
     position: absolute !important;
     left: 38% !important;
@@ -106,7 +151,24 @@ h2 {
     border-radius: 20px;
     width: fit-content !important;
   }
+  .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+  }
 
+}
+
+@media (min-width: 37.5em) and  (max-width: 75em) {
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    padding: 1.6rem;
+    background-color: ${({ theme }) => theme.backgroundBlock} !important;
+    position: absolute !important;
+    left: 41% !important;
+    bottom: -2% !important;
+    border-radius: 2rem;
+    width: fit-content !important;
+  }
 
 }
 

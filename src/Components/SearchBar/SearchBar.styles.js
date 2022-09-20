@@ -42,19 +42,19 @@ export const SearchInput = styled.input`
     border-color: ${({ theme }) => theme.main};
   }
   @media (min-width: 37.5em) and (max-width: 42em) {
-    width: 50vw;
+    width: 59vw;
     padding: 1.3rem 2rem;
   }
   @media (min-width: 42em) and (max-width: 50em) {
-    width: 55vw;
-    padding: 1.3rem 2rem;
-  }
-  @media (min-width: 50em) and (max-width: 60em) {
     width: 65vw;
     padding: 1.3rem 2rem;
   }
-  @media (min-width: 60em) and (max-width: 75em) {
+  @media (min-width: 50em) and (max-width: 60em) {
     width: 70vw;
+    padding: 1.3rem 2rem;
+  }
+  @media (min-width: 60em) and (max-width: 75em) {
+    width: 75vw;
     padding: 1.3rem 2rem;
   }
   @media (max-width: 28.5em) {
@@ -70,8 +70,7 @@ export const SearchInput = styled.input`
     padding: 1.3rem 2rem;
   }
 
-  ${(props) =>
-    props.styleChange ? "border-color: ${({ theme }) => theme.main}" : ""}
+  ${(props) => (props.styleChange ? `border-color: #FF868E` : "")}
 `;
 
 export const SearchButtonLink = styled(NavLink)`

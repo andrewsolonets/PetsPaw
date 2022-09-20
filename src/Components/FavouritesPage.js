@@ -9,8 +9,6 @@ import UserLog from "../pages/UserLog/UserLog";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
 
 const FavouritesPage = (props) => {
-  console.log("render");
-
   const { apiData, isLoading, postAction, fetchData } = useFetch(
     `favourites/?`,
     { order: "DESC", limit: 10 },
@@ -31,7 +29,7 @@ const FavouritesPage = (props) => {
       <PageNavBar title={"FAVOURITES"} />
 
       <BounceLoader
-        color={"${({ theme }) => theme.main}"}
+        color={"#FF868E"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}

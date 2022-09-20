@@ -34,7 +34,6 @@ export default function Grid({
   let content;
   if (page === "search") {
     content = items.map((el, i) => {
-      console.log(el);
       return (
         <GridItemWrapper
           key={el.id}

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Grid from "./UI/GridLikes";
+import Grid from "./Grid/Grid";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { MainContentContainer } from "./styles/globalstyles.styles";
@@ -39,7 +39,7 @@ const SearchPage = (props) => {
         Search results for:<b>{` ${params.searchItem}`}</b>
       </SearchParagraph>
       <BounceLoader
-        color={"${({ theme }) => theme.main}"}
+        color={"#FF868E"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}
@@ -47,10 +47,10 @@ const SearchPage = (props) => {
       ></BounceLoader>
       {!isLoading && searchItems && (
         <Grid
+          page={"search"}
           onSingle={singleSearch}
           items={[searchItems]}
           isLoading={isLoading}
-          searchPage={true}
         ></Grid>
       )}
     </MainContentContainer>

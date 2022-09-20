@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-
-import { GlobalStyles } from "./Components/styles/globalstyles.styles";
-
 import { ReactComponent as Logo1 } from "./assets/logo2.svg";
-
 import { RoutesContainer } from "./routes/Routes";
+import { GlobalStyles } from "./Components/styles/globalstyles.styles";
 import {
   FixedMainContainer,
   LogoContainerLink,
@@ -27,13 +24,11 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   const catHandler = ({ results, breed }) => {
-    console.log(results);
     setResults(results);
     setBreed(breed);
   };
 
   const searchClickHandler = ({ results, breed }) => {
-    console.log(results);
     setResults([results]);
     setBreed(breed);
   };
