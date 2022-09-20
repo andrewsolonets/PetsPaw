@@ -29,16 +29,11 @@ export default function Grid({
     }
   };
 
-  // const [heart, setHeart] = useState(false);
-
   let content;
   if (page === "search") {
     content = items.map((el, i) => {
       return (
-        <GridItemWrapper
-          key={el.id}
-          // onClick={actionHandler.bind(null, el.id)}
-        >
+        <GridItemWrapper key={el.id}>
           <img src={el.url} alt="asda"></img>
 
           <BreedsSingleCatLink
@@ -58,10 +53,7 @@ export default function Grid({
   if (page === "liked") {
     content = items.map((el, i) => {
       return (
-        <GridItemWrapper
-          key={el.id}
-          // onClick={actionHandler.bind(null, el.id)}
-        >
+        <GridItemWrapper key={el.id}>
           <img src={el.url} alt="asda"></img>
         </GridItemWrapper>
       );
@@ -83,7 +75,6 @@ export default function Grid({
             )}
             {onPage ? (
               <OverlayWrapper data-index={i}>
-                {/* {heart ? <Heart1 /> : <Heart />} */}
                 <HeartWrapper>
                   {liked.includes(el.id) ? <Heart1 /> : <Heart />}
                 </HeartWrapper>

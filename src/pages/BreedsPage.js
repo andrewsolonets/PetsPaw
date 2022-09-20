@@ -15,8 +15,6 @@ const BreedsPage = (props) => {
   const [resultsLimit, setResultsLimit] = useState(10);
   const [sorting, setSorting] = useState("ASC");
   const [pageNumber, setPageNumber] = useState(0);
-  const [singleCat, setSingleCat] = useState({ state: false });
-
   const { apiData, additional, isLoading, fetchData } = useFetch(
     "images/search/?",
     {
@@ -37,7 +35,6 @@ const BreedsPage = (props) => {
   }, [nameBreed, pageNumber, resultsLimit, sorting]);
 
   const limitChangeHandler = (value) => {
-    console.log(value.value);
     setResultsLimit(value.value);
   };
 
@@ -50,26 +47,6 @@ const BreedsPage = (props) => {
   const filterHandler = (value) => {
     setNameBreed(value);
     setPageNumber(0);
-  };
-
-  const actionGridHandler = (id) => {
-    setSingleCat({ state: true, id: id }); // CAN BE REMOVED
-  };
-
-  const nextPageHandler = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    setPageNumber((prevState) => {
-      console.log(prevState);
-      return prevState + 1;
-    });
-  };
-
-  const prevPageHandler = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    setPageNumber((prevState) => {
-      console.log(prevState);
-      return prevState - 1;
-    });
   };
 
   const catPageHandler = () => {
@@ -92,7 +69,7 @@ const BreedsPage = (props) => {
       />
 
       <BounceLoader
-        color={"${({ theme }) => theme.main}"}
+        color={"#FF868E"}
         loading={isLoading}
         // cssOverride={override}
         size={50}
@@ -104,15 +81,13 @@ const BreedsPage = (props) => {
         limit={resultsLimit}
         breed={additional?.breed}
         loading={isLoading}
-        onAction={actionGridHandler}
         onPage={false}
         page={"breeds"}
       ></Grid>
 
       <PaginationContainer
         pageNumber={pageNumber}
-        prevPageHandler={prevPageHandler}
-        nextPageHandler={nextPageHandler}
+        setPageNumber={setPageNumber}
       />
     </MainContentContainer>
   );

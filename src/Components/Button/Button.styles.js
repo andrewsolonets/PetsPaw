@@ -158,7 +158,7 @@ export const BurgerCrossButton = styled.div`
   justify-content: center;
   width: fit-content;
   padding: 1.3rem;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundBlock};
   border-radius: 1rem;
 
   svg {

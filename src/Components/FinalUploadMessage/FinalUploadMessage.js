@@ -7,7 +7,7 @@ import {
 } from "./FinalUploadMessage.styles";
 
 export const FinalUploadMessage = ({ img, status, uploadingHandler }) => {
-  let finalMessage; // separate this logic to its own component
+  let finalMessage;
 
   if (
     img &&

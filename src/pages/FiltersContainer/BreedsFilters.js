@@ -120,16 +120,6 @@ const BreedsFilters = ({
       ...provided,
       color: "#8C8C8C",
       fontSize: "1.6rem",
-
-      ":before": {
-        backgroundColor: theme.bg,
-        borderRadius: 10,
-        content: '" "',
-        display: "block",
-        marginRight: 8,
-        height: 10,
-        width: 10,
-      },
     }),
     control: (provided, state) => ({
       ...provided,

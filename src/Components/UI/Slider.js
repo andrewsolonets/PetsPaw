@@ -7,7 +7,6 @@ import "swiper/css/pagination";
 import { GlobalStyles } from "../styles/globalstyles.styles";
 
 const Carousel = (props) => {
-  console.log(props.images);
   if (props.images) {
     return (
       <Swiper

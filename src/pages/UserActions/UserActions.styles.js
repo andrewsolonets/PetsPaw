@@ -14,7 +14,7 @@ export const UserActionsWrapper = styled.div`
     filter: brightness(100);
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 75em) {
     position: absolute;
     bottom: -17%;
     left: 20%;
@@ -24,10 +24,17 @@ export const UserActionsWrapper = styled.div`
     border-radius: 20px;
     gap: 0.3vw;
 
-    @media (min-width: 37.5em) and (max-width: 75em) {
+    @media (min-width: 34.5em) and (max-width: 55em) {
       position: absolute;
       bottom: -10%;
-      left: 23%;
+      left: 28%;
+      display: flex;
+      gap: 0.3vw;
+    }
+    @media (min-width: 55em) and (max-width: 75em) {
+      position: absolute;
+      bottom: -10%;
+      left: 35%;
       display: flex;
       gap: 0.3vw;
     }
@@ -86,8 +93,12 @@ export const ActionWrapper = styled.div`
       }
       `
       : ""}
-  @media (max-width: 37.5em) {
+  @media (max-width: 34.5em) {
     height: 13vw;
     width: 13vw;
+  }
+  @media (min-width: 34.5em) and (max-width: 75em) {
+    height: 8rem;
+    width: 8rem;
   }
 `;

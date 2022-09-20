@@ -17,7 +17,6 @@ const Backdrop = (props) => {
 
 const ModalUpload = (props) => {
   const [img, setImg] = useState();
-  // const [status, setStatus] = useState("");
 
   const {
     additional: status,

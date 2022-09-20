@@ -53,8 +53,14 @@ body {
   background: ${({ theme }) => theme.bg};
     
   box-sizing: border-box;
-  @media (max-width: 37.5em) {
-      padding: 7rem 2rem;
+  @media (max-width: 22.5em) {
+    padding: 7rem 2rem;
+   }
+  @media (min-width: 22.5em) and (max-width: 37.5em) {
+      padding: 7rem 5rem;
+   }
+   @media (min-width: 37.5em) and (max-width: 62em) {
+    padding: 7rem 2rem;
    }
 }
 

@@ -27,15 +27,3 @@ export const PageNavBar = ({ title, additional }) => {
     </NavWrapper>
   );
 };
-
-// <div className={classes["nav-content1"]}>
-//         <div className={classes.backGallery}>
-//           <CardButton>
-//             <Back className={classes.back} onClick={backHandler} />
-//           </CardButton>
-//           <Button style={{ background: "${({ theme }) => theme.textMain}" }}>GALLERY</Button>
-//         </div>
-//         <div className={classes.upload} onClick={uploadHandler}>
-//           <Upload className={classes.reloadSvg}></Upload> UPLOAD
-//         </div>
-//       </div>

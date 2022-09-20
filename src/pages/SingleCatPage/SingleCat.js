@@ -18,9 +18,6 @@ import {
 
 const SingleCat = ({ items, breed, search = false }) => {
   const params = useParams();
-  // const [images, setImages] = useState();
-
-  console.log(items, search);
 
   const { apiData: images, fetchData } = useFetch(
     `images/search/?`,
@@ -35,7 +32,6 @@ const SingleCat = ({ items, breed, search = false }) => {
     null,
     "get"
   );
-  console.log(images);
 
   useEffect(() => {
     fetchData();

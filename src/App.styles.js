@@ -70,7 +70,7 @@ export const SwitchContainer = styled.label`
   width: 4.4rem;
   height: 2.4rem;
 
-  @media (max-width: 37.5em) {
+  @media (max-width: 62em) {
     left: 80%;
   }
 

@@ -62,24 +62,8 @@ const GalleryPage = (props) => {
   const filterHandler = (value) => {
     setNameBreed(value);
     setPageNumber(0);
-    // getAllCats(value, true);
   };
 
-  const nextPageHandler = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    setPageNumber((prevState) => {
-      console.log(prevState);
-      return prevState + 1;
-    });
-  };
-
-  const prevPageHandler = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    setPageNumber((prevState) => {
-      console.log(prevState);
-      return prevState - 1;
-    });
-  };
   const typeHandler = (value) => {
     setType(value.value);
   };
@@ -122,7 +106,7 @@ const GalleryPage = (props) => {
         reloadHandler={reloadHandler}
       />
       <BounceLoader
-        color={"${({ theme }) => theme.main}"}
+        color={"#FF868E"}
         loading={isLoading}
         size={50}
         speedMultiplier={1.5}
@@ -138,8 +122,7 @@ const GalleryPage = (props) => {
       ></Grid>
       <PaginationContainer
         pageNumber={pageNumber}
-        prevPageHandler={prevPageHandler}
-        nextPageHandler={nextPageHandler}
+        setPageNumber={setPageNumber}
       />
     </MainContentContainer>
   );
