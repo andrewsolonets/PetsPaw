@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Back } from "../../assets/back.svg";
+import { FontM } from "../styles/globalstyles.styles";
 
 export const NavWrapper = styled.div`
   align-self: flex-start;
@@ -40,6 +41,6 @@ export const NavTitle = styled.div`
   border-radius: 1rem;
   padding-left: 3rem;
   padding-right: 3rem;
-  font-size: 2rem;
+  font-size: ${FontM};
   line-height: auto;
 `;

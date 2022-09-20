@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FontM } from "../../Components/styles/globalstyles.styles";
 
 export const SingleCatWrapper = styled.div`
   display: flex;
@@ -107,7 +108,7 @@ export const SingleCatHeading = styled.div`
     font-family: "Jost";
     font-style: normal;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: ${FontM};
   }
   @media (max-width: 75em) {
     top: -4%;
@@ -154,7 +155,7 @@ export const MainDescrWrapper = styled.div`
   margin-top: 3vw;
   margin-left: 1.6vw;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: ${FontM};
   margin-right: 1.6vw;
   /* identical to box height */
 
@@ -166,7 +167,7 @@ export const MainDescrWrapper = styled.div`
     margin-right: 5vw;
     font-style: normal;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: ${FontM};
     /* identical to box height */
 
     color: #8c8c8c;
@@ -214,7 +215,7 @@ export const SingleCatId = styled.div`
   background: ${({ theme }) => theme.main};
   padding-left: 3rem;
   padding-right: 3rem;
-  font-size: 2rem;
+  font-size: ${FontM};
   border-radius: 1rem;
   display: flex;
   align-items: center;

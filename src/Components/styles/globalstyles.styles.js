@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
-const fontSizes = [1, 1.2, 1.6, 2, 3.6, 4.4];
+const fontSizes = ["1rem", "1.2rem", "1.6rem", "2rem", "3.6rem", "4.4rem"];
 const fontWeights = [400, 500];
 const lineHeights = [1.6, 1.8, 2.4, 2.9, 3, 5.2, 5.8];
 const radius = [1, 2];
@@ -59,7 +59,7 @@ body {
 }
 
 h1 {
-  font-size: ${fontSizes[5]}rem;
+  font-size: ${fontSizes[5]};
   font-weight: ${fontWeights[1]};
   font-style: normal;
   line-height: ${lineHeights[6]}rem;
@@ -69,7 +69,7 @@ h1 {
 p {
   font-style: normal;
   font-weight: ${fontWeights[0]};
-  font-size: ${fontSizes[3]}rem;
+  font-size: ${fontSizes[3]};
   line-height: ${lineHeights[3]}rem;
   color: ${({ theme }) => theme.textMain};
   b {
@@ -77,7 +77,7 @@ p {
   }
 }
 h2 {
-  font-size: ${fontSizes[4]}rem;
+  font-size: ${fontSizes[4]};
   font-weight: ${fontWeights[1]};
   font-style: normal;
   line-height: ${lineHeights[5]}rem;

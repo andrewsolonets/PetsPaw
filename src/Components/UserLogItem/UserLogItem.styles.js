@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Like } from "../../assets/like.svg";
 import { ReactComponent as DisLike } from "../../assets/dislike.svg";
 import { ReactComponent as Fav } from "../../assets/fav.svg";
+import { FontS } from "../styles/globalstyles.styles";
 
 export const UserLogElement = styled.div`
   flex: 1;
@@ -19,7 +20,7 @@ export const UserLogElement = styled.div`
   }
 
   span {
-    font-size: 1.6rem;
+    font-size: ${FontS};
   }
 
   @media (max-width: 37.5em) {
