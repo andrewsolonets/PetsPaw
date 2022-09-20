@@ -46,7 +46,7 @@ export const SearchInput = styled.input`
     padding: 1.3rem 2rem;
   }
   @media (min-width: 42em) and (max-width: 50em) {
-    width: 65vw;
+    width: 62vw;
     padding: 1.3rem 2rem;
   }
   @media (min-width: 50em) and (max-width: 60em) {
