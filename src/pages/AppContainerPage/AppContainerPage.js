@@ -1,12 +1,16 @@
-import Button from "../../Components/Button/Button";
 import Menu from "../../Components/UI/Menu";
 import SideBar from "../../Components/UI/SideBar";
 import Header from "../../Components/Header/Header";
 import { ReactComponent as Cross } from "../../assets/cross.svg";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { AppContainerWrapper, BurgerMenu } from "./AppContainerPage.styles";
+
+import {
+  AppContainerWrapper,
+  BurgerMenu,
+  BurgerOptionsWrapper,
+} from "./AppContainerPage.styles";
 import { BurgerCrossButton } from "../../Components/Button/Button.styles";
+import { PageTabs } from "../../Components/PageTabs/PageTabs";
 
 const AppContainer = (props) => {
   const [hamburger, setHamburger] = useState(false);
@@ -24,15 +28,9 @@ const AppContainer = (props) => {
             <BurgerCrossButton onClick={toggleHambHandler}>
               <Cross />
             </BurgerCrossButton>
-            <Button onClick={toggleHambHandler}>
-              <NavLink to="/voting">VOTING</NavLink>
-            </Button>
-            <Button onClick={toggleHambHandler}>
-              <NavLink to="/breeds">BREEDS</NavLink>
-            </Button>
-            <Button onClick={toggleHambHandler}>
-              <NavLink to="/gallery">GALLERY</NavLink>
-            </Button>
+            <BurgerOptionsWrapper>
+              <PageTabs toggleHambHandler={toggleHambHandler} mobile={true} />
+            </BurgerOptionsWrapper>
           </Menu>
         </BurgerMenu>
       </Header>

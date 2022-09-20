@@ -38,3 +38,13 @@ export const BurgerMenu = styled.div`
     display: block;
   }
 `;
+
+export const BurgerOptionsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  @media (max-width: 37.5em) {
+    flex-direction: column;
+  }
+`;
