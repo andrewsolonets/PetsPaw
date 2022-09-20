@@ -1,7 +1,22 @@
 import Select from "react-select";
 import { ReactComponent as Reload } from "../../assets/reload.svg";
+import { ReloadButton } from "../../Components/Button/Button.styles";
+import {
+  FilterReloadBox,
+  FilterWrapperChild,
+  GalleryFiltersWrapper,
+} from "./Filters.styles";
+import { withTheme } from "styled-components";
 
-export const GalleryFilters = ({ breeds }) => {
+const GalleryFilters = ({
+  breeds,
+  sortingHandler,
+  filterHandler,
+  typeHandler,
+  limitChangeHandler,
+  reloadHandler,
+  theme,
+}) => {
   const options = [{ value: "", label: "None" }, ...breeds];
 
   const options2 = [
@@ -27,56 +42,59 @@ export const GalleryFilters = ({ breeds }) => {
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      backgroundColor: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "40vw",
-        height: "5vw",
+        height: "5rem",
       },
 
       width: "23vw",
-      height: "3.2vw",
+      height: "5rem",
+      fontSize: "1.6rem",
+      background: theme.backgroundBlock,
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "var(--backgroundBlock)",
-      borderRadius: "10px",
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "40vw",
-        height: "5vw",
+        height: "5rem",
       },
       width: "23vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",
@@ -88,54 +106,58 @@ export const GalleryFilters = ({ breeds }) => {
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      backgroundColor: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
     }),
     control: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "36vw",
-        height: "5vw",
+        height: "5rem",
       },
       width: "19.5vw",
-      height: "3.2vw",
+      height: "5rem",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "var(--backgroundBlock)",
-      borderRadius: "10px",
+      background: theme.backgroundBlock,
+      borderRadius: "1rem",
     }),
+
     container: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
-        height: "10vw",
+        height: "5rem",
       },
-      "@media (min-width: 430px) and (max-width: 860px) ": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px) "],
+      "@media (min-width: 37.5em) and (max-width: 75em) ": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em) "],
         width: "36vw",
-        height: "5vw",
+        height: "5rem",
       },
       borderColor: state.isFocused ? "#fffff" : "#fffff",
     }),
@@ -143,8 +165,8 @@ export const GalleryFilters = ({ breeds }) => {
   };
 
   return (
-    <div className={classes.filters}>
-      <div className={classes.filterWraper}>
+    <GalleryFiltersWrapper>
+      <FilterWrapperChild>
         <p>ORDER</p>
         <Select
           onChange={sortingHandler}
@@ -160,9 +182,9 @@ export const GalleryFilters = ({ breeds }) => {
           styles={customStyles}
           placeholder={"None"}
         />
-      </div>
+      </FilterWrapperChild>
 
-      <div className={classes.filterWraper}>
+      <FilterWrapperChild>
         <p>TYPE</p>
         <Select
           onChange={typeHandler}
@@ -172,7 +194,7 @@ export const GalleryFilters = ({ breeds }) => {
         />
 
         <p>LIMIT</p>
-        <div className={classes.filterReload}>
+        <FilterReloadBox>
           <Select
             options={options2}
             styles={customStyles2}
@@ -180,9 +202,13 @@ export const GalleryFilters = ({ breeds }) => {
             placeholder={"10 items per page"}
           />
 
-          <Reload className={classes.reload} onClick={reloadHandler}></Reload>
-        </div>
-      </div>
-    </div>
+          <ReloadButton onClick={reloadHandler}>
+            <Reload />
+          </ReloadButton>
+        </FilterReloadBox>
+      </FilterWrapperChild>
+    </GalleryFiltersWrapper>
   );
 };
+
+export default withTheme(GalleryFilters);

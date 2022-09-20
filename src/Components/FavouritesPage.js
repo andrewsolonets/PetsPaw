@@ -1,20 +1,14 @@
-import classes from "./FavouritesPage.module.css";
-import Button from "./UI/Button";
-import CardButton from "./UI/CardButton";
-
-import UserLogItem from "./UserLogItem";
-import { useEffect, useState } from "react";
+import { MainContentContainer } from "./styles/globalstyles.styles";
+import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
-import Grid from "./UI/Grid";
-import { ReactComponent as Back } from "../assets/back.svg";
+import Grid from "./Grid/Grid";
+
 import BounceLoader from "react-spinners/BounceLoader";
-import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
-import UserLog from "../pages/UserLog";
+
+import UserLog from "../pages/UserLog/UserLog";
+import { PageNavBar } from "./PageNavBar/PageNavBar";
 
 const FavouritesPage = (props) => {
-  console.log("render");
-
   const { apiData, isLoading, postAction, fetchData } = useFetch(
     `favourites/?`,
     { order: "DESC", limit: 10 },
@@ -30,29 +24,20 @@ const FavouritesPage = (props) => {
     postAction(`favourites/${id}`, {}, null, "delete");
   };
 
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
-
   return (
-    <div className={classes.containerMain}>
-      <div className={classes["nav-content"]}>
-        <CardButton onClick={backHandler}>
-          <Back className={classes.back} />
-        </CardButton>
-        <Button>FAVOURITES</Button>
-      </div>
+    <MainContentContainer>
+      <PageNavBar title={"FAVOURITES"} />
+
       <BounceLoader
-        color={"var(--main)"}
+        color={"#FF868E"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}
         speedMultiplier={1.5}
       ></BounceLoader>
-      <Grid items={apiData} onDelete={deleteItemsFav}></Grid>
+      <Grid items={apiData} onAction={deleteItemsFav} page={"fav"}></Grid>
       <UserLog log={apiData} favPage={true} />
-    </div>
+    </MainContentContainer>
   );
 };
 

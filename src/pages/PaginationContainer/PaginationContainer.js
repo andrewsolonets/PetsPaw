@@ -1,27 +1,33 @@
 import { ReactComponent as PageRight } from "../../assets/arrowRight.svg";
+import { ButtonPagination } from "../../Components/Button/Button.styles";
+import { PaginationWrapper } from "./PaginationContainer.styles";
 
-export const PaginationContainer = ({
-  pageNumber,
-  prevPageHandler,
-  nextPageHandler,
-}) => {
+export const PaginationContainer = ({ pageNumber, setPageNumber }) => {
+  const nextPageHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setPageNumber((prevState) => {
+      return prevState + 1;
+    });
+  };
+
+  const prevPageHandler = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setPageNumber((prevState) => {
+      return prevState - 1;
+    });
+  };
+
   return (
-    <div className={classes.paginationContainer}>
-      <button
-        className={classes.buttonPagination}
+    <PaginationWrapper>
+      <ButtonPagination
         disabled={pageNumber === 0 ? true : false}
         onClick={prevPageHandler}
       >
-        <PageRight className={`${classes.arrow} ${classes.left}`}></PageRight>{" "}
-        PREV
-      </button>
-      <button
-        className={classes.buttonPagination}
-        disabled={false}
-        onClick={nextPageHandler}
-      >
-        NEXT <PageRight className={classes.arrow}></PageRight>
-      </button>
-    </div>
+        <PageRight></PageRight> PREV
+      </ButtonPagination>
+      <ButtonPagination disabled={false} onClick={nextPageHandler}>
+        NEXT <PageRight></PageRight>
+      </ButtonPagination>
+    </PaginationWrapper>
   );
 };

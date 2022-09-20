@@ -1,18 +1,15 @@
-import classes from "./FavouritesPage.module.css";
-import Button from "./UI/Button";
-import CardButton from "./UI/CardButton";
 import { useEffect } from "react";
-import Grid from "./UI/GridLikes";
-import { ReactComponent as Back } from "../assets/back.svg";
-import { useParams, useNavigate } from "react-router-dom";
+import Grid from "./Grid/Grid";
+import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { MainContentContainer } from "./styles/globalstyles.styles";
 
 import BounceLoader from "react-spinners/BounceLoader";
+import { PageNavBar } from "./PageNavBar/PageNavBar";
+import { SearchParagraph } from "../App.styles";
 
 const SearchPage = (props) => {
   const params = useParams();
-
-  console.log(params.searchItem);
 
   const {
     apiData: searchItems,
@@ -28,30 +25,21 @@ const SearchPage = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
-
-  let navigate = useNavigate();
-  const backHandler = () => {
-    navigate(-1);
-  };
+  }, [params.searchItem]);
 
   const singleSearch = () => {
-    props.onClick({ results: searchItems, breed: true });
+    props.onClick({ results: searchItems, breed: true, search: true });
   };
 
   return (
-    <div className={classes.containerMain}>
-      <div className={classes["nav-content"]}>
-        <CardButton onClick={backHandler}>
-          <Back className={classes.back} />
-        </CardButton>
-        <Button>{props.text}</Button>
-      </div>
-      <p className={classes.searchP}>
+    <MainContentContainer>
+      <PageNavBar title={props.text} />
+
+      <SearchParagraph>
         Search results for:<b>{` ${params.searchItem}`}</b>
-      </p>
+      </SearchParagraph>
       <BounceLoader
-        color={"var(--main)"}
+        color={"#FF868E"}
         loading={isLoading}
         cssOverride={{ marginTop: "5vw" }}
         size={50}
@@ -59,13 +47,13 @@ const SearchPage = (props) => {
       ></BounceLoader>
       {!isLoading && searchItems && (
         <Grid
+          page={"search"}
           onSingle={singleSearch}
           items={[searchItems]}
           isLoading={isLoading}
-          searchPage={true}
         ></Grid>
       )}
-    </div>
+    </MainContentContainer>
   );
 };
 

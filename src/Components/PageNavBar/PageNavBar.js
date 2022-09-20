@@ -1,13 +1,29 @@
-import CardButton from "../UI/CardButton";
-import { NavWrapper, NavTitle, NavButton } from "./PageNavBar.styles";
+import { CardButton } from "../Button/Button.styles";
+import {
+  NavWrapper,
+  NavTitle,
+  BackButton,
+  MainNavWrapper,
+} from "./PageNavBar.styles";
+import { useNavigate } from "react-router-dom";
 
-export const PageNavBar = ({ backHandler }) => {
+export const PageNavBar = ({ title, additional }) => {
+  let navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
   return (
     <NavWrapper>
-      <CardButton onClick={backHandler}>
-        <NavButton />
-      </CardButton>
-      <NavTitle>VOTING</NavTitle>
+      <MainNavWrapper>
+        <CardButton onClick={backHandler}>
+          <BackButton />
+        </CardButton>
+        <NavTitle>
+          <span>{title}</span>
+        </NavTitle>
+        {additional && title === "BREEDS" ? additional : ""}
+      </MainNavWrapper>
+      {additional && title !== "BREEDS" ? additional : ""}
     </NavWrapper>
   );
 };

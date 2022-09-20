@@ -1,13 +1,16 @@
 import Select from "react-select";
 import { ReactComponent as DescendingIcon } from "../../assets/desc.svg";
 import { ReactComponent as AscendingIcon } from "../../assets/asc.svg";
+import { SortingButton } from "../../Components/Button/Button.styles";
+import { withTheme } from "styled-components";
 
-export const BreedsFilters = ({
+const BreedsFilters = ({
   breeds,
   filterHandler,
   limitChangeHandler,
   sortingDescHandler,
   sortingAscHandler,
+  theme,
 }) => {
   const options = [{ value: "all-breeds", label: "All breeds" }, ...breeds];
 
@@ -21,56 +24,59 @@ export const BreedsFilters = ({
     option: (provided, state) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      backgroundColor: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     control: (provided, state) => ({
       // none of react-select's styles are passed to <Control />
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px)": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "33vw",
-        height: "7vw",
+        height: "5rem",
       },
 
       width: "16vw",
-      height: "3.2vw",
+      height: "4.4rem",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "var(--background)",
-      borderRadius: "10px",
+      background: theme.bg,
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px)": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "33vw",
-        height: "7vw",
+        height: "5rem",
       },
 
       borderColor: state.isFocused ? "#fffff" : "#fffff",
@@ -79,59 +85,76 @@ export const BreedsFilters = ({
   };
 
   const customStyles2 = {
-    option: (provided, state) => ({
+    option: (provided, state, isDisabled, isFocused, isSelected) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
 
-      backgroundColor: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      backgroundColor: isDisabled
+        ? theme.backgroundBlock
+        : isSelected
+        ? theme.backgroundBlock
+        : isFocused
+        ? theme.bg
+        : theme.backgroundBlock,
 
-      background: state.isFocused
-        ? "var(--background)"
-        : "var(--backgroundBlock)",
+      // background: state.isFocused ? theme.bg : theme.backgroundBlock,
 
-      "&:hover": {
-        backgroundColor: state.isFocused ? "#e6e6e6" : "",
+      ":hover": {
+        backgroundColor: state.isFocused ? theme.bg : "",
       },
+      ":active": {
+        ...provided[":active"],
+        backgroundColor: !isDisabled
+          ? isSelected
+            ? theme.bg
+            : theme.backgroundBlock
+          : undefined,
+      },
+    }),
+    menuList: (styles) => ({
+      ...styles,
+      background: theme.backgroundBlock,
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "#8C8C8C",
+      fontSize: "1.6rem",
     }),
     control: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "100%",
         height: "10vw",
       },
-      "@media (min-width: 430px) and (max-width: 860px)": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "25vw",
-        height: "7vw",
+        height: "5rem",
       },
       // none of react-select's styles are passed to <Control />
       width: "12vw",
-      height: "3.2vw",
+      height: "4.4rem",
+      fontSize: "1.6rem",
       border: state.isFocused ? 0 : 0,
       outline: "none",
       boxShadow: "none",
-      background: "var(--background)",
-      borderRadius: "10px",
+      background: theme.bg,
+      borderRadius: "1rem",
     }),
     container: (provided, state) => ({
       ...provided,
-      "@media only screen and (max-width: 425px)": {
-        ...provided["@media (max-width: 425px)"],
+      "@media only screen and (max-width: 37.5em)": {
+        ...provided["@media (max-width: 37.5em)"],
         width: "70%",
         height: "10vw",
       },
 
-      "@media (min-width: 430px) and (max-width: 860px)": {
-        ...provided["@media (min-width: 430px) and (max-width: 860px)"],
+      "@media (min-width: 37.5em) and (max-width: 75em)": {
+        ...provided["@media (min-width: 37.5em) and (max-width: 75em)"],
         width: "25vw",
-        height: "7vw",
+        height: "5rem",
       },
       width: "12vw",
       borderColor: state.isFocused ? "#fffff" : "#fffff",
@@ -153,12 +176,14 @@ export const BreedsFilters = ({
         onChange={limitChangeHandler}
         placeholder={"Limit: 10"}
       />
-      <div className={classes.sorting} onClick={sortingDescHandler}>
-        <DescendingIcon className={classes.icon}></DescendingIcon>
-      </div>
-      <div className={classes.sorting} onClick={sortingAscHandler}>
-        <AscendingIcon className={classes.icon}></AscendingIcon>
-      </div>
+      <SortingButton onClick={sortingDescHandler}>
+        <DescendingIcon></DescendingIcon>
+      </SortingButton>
+      <SortingButton onClick={sortingAscHandler}>
+        <AscendingIcon></AscendingIcon>
+      </SortingButton>
     </>
   );
 };
+
+export default withTheme(BreedsFilters);

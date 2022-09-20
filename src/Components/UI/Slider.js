@@ -1,14 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import "swiper/css";
-import "./slider.css";
+
+// import "./slider.css";
 import "swiper/css/pagination";
+import { GlobalStyles } from "../styles/globalstyles.styles";
 
 const Carousel = (props) => {
   if (props.images) {
     return (
       <Swiper
-        modules={[Pagination]}
+        modules={[Navigation, Pagination]}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         pagination={{
@@ -24,6 +26,7 @@ const Carousel = (props) => {
             </SwiperSlide>
           );
         })}
+        <GlobalStyles />
       </Swiper>
     );
   }
