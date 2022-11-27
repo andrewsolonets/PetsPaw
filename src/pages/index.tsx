@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { ReactComponent as Logo1 } from "./assets/logo2.svg";
-import { RoutesContainer } from "./routes/Routes";
-import { GlobalStyles } from "./Components/styles/globalstyles.styles";
+import { useState } from "react";
+import Logo1 from "./assets/logo2.svg";
+import { RoutesContainer } from "../routes/Routes";
+import { GlobalStyles } from "../components/styles/globalstyles.styles";
 import {
   FixedMainContainer,
   LogoContainerLink,
@@ -9,11 +9,12 @@ import {
   MainContainer,
   SwitchContainer,
   TextLogoContainer,
-} from "./App.styles";
-import { MainPageFixed } from "./Components/MainPageFixed/MainPageFixed";
+} from "../../styles/App.styles";
+import { MainPageFixed } from "../components/MainPageFixed/MainPageFixed";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "./Components/styles/themes";
-import { useThemeChange } from "./hooks/useThemeChange";
+import { darkTheme, lightTheme } from "../components/styles/themes";
+import { useThemeChange } from "../hooks/useThemeChange";
+import * as React from "react";
 
 let subId = Math.random().toString(36).substring(7);
 function App() {
@@ -43,20 +44,15 @@ function App() {
               <TextLogoContainer />
             </LogoContainerLink>
             <SwitchContainer>
-              <input type="checkbox" onClick={themeToggler} />
+              <div onClick={themeToggler}>
+                <input type="checkbox" />
+              </div>
               <span></span>
             </SwitchContainer>
           </LogoSwitchContainer>
           <FixedMainContainer>
             <MainPageFixed />
           </FixedMainContainer>
-          <RoutesContainer
-            subId={subId}
-            catHandler={catHandler}
-            results={results}
-            breed={breed}
-            searchClickHandler={searchClickHandler}
-          />
         </MainContainer>
         <GlobalStyles />
       </ThemeProvider>

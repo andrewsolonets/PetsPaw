@@ -1,7 +1,8 @@
-import Menu from "../../Components/UI/Menu";
-import SideBar from "../../Components/UI/SideBar";
-import Header from "../../Components/Header/Header";
-import { ReactComponent as Cross } from "../../assets/cross.svg";
+import Menu from "../UI/Menu";
+import SideBar from "../UI/SideBar";
+import Header from "../Header/Header";
+import { FC } from "react";
+import Cross from "../../assets/cross.svg";
 import { useState } from "react";
 
 import {
@@ -9,10 +10,16 @@ import {
   BurgerMenu,
   BurgerOptionsWrapper,
 } from "./AppContainerPage.styles";
-import { BurgerCrossButton } from "../../Components/Button/Button.styles";
-import { PageTabs } from "../../Components/PageTabs/PageTabs";
+import { BurgerCrossButton } from "../Button/Button.styles";
+import { PageTabs } from "../PageTabs/PageTabs";
+import * as React from "react";
 
-const AppContainer = (props) => {
+interface LayoutProps {
+  children: React.ReactNode;
+  search: boolean;
+}
+
+const AppContainer = ({ children, search }: LayoutProps) => {
   const [hamburger, setHamburger] = useState(false);
 
   const toggleHambHandler = (e) => {
@@ -21,7 +28,7 @@ const AppContainer = (props) => {
 
   return (
     <AppContainerWrapper>
-      <Header onSearch={props.search}>
+      <Header onSearch={search}>
         <BurgerMenu>
           <SideBar hamburger={hamburger} setHamburger={setHamburger} />
           <Menu hamburger={hamburger} setHamburger={setHamburger}>
@@ -34,7 +41,7 @@ const AppContainer = (props) => {
           </Menu>
         </BurgerMenu>
       </Header>
-      <div>{props.children}</div>
+      <div>{children}</div>
     </AppContainerWrapper>
   );
 };

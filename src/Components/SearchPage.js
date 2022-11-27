@@ -6,7 +6,7 @@ import { MainContentContainer } from "./styles/globalstyles.styles";
 
 import BounceLoader from "react-spinners/BounceLoader";
 import { PageNavBar } from "./PageNavBar/PageNavBar";
-import { SearchParagraph } from "../App.styles";
+import { SearchParagraph } from "../../styles/App.styles";
 
 const SearchPage = (props) => {
   const params = useParams();

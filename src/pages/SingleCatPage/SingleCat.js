@@ -1,9 +1,9 @@
-import Carousel from "../../Components/UI/Slider";
+import Carousel from "../../components/UI/Slider";
 import { useEffect } from "react";
-import { MainContentContainer } from "../../Components/styles/globalstyles.styles";
+import { MainContentContainer } from "../../components/styles/globalstyles.styles";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
-import { PageNavBar } from "../../Components/PageNavBar/PageNavBar";
+import { PageNavBar } from "../../components/PageNavBar/PageNavBar";
 import {
   MainDescrWrapper,
   ParentImgContainer,

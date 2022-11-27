@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 
-import { MainContentContainer } from "../../Components/styles/globalstyles.styles";
+import { MainContentContainer } from "../../components/styles/globalstyles.styles";
 
 import { useFetch } from "../../hooks/useFetch";
 import UserLog from "../UserLog/UserLog";
-import { PageNavBar } from "../../Components/PageNavBar/PageNavBar";
+import { PageNavBar } from "../../components/PageNavBar/PageNavBar";
 import { UserActions } from "../UserActions/UserActions";
 import { ContainerImg, ImgWrapper } from "./VotingApp.styles";
 
@@ -50,7 +50,7 @@ const VotingApp = (props) => {
 
   return (
     <MainContentContainer>
-      <PageNavBar title={"VOTING"} />
+      <PageNavBar title={"VOTING"} additional={undefined} />
 
       <ContainerImg>
         <ImgWrapper>

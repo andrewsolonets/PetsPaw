@@ -1,4 +1,4 @@
-import UserLogItem from "../../Components/UserLogItem/UserLogItem";
+import UserLogItem from "../../components/UserLogItem/UserLogItem";
 import { UserLogContainer } from "./UserLog.styles";
 
 const UserLog = ({ log }) => {

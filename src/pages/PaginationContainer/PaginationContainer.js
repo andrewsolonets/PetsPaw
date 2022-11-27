@@ -1,5 +1,5 @@
 import { ReactComponent as PageRight } from "../../assets/arrowRight.svg";
-import { ButtonPagination } from "../../Components/Button/Button.styles";
+import { ButtonPagination } from "../../components/Button/Button.styles";
 import { PaginationWrapper } from "./PaginationContainer.styles";
 
 export const PaginationContainer = ({ pageNumber, setPageNumber }) => {

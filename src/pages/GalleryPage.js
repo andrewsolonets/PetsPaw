@@ -1,14 +1,14 @@
-import Grid from "../Components/Grid/Grid";
-import { UploadButton } from "../Components/Button/Button.styles";
+import Grid from "../components/Grid/Grid";
+import { UploadButton } from "../components/Button/Button.styles";
 import { useEffect, useState } from "react";
-import { MainContentContainer } from "../Components/styles/globalstyles.styles";
+import { MainContentContainer } from "../components/styles/globalstyles.styles";
 
 import { ReactComponent as Upload } from "../assets/upload.svg";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useFetch } from "../hooks/useFetch";
 
-import Modal from "../Components/ModalUpload/ModalUpload";
-import { PageNavBar } from "../Components/PageNavBar/PageNavBar";
+import Modal from "../components/ModalUpload/ModalUpload";
+import { PageNavBar } from "../components/PageNavBar/PageNavBar";
 import GalleryFilters from "./FiltersContainer/GalleryFilters";
 import { PaginationContainer } from "./PaginationContainer/PaginationContainer";
 

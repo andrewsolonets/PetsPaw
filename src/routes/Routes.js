@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import AppContainer from "../pages/AppContainerPage/AppContainerPage";
-import HomePic from "../Components/HomePic/HomePic";
-import VotingApp from "../pages/VotingPage/VotingApp";
+import AppContainer from "../components/AppContainerPage/AppContainerPage";
+import HomePic from "../components/HomePic/HomePic";
+import VotingApp from "../pages/voting";
 import BreedsPage from "../pages/BreedsPage";
 import SingleCat from "../pages/SingleCatPage/SingleCat";
 import GalleryPage from "../pages/GalleryPage";
-import SearchPage from "../Components/SearchPage";
-import LikedPage from "../Components/LikedPage/LikedPage";
-import FavouritesPage from "../Components/FavouritesPage";
+import SearchPage from "../components/SearchPage";
+import LikedPage from "../components/LikedPage/LikedPage";
+import FavouritesPage from "../components/FavouritesPage";
 
 export const RoutesContainer = ({
   subId,
