@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 
-import { MainContentContainer } from "../../components/styles/globalstyles.styles";
+import { MainContentContainer } from "../components/styles/globalstyles.styles";
 
-import { useFetch } from "../../hooks/useFetch";
-import UserLog from "../UserLog/UserLog";
-import { PageNavBar } from "../../components/PageNavBar/PageNavBar";
-import { UserActions } from "../UserActions/UserActions";
-import { ContainerImg, ImgWrapper } from "./VotingApp.styles";
+import { useFetch } from "../hooks/useFetch";
+import UserLog from "../components/UserLog/UserLog";
+import { PageNavBar } from "../components/PageNavBar/PageNavBar";
+import { UserActions } from "../components/UserActions/UserActions";
+import { ContainerImg, ImgWrapper } from "../../styles/VotingApp.styles";
 
 const VotingApp = (props) => {
   const { apiData, fetchData, additional, isLoading, postAction, logAction } =

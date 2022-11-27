@@ -3,14 +3,15 @@ import { UploadButton } from "../components/Button/Button.styles";
 import { useEffect, useState } from "react";
 import { MainContentContainer } from "../components/styles/globalstyles.styles";
 
-import { ReactComponent as Upload } from "../assets/upload.svg";
+import Upload from "../assets/upload.svg";
 import BounceLoader from "react-spinners/BounceLoader";
 import { useFetch } from "../hooks/useFetch";
 
 import Modal from "../components/ModalUpload/ModalUpload";
 import { PageNavBar } from "../components/PageNavBar/PageNavBar";
-import GalleryFilters from "./FiltersContainer/GalleryFilters";
-import { PaginationContainer } from "./PaginationContainer/PaginationContainer";
+import GalleryFilters from "../components/FiltersContainer/GalleryFilters";
+import { PaginationContainer } from "../components/PaginationContainer/PaginationContainer";
+import React from "react";
 
 const GalleryPage = (props) => {
   const [nameBreed, setNameBreed] = useState({

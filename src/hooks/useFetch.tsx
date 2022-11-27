@@ -10,7 +10,7 @@ interface fetchReturn {
   apiData: [{ url: string; id: Number }];
   isLoading: boolean;
   error: any;
-  additional: string;
+  additional: { breed: boolean } | string | { breeds: object };
   postAction: Function;
   fetchData: Function;
   setAdditional: any;

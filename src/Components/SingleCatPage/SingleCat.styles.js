@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FontM } from "../../components/styles/globalstyles.styles";
+import { FontM } from "../styles/globalstyles.styles";
 
 export const SingleCatWrapper = styled.div`
   display: flex;

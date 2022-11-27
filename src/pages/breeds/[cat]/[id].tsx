@@ -1,7 +1,6 @@
 import Carousel from "../../components/UI/Slider";
 import { useEffect } from "react";
 import { MainContentContainer } from "../../components/styles/globalstyles.styles";
-import { useParams } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import { PageNavBar } from "../../components/PageNavBar/PageNavBar";
 import {

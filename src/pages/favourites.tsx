@@ -1,12 +1,12 @@
-import { MainContentContainer } from "./styles/globalstyles.styles";
+import { MainContentContainer } from "../components/styles/globalstyles.styles";
 import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
-import Grid from "./Grid/Grid";
+import Grid from "../components/Grid/Grid";
 
 import BounceLoader from "react-spinners/BounceLoader";
 
-import UserLog from "../pages/UserLog/UserLog";
-import { PageNavBar } from "./PageNavBar/PageNavBar";
+import UserLog from "../components/UserLog/UserLog";
+import { PageNavBar } from "../components/PageNavBar/PageNavBar";
 
 const FavouritesPage = (props) => {
   const { apiData, isLoading, postAction, fetchData } = useFetch(

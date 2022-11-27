@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import Grid from "../Grid/Grid";
-import { useFetch } from "../../hooks/useFetch";
+import Grid from "../components/Grid/Grid";
+import { useFetch } from "../hooks/useFetch";
 import BounceLoader from "react-spinners/BounceLoader";
-import { MainContentContainer } from "../styles/globalstyles.styles";
-import { PageNavBar } from "../PageNavBar/PageNavBar";
-import { DefaultMessageWrapper } from "./LikedPage.styles";
+import { MainContentContainer } from "../components/styles/globalstyles.styles";
+import { PageNavBar } from "../components/PageNavBar/PageNavBar";
+import { DefaultMessageWrapper } from "../../styles/LikedPage.styles";
+import React from "react";
 
 const LikedPage = (props) => {
   const { apiData, isLoading, fetchData } = useFetch(

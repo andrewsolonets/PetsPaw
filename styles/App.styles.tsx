@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { ReactComponent as TextLogo } from "./assets/PetsPaw.svg";
+
+import TextLogo from "./assets/PetsPaw.svg";
 
 export const MainContainer = styled.div`
   display: flex;
