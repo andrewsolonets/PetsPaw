@@ -26,7 +26,7 @@ export const UserActions = ({
         liked={liked}
         onClick={() => {
           setLiked(true);
-          return addFavouriteHandler;
+          return addFavouriteHandler();
         }}
       >
         {liked ? <Fav1 /> : <Fav />}

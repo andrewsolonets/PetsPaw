@@ -1,3 +1,4 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
 
@@ -14,10 +15,101 @@ export const useFetch = (
   special = null,
   type = null
 ) => {
+  const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(true);
   const [apiData, setApiData] = useState([]);
   const [additional, setAdditional] = useState();
   const [error, setError] = useState(null);
+
+  const fetchOneCat = async () => {
+    try {
+      const response = await petspaw.get("images/search/");
+      const [data] = await response.data;
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const prefetchCat = async () => {
+    await queryClient.prefetchQuery({
+      queryKey: ["votingCat"],
+      queryFn: fetchOneCat,
+    });
+  };
+
+  const postVoteMutation = useMutation({
+    mutationFn: (url, payload) => postVoteAction(url, payload),
+    async onMutate({ url, payload }) {
+      await queryClient.cancelQueries({ queryKey: ["logVotes"] });
+
+      const prevList = queryClient.getQueryData(["logVotes"]);
+      console.log(payload);
+
+      queryClient.setQueryData(["logVotes"], (old) => [
+        {
+          ...payload,
+          created_at: Date.now(),
+        },
+        ...old,
+      ]);
+
+      return { prevList };
+    },
+    onError: (err, newLog, ctx) => {
+      queryClient.setQueryData(["logVotes"], ctx.prevList);
+    },
+    onSuccess() {
+      queryClient.invalidateQueries({
+        queryKey: ["logVotes"],
+        exact: true,
+      });
+    },
+  });
+
+  const addVoteHandler = (payload) => {
+    let url = "votes";
+    if (payload?.value !== 1 && payload?.value !== 0) {
+      console.log(payload);
+      url = "favourites";
+    }
+    console.log(url);
+    return postVoteMutation.mutate({ url, payload });
+  };
+
+  const postVoteAction = async ({ url, payload }) => {
+    console.log(url);
+    try {
+      const res = await petspaw.post(url, payload);
+      console.log(res);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const logVoteAction = async () => {
+    try {
+      const [res2, res3] = await Promise.all([
+        await petspaw({
+          url: "votes/?",
+          params: { order: "DESC", limit: 10 },
+        }),
+        await petspaw({
+          url: "favourites/?",
+          params: { order: "DESC", limit: 3 },
+        }),
+      ]);
+
+      const data2 = await res2?.data;
+      const data3 = await res3?.data;
+      let finalArr = [...data2, ...data3].sort((el1, el2) => {
+        return new Date(el2.created_at) - new Date(el1.created_at);
+      });
+      return finalArr;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const fetchData = async () => {
     setApiData([]);
@@ -246,6 +338,10 @@ export const useFetch = (
   };
 
   return {
+    fetchOneCat,
+    prefetchCat,
+    addVoteHandler,
+    logVoteAction,
     apiData,
     isLoading,
     error,
