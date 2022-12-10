@@ -20,7 +20,6 @@ const VotingApp = (props) => {
   const { data: votingCat } = useQuery({
     queryKey: ["votingCat"],
     queryFn: fetchOneCat,
-    refetchOnWindowFocus: false,
   });
 
   const { data: logVotes } = useQuery({
